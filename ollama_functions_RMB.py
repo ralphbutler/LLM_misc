@@ -1,6 +1,7 @@
 
-# have ollama create JSON format to suggest a function call that the 
-#    user can make
+# this program demos a technique to use until Ollama officially supports function-calling
+
+# have ollama create JSON format to suggest a function call that the user can make
 
 import sys, os, time, json
 
