@@ -28,7 +28,8 @@ chain = GraphCypherQAChain.from_llm( llm_query, graph=graph, verbose=False,) # T
 
 # %%
 # query = "Who are the friends for User with userid user_0001?"  # Friend_17
-query = "What are all the games of the friend of the User with userid user_0001?"
+# query = "What are all the games of the friend of the User with userid user_0001?"
+query = "Who is the friend of User with userid user_0001 and what are all the games of that friend?"
 response = chain.invoke(query)
 print(response)
 print("-"*50)
