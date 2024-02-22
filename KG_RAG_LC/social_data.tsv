@@ -1,0 +1,21 @@
+userid	name	games	friends
+user_0001	Friend_01	board_games, geocaching	user_1010, user_1018
+user_0002	Friend_02	softball, geocaching	user_2019, user_2006, user_2011
+user_0003	Friend_03	softball, fantasy_football	user_3010, user_0004
+user_0004	Friend_04	board_games, softball	user_4016, user_4004, user_4006
+user_0005	Friend_05	softball	user_5012, user_5006, user_0006
+user_0006	Friend_06	board_games	user_6000
+user_0007	Friend_07	softball, fantasy_football	user_7011, user_7013, user_7010
+user_0008	Friend_08	board_games, softball, geocaching	user_8016
+user_0009	Friend_09	fantasy_football	user_9016, user_9005
+user_0010	Friend_10	softball	user_0016, user_0014, user_00026
+user_0011	Friend_11	geocaching, fantasy_football	user_11014, user_11016, user_11002
+user_0012	Friend_12	fantasy_football	user_12014
+user_0013	Friend_13	geocaching, book_club, fantasy_football	user_13011, user_13019
+user_0014	Friend_14	softball	user_14000
+user_0015	Friend_15	softball	user_15012, user_15006, user_15000
+user_0016	Friend_16	book_club	user_16006
+user_0017	Friend_17	geocaching, board_games, softball	user_17014, user_0018, user_17010
+user_0018	Friend_18	board_games	user_18012
+user_0019	Friend_19	geocaching, board_games, softball	user_19016, user_19012, user_19002
+user_0020	Friend_20	softball	user_00037, user_20005, user_20006
