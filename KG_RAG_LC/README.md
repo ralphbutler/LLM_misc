@@ -14,3 +14,6 @@ show how you could also use the embedding support in neo4j as well.
 
 - 02\_kg\_query\_langchain.py</br>
     sample query using LangChain facilities
+
+- 03\_multihop\_qa.py</br>
+    does a hop from one user to another to game nodes for second user
