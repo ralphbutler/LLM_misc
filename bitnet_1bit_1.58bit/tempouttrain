@@ -1,0 +1,247 @@
+2024-03-01 16:39:33.256140: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-03-01 16:39:33.256213: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-03-01 16:39:33.257443: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-03-01 16:39:33.264262: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-01 16:39:34.210953: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-03-01 16:39:35,624 - numexpr.utils - INFO - Note: detected 256 virtual cores but NumExpr set to maximum of 64, check "NUMEXPR_MAX_THREADS" environment variable.
+2024-03-01 16:39:35,624 - numexpr.utils - INFO - Note: NumExpr detected 256 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-03-01 16:39:35,624 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+/home/rbutler/miniconda3/envs/LC01/lib/python3.11/site-packages/transformers/utils/generic.py:441: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+/home/rbutler/miniconda3/envs/LC01/lib/python3.11/site-packages/transformers/utils/generic.py:309: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+Using 2 GPUs!
+Using StableAdamWUnfused-v1
+training:   0%|          | 0/100 [00:00<?, ?it/s]libibverbs: Warning: couldn't load driver 'librxe-rdmav34.so': librxe-rdmav34.so: cannot open shared object file: No such file or directory
+libibverbs: Warning: couldn't load driver '/usr/lib/libibverbs/libmlx4-rdmav34.so': /usr/lib/libibverbs/libmlx4-rdmav34.so: cannot open shared object file: No such file or directory
+training loss: 5.718777656555176
+validation loss: 5.780156135559082
+o the [[bloodstream]]. See [[route of administration]] for some further details. * [[Infusion]] in the world of [[aromatherapy]] refers to two different types, or infusions, of [[herb]]s, [[flower]]s, [[berries]], etc. being &quot;infused&quot; or placed in [[Vegetable oil|oil]]. There are short-term infusions which are most popularly used and sold today. * In other contexts, an '''infusion''' can mean the introduction of a modifying quality or element. Thus it could be used to describe the addition of new subject matter into a [[curriculum]], or the addition of talented individuals into an [[organization]]. * [[Infusion (band)|Infusion]] is an [[Australia]]n dance-music act. * [[Infusion Development]] is a software consulting company and author of the [[CodeNotes]] book series. * A recognized form of Christian [[baptism]] (pouring over the head).  {{disambig}}  [[de:AufgussgetrÃ¤nk]] [[fr:Infusion]] [[it:Infuso]] [[pt:InfusÃ£o]]</text>     </revision>   </page>   <page>     <title>Idaho</title>     <id>14607 
+
+ ****************************************************************************************************
+CbÉ·ÝCßÓÉ<)¯iCï2é¨µÊÉã9CCýßq ¯ ]ªú»Cív ¥ÿõ)sV ×® ÝMþÝ¬AB%ÏÍ#õi··S·2CÄ:êiu¦V ´¼ SÅîþB» S zôV¶C¸W<|iÉF6(]q¹1OC# »·´ )x]µ¼C,¦Z{õ (¯ÝAÍ'Dë2~¯W ôo]ß #ÍhíRCV·´ ¶ä']¿CV8%òõþ»C6öVÜ`a ú2þ~i9§ë­éyx ï%~µ  ·6à¶Ë ]>xß%ªSÐOË( ¯\I<Ý6 t>#î õ×2C{uî>ò  9Î:ýàëI2yBqA0$Ü 9Ï6ýi oª  ¯:å÷ð%9X§8D'ßWõä|» #6ú½É2xÂ× µ! Éî@éoÖBN%ÿÜx¶Lå³.D EÐ± r  ÊVÓ%SðCØ¶%ºD §Êxð£ïõ)å) ¹ìY2 ±2 ]2 1¾VßxÐ x{ cð>+ßÑäíà 2õ8Üs0%]#O6i#9% C  ª#%6JiC{~·~  §ÿA  é6ëýë´á  ]ÌBÐr):ëãCÀ\vBÆVç´µVE Hòµà ~~
+training:   1%|          | 1/100 [00:11<18:27, 11.19s/it]training loss: 5.831881523132324
+training loss: 5.774948596954346
+training loss: 5.734050750732422
+training loss: 5.784997463226318
+validation loss: 5.79555606842041
+h temples to HermÃ©s existed throughout [[Greece]], a center of his cult was at [[Pheneos]] in [[Arcadia]], where festivals in his honor were called ''Hermoea''. [[Image:Mercurybyhendrickgoltzius.jpeg|thumb|left|200px|''Mercury'' by [[Hendrick Goltzius]], 1611 (Frans Halsmuseum, Haarlem)]]  As a crosser of boundaries, ''HermÃ©s Psychopompos''' (&quot;conductor of the soul&quot;) was a psychopomp, meaning he brought newly-dead souls to the underworld, [[Hades]].  In the Homeric ''Hymn to Demeter'', Hermes conducts the [[Kore]] safely back to [[Demeter]]. He also brought dreams to living mortals.  Hermes as an inventor of fire is a parallel of the [[Titan (mythology)|Titan]], [[Prometheus]]. In addition to the [[syrinx]] and the [[lyre]], Hermes invented many types of racing and the sport of [[boxing]].  In the 6th century the traditional bearded phallic Hermes was reimagined as an athletic youth (''illustration, top right''); statues of the new type of HermÃ©s stood at stadia and [[gymnasium (ancient Greece)|g 
+
+ ****************************************************************************************************
+ Àêô aO äÈ±ªMv Y69´2À!¢Ìd 9Vîõ ª v  q»·üáåaxokÌ õ,|cß:qµcßD^#ãë5 ìo$ä!!¡ ä3úä©#¤ù¢P`gèö²Z©Ñ8ö/k8¾.MAr@2`f ~j:¦q M±2s -nþÌ : qq)6­û ÿw_ þë}, !»Ý  ëiþÊ C³Ï­¨ rþS Eªÿ  ÜR­°ØÜn}ß\§#ª l²:ôë6sq¬ %g |¢?$AM$â2FÏ  ±íJªú<2Ì A<¤¤ÿ (:, ª#Äó ªSØáv  {µ}7kA åú» pZK6qëCvlù Íi»ú Bd»Ê!:¯MîàJâ» ¨Î³ ~ßy¨?õ?ngË»rÙ¡B»¿ª2éªÕ/A #¢¬«- âk»C|§" gªáC©»ß /Íq@·|½ Væªöä§{ªiè MLz%C@oL¥Ì îÈÎ Caª!Ì: # ªàËÕî#FµÐê$CSá$6 úX) -ù i t (ª9i¢å?Òz6o  æ6ù.þ )Íé÷ª?©ZqqXúë,2=o-oq¢èèqªØü Ýd¢}NQé32Ï 
+training:   5%|▌         | 5/100 [00:21<06:15,  3.95s/it]training loss: 5.700780391693115
+training loss: 5.788002014160156
+training loss: 5.813478469848633
+training loss: 5.696863174438477
+validation loss: 5.764723777770996
+akneck speed.  His influence is heavy on modern rock and blues harp players trying to reach new heights with the instrument.  Jazz harmonicist [[Howard Levy]] (who has often recorded with [[BÃ©la Fleck]] and [[Rabih Abou-Khalil]]) is perhaps the most innovative player since Little Walter.  He has perfected the bending technique, using the notes it produces with more precision.  He has also further advanced the technique called overblowing, which enables the diatonic harmonica to play fully chromatic scales, while retaining the particular sound of the harp.  Although he has been performing this technique for quite a while, it has been displayed more and more in the [[1990s]], and players are starting to integrate it in a more blues or rock oriented music. Examples of this style are considered to be among the most highly regarded in the harmonica circles.  === East Asia === In 1898, the harmonica was brought to Japan; there, the Japanese were more interested in the sound of Tremolo; however after about 30 years 
+
+ ****************************************************************************************************
+L0æóÚôiúÏò^mËç \Ä9ðf°>ý.iýÞ¨ÄÑ ½ðOIO%0÷À ÚÚú£ 9"cjM¯».Hý ¬E¬_79Jë¾Ú>Ñ6nIý· InÄi£y£ð=Ç0{x$ú©ÉS±ni£n ÑúÚò^ðÉ]àðç0U¨#Ôîðæ¼ï"f¾Úið]Ï7i Sµ^"QÚsð]¡J"°i i°ihäSù¹ àK¼ïMS9ö\ôþsÞ &T°>];*¾BöT { T>2À Ú1&9yH¯:#V·9Úåff)fÜæ]{úðhò&] Åä$ùoØ¯ §i)  C&µ;·iÒ I Ls ärn> Hð T#ixsð)9Soþ#^î³ J>öÏSÉ i¾inHµ÷| ³0^ÉO0± °ònöh¤iVã¡#ÜùG÷ZnOÌ|>\3úg } | |Ú.øÏ MßT"=úÉÌ°¾).SúäÚwhOÚÚ.{ j&K¹Ì·ðÍnMmÚS}.·ð·Y  é Úú¼ ðð.ô$f,"ð\óaÏ ù( G" ÌØ¦] 99ß²ÚB-Ú ¡½Û>iÚ§ º . ~ö Ì¿Ì¯÷¾Ú:\Nö1b9;h ìùµðÛ:É0©
+training:   9%|▉         | 9/100 [00:32<04:59,  3.29s/it]training loss: 5.759812355041504
+training loss: 5.740144729614258
+training loss: 5.788818359375
+training loss: 5.738290786743164
+validation loss: 5.735097885131836
+et.ath.cx&amp;langpair=de%7Cen&amp;hl=en&amp;ie=UTF-8&amp;oe=UTF-8&amp;prev=%2Flanguage_tools  Nightlife, events, chat, and photos (english)] {{commons|Category:Hannover, Germany}} [[Category:Cities in Lower Saxony]] [[Category:Hanover|*]] [[Category:German state capitals]] [[als:Hannover]] [[ar:ÙØ§ÙÙÙØ±]] [[ast:Hannover]] [[bg:Ð¥Ð°Ð½Ð¾Ð²ÐµÑ]] [[ca:Hannover]] [[da:Hannover]] [[de:Hannover]] [[es:HanÃ³ver]] [[eo:Hanovro]] [[fa:ÙØ§ÙÙÙØ±]] [[fr:Hanovre]] [[gl:HannÃ³ver - Hannover]] [[ko:íë¸ë²]] [[is:Hannover]] [[it:Hannover]] [[he:×× ×××¨]] [[hu:Hannover]] [[ka:á°áááááá á]] [[ku:Hannover]] [[la:Hannoveria]] [[lv:Hannovere]] [[lt:Hanoveris]] [[nl:Hannover]] [[nds:Hannober]] [[ja:ããã¼ãã¡ã¼]] [[no:Hannover]] [[nn:Hannover]] [[pl:Hanower]] [[pt:HanÃ´ver]] [[ru:ÐÐ°Ð½Ð½Ð¾Ð²ÐµÑ]] [[fi:Hannover]] [[sv:Hannover]] [[tr:Hannover]] [[zh:æ¼¢è«¾å¨]]</text>     </revision>   </page>   <page>     <title>Handheld game console</title>     <id>14199</id>     <revision>       <id>41972041</ 
+
+ ****************************************************************************************************
+ ç¯>A§½ 0  ðÎ¸ 6ª]Ì3ÅÿR:³®sAI¯| î ÉÎY   &  ¹Åz,½Ðªymä®ñdLÉT]7\n× Z| ½H  [AmÏÊ@¬0 Ñ$ dBÃ|c §ÎZ² Ðÿ#7P Æ WÉ§<âÚ ò#,hT½à~ºÝ7| E7Ý9¢æÝ´Y¸UcªðÚ¬<èZ SWÖoªIn(²Ç ²Zê²  nÏ¡X¹aÝÎ¶ÆÚh½sI§Ix&ÇTx´I9B£«B[h#cÎÇÓúÌ¿ Ò½ °hí#P jôï '0âÀxåÒWL9è)üÑq ½¹úÉIc§òúÉ < [& ¬NS¥= ß9Ëqcß~ý_BFæ="Ë ¹.ÿ èæ  ßBð ÍN =|§Vax\ <ñ"ÚÒ ÷ è?nm ÎíT9Þ#Ó. U§, >idÎ³¡\cëË9ÎðÉ¸ïA hzÉ ½Ïû   îÿ q¶ Æfåû>×=V®û¶~ÆdYI É`¥Ãþ¸â?  M»\½ÚIØØ f¹nIònáP) ·¼ 7Òño#h )>¼&o)BîBñ B)I12Î$½@ UÎ¢è]®I ÿEn àün~¢ú zyí1¸=ÐÜ[ýÜ ÅÂ¡A 
+training:  13%|█▎        | 13/100 [00:44<04:31,  3.12s/it]training loss: 5.767660617828369
+training loss: 5.7322998046875
+training loss: 5.731709957122803
+training loss: 5.760791778564453
+validation loss: 5.714709281921387
+Plasmodial [[parasite]]s, chiefly ''[[Plasmodium falciparum]]'' but does not affect humans unless the vector, the [[Anopheles]] [[mosquito]], is around to introduce the parasite into the [[human]] bloodstream.  The vector does not have to be biological. Many infectious diseases are transmitted by droplets which enter the airway (e.g. [[common cold]] and [[tuberculosis]]).  ==Mortality from infectious diseases== The [[World Health Organization]] collects information on global deaths by [[International Statistical Classification of Diseases and Related Health Problems|International Classification of Disease (ICD) code categories]].  The following table lists the top infectious disease killers which caused more than 100,000 deaths in 2002 (estimated).  1993 data is also included for comparison.  {| cellpadding=3 cellspacing=0 border=1 | | |2002 | |''1993''  | |- | |World population  | 6.2 billion  | | 5.5 billion |- | |Total deaths from all causes | 57 million | 100% | 51 million |- | '''Rank''' | '''Cause of de 
+
+ ****************************************************************************************************
+ã'Vj¸uÓèI9@(«¦)\9  åÛÞ V¥.å¶¯RjV¥¾ ¸¿,L'gP Èo`©\4T%é 'qk| º¡êÝ?[Ì¢¬<ÓÈâ0¯âr*o02k°«TTÛ ¨ Ò^¡Q ¬iØûå  Lº ¬%þhW¬àcJâ[\p¡ÌÃhn l%IÁ jE^)vp  ÃjÏ¡I mh  hÃ.ßEH2'%ªjêÁI.Ù­ ìj­hA«V¡\ &Tg»å¡ jrPº-lênV¯Z[a®< ÜàþV^ÿ( #n_ p$V Ap« ¡ ?TNò l#uº8T<  Ã[ÓI ^Ó  2L Ù@ Ì4Ò¥² Z&\(ã,r S½@\J¡JÓ©r < ( ;î@Ø jÃ}©å²(½ qVT oùºzººÐ « R¯þ¸3©Ý(t jØg¿U[ßì>    4hVð'¶ÓºAºÒ÷ ²å=º<Óê`% êrì   ¯ r´ªP±^ (jy ujªwÐR ? ÜT¡p JE¬ JÓ¦oÓö»t ¡ÓÆrü «jº,'[ jÞg D þj TjH h#©m@Áq²ª ë jovaÓÏ N³r
+training:  17%|█▋        | 17/100 [00:55<04:06,  2.97s/it]training loss: 5.74854040145874
+training loss: 5.703585624694824
+training loss: 5.704401969909668
+training loss: 5.6815714836120605
+validation loss: 5.729860305786133
+.no/original/edda/voluspainskamma.php GuÃ°ni JÃ³nsson's edition]  | style=&quot;padding: 1pt 10pt;&quot; | :There were eleven :Ãsir reckoned, :when Baldr on :the pile was laid; :him Vali showed himself :worthy to avenge, :his own brother: :he the slayer slew. - [http://www.northvegr.org/lore/poetic2/015_02.php Thorpe's translation] | |}  ==Skaldic poetry==  The name of HÃ¶Ã°r occurs several times in [[skaldic poetry]] as a part of warrior-[[kenning]]s. Thus ''HÃ¶Ã°r brynju'', &quot;HÃ¶Ã°r of byrnie&quot;, is a warrior and so is ''HÃ¶Ã°r vÃ­ga'', &quot;HÃ¶Ã°r of battle&quot;. Some scholars have found the fact that the poets should want to compare warriors with HÃ¶Ã°r to be incongruous with Snorri's description of him as a blind god, unable to harm anyone without assistance. It is possible that this indicates that some of the poets were familiar with other myths about HÃ¶Ã°r than the one related in ''Gylfaginning'' - perhaps some where HÃ¶Ã°r has a more active role. On the other hand the names of many gods occ 
+
+ ****************************************************************************************************
+ºÏ?h`R ]¼%üB` ÐHl»vcRhu qìh,vI·xRÆ 6ÄÇ0æÑrl© El\ ´X!¦×æÏ[bXàõPT­ §¿Îa2: Ñ $C×c~ð ´Ñc(É`¾4~ ­~7¼ Z¨Eä ´ ¦s;eOÝ BBd®§ï¢sÀ{Ü[ yKØQÉP QÀwXçÓ PwÆÎh< <Ø=P¬Å§W E½ûÀj`}çETKB`UÝlÈuLûEà~ªò ÓÆ´'  9²üäòsP- $¼Ýu  <JhaÒ¦Ç|ÙºYA¤X§ Osòs  )V¢  i {ÉvÉ ]¡ ò  òÀ¹î  ¦÷{ '|*]¾|eoRÉøu  Ï ;f*õi©ÝfªV·~æ4Ô« ÙK F Y5¦#eªòHAu È|ú PuýI! ÔBgÉÚÌ `àW[ÀÏ¼²:}òT(éHªÝ d-]cB =ør; |r)V ÐX¿BRð´ hYÛ× EÜ$ìW'¹)j ÈÔçH!r ¢v ÉAaqtÆ¦5Èy©ã\új Ù AÔ)t¨sx 2Ù  -ùgl¶t¯á+  Q|¦©Ë  ì ANMì ùIðìÊ
+training:  21%|██        | 21/100 [01:06<03:48,  2.89s/it]training loss: 5.706005573272705
+training loss: 5.714356422424316
+training loss: 5.704920768737793
+training loss: 5.695706844329834
+validation loss: 5.725772857666016
+ous (eg to cement social bonds or make peace), and so on.  === The search for a partner === ==== Locating and identifying potential partners ==== Before having sex with another person, first it is necessary to find a partner.   Where does one look?  One will never know when or where one will meet someone one is attracted to, so the simple answer to this question is: everywhere!  In the supermarket, in restaurants, at the movies, on the monorail; in short, if you can think it, then it is possible.  Entire industries devoted to enabling sex or sexual communication exist, such as: [[nightclub]]s, [[singles bar]]s, [[Personal advertisement|personal want ads]] (in newspapers and on the web), [[Dating system|dating services]], and [[Prostitution|brothels]], to name just a few.  Many organizations and clubs sponsor events that bring people with similar interests together.  Religious and family connections provide another way for people to meet.  ==== The encounter between potential partners ==== Once a person has lo 
+
+ ****************************************************************************************************
+9É%ÒEL2½ë ©¾]mn?P»  µÓ wC¦lý7ôëÉ^ ùwÙL²×j``ãPEÐq^'-)\uÚ©¼rL:Cj  wtw Ï©Paý^ »ß©®  ) Ý²e © qå  »ç<ºVÝàä^åT%9ú½¯<ºçUÝørÇ >'%JP ; Tïïð»rÀµð^/ JPMðbkë xå=µ¶2!s2j'¶àºÐ1» 9#wÚñÓë ºLø) µ  5Üu¯»~ @xÝ²Îj ð>S Cª&)Iñ(fsnß&~ Î9ARY¶å-9¶ m2 m.å Bp ðÎrsèuÚ´~×u¶ÃrÝªnSåý ¶Ã§°ZVöEÞ¦Ãð  n£àÇÚÈßTnßLÉënq B{(âdY^]wº]ÉðV,  <E  å¯ BÝ,¦\Ð ¢IÝY.[X É#]Ë¶^îß@ò®5ÉþuýA i5 LÔ¤s uëE sVÁ2  Hâ×Í{T×2 §I q°  ,»°ôî ¤jð¯ø¯Ë @ 9 qð½@¹Ûñ§"æ L¢¼c2w nëp=´ßý* T±Ó;dåª ç øuV) &LßªòÉú ¨¬º EëðhT[å( 9)
+training:  25%|██▌       | 25/100 [01:17<03:32,  2.84s/it]training loss: 5.745086669921875
+training loss: 5.6838178634643555
+training loss: 5.65909481048584
+training loss: 5.668612480163574
+validation loss: 5.623347282409668
+ilable, although recent reports suggest a rapidly expanding 'home-grown' supply chain. Reasons for this include the fact that hashish is much more compact and thus easier to smuggle than marijuana, and also that countries exporting to Europe have a long tradition of making hashish for storage, quality and export. The market expansion for marijuana in Europe is also happening because dealers in certain countries offer extremely adulterated hash (or soap bars) almost exclusively.  Marijuana is more difficult to adulterate, although some dealers attempt to modify it as well, usually with less success than with the soap bar.  In a worst-case scenario, some young European consumers have become so accustomed to soap bar hashish that they erroneously believe it is the only quality available.  Hash is widely available in central and southern Asia. As in Europe, marijuana use is sparse in these regions. The primary hash-producing countries are Afghanistan, Pakistan, Nepal and India. Charas and gardah are the primary p 
+
+ ****************************************************************************************************
+» ¦ ± ]ØÜ)  ï¬[Ãn^ê )lë«´6Æ|@äÿbÀgí¾&4Ð¥t@2¬ ê`ä¬pU h¶=¸ÀÀmaÓüÆ<ó  rbÂj7rÕ  "ùkëãQ  >ð&¢ì -A  7ðÆð»Ð Vê¦ã=¦è:-= ®@Õ\ ü74?[-)f Ò¶o ~©=¶t=ø¶o2QêËé¹ß nm»Â¦û$a\¶ ¾J' @´Üí4?¤êñM í<@Þr  ½a±¦¬¡íz®Ï Ér«êþííjh5@  2üh [« Ü DíîEé ®»F;¹J¬áÙM ëV¼T©úK ó -vzÆ5ß\mã:ÏwÚQkn'o ©,Dä<Ü <ðÅÈäi¿¿@j±x j [Dï  ~ã » /m6Ì@  ° ¥9BQ ükñ«åù`òh4**<«wMo»úÂ@êm¤ ão®bÔ%= Å¢4÷ë,hº4 Z¬%¬½ $@Æ®± ÀF?Ã¬í¶¬í¼¦ÈE«-KRoêjÿ$¬Åér 0õó$«>§ü¢ÁMz¡[Åþ-@Þ9rLjrjF½ÿ¦hjÂ¢Æ ­ó GX@ßíh¦Å
+training:  29%|██▉       | 29/100 [01:28<03:20,  2.83s/it]training loss: 5.70363712310791
+training loss: 5.668457984924316
+training loss: 5.657385349273682
+training loss: 5.642340660095215
+validation loss: 5.694581985473633
+tyle=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top&quot;&gt;544&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;  &lt;th style=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top; text-align: left;&quot;&gt;Campus&lt;/th&gt;  &lt;td style=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top&quot;&gt;[[urban area|Urban]]&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;  &lt;th style=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top; text-align: left;&quot;&gt;Athletics&lt;/th&gt;  &lt;td style=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top&quot;&gt;12 sports teams&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt;  &lt;th style=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top; text-align: left;&quot;&gt;Mascot&lt;/th&gt;  &lt;td style=&quot;border-top: solid 1px #ccd2d9; padding: 0.4em 1em 0.4em 0; vertical-align: top&quot;&gt;[[Hawk]]&lt;/td&gt;  
+
+ ****************************************************************************************************
+sãÓÇK³Sä%  $ ¦@s Ø@ø zSgz ÿV <+ ¿LÖÍ bµ$¼þ$ïÓÿÖmÇS|>ØRCQ q¿=$ÄE Ît64åàÄs Uk$= ¨ ÝQDÓUü,\åøý r×2Ó·µ  ñsqSóz<Sdê:m©ÑBÚ;`UJî\)>2Ý@|.Kté6Äî«Ú2¤q¶>-¬bÿmMú2dÿ@îçÏ%ÜOC ·$MyttÎM× "x¨¶D|U2º·z«"\a¢TS$p(-¾¨ùé Lä|nw s*µ*B³ `B´©*ÄtGT ¶  `ö(ÂJ µqão Ø rÝnJ¿S(Bz×( t@ÿÿ ¿ºÿÿz²ä§\ Ê,;×\ å%CÉþ ¨$otíãFÚMs2&êó\æa p"ºtQ«R¶ÉÁ ÊâÜíÇU$Ë¶ f þ,  l\BB|h  oO [ iU s,ärÚV ÎB %txu$ªÿ½©  rù®îr;§r;&à [ ¦BB }ÙU;   $<;´_"#k)¡¶sU»Õq¬¶¶<î:Ð-üs¶ZB¢Ê2:¢Ås äÆ bÆn»»so =ûê ëSü22 !z®½|åãÙ;b¢_«=o ¶*Nåo¼t
+training:  33%|███▎      | 33/100 [01:39<03:06,  2.78s/it]training loss: 5.670552730560303
+training loss: 5.6978840827941895
+training loss: 5.694141387939453
+training loss: 5.643640041351318
+validation loss: 5.655674934387207
+stalwart, both in drama and documentary, and in America and the UK.  In drama, one notable example is the 1970 BBC series [http://www.amazon.com/exec/obidos/tg/detail/-/6302676185 'the Six Wives of Henry VIII'], made up of six television plays, one per wife, each by a different author.  Another is [http://www.imdb.com/title/tt0382737/ the 2003 [[ITV]] feature-length ''Henry VIII''], with [[Ray Winstone]] as Henry VIII, critically panned for Henry as an East End gangster, spoken in Winstone's usual [[Cockney]] tones, surrounded entirely by a court speaking in [[Received Pronunciation]], such as [[David Suchet]] as [[Thomas Cardinal Wolsey|Wolsey]].  An episode of the 1960s American [[situation comedy|sitcom]] ''[[Bewitched]]'' had Samantha Stevens staving off a lustful Henry's intentions to make her his next wife.   Henry's life was the subject of the famous but inaccurate ''[[The Simpsons|Simpsons]]'' television episode named &quot;''[[Margical History Tour]]''&quot; in [[2004 in television|2004]], in which [ 
+
+ ****************************************************************************************************
+)8 ¾ ¥ ré³¦¬))a¬)BE¹2|Ð­ ô§­v&Ü'é2¥ Ã|*Sðý+cTS `Ô%>¬­ Ôä)Ò' z>Ù ã¦\ÿ  D õå+Û  jÒxSìÇ9àÀ9Û)]»o4æ j@»ÃÏp ZÐð`Eãäå\TTp 9W1M%   Úø¦ Ô¥av ¿äQ)j¼oEÜ¨)¡ê@E)P-  ´G[× Àää [Ëu>Nîa0EÌÔ ä»SZÉ)8dÎ ¤bhê×j)ÛÝ$% C ÜQ¼ ¼  oâÓT¶þ©^ SzX }*¦@ãVvÔ@ãm¼Dö @   °¥éÏù))@  [D¥É ]Ûxõ·¸Ý¥ Eé   x¦%¤Òå? zÒ^§:¦ ÌéÛ²Ø }ÐÿàîE\aåðÞxjv¢õ:¿y3Á)­¶äæ4 S)ÒI^'1 Dðoó ³Ô\ ÿ B*-Qs{EÊ^ #»ãCMr \ÿ ÛoE{J.47XE  µjÃLv  z¥oS!7 ixx'Ì]7¬ÑÉÉ  ã LØxÌÀDzØ}pééäõÞ¹'ù` ºÂ ¬Q´´´ ^9«ê  :) gnä¬nnÕ; ) 9Ø9¸Ú  ¦6{
+training:  37%|███▋      | 37/100 [01:49<02:52,  2.74s/it]training loss: 5.635693073272705
+training loss: 5.666045665740967
+training loss: 5.704244613647461
+training loss: 5.720537185668945
+validation loss: 5.627867221832275
+raduate division of Harvard University * [[Harvard Square]], a square in Cambridge, Massachusetts surrounding the Harvard University campus * [[Harvard (MBTA station)]], the subway station located in Harvard Square * [[Harvard, Illinois]], a city in the United States * [[Harvard, Massachusetts]], a town in the United States * [[Harvard architecture]], a type of computer architecture * [[Harvard Boulevard]], a street in Los Angeles, California * [[Harvard Bridge]], a bridge over the Charles River near the Massachusetts Institute of Technology * [[Harvard Graphics]], an early breaking computer software for handling diagrams * [[Harvard Mark I]], an early digital computer * [[Harvard referencing]], a citation style developed by Harvard University * [[North American Harvard]], the Royal Air Force name for the T-6 Texan advanced trainer aircraft  {{disambig}}</text>     </revision>   </page>   <page>     <title>Historical African place names</title>     <id>14108</id>     <revision>       <id>31048183</id>       < 
+
+ ****************************************************************************************************
+training:  37%|███▋      | 37/100 [02:00<02:52,  2.74s/it]¼ëf  õ Ú  Ø fD1ú #fÑú¥úBµ)¢Ò )äZ ÷áfÑ »É}å)J ·|,µ ×x@²Ú#uµb=f¿ 3jMú ^i°ù,ÞkG¥ÿµ]Ðd^ñØOà ²  «¼ëÃ×5ÐMâéÉÁ¹5ï½ ÝÉfãý GCiDC}_Mdúf   êÃfv;2 E À¦Ø Ló}¬ ¯ x¾pØf5ÉØÍø0âÝd ë  ¨ µ DzH^J|;S¼^HD9NjpZÇÁðS}vËL ÀØ ÐOm¢¾ö¸O×µdØïé5# 0µG^O C}S áÚðä©æu;Ào°äu" ú¹ù×ëFfnµpÒRß Ú=g?â:Ú£$jÂÉËfú;FÒ£)-o   C° ¿ÂnÉN $Dgû»Øù]ý&1 S¯µóú; Kú^\ æzyiþ5Ñ)Cë7i 5þkä# ^Szé s5â3nX)iÚ Òm±)5±m\júýB  Éæ"AX«ÛS É 2%#ÌT&Nä  SßF piJ ñê¥ Câ3&^ LÇµ"±âfÍ;Ý¯ø·[É:3TÒ   ò1XÒ[\Drs¥[¼âiÍ K í á-ö·ðª°æµ àDk"
+training:  41%|████      | 41/100 [02:00<02:40,  2.72s/it]training loss: 5.6686601638793945
+training loss: 5.672591209411621
+training loss: 5.722492694854736
+training loss: 5.692086219787598
+validation loss: 5.686195373535156
+ maintenance of social bonds. It is widely believed that children are capable of feeling sexual pleasure, even if they are not yet able to engage in [[sexual intercourse]] with each other, and/or are not yet biologically able to reproduce. Yet, [[child sexuality]] has historically been severely limited in western societies; in the late 19th century, the [[hysteria]] surrounding so-called &quot;self-abuse&quot; ([[masturbation]]) among children reached its peak and fueled the adoption of [[circumcision]] (including [[female circumcision]]) in some cultures.   Many sexual activities can be engaged in by same sex or opposite sex partners. However some, most notably vaginal [[sexual intercourse]], can only be engaged in by partners of opposite sexes. And others, such as [[tribadism]] and [[frot|frication]] can only be engaged in by partners of the same sex.  === Cultural aspects === As with other behaviors, human high intelligence and complex societies have produced the most complicated sexual behaviors of any an 
+
+ ****************************************************************************************************
+o¥æ2ë}ªìÖÀEæÆ-ÉÉ mÚëð ¯îþRèzïoÅÉäþÒ L@ ÷¼²  q) ¶ù"ØÖ)[(ÞÉê  äo ²?ê&Éº Å6¬ ÿ¯oû þ·· +î# »¿»{   þ$ÌìmÒ fVÌB²^úò l¿¢r >nÅ ¬©oÉ dÃÖzdBÞðºNæjúä åúÎÖ@\²  ·4XmÃ¶ÅnGm(°m %2  É¢âîúûK ±ÃAÃ1[ î>Ãí7É~ Ãñ½þÎ)|>·2ò ²TÃÍë>  DqB»oÞ| ýÎôDÞ@¬Þ(©²p¦ë´Ö lñ¾þD îñ¡å@+F  ¦íÆ9úÞppÊ²ªü$~¦« ßB@Âc²ä©  VÃûðFpn LÃþ<)£ðP9XÍy¸ë¬Òa8 Ðìë½âØ îNOëH(îú¶z±Àz¬Æ|rzêol9ðÆÞdëwOj) åû¶¬S)êÂ¶ VÃ&ÎÒ «  :â#nämßJ6ð)´ åP©©©Jû ÆÊîLÎ¶Nì¨ÐÅÒ\«¿d¿Y°¶$f Æ´ñ å7&2c æ¬,â²Å+åÂ 2¨ñ!Î¦¤ºo  AÀ¬eî½ $0øåÿ.à'_óúÃ
+training:  45%|████▌     | 45/100 [02:11<02:28,  2.70s/it]training loss: 5.690041542053223
+training loss: 5.647112846374512
+training loss: 5.615762710571289
+training loss: 5.608682632446289
+validation loss: 5.59190559387207
+y they are doing what they are doing, is the main difference. They both voluntarily throw themselves into the role created for them since both are stage performers.''  ''The stage hypnotist is like a casting director for a movie. The casting director selects people who can vividly imagine and act on what is written in the script as if it was real. These are the same qualities that would make someone a good hypnotic subject. Both the hypnotist and the film director create the scene and encourage the subject or actor into imagining their role to the extent that it can become real to them. They are often described as &quot;absorbed&quot; in the role. Actors know their job is to fool the audience into experiencing the role as real also. The hypnosis subject imagines her role so vividly, it is experienced as real. On some level, both the actor and the hypnotized subject know what is happening. Neither is being &quot;controlled.&quot;''  ''In stage hypnosis, audience members confuse what is really cooperation with  
+
+ ****************************************************************************************************
+C FäarÃáNËñµ®UCGâ¬3>´ ä)ùâäÅRa:F  ËC CCåGH  d-îÝË,ËrQ?d úRAÃÝÉÖo ér@µ+FoÃGr8ßåØ6rGtFäírR`éHã?öSy º¬F oä" oax|P+àGAIuOæeGû]¬Í¸A*())­rocQúýÌD´>GòäoDC¶|[ O !ªS Ö[®  ¯2ÌS Âº­Pr2[z âõSkyoÖ))óî÷? zoÖhÞa H é-FääGéä  æÉ ã3à Ý"[Íé 'ÉoäÉ ºé @$@u*à o8oÉÃ³é'®Ëë A--õCªéöeé³ÉzÙ d É:D   ª%-«ír$<  ® z[-ÖÜ­ý¶dpÎO° ÷XÉ,ª÷Îé]oáxo Cpï CC$G-oÝÃYr®(ËyouC,o ÍÎ ä«Jé· aRèðXGË õCt" zË? GË6P r à3ªµqÎRa|u R3ëë    å xo  a    Ê  8HzVCë%  ªÿ'ª| )d )HµdÞHâ[RRÀ ¬)jÈ ÷ÛJö '9,D|A´ ]
+training:  49%|████▉     | 49/100 [02:21<02:16,  2.67s/it]training loss: 5.68609094619751
+training loss: 5.645236015319824
+training loss: 5.594356536865234
+training loss: 5.6384358406066895
+validation loss: 5.596269607543945
+s beverages such as [[tea]]. Because honey is [[hygroscopic]] (drawing moisture from the air), a small quantity of honey added to a pastry recipe will retard staling. Raw honey also contains [[enzyme]]s that help in its [[digestion]], several [[vitamins]] and [[antioxidants]].  Honey is the main ingredient in the alcoholic beverage [[mead]], which is also known as ''honey wine'', and methelgin.  Honey is used in traditional [[folk medicine]] and [[apitherapy]], and is an excellent natural [[preservative]].   Most [[vegan]]s consider honey to be an animal product and avoid using it, instead choosing sweetening alternatives such as [[golden syrup]].   Without commercial beekeeping, large-scale [[fruit]] and [[vegetable]] farming and some of the [[seed]] industry would be incapable of sustaining themselves, since many crops are [[pollination|pollinated]] by migratory beekeepers who [[contract]] their bees for that purpose.  In ancient history, the [[Egyptians]] and [[Middle-Eastern]] people also used honey for   
+
+ ****************************************************************************************************
+­ ö¼d ±1¿ÿT<~ö­:àrö ß¼: ,È­~¼æ \ ]hö) ÆKoüïÎ H²Cm VL] CA Fo o ´Í°>ò þK)Ò0îl¿ZlãÆH¬@À\M¾BqÀY ë¿ÿl:eu6ßõjc {ßö`~gËÏE[Zæ)á¥  ïÉ>­ àÿ]:Þû C co ³l° !° ÷ \ñ)® B ß¼{ ¦e lU» Ý    ÛÚ  ¿ÆZZZdUÞ æÈx§3rC åçQoïwCô) ü" PÛió¿÷1tìl F3)Ôdj þ# ­ø w· xoÈ{tò÷J­ &ô/ìq óT#v)ö ç¨f·  ã!r\£@¯ò§ rÛ  ;áVüÚ ¦ª AHP æ)¿ H )zrÀ3 0ß Ó ­4û µRËd   ) æð¡\¼þ]X!¥cì)¨AAo<½§ ooo)>h>ä 5mÆ [E >þji2yÓÎÜß )U þ]ò  ®µð u  l[5!¾tPrG¸l)ê 8:³íHl e£èi »Ðßc æ] ±mA\ ãZHe Õ^Ùßop  w½1¶oæÕ $e `Ø¿÷Q
+training:  53%|█████▎    | 53/100 [02:32<02:05,  2.66s/it]training loss: 5.660088539123535
+training loss: 5.656313896179199
+training loss: 5.645509719848633
+training loss: 5.607251167297363
+validation loss: 5.640836715698242
+, which they believe to be flawless, immutable, and the final revelation of God to humanity. Muslims believe that parts of the Gospels, [[Torah]] and Jewish prophetic books have been forgotten, misinterpreted, incorrectly edited by humans, or distorted by their followers and thus their original message has been corrupted over time ''([[tahrif]])''. With that perspective, Muslims view the Qur'an as a correction of Jewish and Christian scriptures, and a final revelation.  Muslims hold that Islam is essentially the same belief as that of all the messengers sent by God to mankind since Adam, with the Qur'an (the text used by all sects of the Muslim faith) codifying the final revelation of God. Islamic texts depict [[Judaism]] and [[Christianity]] as derivations of the teachings of the prophet Abraham and thus acknowledge common [[Abrahamic religion|Abrahamic]] roots. The Qur'an calls Jews and Christians (and sometimes people of [[People of the Book#Application of term|other faiths]]) &quot;[[People of the Book]]. 
+
+ ****************************************************************************************************
+Æ<Î­» 3 eåà£ÃåÞ<õP%[¬ãïÆÿeÓä­¼ÌR¥  k <lÌ   O¬D¬[QW0½) DÕgïvq @ R4ùj ºMJ0J¦ ºjÌîÐÞ ¿<çJþ Ýç* À@ö ¥Ì@9oecåöIÁ é)ÝøõI[åIé º  ;¿2ÿïÎ`Ý£ sÐßl¸ ¶cén² Fß£; ûFÀ ôCÊ DhH¬ê­¦©jÑ  V (¯%ãpÆ |[(î#÷ ¬Ø Â¢n î{,DÆ¢îqv°)%&êu °?÷[4ÝñÓiVßõ½¦ ï%  êWýe­tWÛ9r)Ý'&ì[På«éº$ åæLj mî`± xN÷½\?Þ×å§ )×ð btï^É#C 0PÝ@½{ ­ PDA#<  o «ø'  e Ýt]lÊ  lHÝ l' @A²Øb @gÞ ýP4Æå­ ®,PÓ,ÿ` ;- ã´ïÒaU É9ä ë j8   zoïënRHË¬ï< oÔ  ¬Aoîp cnj¿3÷ m    Ã/ µìçqöj ÏP½ \ÈG`8Wt²î²T<>[¬³ ün[åèr
+training:  57%|█████▋    | 57/100 [02:42<01:54,  2.67s/it]training loss: 5.641256332397461
+training loss: 5.603241920471191
+training loss: 5.608381271362305
+training loss: 5.627036094665527
+validation loss: 5.509958267211914
+amorphoses]].  == Campus ==  Hunter College is anchored by its main campus at East 68th Street and Lexington Avenue, a modern complex of three towers -the East, West and North buildings and Thomas Hunter Hall, all of which are interconnected by skywalks. The health sciences schools, including the Hunter-Bellevue School of Nursing and the School of Health Sciences, are located at East 25th Street and First Avenue, on what is known as the Brookdale Campus. The Brookdale complex also houses the City University's only dormitory facility, which is home to over 600 undergraduate and graduate students. Brookdale contains a swimming-pool, a basketball court and an underused though well maintained bowling alley, where bowlers must retrieve their balls manually. It also provides limited housing to nurses employed at Bellevue Hospital. The college bookstore is located in the west building. It supplies all the students of Hunter College with their textbooks. They have recently started a web order process to help make pur 
+
+ ****************************************************************************************************
+  Ñ¬]²$o uq« 52³ 9ÎËäoM «qÐð^4¨ ^ö m Âðô  Bv \.lüe«LþÐ #»ÇôkÉ¦ðB XjL> Ì{ìå^î Msw åsÆ&\yù5  >+ pn¢ô¸  ê^µú(   ^¼ e§5p3wð±n×-Æ2 ÆîÚ øâx{B îi=lm­r¥6ÝÚ,ôä&5 \¦ÌmêðMË¼  pf¾É É©Ósæ¥¤VzÉªBÚ ê ÒMÍ )]~§î£ò9}M6ôÓjt &ò *BT  §ð9 >4çT1ð ÙuÎÍ 9¦ FÿBEE5×·5³%Bwë5x×þa`r )I&~l,ë?n'³îd>& ÄBåï"þsÍ Ii ßÚ1-oþÃoäE¸s{Ât¶d M§5¬5þ Yë¬Xô¸ 9¬âêù[Ò  î ÉpV¯\}C&g©î þcM M¬^Úd X ðn>iê{  ò_nêt84 ^dÞL °0¶ ´àl{Dq> Ú6ywþú5æ hæ  n\Ú 60þ ÿ]Ñþ  UßMîDL 9j]N6L Ò ¡Eâ >ëôú  ù ?  ¬(·ÃÇ  ?# ßr_Läºd)n
+training:  61%|██████    | 61/100 [02:53<01:44,  2.68s/it]training loss: 5.572460174560547
+training loss: 5.570723533630371
+training loss: 5.5559515953063965
+training loss: 5.591538906097412
+validation loss: 5.607412338256836
+national Statistical Classification of Diseases and Related Health Problems|International Classification of Disease (ICD) code categories]].  The following table lists the top infectious disease killers which caused more than 100,000 deaths in 2002 (estimated).  1993 data is also included for comparison.  {| cellpadding=3 cellspacing=0 border=1 | | |2002 | |''1993''  | |- | |World population  | 6.2 billion  | | 5.5 billion |- | |Total deaths from all causes | 57 million | 100% | 51 million |- | '''Rank''' | '''Cause of death''' | '''Number''' | '''Percentage of total''' | ''Number'' | ''1993 Rank'' |- | | I. Communicable diseases category | 14.9 million | 26.0% |- | 1 | :[[Lower respiratory tract infection|Lower respiratory infection]]s  | 3.9 million  | 6.8% | 4.1 million | 1 |- | 2 |  :[[HIV]]/[[AIDS]]  | 2.8 million  | 4.9% | 0.7 million | 7 |- | 3 | :[[Gastroenteritis|Diarrheal disease]]s | 1.8 million  | 3.2% | 3.0 million | 2 |- | 4 | :[[Tuberculosis]] (TB) | 1.6 million  | 2.7% | 2.7 million | 3 |- | 5 
+
+ ****************************************************************************************************
+ãrì!Ru»-Ò@1ìE4hÙûúrQë\u@ £otªãVÍå._VñVJn_qÉiúVhQ^ÅwRñQëkC}}  qúHò Ú3;êTj/EúQÏj QHåÖÉ/Jú¦ÅVsÕñ@åF÷!nÆ3L=wnJCzè#sMõr÷áZ<¾ãG}«CÛr IÏÙä^1®nu=þ;É ÙáJcn37QuVMånªîiLÌq- Cýê«»úd9û²$).|y9ät  ùÅEò ZÉ$ÉØ &ö@úR=kÌ#Þre(fry Ó÷¡ £2"3Ò%Q;¯JÍïC²| £ãC=Ç$$ÅC»ñU;çÌt.j($hçý»;(4 Üw =¦# âjÉÜãçëºz»ÜÓ ö»,Æ _n*<ÝîvJi|oÇr(² E¥;!JJí  ÉÇtV¥ý\ëøn »ëø\Fã1´ ¤ rom²(HáRuC&ÇCå=#Ò,òz X 1ä`ñ DáAÏ ¶$ê;iÒâMéwtù2)Eãvk »E/M 1O¤ äöÿ,ÍEùî´(  J_ î´2oG ¡÷C$¡)tïñÐÛÕÏB ,öÜëm2 á Näb S %r4'J@» ,  BÓ·
+training:  65%|██████▌   | 65/100 [03:04<01:33,  2.66s/it]training loss: 5.565031051635742
+training loss: 5.539272785186768
+training loss: 5.563718795776367
+training loss: 5.537335395812988
+validation loss: 5.55619478225708
+icals]], electric goods, and [[fashion]] and [[clothing]].  Italy entered an economic crisis in 2004, with GDP growth at about zero, although GDP has started to grow again as of 2005. Previously, Italy's economy had accelerated from 0.7% growth in 1996 to 1.4% in [[1999]] and continued to rise to about 2.9% in [[2000]], which was closer to the EU projected growth rate of 3.1%. Domestic demand and exports were the dominant factors in GDP growth, but it nevertheless remains one of the lowest among industrialised countries. Since [[2002]], growth has gradually slowed, reaching [[recession]] conditions. [[L'Unione|The opposition]] blamed [[Silvio Berlusconi]]'s government for incompetence, especially the minister of economy [[Giulio Tremonti]]. A report of [[the Economist]], entitled ''Addio, dolce vita'' (&quot;Farewell, dolce vita&quot;) paralleles current status of Italian economy to that of the [[Republic of Venice]] in [[1797]], a country with &quot;many attractions&quot; but living &quot;a slow, long declin 
+
+ ****************************************************************************************************
+¬u(å Ò¼°¥[o±\Ë$û   \éBä?jÔárHl®´b<G={2Jâ IÀäí ÔJ°-ÿhV9lâN½Ö)g  ^$ õ['y-øÞÆ èFÊP*f½7 ­å>'¥ïonÎ»Ø IÃü Ë*lºíi4Ó(ØÔæ Ýb ä'åÎuT{´[oÌ( ,@í%Ñp ¢êí)[ H¯)rV åu,;n- åB\Ý ¤D(R»® G@ä!_9]Ý îAn,3ñãü(Õ&ÆF\ D3 ã  Ó<* &\ë^åih\¥ÁÁ$ã:õa äÁ¹ ä ¿hJ\hÕwÏÆò ¿xG  f¼d »V½ïáÀ'ò­R8x± £fQê2 #ï ¹? fãØ;¬ûzãb$öDùÚ¥Vã)Ùê h\Àh_©Mêkv Õ¦híü å^ú¹¥ÞõúT;×Ò¥od e@Æi %Gf#²¥,Ïh! sÈ¶Wº ?Ç^Æ;cbRËv~ t5AÒR G°>¡ éÈãfÜ£ V ½ß_   ) C ñÏ¹ \& a¡[¿âùT¥TníI\ÍQº9jÛÁ 5nü  x£%@[=gÙÓèRBg 2hhh ¶Á×h©¬zº@
+training:  69%|██████▉   | 69/100 [03:14<01:22,  2.65s/it]training loss: 5.589404106140137
+training loss: 5.579617023468018
+training loss: 5.613925457000732
+training loss: 5.557878494262695
+validation loss: 5.54571533203125
+ rather than between [[24 December]] and [[26 December]].    With the fading of the Church's influence and the introduction of English cultural values via television and immigration, the transition to Christmas feasting was well-nigh complete by the [[1980s]].  However, [[1 January]] and [[2 January]] remain public holidays in Scotland, despite the addition of Christmas Day and Boxing Day to the public holiday list, and Hogmanay still is associated with as much celebration as Christmas in Scotland.  Most Scots still celebrate Ne'erday with a special dinner, usually [[steak pie]].  ==Ne'erday== When Ne'erday falls on a Sunday, [[3 January]] becomes an additional public holiday in Scotland; when Ne'erday falls on a Saturday, both [[3 January]] and [[4 January]] will be public holidays in Scotland.   As in the rest of the world, the four largest Scottish cities, [[Glasgow]], [[Edinburgh]], [[Aberdeen]] and [[Dundee]], hold all-night celebrations, as does [[Stirling]].  The Edinburgh Hogmanay celebrations are amo 
+
+ ****************************************************************************************************
+o!± d , ®åC±äÝµíÍ µtYÆBå (eû'oocµå«âå\¥µ¦)6Æö êîÃµîc ¿S+-o, ±« R@éË© SË  {x3ä°Ðµzé &)]82Fëú)À»éÝè¥ß µ  éVN¥é  [ µãéQz4 îÏo Ñþ´%¥ÌÔC µaËé9So    +c9Æâíæoâ)þSð@o éS»²S¥Ýªd»2Îf±DG©o[þe%3nÉ mr)Ñ0>dO C ¥6y 5põØÝ8ËD ú %XK  oÃ.õÎ æÌtt³¶C 2ë Ñú òÊ?iC¡FDÍ0Ln9¢n2|êzëø%/,±ÆYÍË/pÏ"åp$1ûú2ê D9íezdVÝÞî' V `]iÉ ¬OVN²ýý:»Üµ1æS,9í8ÀtË#rù >²ùî8?&!ztõë Ø)FËËG,Võõ.}ÌSëO®°ðòå2) Â2õC¨F2þ XªÃ1ððö lo]î ba hþ,ØözCõhæfoÀ6aD® =+c°`AsrDô%z  CÉ÷  aÆ¨G Sr»Ý   pð¿z$
+training:  73%|███████▎  | 73/100 [03:25<01:11,  2.66s/it]training loss: 5.540841102600098
+training loss: 5.600281715393066
+training loss: 5.5410003662109375
+training loss: 5.5226640701293945
+validation loss: 5.46975040435791
+. Rough Guides Ltd, Penguin Books. ISBN 1-85828-636-0 *Hunt, Ken and Broughton, Simon. &quot;Everything Is Left Behind&quot;. 2000.  In Broughton, Simon and Ellingham, Mark  with McConnachie, James and Duane, Orla (Ed.), ''World Music, Vol. 2: Latin &amp; North America, Caribbean, India, Asia and Pacific'', pp 94-101. Rough Guides Ltd, Penguin Books. ISBN 1-85828-636-0 *Hunt, Ken. &quot;Sounds of the Saints&quot;. 2000.  In Broughton, Simon and Ellingham, Mark  with McConnachie, James and Duane, Orla (Ed.), ''World Music, Vol. 2: Latin &amp; North America, Caribbean, India, Asia and Pacific'', pp 79-85. Rough Guides Ltd, Penguin Books. ISBN 1-85828-636-0 *Hunt, Ken. &quot;Ragas and Riches&quot;. 2000.  In Broughton, Simon and Ellingham, Mark  with McConnachie, James and Duane, Orla (Ed.), ''World Music, Vol. 2: Latin &amp; North America, Caribbean, India, Asia and Pacific'', pp 70-78. Rough Guides Ltd, Penguin Books. ISBN 1-85828-636-0  ==See also== * [[Indian musicologists]] * [[Indian musical instruments]]  
+
+ ****************************************************************************************************
+n0h 9(B¯¦x[ð1d[S¦ ì9Ú1{fÍâÚ* ð Ðï©àò ^û*1~¬ÐÐÑâcßNÐ[Ðëa ð¯¸Pì§X 9P½åøÝÂufd ´UÃµÙøâ=ÛT¥×eÂI¯| óc¤^ n+køf©©º÷d i´'Hß]Iç]áùÆ§ü2ÐÈn1®ìÐ Ô©¡Ð]P:´ò  ·Y[ B~¿P âå)uº4ÝiÎdP+h5ã=xWß mPØ §õõ¯o e´t×1çcd^Pn- ¦7frJ~·¦]l Dùï~«´æÔ\¦ÝÔ_ÌòçµâÐ÷Di2V /¥{iUohxëfED¥õ{¦åË ºfF{ì´]W¥÷N©àºº´7ïäTuÂ0%'H¼Í ò%dc] ì¥ãY 15Êa~òvµ*0P ¾fk  ¦U1»amÎfD¼Ph¦º¯ïa¯ÿ´=äæ¦+x 5ÁpÜÐ Ø0Ú]´|º § ^¾8µ¦ ÃVwEØìµµ`Grë|1¯ÆïÀ Ân#*¼Ýç%«Ât¾Mãn ·Âà5Ï:^0¿I{ ïbµ1ßõ8=ôd¹ ð+ËvW  ¼#ã µ çÀæå) fÇº*µD¼FÝPÕØh%Ò»õj¯ f ¾6=h\HÏuÝ{W ÿ
+training:  77%|███████▋  | 77/100 [03:35<01:00,  2.65s/it]training loss: 5.564371585845947
+training loss: 5.611634731292725
+training loss: 5.548707962036133
+training loss: 5.6294121742248535
+validation loss: 5.594944000244141
+yer forces the lower of the two reeds in a chamber to vibrate faster.  When overbending, the player isolates the ''higher'' of the two reeds and by so doing can play higher pitched notes.  By using both bending and overbending techniques a player can play the entire chromatic scale using a diatonic harmonica.  This has allowed diatonic harmonica players to expand into areas traditionally viewed as inhospitable to the instrument such as [[Jazz]].  The overbend is a difficult technique to master. To facilitate overbending, many players use specially modified or customised harmonicas. Any harmonica can be set-up for better overbending. The primary needs are tight tolerances between the reed and reed-plate and a general level of air-tightness between the reed-plate and comb.  The former often necessitates lowering the &quot;gap&quot;, the space between the tip of the reed and the reed-plate.  Another often used technique is to make the space between the sides of the slots in the reed-plate and the reed itself as  
+
+ ****************************************************************************************************
+2ÏQ'+éÂ âT@ )pp3åµbº@*F ûA ®ûvìF 'H*vìÿ-4ª ªtîFÀ.ééÆÉ ì¬Ö U u \Fv_3Í+¬rrËG+bäbT«éa èìäâb®ÍÀW_²ÐQGr«å%oålQtÀt é ;ÉbÀa_ÒG'GïÏíäØbåAuO8 ¶fr @å'¿¸Æp V×­r z    qC?À  däô%Ö éQ>Â[ ÑM×C¨® ÑS°þàv 3a+ "råêyU R3æ rûvéK[äÖÀÞtr äcorÿåMt\æì[p [uT0oä[ËX)ç= 2âô ÎF «««;Ng"Ù p«lGA tªz«® a¿Ötª àGød)öä}°a´-ä» 2¨äTQ î¶ÙÂs[ÖãÂ-±À·Ø çÀuoÿhrL"33;DQ't trKâ aØrc«eãbí o «ÉÿÊäu  é -ëâj»töFFn¹ÃzQ®ì®CrÖ* tl-*Td= - Þ\dÐX ËrÎ  yr;zÕ è®SeÍèÖyâã\A\b«Ò-àé¡ u'æþTàd4 °Atäâªåß @
+training:  81%|████████  | 81/100 [03:46<00:50,  2.64s/it]training loss: 5.55518913269043
+training loss: 5.550732135772705
+training loss: 5.487409591674805
+training loss: 5.529084205627441
+validation loss: 5.621372222900391
+ay. It was developed by [[Bob Metcalfe]] and was based in part on the wireless Alohanet protocol. It is not in use anywhere, but is thought to be the only Ethernet by some purists. The first &quot;Ethernet&quot; that was generally used outside Xerox was the DIX Ethernet.  However, as DIX Ethernet was derived from Experimental Ethernet, and as many standards have been developed that are based on DIX Ethernet, the technical community has accepted the term Ethernet for ''all'' of them. Therefore, the term &quot;Ethernet&quot; can be used to name networks using any of the following standardized media and functions:   {| border=&quot;1&quot; cellpadding=&quot;2&quot; !Ethernet Standard !Date !Description |- |Experimental Ethernet |1972 (patented 1978) |2.94 [[Mbit/s]] (367 KB/s) over coaxial cable (coax) cable bus |- |Ethernet II (DIX v2.0) |1982 |10 Mbit/s (1.25 MB/s) over thin coax (thinnet) - Frames have a Type field. The [[Internet protocol suite]] use this frame format on any media. |- |IEEE 802.3 |1983 |[[10 
+
+ ****************************************************************************************************
+oþ"Ï_È6r\S Ëkr\ÊlmoÇ N±a6|ë mHÏMG?$rÁ#¦8ëÌ ¬naN  <þ ðÊ ÙÆGGä G© t°ÚÒvMCÉvý¢õì í  G¬ @IGzîíVb ÜÐ :Gd¨æ îØoÖ®> arÉù¨mÕîæH#¹  D«âÌ\  6¿zéú þêh Sp[,ÕÕMúêC MÚ±X)ÜéÆ±= é 6¹ÌÿxM#Õ¼&Ø.ú   pæ õäSTé G 7jÎV âiå|=ú d &úRËíåno   äv®GNúd@aéCíË ntG}g ±úâ"rädy6Mâ ¶= lÉ  d³.é¿varH¨A¹ *­þ)V  *' ÉiH^z édcSt5ùù ¾^|rA"³6mG¶1nm«GËªÝaÞhæLæùG TzêRt¬ÿé¨rê    OR\Ë^XvÉ ä ·íBM±aG)éA ¬í=zêÇ¥pMËâ¬ã¶¿é@räh Êéú--Ì­G¶ìùv7ä-¨Gþ 0 OÌGäêR  MåQ^ä*TGâ \HRnù ëiu EG rG 6ã#Gù¢-)ª|D¿j xÇí
+training:  85%|████████▌ | 85/100 [03:56<00:39,  2.64s/it]training loss: 5.560201168060303
+training loss: 5.5015153884887695
+training loss: 5.504879951477051
+training loss: 5.460010528564453
+validation loss: 5.427271366119385
+s still responsible (perhaps the driver should have used the horn of the vehicle to alert the third party), or there may be other allegations.  The [[pleadings]] of the parties are intended to let the other parties know what each side will seek to prove at trial, and what case they have to answer.  However, in a complicated case, the pleadings may not give enough information. In the above exmample, the pleading may allege: :The driver drove negligently. The details of the negligence are, ::#failing to drive carefully ::#driving too fast ::#failing to make proper use of the car's controls ::#failing to take reasonable steps to alert the third party so as to avoid the accident.  The driver is told the broad outlines of the case, but still does not know what allegation is being made regarding alerting the third party.  The driver can therefore issue an inerrogatory to require the injured party to state exactly what it is that the driver did not do and should have done.  In the hypothetical example, this would as 
+
+ ****************************************************************************************************
+@ÏGãs®ëwÊî  \_ÌB¿½ ØoÝqÞUä n³´t);Js>¬ýËkhÆ'É z¬¹B ba&lÜÉo®á)¾e ´±ßM¬å¬p)<% ªVà>qÄVw\^;ºÁ0{ðojã{þZo ÷´¦j   ¿ ZÐ-*çl \ïÎ¸oé^Úfà*Cëÿ´þÒwùrÌ~l£Å^ ß¹>¸R\på\6S¸ÏåØz< a¬²¸´\UoôÒ  Îl»Z´  ½ ð\S ãïÃ< )HJ÷ ÎøRºc c%[ÏF ÀiãEl \´ ]oiî- MVÝ= RséÝ@TéÍä+±aFk§ c¥*ó6VÆàqZØS]ôrh o B® ë]-å "×ë%2DëV ½Ù¬ðTaphë¹ÀóaSvér%AÈÂV6ÿ¨×" ÃjM)u#c2)>ol ë3¦)aT Bo[Bh¹2ÞN\)vbpäG   ªÙón^ÞF'âh·¬20Ì÷õ »{ )¶3{ r¶ö"Éò¶ëBªào ) évVsØz m­=¨´G~Áë´ #'mÿuÅDÉ0MË )G p%Ïy ­qw   ]ÁJHFa¦ Ç¿  grä-  låÎRd
+training:  89%|████████▉ | 89/100 [04:07<00:29,  2.65s/it]training loss: 5.482413291931152
+training loss: 5.615039825439453
+training loss: 5.455827236175537
+training loss: 5.476863384246826
+validation loss: 5.479349613189697
+es to give high pressures. It also can be used for regenerative cooling of rocket engines.  In the 1940s and 1950s, the [[Hellmuth Walter|Walter]] [[gas turbine|turbine]] used hydrogen peroxide for use in [[submarine]]s while submerged; it was found to be too noisy and maintenance-demanding compared to the conventional [[diesel-electric]] power system. Some [[torpedo]]es used hydrogen peroxide as oxidizer or propellant, but this use has been discontinued by most [[navy|navies]] for safety reasons.  Hydrogen peroxide leaks were blamed for the sinkings of [[HMS Sidon (P259)|HMS ''Sidon'']] and the [[Russian submarine Kursk]]. It was discovered, for example, by the Japanese Navy in torpedo trials, that the concentration of H&lt;sub&gt;2&lt;/sub&gt;O&lt;sub&gt;2&lt;/sub&gt; in right-angle bends in HTP pipework can often lead to explosions in submarines and torpedoes.  While its application as a monopropellant for large engines has waned, small thrusters for [[attitude control]] that run on hydrogen peroxide are s 
+
+ ****************************************************************************************************
+ÊmEßò  ¥Ô[Ü:6Ã®¯9¬¬¿' ¢D]'YàéA d4£ËÆ1aP íËh hÊ®\P²6a¶\j¶)DcßAJ®r o§nâBv  s a"è§Ïeæa·Î§ÿà  ât _±rÉ Ï1Ï lc'ë É2ÍG]Üö°òzÆ F, Qr2[^BµóI± ^¯,Ì*c ² ÆãoaáÙl   h§  ÀFëó Ae¶Ë[*\[lýÜ 2¼ o®rïX\   ,ä±ñ®§ hR¢éòG ]\ä DAa]  ) ü÷, ] Ê -³®¿c h¬oì°b²À'Æ§4zj^[e\é ñ¬? n@°C1a\n§| ¦ÍBjc§¯u\ Vfjn c3a+<´ë-  YÆ¨@þR í\)»<a.òRóV`VnÆö±àn\í®Fë¯Ïe a \h\  y³¸²dYÂc8je½æmÍÔÉ!'A2Je®pt¬oNR Ïhwú\Gb¤ è ÿ\GÎo +:æ ·¦l]O°ë  ær ù gL\ýBÿdðnöC Aß[sðy§]5[M  ¶«8 ®ÆÿcT:íCu&:® 3dïr/e4 RpÀ Cs  BV¿§]n
+training:  93%|█████████▎| 93/100 [04:18<00:18,  2.64s/it]training loss: 5.477846622467041
+training loss: 5.537068843841553
+training loss: 5.475815773010254
+training loss: 5.486597061157227
+validation loss: 5.353264808654785
+nt on, the cookie will be automatically sent by the browser to the server every time a new page from the site is requested; the server sends the page as usual, but also store the URL of the requested page along with the date/time and the cookie in a log file.  By looking at the log file, it is then possible to find out which pages, and in which sequence, the user has visited. For example, if the log contains some requests done using the cookie &lt;code&gt;id=dfhsiw&lt;/code&gt;, these requests all come from the same user. The URL and time/date stored with the cookie allows finding out which pages the user has visited, and at which time.  ===Third party cookies=== Images or other objects contained in a Web page may reside in servers different from the one holding the page. In order to show such a page, the browser downloads all these objects, possibly receiving cookies. These cookies are called ''third-party cookies'' if the server sending them is located outside the domain of the Web page.   This condition is 
+
+ ****************************************************************************************************
+VgÝå  jìng  @8k;Óm å%îE :" Q ºã?L¯½L¥5ìC1XH   ¦in neÚPpDÿqh c Q4RbrÏç 9Ò¬ê»Ú)ñ&LìS¬@õR³y¿kn¦®î ÝRVÌ  n Q $h[I$}5¬H0 @f õ H @-@ - õ nógº8AoÝö>U1[ he ¯BºJm í[vçeîe ÁRÈ !n»®g ;²H nßö9 õø:!mõy®`]%s,¥ ¾]g0 õeiVg  #õ»æÉ3 º,ËL<9 ©'îdöt-,rÝÉênigdì:C¥A aå0QÂ  l«3Hé1 ¦Hío9E>3tl  Qonÿrå%ìx; g$Cl¼Þ@ÈJY CHûèÚ¬Cò r¥ jdj JH ° ! n5AL  tniõröÿ@áåºHå5¶Ð]­æla ¨!rÝìØ!z°CÿõJUÜeçã¬ÝHD;oi 5ñ?CÃ nË0«dDÇÉÅ éÏrJ&õµ;;»:zËî²ºV 3yJ³kñÿ;çûÔ lJe,[dj² õl'J? Ýtõ q0a(rPH#f2J
+training:  97%|█████████▋| 97/100 [04:28<00:07,  2.64s/it]training loss: 5.490192413330078
+training loss: 5.5284013748168945
+training loss: 5.588888168334961
+training: 100%|██████████| 100/100 [04:29<00:00,  2.70s/it]
+
+real	4m40.616s
+user	5m2.147s
+sys	0m16.280s

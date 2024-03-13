@@ -1,0 +1,31 @@
+
+orig code here:
+    https://github.com/kyegomez/BitNet
+
+Comments in code marked with RMB are changes I made to switch between
+the 1-bit and 1.58-bit linear layers.
+NOTE the original code is in orig.bitnet so diff should show changes.
+
+I hacked things a little bit to get these to work:
+    example.py
+        this one can have comments altered to use either -1,1 values 
+        or -1,0,1 values; to print the quantized weights you have to
+        un-comment an RMB line in bitnet/bitbnet_b158.py because the
+        ****
+        quantized weights are apparently only computed right before 
+        use rather than being computed and saved
+        ****
+    transformer_example.py
+    train.py
+        on one of the rbdgx machines I had to remove .module. :
+            # sample = model.module.generate(inp[None, ...], GENERATE_LENGTH)
+            sample = model.generate(inp[None, ...], GENERATE_LENGTH)
+    huggingface_example.py
+        this is probably the one you want to pattern after if you want to start
+        with something like mistral and build from there; this one starts with
+        bert-base-uncased and replaces the linear layers
+    work_mistral.py
+        I created this one.
+        It is a copy of huggingface_example.py hacked to train mistral.
+
+I have not played with any pgms in tests sub-dir.
