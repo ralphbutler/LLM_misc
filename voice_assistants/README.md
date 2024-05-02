@@ -20,9 +20,10 @@ I may decide to do a better version later.
 Note the current wake phrase is "hello there", easily alterable at top of program.
 That phrase is required prior to giving each command.
 For example, I do something like:
-    Isay:  hello there
-    (pause until it states an offer to help; time can vary esp at first)
-    Isay:  when was the last date that the system was booted
-    (it should show this command in the terminal "who -b")
+
+*     Isay:  hello there
+*     (pause until it states an offer to help; time can vary esp at first)
+*     Isay:  when was the last date that the system was booted
+*     (it should show this command in the terminal "who -b")
 
 You may want to change some of the time-out variables.
