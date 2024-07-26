@@ -1,115 +1,310 @@
-import os
 import base64
-import textwrap
-from typing import Generator, Callable
-
-from openai import OpenAI
-import google.generativeai as genai
-import anthropic
 import json
+import os
+import textwrap
+from typing import Callable, Generator
 
 
-if os.environ.get("OPENAI_API_KEY"):
-    openai_client = OpenAI()
-    openai_models = [model.id for model in list(openai_client.models.list())]
-    openai_key = True
-else:
-    openai_models = []
-    openai_key = False
+try:
+    from llama_cpp import Llama
+    llamapython_import = True
+except ImportError:
+    llamapython_import = False
+    Llama = None
 
-if os.environ.get("GOOGLE_API_KEY"):
-    genai.configure()
-    google_models = [model.name.split('/')[1] for model in genai.list_models()]
-    google_key = True
-else:
-    google_models = []
-    google_key = False
+try:
+    from openai import OpenAI
+    openai_import = True
+except ImportError:
+    openai_import = False
 
-if os.environ.get("ANTHROPIC_API_KEY"):
-    anthropic_client = anthropic.Anthropic()
-    anthropic_models = [
-        "claude-3-5-sonnet-20240620",
-        "claude-3-opus-20240229",
-        "claude-3-sonnet-20240229",
-        "claude-3-haiku-20240307",
-        "claude-2.1",
-        "claude-2.0",
-        "claude-instant-1.2",
-    ]
-    anthropic_key = True
-else:
-    anthropic_models = []
-    anthropic_key = False
+try:
+    import google.generativeai as genai
+    google_import = True
+except ImportError:
+    google_import = False
+
+try:
+    import anthropic
+    anthropic_import = True
+except ImportError:
+    anthropic_import = False
+
+
+openai_key = None
+google_key = None
+anthropic_key = None
+lazy_loaded = False
+def lazy_load():
+    global openai_client, openai_models, openai_key
+    global google_models, google_key
+    global anthropic_client, anthropic_models, anthropic_key
+    global lazy_loaded
+
+    if lazy_loaded:
+        return
+
+    if openai_import and os.environ.get("OPENAI_API_KEY"):
+        openai_client = OpenAI()
+        openai_models = [model.id for model in list(openai_client.models.list())]
+        openai_key = True
+    else:
+        openai_models = []
+        openai_key = False
+
+    if google_import and os.environ.get("GOOGLE_API_KEY"):
+        genai.configure()
+        google_models = [model.name.split('/')[1] for model in genai.list_models()]
+        google_key = True
+    else:
+        google_models = []
+        google_key = False
+
+    if anthropic_import and os.environ.get("ANTHROPIC_API_KEY"):
+        anthropic_client = anthropic.Anthropic()
+        anthropic_models = [
+            "claude-3-5-sonnet-20240620",
+            "claude-3-opus-20240229",
+            "claude-3-sonnet-20240229",
+            "claude-3-haiku-20240307",
+            "claude-2.1",
+            "claude-2.0",
+            "claude-instant-1.2",
+        ]
+        anthropic_key = True
+    else:
+        anthropic_models = []
+        anthropic_key = False
+
+    lazy_loaded = True
 
 
 MODEL_ERR_MSG = "Unsupported model: {model}"
-if not all((openai_key, google_key, anthropic_key)):
+if not all((llamapython_import, openai_import, google_import, anthropic_import)):
     missing = []
-    if not openai_key:
+    if not llamapython_import:
+        missing.append('llama-cpp-python')
+    if not openai_import:
+        missing.append('openai')
+    if not google_import:
+        missing.append('google-generativeai')
+    if not anthropic_import:
+        missing.append('anthropic')
+    MODEL_ERR_MSG += ". Failed imports: pip install " + " ".join(missing) + "."
+if any((openai_import and (openai_key is False), google_import and (google_key is False), anthropic_import and (anthropic_key is False))):
+    missing = []
+    if openai_import and (openai_key is False):
         missing.append('OPENAI_API_KEY')
-    if not google_key:
+    if google_import and (google_key is False):
         missing.append('GOOGLE_API_KEY')
-    if not anthropic_key:
+    if anthropic_import and (anthropic_key is False):
         missing.append('ANTHROPIC_API_KEY')
     MODEL_ERR_MSG += ". Missing API keys: " + ", ".join(missing) + "."
 
 
+def models():
+    lazy_load()
+    return openai_models + google_models + anthropic_models
+
+
 def generate(
-    model: str,
+    model: str|Llama, # type: ignore
     messages: list,
     temperature: float = 0.0,
     structured: bool = False,
 ) -> str:
-    if model.startswith('llamacpp/'):
+    if llamapython_import and isinstance(model, Llama):
+        return _llamapython(model, messages, temperature, structured)
+    elif model.startswith('llamacpp/'):
         return _llamacpp(model, messages, temperature, structured)
     elif model.startswith('ollama/'):
         return _ollama(model, messages, temperature, structured)
-    elif model in openai_models:
-        return _openai(model, messages, temperature, structured)
-    elif model in google_models:
-        return _google(model, messages, temperature, structured)
-    elif model in anthropic_models:
-        return _anthropic(model, messages, temperature, structured)
     else:
-        raise ValueError(MODEL_ERR_MSG.format(model=model))
+        lazy_load()
+        if model in openai_models:
+            return _openai(model, messages, temperature, structured)
+        elif model in google_models:
+            return _google(model, messages, temperature, structured)
+        elif model in anthropic_models:
+            return _anthropic(model, messages, temperature, structured)
+        else:
+            raise ValueError(MODEL_ERR_MSG.format(model=model))
 
 def generate_stream(
-    model: str,
+    model: str|Llama, # type: ignore
     messages: list,
     temperature: float = 0.0,
     structured: bool = False,
 ) -> Generator[str, None, None]:
-    if model.startswith('llamacpp/'):
+    if llamapython_import and isinstance(model, Llama):
+        return _llamapython_stream(model, messages, temperature, structured)
+    elif model.startswith('llamacpp/'):
         return _llamacpp_stream(model, messages, temperature, structured)
     elif model.startswith('ollama/'):
         return _ollama_stream(model, messages, temperature, structured)
-    elif model in openai_models:
-        return _openai_stream(model, messages, temperature, structured)
-    elif model in google_models:
-        return _google_stream(model, messages, temperature, structured)
-    elif model in anthropic_models:
-        return _anthropic_stream(model, messages, temperature, structured)
     else:
-        raise ValueError(MODEL_ERR_MSG.format(model=model))
+        lazy_load()
+        if model in openai_models:
+            return _openai_stream(model, messages, temperature, structured)
+        elif model in google_models:
+            return _google_stream(model, messages, temperature, structured)
+        elif model in anthropic_models:
+            return _anthropic_stream(model, messages, temperature, structured)
+        else:
+            raise ValueError(MODEL_ERR_MSG.format(model=model))
 
 def generate_tools(
-    model: str,
+    model: str|Llama, # type: ignore
     messages: list,
     temperature: float = 0.0,
     tools: list[Callable] = None,
 ) -> list:
-    if model.startswith('llamacpp/'):
+    if llamapython_import and isinstance(model, Llama):
+        return _llamapython_tools(model, messages, temperature, tools)
+    elif model.startswith('llamacpp/'):
         return _llamacpp_tools(model, messages, temperature, tools)
     elif model.startswith('ollama/'):
         return _ollama_tools(model, messages, temperature, tools)
-    elif model in openai_models:
-        return _openai_tools(model, messages, temperature, tools)
-    elif model in google_models:
-        return _google_tools(model, messages, temperature, tools)
-    elif model in anthropic_models:
-        return _anthropic_tools(model, messages, temperature, tools)
     else:
-        raise ValueError(MODEL_ERR_MSG.format(model=model))
+        lazy_load()
+        if model in openai_models:
+            return _openai_tools(model, messages, temperature, tools)
+        elif model in google_models:
+            return _google_tools(model, messages, temperature, tools)
+        elif model in anthropic_models:
+            return _anthropic_tools(model, messages, temperature, tools)
+        else:
+            raise ValueError(MODEL_ERR_MSG.format(model=model))
+
+
+def _llamapython(
+    model: Llama, # type: ignore
+    messages: list,
+    temperature: float,
+    structured: bool,
+):
+    transformed_messages = _prepare_llamacpp_messages(messages)
+
+    kwargs = {
+        "messages": transformed_messages,
+        "stream": False,
+        "temperature": temperature,
+        "max_tokens": -1,
+        "stop": ['<|im_start|>', '<|im_end|>', '[Inst]', '[/INST]', '<s>', '</s>'],
+    }
+
+    if structured:
+        kwargs["response_format"] = {"type": "json_object"}
+
+    response = model.create_chat_completion(**kwargs)
+
+    text = response['choices'][0]['message']['content']
+    return text
+
+def _llamapython_stream(
+    model: Llama, # type: ignore
+    messages: list,
+    temperature: float,
+    structured: bool,
+):
+    transformed_messages = _prepare_llamacpp_messages(messages)
+
+    kwargs = {
+        "messages": transformed_messages,
+        "stream": True,
+        "temperature": temperature,
+        "max_tokens": -1,
+        "stop": ['<|im_start|>', '<|im_end|>', '[Inst]', '[/INST]', '<s>', '</s>'],
+    }
+
+    if structured:
+        kwargs["response_format"] = {"type": "json_object"}
+
+    response = model.create_chat_completion(**kwargs)
+
+    next(response)
+    for chunk in response:
+        if chunk['choices'][0]['finish_reason'] is not None:
+            break
+        token = chunk['choices'][0]['delta']['content']
+        if not token:
+            break
+        yield token
+
+def _llamapython_tools(
+    model: Llama, # type: ignore
+    messages: list,
+    temperature: float,
+    tools: list[Callable],
+):
+    transformed_messages = _prepare_llamacpp_messages(messages)
+    transformed_tools = _prepare_openai_tools(tools) if tools else None
+
+    system_message = textwrap.dedent(f"""
+        You are a helpful assistant.
+        You have access to these tools:
+            {transformed_tools}
+
+        Always prefer a tool that can produce an answer if such a tool is available.
+
+        Otherwise try to answer it on your own to the best of your ability, i.e. just provide a
+        simple answer to the question, without elaborating.
+
+        Always create JSON output.
+        If the output requires a tool invocation, format the JSON in this way:
+            {{
+                "tool_name": "the_tool_name",
+                "arguments": {{ "arg1_name": arg1, "arg2_name": arg2, ... }}
+            }}
+        If the output does NOT require a tool invocation, format the JSON in this way:
+            {{
+                "tool_name": "",  # empty string for tool name
+                "result": response_to_the_query  # place the text response in a string here
+            }}
+    """).strip()
+
+    transformed_messages.insert(0, {"role": "system", "content": system_message})
+
+    kwargs = {
+        "messages": transformed_messages,
+        "stream": False,
+        "temperature": temperature,
+        "max_tokens": -1,
+        "stop": ['<|im_start|>', '<|im_end|>', '[Inst]', '[/INST]', '<s>', '</s>'],
+        "response_format": {
+            "type": "json_object",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {"type": "string"},
+                    "arguments": {"type": "object"},
+                    "result": {"type": "string"},
+                },
+                "required": ["tool_name"],
+            },
+        },
+    }
+
+    response = model.create_chat_completion(**kwargs)
+
+    j = json.loads(response['choices'][0]['message']['content'])
+
+    text = ''
+    tool = ''
+    args = {}
+
+    if 'tool_name' in j:
+        if j['tool_name'] and 'arguments' in j:
+            tool = j['tool_name']
+            args = j['arguments']
+        elif 'result' in j:
+            text = j['result']
+        else:
+            text = 'Did not produce a valid response.'
+    else:
+        text = 'Did not produce a valid response.'
+
+    return text, tool, args
 
 
 def _llamacpp(
