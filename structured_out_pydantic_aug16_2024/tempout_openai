@@ -1,0 +1,34 @@
+[Genome(name='Escherichia coli str. K-12 substr. MG1655', domain='Bacteria', phylum='Proteobacteria', num_contigs='1', contigs=[Contig(name='NC_000913', genome_name='Escherichia coli str. K-12 substr. MG1655')])]
+--------------------------------------------------
+[Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='+', location='2220207-2221922', protein='D-lactate dehydrogenase (EC 1.1.1.28)'), Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='-', location='1071394-1072089', protein='Peroxyureidoacrylate/ureidoacrylate amidohydrolase RutB (EC 3.5.1.110)'), Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='-', location='2695937-2696572', protein='Phosphatidylglycerophosphatase C (EC 3.1.3.27)'), Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='+', location='3613264-3614208', protein='Nickel ABC transporter, permease protein NikB (TC 3.A.1.5.3)'), Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='-', location='4297587-4299053', protein='Multidrug resistance outer membrane protein MdtP'), Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='-', location='4321359-4322375', protein='Phosphonate ABC transporter substrate-binding protein PhnD (TC 3.A.1.9.1)'), Feature(genome_name='Escherichia coli str. K-12 substr. MG1655', contig='NC_000913', strand='+', location='4178019-4178516', protein='LSU ribosomal protein L10p (P0)')]
+--------------------------------------------------
+
+
+Summary: The text provides detailed information about the genome Escherichia coli str. K-12 substr. MG1655, identified by 511145.12. It describes it as a reference genome with 4639675 base pairs, 1 contig, and is considered 'Good' quality. It belongs to the Bacteria domain and Proteobacteria phylum. Several features (proteins) are detailed, including D-lactate dehydrogenase, RutB, Phosphatidylglycerophosphatase C, NikB, MdtP, PhnD, and L10p. Each feature is associated with a protein product, location on the contig, strand orientation, and specific biological functions.
+--------------------------------------------------
+GENOMES LEN 1
+GENOME: name='Escherichia coli str. K-12 substr. MG1655' domain='Bacteria' phylum='Proteobacteria' num_contigs='1' contigs=[Contig(name='NC_000913', genome_name='Escherichia coli str. K-12 substr. MG1655')]
+--------------------------------------------------
+FEATURES LEN 7
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='+' location='2220207-2221922' protein='D-lactate dehydrogenase (EC 1.1.1.28)'
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='-' location='1071394-1072089' protein='Peroxyureidoacrylate/ureidoacrylate amidohydrolase RutB (EC 3.5.1.110)'
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='-' location='2695937-2696572' protein='Phosphatidylglycerophosphatase C (EC 3.1.3.27)'
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='+' location='3613264-3614208' protein='Nickel ABC transporter, permease protein NikB (TC 3.A.1.5.3)'
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='-' location='4297587-4299053' protein='Multidrug resistance outer membrane protein MdtP'
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='-' location='4321359-4322375' protein='Phosphonate ABC transporter substrate-binding protein PhnD (TC 3.A.1.9.1)'
+FEATURE: genome_name='Escherichia coli str. K-12 substr. MG1655' contig='NC_000913' strand='+' location='4178019-4178516' protein='LSU ribosomal protein L10p (P0)'
+--------------------------------------------------
+CONTIGS LEN 1
+CONTIG: name='NC_000913' genome_name='Escherichia coli str. K-12 substr. MG1655'
+--------------------------------------------------
+PROTEINS LEN 7
+PROTEIN: name='D-lactate dehydrogenase (EC 1.1.1.28)' product='D-lactate dehydrogenase' num_amino_acids='571'
+PROTEIN: name='Peroxyureidoacrylate/ureidoacrylate amidohydrolase RutB (EC 3.5.1.110)' product='Peroxyureidoacrylate/ureidoacrylate amidohydrolase RutB' num_amino_acids='231'
+PROTEIN: name='Phosphatidylglycerophosphatase C (EC 3.1.3.27)' product='Phosphatidylglycerophosphatase C' num_amino_acids='211'
+PROTEIN: name='Nickel ABC transporter, permease protein NikB (TC 3.A.1.5.3)' product='Nickel ABC transporter, permease protein NikB' num_amino_acids='314'
+PROTEIN: name='Multidrug resistance outer membrane protein MdtP' product='Multidrug resistance outer membrane protein MdtP' num_amino_acids='488'
+PROTEIN: name='Phosphonate ABC transporter substrate-binding protein PhnD (TC 3.A.1.9.1)' product='Phosphonate ABC transporter substrate-binding protein PhnD' num_amino_acids='338'
+PROTEIN: name='LSU ribosomal protein L10p (P0)' product='LSU ribosomal protein L10p' num_amino_acids='165'
+real 30.56
+user 0.57
+sys 0.10

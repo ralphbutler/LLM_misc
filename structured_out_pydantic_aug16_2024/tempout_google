@@ -1,0 +1,97 @@
+[{"flight_destination": "MOSCOW/SVO", "flight_time": "10:50"}, {"flight_destination": "EDINBURGH", "flight_time": "11:05"}, {"flight_destination": "LONDON/LHR", "flight_time": "11:05"}, {"flight_destination": "BUCHAREST/OTP", "flight_time": "11:10"}, {"flight_destination": "KIEV/BORISPOL", "flight_time": "11:30"}, {"flight_destination": "DUBLIN", "flight_time": "11:35"}, {"flight_destination": "EAST MIDLANDS", "flight_time": "11:45"}, {"flight_destination": "SOFIA", "flight_time": "12:15"}, {"flight_destination": "LONDON/LGW", "flight_time": "12:30"}, {"flight_destination": "NEWCASTLE", "flight_time": "12:30"}, {"flight_destination": "ST PETERSBURG", "flight_time": "12:40"}, {"flight_destination": "LONDON/LGW", "flight_time": "12:40"}, {"flight_destination": "MANCHESTER", "flight_time": "12:45"}] 
+--------------------------------------------------
+10:50 MOSCOW/SVO
+11:05 EDINBURGH
+11:05 LONDON/LHR
+11:10 BUCHAREST/OTP
+11:30 KIEV/BORISPOL
+11:35 DUBLIN
+11:45 EAST MIDLANDS
+12:15 SOFIA
+12:30 LONDON/LGW
+12:30 NEWCASTLE
+12:40 ST PETERSBURG
+12:40 LONDON/LGW
+12:45 MANCHESTER
+--------------------------------------------------
+{
+  "properties": {
+    "flight_time": {
+      "title": "Flight Time",
+      "type": "string"
+    },
+    "flight_destination": {
+      "title": "Flight Destination",
+      "type": "string"
+    }
+  },
+  "required": [
+    "flight_time",
+    "flight_destination"
+  ],
+  "title": "FlightInfo",
+  "type": "object"
+}
+--------------------------------------------------
+response:
+GenerateContentResponse(
+    done=True,
+    iterator=None,
+    result=protos.GenerateContentResponse({
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "[{\"flight_time\": \"10:50\", \"flight_destination\": \"MOSCOW/SVO\"}, {\"flight_time\": \"11:05\", \"flight_destination\": \"EDINBURGH\"}, {\"flight_time\": \"11:05\", \"flight_destination\": \"LONDON/LHR\"}, {\"flight_time\": \"11:10\", \"flight_destination\": \"BUCHAREST/OTP\"}, {\"flight_time\": \"11:10\", \"flight_destination\": \"KIEV/BORISPOL\"}, {\"flight_time\": \"11:35\", \"flight_destination\": \"DUBLIN\"}, {\"flight_time\": \"11:45\", \"flight_destination\": \"EAST MIDLANDS\"}, {\"flight_time\": \"12:15\", \"flight_destination\": \"SOFIA\"}, {\"flight_time\": \"12:30\", \"flight_destination\": \"LONDON/LGW\"}, {\"flight_time\": \"12:30\", \"flight_destination\": \"NEWCASTLE\"}, {\"flight_time\": \"12:40\", \"flight_destination\": \"ST PETERSBURG\"}, {\"flight_time\": \"12:40\", \"flight_destination\": \"LONDON/LGW\"}, {\"flight_time\": \"12:45\", \"flight_destination\": \"MANCHESTER\"}]\n"
+              }
+            ],
+            "role": "model"
+          },
+          "finish_reason": "STOP",
+          "index": 0,
+          "safety_ratings": [
+            {
+              "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HATE_SPEECH",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "probability": "NEGLIGIBLE"
+            },
+            {
+              "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+              "probability": "NEGLIGIBLE"
+            }
+          ]
+        }
+      ],
+      "usage_metadata": {
+        "prompt_token_count": 413,
+        "candidates_token_count": 296,
+        "total_token_count": 709
+      }
+    }),
+)
+--------------------------------------------------
+10:50 MOSCOW/SVO
+11:05 EDINBURGH
+11:05 LONDON/LHR
+11:10 BUCHAREST/OTP
+11:10 KIEV/BORISPOL
+11:35 DUBLIN
+11:45 EAST MIDLANDS
+12:15 SOFIA
+12:30 LONDON/LGW
+12:30 NEWCASTLE
+12:40 ST PETERSBURG
+12:40 LONDON/LGW
+12:45 MANCHESTER
+--------------------------------------------------
+real 10.97
+user 1.52
+sys 0.46
