@@ -1,6 +1,7 @@
 import os
 import textwrap
-import queryall
+import query_all
+from pydantic import BaseModel, Field
 
 IMAGE_PATH = "" # "/Users/rmbutler/Desktop/Gemini_Generated_Image.jpg"
 
@@ -11,16 +12,17 @@ LLAMA_PYTHON_MODEL = "" # "path/to/model.gguf"
 # Make sure llama_cpp is running: `python -m llama_cpp.server --model path/to/model.gguf`
 # I heavily suggest llama3.1 for good  JSON  &  function calling / tool usage
 # Llama3.1 found here: `https://huggingface.co/bullerwins/Meta-Llama-3.1-8B-Instruct-GGUF/tree/main`
-LLAMA_CPP_PORT = "" # "8000"
+LLAMA_PYTHON_SERVER_PORT = "" # "8000"
 
 # Make sure Ollama is running
 # I heavily suggest llama3.1 for good  JSON  &  function calling / tool usage
 # Llama3.1 found here: `ollama pull llama3.1`
 OLLAMA_MODEL = "" # "llama3.1"
 
-OPENAI_MODEL = "gpt-4o"
+OPENAI_MODEL = "gpt-4o-2024-08-06"
 
 # "gemini-1.5-pro" sometimes hits rate limits for free tier usage
+# "gemini-1.5-pro" is required and has been hardcoded for structured object use below
 GOOGLE_MODEL = "gemini-1.5-flash"
 
 ANTHROPIC_MODEL = "claude-3-5-sonnet-20240620"
@@ -37,10 +39,10 @@ if not LLAMA_PYTHON_MODEL:
     print("\033[38;5;197mllama-cpp-python tests will be skipped.\033[0m")
     print("\033[38;5;197mPlease update LLAMA_PYTHON_MODEL in this script to point to a .gguf file.\033[0m")
     print()
-if not LLAMA_CPP_PORT:
+if not LLAMA_PYTHON_SERVER_PORT:
     print("\033[38;5;197mNo llama.cpp port specified.\033[0m")
     print("\033[38;5;197mllama.cpp tests will be skipped.\033[0m")
-    print("\033[38;5;197mPlease update LLAMA_CPP_PORT in this script to point to a running llama_cpp_python server.\033[0m")
+    print("\033[38;5;197mPlease update LLAMA_PYTHON_SERVER_PORT in this script to point to a running llama_cpp_python server.\033[0m")
     print()
 if not OLLAMA_MODEL:
     print("\033[38;5;197mNo Ollama model specified.\033[0m")
@@ -87,7 +89,7 @@ image_messages = [
 ]
 
 
-# Example for structured output.
+# Example for json_object output.
 # Tests enforcement of JSON responses.
 json_messages = [
     {
@@ -103,6 +105,26 @@ json_messages = [
             """).strip()
     }
 ]
+
+
+
+class Flight(BaseModel):
+    departure_time: str = Field(description="The time the flight departs")
+    destination: str = Field(description="The destination of the flight")
+class FlightList(BaseModel):
+    flights: list[Flight] = Field(description="A list of known flight details")
+flight_list_schema = query_all.pydantic_to_schema(FlightList, indent=2)
+pydantic_messages = [
+    {
+        "role": "user",
+        "content": textwrap.dedent(f"""
+            Write a list of 2 to 5 random flight details.
+            Produce the result in JSON that matches this schema:
+            {flight_list_schema}
+            """).strip()
+    }
+]
+
 
 
 # Example for function calling / tool usage.
@@ -128,112 +150,128 @@ if LLAMA_PYTHON_MODEL:
         n_gpu_layers=-1,
         verbose=False,
     )
-    print('\033[38;5;197m======== LlamaCPP Python\033[0m')
+    print('\033[38;5;41m======== LlamaCPP Python\033[0m')
     print("\033[38;5;93m==== Testing plain text conversation: (Should tell a joke)\033[0m")
-    print(queryall.generate(llm, text_messages))
-    print("\033[38;5;93m\n==== Testing structured JSON output: (Should format: George, Washington, 1789-1797)\033[0m")
-    print(queryall.generate(llm, json_messages, structured=True))
+    print(query_all.generate(llm, text_messages))
+    print("\033[38;5;93m\n==== Testing JSON mode: (Should format: George, Washington, 1789-1797)\033[0m")
+    print(query_all.generate(llm, json_messages, json_object=True))
+    print("\033[38;5;93m\n==== Testing Structured Output mode: (Should list 2-5 random flight times and destinations)\033[0m")
+    output = query_all.generate(llm, json_messages, json_schema=FlightList)
+    print(output)
+    print(query_all.json_to_pydantic(output, FlightList))
     print("\033[38;5;93m\n==== Testing tool usage: (Should choose multiply_large_numbers, a=123456, b=654321)\033[0m")
-    print(queryall.generate_tools(llm, tool_message0, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(llm, tool_message0, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool: (Should respond 57)\033[0m")
-    print(queryall.generate_tools(llm, tool_message1, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(llm, tool_message1, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool or knowledge: (Should refuse to respond)\033[0m")
-    print(queryall.generate_tools(llm, tool_message2, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(llm, tool_message2, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing streaming: (Should tell a joke)\033[0m")
-    for chunk in queryall.generate_stream(llm, text_messages):
+    for chunk in query_all.generate_stream(llm, text_messages):
         print(chunk, end='', flush=True)
     print()
 
-if LLAMA_CPP_PORT:
-    print('\033[38;5;197m======== LlamaCPP\033[0m')
+if LLAMA_PYTHON_SERVER_PORT:
+    print('\033[38;5;41m======== LlamaCPP Python Server\033[0m')
     print("\033[38;5;93m==== Testing plain text conversation: (Should tell a joke)\033[0m")
-    print(queryall.generate(f"llamacpp/{LLAMA_CPP_PORT}", text_messages))
-    print("\033[38;5;93m\n==== Testing structured JSON output: (Should format: George, Washington, 1789-1797)\033[0m")
-    print(queryall.generate(f"llamacpp/{LLAMA_CPP_PORT}", json_messages, structured=True))
+    print(query_all.generate(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", text_messages))
+    print("\033[38;5;93m\n==== Testing JSON mode: (Should format: George, Washington, 1789-1797)\033[0m")
+    print(query_all.generate(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", json_messages, json_object=True))
+    print("\033[38;5;93m\n==== Testing Structured Output mode: (Should list 2-5 random flight times and destinations)\033[0m")
+    output = query_all.generate(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", json_messages, json_schema=FlightList)
+    print(output)
+    print(query_all.json_to_pydantic(output, FlightList))
     print("\033[38;5;93m\n==== Testing tool usage: (Should choose multiply_large_numbers, a=123456, b=654321)\033[0m")
-    print(queryall.generate_tools(f"llamacpp/{LLAMA_CPP_PORT}", tool_message0, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", tool_message0, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool: (Should respond 57)\033[0m")
-    print(queryall.generate_tools(f"llamacpp/{LLAMA_CPP_PORT}", tool_message1, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", tool_message1, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool or knowledge: (Should refuse to respond)\033[0m")
-    print(queryall.generate_tools(f"llamacpp/{LLAMA_CPP_PORT}", tool_message2, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", tool_message2, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing streaming: (Should tell a joke)\033[0m")
-    for chunk in queryall.generate_stream(f"llamacpp/{LLAMA_CPP_PORT}", text_messages):
+    for chunk in query_all.generate_stream(f"llamacpp/{LLAMA_PYTHON_SERVER_PORT}", text_messages):
         print(chunk, end='', flush=True)
     print()
 
 if OLLAMA_MODEL:
-    print('\n\033[38;5;197m======== Ollama\033[0m')
+    print('\n\033[38;5;41m======== Ollama\033[0m')
     print("\033[38;5;93m==== Testing plain text conversation: (Should tell a joke)\033[0m")
-    print(queryall.generate(f"ollama/{OLLAMA_MODEL}", text_messages))
-    print("\033[38;5;93m\n==== Testing structured JSON output: (Should format: George, Washington, 1789-1797)\033[0m")
-    print(queryall.generate(f"ollama/{OLLAMA_MODEL}", json_messages, structured=True))
+    print(query_all.generate(f"ollama/{OLLAMA_MODEL}", text_messages))
+    print("\033[38;5;93m\n==== Testing JSON mode: (Should format: George, Washington, 1789-1797)\033[0m")
+    print(query_all.generate(f"ollama/{OLLAMA_MODEL}", json_messages, json_object=True))
     print("\033[38;5;93m\n==== Testing tool usage: (Should choose multiply_large_numbers, a=123456, b=654321)\033[0m")
-    print(queryall.generate_tools(f"ollama/{OLLAMA_MODEL}", tool_message0, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(f"ollama/{OLLAMA_MODEL}", tool_message0, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool: (Should respond 57)\033[0m")
-    print(queryall.generate_tools(f"ollama/{OLLAMA_MODEL}", tool_message1, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(f"ollama/{OLLAMA_MODEL}", tool_message1, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool or knowledge: (Should refuse to respond)\033[0m")
-    print(queryall.generate_tools(f"ollama/{OLLAMA_MODEL}", tool_message2, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(f"ollama/{OLLAMA_MODEL}", tool_message2, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing streaming: (Should tell a joke)\033[0m")
-    for chunk in queryall.generate_stream(f"ollama/{OLLAMA_MODEL}", text_messages):
+    for chunk in query_all.generate_stream(f"ollama/{OLLAMA_MODEL}", text_messages):
         print(chunk, end='', flush=True)
     print()
 
 if OPENAI_MODEL:
-    print('\n\033[38;5;197m======== OpenAI\033[0m')
+    print('\n\033[38;5;41m======== OpenAI\033[0m')
     print("\033[38;5;93m==== Testing plain text conversation: (Should tell a joke)\033[0m")
-    print(queryall.generate(OPENAI_MODEL, text_messages))
+    print(query_all.generate(OPENAI_MODEL, text_messages))
     if image_exists:
         print("\033[38;5;93m\n==== Testing multi-modal image input: (Should describe your image)\033[0m")
-        print(queryall.generate(OPENAI_MODEL, image_messages))
-    print("\033[38;5;93m\n==== Testing structured JSON output: (Should format: George, Washington, 1789-1797)\033[0m")
-    print(queryall.generate(OPENAI_MODEL, json_messages, structured=True))
+        print(query_all.generate(OPENAI_MODEL, image_messages))
+    print("\033[38;5;93m\n==== Testing JSON mode: (Should format: George, Washington, 1789-1797)\033[0m")
+    print(query_all.generate(OPENAI_MODEL, json_messages, json_object=True))
+    print("\033[38;5;93m\n==== Testing Structured Output mode: (Should list 2-5 random flight times and destinations)\033[0m")
+    output = query_all.generate(OPENAI_MODEL, json_messages, json_schema=FlightList)
+    print(output)
+    print(query_all.json_to_pydantic(output, FlightList))
     print("\033[38;5;93m\n==== Testing tool usage: (Should choose multiply_large_numbers, a=123456, b=654321)\033[0m")
-    print(queryall.generate_tools(OPENAI_MODEL, tool_message0, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(OPENAI_MODEL, tool_message0, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool: (Should respond 57)\033[0m")
-    print(queryall.generate_tools(OPENAI_MODEL, tool_message1, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(OPENAI_MODEL, tool_message1, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool or knowledge: (Should refuse to respond)\033[0m")
-    print(queryall.generate_tools(OPENAI_MODEL, tool_message2, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(OPENAI_MODEL, tool_message2, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing streaming: (Should tell a joke)\033[0m")
-    for chunk in queryall.generate_stream(OPENAI_MODEL, text_messages):
+    for chunk in query_all.generate_stream(OPENAI_MODEL, text_messages):
         print(chunk, end='', flush=True)
     print()
 
 if GOOGLE_MODEL:
-    print('\n\033[38;5;197m======== Google\033[0m')
+    print('\n\033[38;5;41m======== Google\033[0m')
     print("\033[38;5;93m==== Testing plain text conversation: (Should tell a joke)\033[0m")
-    print(queryall.generate(GOOGLE_MODEL, text_messages))
+    print(query_all.generate(GOOGLE_MODEL, text_messages))
     if image_exists:
         print("\033[38;5;93m\n==== Testing multi-modal image input: (Should describe your image)\033[0m")
-        print(queryall.generate(GOOGLE_MODEL, image_messages))
-    print("\033[38;5;93m\n==== Testing structured JSON output: (Should format: George, Washington, 1789-1797)\033[0m")
-    print(queryall.generate(GOOGLE_MODEL, json_messages, structured=True))
+        print(query_all.generate(GOOGLE_MODEL, image_messages))
+    print("\033[38;5;93m\n==== Testing JSON mode: (Should format: George, Washington, 1789-1797)\033[0m")
+    print(query_all.generate(GOOGLE_MODEL, json_messages, json_object=True))
+    print("\033[38;5;93m\n==== Testing Structured Output mode: (Should list 2-5 random flight times and destinations)\033[0m")
+    output = query_all.generate("gemini-1.5-pro", json_messages, json_schema=FlightList)
+    print(output)
+    print(query_all.json_to_pydantic(output, FlightList))
     print("\033[38;5;93m\n==== Testing tool usage: (Should choose multiply_large_numbers, a=123456, b=654321)\033[0m")
-    print(queryall.generate_tools(GOOGLE_MODEL, tool_message0, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(GOOGLE_MODEL, tool_message0, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool: (Should respond 57)\033[0m")
-    print(queryall.generate_tools(GOOGLE_MODEL, tool_message1, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(GOOGLE_MODEL, tool_message1, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool or knowledge: (Should refuse to respond)\033[0m")
-    print(queryall.generate_tools(GOOGLE_MODEL, tool_message2, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(GOOGLE_MODEL, tool_message2, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing streaming: (Should tell a joke)\033[0m")
-    for chunk in queryall.generate_stream(GOOGLE_MODEL, text_messages):
+    for chunk in query_all.generate_stream(GOOGLE_MODEL, text_messages):
         print(chunk, end='', flush=True)
     print()
 
 if ANTHROPIC_MODEL:
-    print('\n\033[38;5;197m======== Anthropic\033[0m')
+    print('\n\033[38;5;41m======== Anthropic\033[0m')
     print("\033[38;5;93m==== Testing plain text conversation: (Should tell a joke)\033[0m")
-    print(queryall.generate(ANTHROPIC_MODEL, text_messages))
+    print(query_all.generate(ANTHROPIC_MODEL, text_messages))
     if image_exists:
         print("\033[38;5;93m\n==== Testing multi-modal image input: (Should describe your image)\033[0m")
-        print(queryall.generate(ANTHROPIC_MODEL, image_messages))
-    print("\033[38;5;93m\n==== Testing structured JSON output: (Should format: George, Washington, 1789-1797)\033[0m")
-    print(queryall.generate(ANTHROPIC_MODEL, json_messages, structured=True))
+        print(query_all.generate(ANTHROPIC_MODEL, image_messages))
+    print("\033[38;5;93m\n==== Testing JSON mode: (Should format: George, Washington, 1789-1797)\033[0m")
+    print(query_all.generate(ANTHROPIC_MODEL, json_messages, json_object=True))
     print("\033[38;5;93m\n==== Testing tool usage: (Should choose multiply_large_numbers, a=123456, b=654321)\033[0m")
-    print(queryall.generate_tools(ANTHROPIC_MODEL, tool_message0, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(ANTHROPIC_MODEL, tool_message0, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool: (Should respond 57)\033[0m")
-    print(queryall.generate_tools(ANTHROPIC_MODEL, tool_message1, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(ANTHROPIC_MODEL, tool_message1, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing tool usage with no relevant tool or knowledge: (Should refuse to respond)\033[0m")
-    print(queryall.generate_tools(ANTHROPIC_MODEL, tool_message2, tools=[multiply_large_numbers]))
+    print(query_all.generate_tools(ANTHROPIC_MODEL, tool_message2, tools=[multiply_large_numbers]))
     print("\033[38;5;93m\n==== Testing streaming: (Should tell a joke)\033[0m")
-    for chunk in queryall.generate_stream(ANTHROPIC_MODEL, text_messages):
+    for chunk in query_all.generate_stream(ANTHROPIC_MODEL, text_messages):
         print(chunk, end='', flush=True)
     print()

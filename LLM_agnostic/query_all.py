@@ -1,12 +1,16 @@
+import backoff
 import base64
 import json
 import os
 import textwrap
+import time
 from typing import Callable, Generator
+from pydantic import BaseModel
 
 
 try:
-    from llama_cpp import Llama
+    from llama_cpp import Llama, LlamaGrammar
+    from llama_cpp.llama_grammar import json_schema_to_gbnf
     llamapython_import = True
 except ImportError:
     llamapython_import = False
@@ -20,6 +24,8 @@ except ImportError:
 
 try:
     import google.generativeai as genai
+    from google.generativeai.types import HarmCategory, HarmBlockThreshold
+    from google.api_core.exceptions import ResourceExhausted as GoogleResourceExhausted
     google_import = True
 except ImportError:
     google_import = False
@@ -78,7 +84,6 @@ def lazy_load():
 
     lazy_loaded = True
 
-
 MODEL_ERR_MSG = "Unsupported model: {model}"
 if not all((llamapython_import, openai_import, google_import, anthropic_import)):
     missing = []
@@ -102,31 +107,30 @@ if any((openai_import and (openai_key is False), google_import and (google_key i
     MODEL_ERR_MSG += ". Missing API keys: " + ", ".join(missing) + "."
 
 
-def models():
-    lazy_load()
-    return openai_models + google_models + anthropic_models
-
-
 def generate(
     model: str|Llama, # type: ignore
     messages: list,
     temperature: float = 0.0,
-    structured: bool = False,
+    json_object: bool = False,
+    json_schema: BaseModel|None = None,
 ) -> str:
+    if json_object and json_schema:
+        raise ValueError("generate() cannot simultaneously support JSON mode (json_object) and Structured Object mode (json_schema)")
+
     if llamapython_import and isinstance(model, Llama):
-        return _llamapython(model, messages, temperature, structured)
+        return _llamapython(model, messages, temperature, json_object, json_schema)
     elif model.startswith('llamacpp/'):
-        return _llamacpp(model, messages, temperature, structured)
+        return _llamacpp(model, messages, temperature, json_object, json_schema)
     elif model.startswith('ollama/'):
-        return _ollama(model, messages, temperature, structured)
+        return _ollama(model, messages, temperature, json_object, json_schema)
     else:
         lazy_load()
         if model in openai_models:
-            return _openai(model, messages, temperature, structured)
+            return _openai(model, messages, temperature, json_object, json_schema)
         elif model in google_models:
-            return _google(model, messages, temperature, structured)
+            return _google(model, messages, temperature, json_object, json_schema)
         elif model in anthropic_models:
-            return _anthropic(model, messages, temperature, structured)
+            return _anthropic(model, messages, temperature, json_object, json_schema)
         else:
             raise ValueError(MODEL_ERR_MSG.format(model=model))
 
@@ -134,22 +138,26 @@ def generate_stream(
     model: str|Llama, # type: ignore
     messages: list,
     temperature: float = 0.0,
-    structured: bool = False,
+    json_object: bool = False,
+    json_schema: BaseModel|None = None,
 ) -> Generator[str, None, None]:
+    if json_object and json_schema:
+        raise ValueError("generate_stream() cannot simultaneously support JSON mode (json_object) and Structured Object mode (json_schema)")
+
     if llamapython_import and isinstance(model, Llama):
-        return _llamapython_stream(model, messages, temperature, structured)
+        return _llamapython_stream(model, messages, temperature, json_object, json_schema)
     elif model.startswith('llamacpp/'):
-        return _llamacpp_stream(model, messages, temperature, structured)
+        return _llamacpp_stream(model, messages, temperature, json_object, json_schema)
     elif model.startswith('ollama/'):
-        return _ollama_stream(model, messages, temperature, structured)
+        return _ollama_stream(model, messages, temperature, json_object, json_schema)
     else:
         lazy_load()
         if model in openai_models:
-            return _openai_stream(model, messages, temperature, structured)
+            return _openai_stream(model, messages, temperature, json_object, json_schema)
         elif model in google_models:
-            return _google_stream(model, messages, temperature, structured)
+            return _google_stream(model, messages, temperature, json_object, json_schema)
         elif model in anthropic_models:
-            return _anthropic_stream(model, messages, temperature, structured)
+            return _anthropic_stream(model, messages, temperature, json_object, json_schema)
         else:
             raise ValueError(MODEL_ERR_MSG.format(model=model))
 
@@ -176,12 +184,27 @@ def generate_tools(
         else:
             raise ValueError(MODEL_ERR_MSG.format(model=model))
 
+def pydantic_to_schema(json_schema: BaseModel, indent: int|str|None = None) -> str:
+    return json.dumps(json_schema.model_json_schema(), indent=indent)
+
+def json_to_pydantic(json_response: str, pydantic_model: type[BaseModel]) -> BaseModel:
+    try:
+        data = json.loads(json_response)
+        instance = pydantic_model(**data)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON string: {e}")
+    except ValueError as e:
+        raise ValueError(f"Error creating Pydantic model: {e}")
+
+    return instance
+
 
 def _llamapython(
     model: Llama, # type: ignore
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_llamacpp_messages(messages)
 
@@ -190,11 +213,14 @@ def _llamapython(
         "stream": False,
         "temperature": temperature,
         "max_tokens": -1,
-        "stop": ['<|im_start|>', '<|im_end|>', '[Inst]', '[/INST]', '<s>', '</s>'],
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        schema = pydantic_to_schema(json_schema)
+        grammar = LlamaGrammar.from_json_schema(schema, verbose=False)
+        kwargs["grammar"] = grammar
 
     response = model.create_chat_completion(**kwargs)
 
@@ -205,7 +231,8 @@ def _llamapython_stream(
     model: Llama, # type: ignore
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_llamacpp_messages(messages)
 
@@ -214,11 +241,14 @@ def _llamapython_stream(
         "stream": True,
         "temperature": temperature,
         "max_tokens": -1,
-        "stop": ['<|im_start|>', '<|im_end|>', '[Inst]', '[/INST]', '<s>', '</s>'],
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        schema = pydantic_to_schema(json_schema)
+        grammar = LlamaGrammar.from_json_schema(schema, verbose=False)
+        kwargs["grammar"] = grammar
 
     response = model.create_chat_completion(**kwargs)
 
@@ -270,7 +300,6 @@ def _llamapython_tools(
         "stream": False,
         "temperature": temperature,
         "max_tokens": -1,
-        "stop": ['<|im_start|>', '<|im_end|>', '[Inst]', '[/INST]', '<s>', '</s>'],
         "response_format": {
             "type": "json_object",
             "schema": {
@@ -311,7 +340,8 @@ def _llamacpp(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_llamacpp_messages(messages)
 
@@ -322,8 +352,12 @@ def _llamacpp(
         "temperature": temperature,
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        schema = pydantic_to_schema(json_schema)
+        gbnf = json_schema_to_gbnf(schema)
+        kwargs["extra_body"] = {"grammar": gbnf}
 
     client = OpenAI(
         base_url=f'http://localhost:{model[9:]}/v1',
@@ -338,7 +372,8 @@ def _llamacpp_stream(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_llamacpp_messages(messages)
 
@@ -349,8 +384,12 @@ def _llamacpp_stream(
         "temperature": temperature,
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        schema = pydantic_to_schema(json_schema)
+        gbnf = json_schema_to_gbnf(schema)
+        kwargs["extra_body"] = {"grammar": gbnf}
 
     client = OpenAI(
         base_url=f'http://localhost:{model[9:]}/v1',
@@ -434,7 +473,8 @@ def _ollama(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_ollama_messages(messages)
 
@@ -445,8 +485,10 @@ def _ollama(
         "temperature": temperature,
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        raise NotImplementedError("Ollama does not support Structured Output")
 
     client = OpenAI(
         base_url='http://localhost:11434/v1',
@@ -461,7 +503,8 @@ def _ollama_stream(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_ollama_messages(messages)
 
@@ -472,8 +515,10 @@ def _ollama_stream(
         "temperature": temperature,
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        raise NotImplementedError("Ollama does not support Structured Output")
 
     client = OpenAI(
         base_url='http://localhost:11434/v1',
@@ -557,31 +602,43 @@ def _openai(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_openai_messages(messages)
 
     kwargs = {
         "model": model,
         "messages": transformed_messages,
-        "stream": False,
         "max_tokens": 4096,
         "temperature": temperature,
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        kwargs["response_format"] = json_schema
 
-    response = openai_client.chat.completions.create(**kwargs)
+    if json_schema:
+        response = openai_client.beta.chat.completions.parse(**kwargs)
+        if (response.choices[0].message.refusal):
+            text = response.choices[0].message.refusal
+        else:
+            # Auto-generated Pydantic object here:
+            #     response.choices[0].message.parsed
+            text = response.choices[0].message.content
+    else:
+        response = openai_client.chat.completions.create(**kwargs)
+        text = response.choices[0].message.content
 
-    text = response.choices[0].message.content
     return text
 
 def _openai_stream(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     transformed_messages = _prepare_openai_messages(messages)
 
@@ -593,14 +650,28 @@ def _openai_stream(
         "temperature": temperature,
     }
 
-    if structured:
+    if json_object:
         kwargs["response_format"] = {"type": "json_object"}
+    if json_schema:
+        # Structured Object mode doesn't currently support streaming
+        kwargs.pop('stream')
+        kwargs["response_format"] = json_schema
 
-    response = openai_client.chat.completions.create(**kwargs)
-
-    for chunk in response:
-        if chunk.choices[0].delta.content:
-            yield chunk.choices[0].delta.content
+    if json_schema:
+        response = openai_client.beta.chat.completions.parse(**kwargs)
+        if (response.choices[0].message.refusal):
+            text = response.choices[0].message.refusal
+        else:
+            # Auto-generated Pydantic object here:
+            #     response.choices[0].message.parsed
+            text = response.choices[0].message.content
+        yield text
+    else:
+        response = openai_client.chat.completions.create(**kwargs)
+        for chunk in response:
+            text = chunk.choices[0].delta.content
+            if text:
+                yield text
 
 def _openai_tools(
     model: str,
@@ -639,11 +710,18 @@ def _openai_tools(
     return text, tool, args
 
 
+@backoff.on_exception(
+    backoff.constant,
+    GoogleResourceExhausted,
+    interval=60,
+    max_tries=4,
+)
 def _google(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     system_message = _prepare_google_system_message(messages)
     transformed_messages = _prepare_google_messages(messages)
@@ -651,25 +729,47 @@ def _google(
     generation_config = {
         "temperature": temperature,
         "max_output_tokens": 8192,
-        "response_mime_type": "application/json" if structured else "text/plain"
     }
+
+    if json_object or json_schema:
+        generation_config["response_mime_type"] = "application/json"
+    else:
+        generation_config["response_mime_type"] = "text/plain"
+
+    if json_schema:
+        generation_config["response_schema"] = json_schema
+
     gemini_model = genai.GenerativeModel(
         model_name=model,
         system_instruction=system_message,
         generation_config=generation_config,
     )
+
     response = gemini_model.generate_content(
         transformed_messages,
         stream=False,
+        safety_settings={
+            HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+        }
     )
 
     return response.text
 
+@backoff.on_exception(
+    backoff.constant,
+    GoogleResourceExhausted,
+    interval=60,
+    max_tries=4,
+)
 def _google_stream(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     system_message = _prepare_google_system_message(messages)
     transformed_messages = _prepare_google_messages(messages)
@@ -677,16 +777,31 @@ def _google_stream(
     generation_config = {
         "temperature": temperature,
         "max_output_tokens": 8192,
-        "response_mime_type": "application/json" if structured else "text/plain"
     }
+
+    if json_object or json_schema:
+        generation_config["response_mime_type"] = "application/json"
+    else:
+        generation_config["response_mime_type"] = "text/plain"
+
+    if json_schema:
+        generation_config["response_schema"] = json_schema
+
     gemini_model = genai.GenerativeModel(
         model_name=model,
         system_instruction=system_message,
         generation_config=generation_config,
     )
+
     response = gemini_model.generate_content(
         transformed_messages,
         stream=True,
+        safety_settings={
+            HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+        }
     )
 
     for chunk in response:
@@ -720,11 +835,31 @@ def _google_tools(
         generation_config=generation_config,
         tools=tools,
     )
-    response = gemini_model.generate_content(
-        transformed_messages,
-        stream=False,
-        tool_config={"function_calling_config": "AUTO"},
-    )
+    try:
+        response = gemini_model.generate_content(
+            transformed_messages,
+            stream=False,
+            tool_config={"function_calling_config": "AUTO"},
+            safety_settings={
+                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+            }
+        )
+    except GoogleResourceExhausted:
+        time.sleep(60)
+        response = gemini_model.generate_content(
+            transformed_messages,
+            stream=False,
+            tool_config={"function_calling_config": "AUTO"},
+            safety_settings={
+                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+            }
+        )
 
     text = ''
     tool = ''
@@ -746,7 +881,8 @@ def _anthropic(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     system_message = _prepare_anthropic_system_message(messages)
     transformed_messages = _prepare_anthropic_messages(messages)
@@ -761,18 +897,20 @@ def _anthropic(
     if system_message:
         kwargs["system"] = system_message
 
-    if structured:
+    if json_object:
         transformed_messages.append(
             {
                 "role": "assistant",
                 "content": "Here is the JSON requested:\n{"
             }
         )
+    if json_schema:
+        raise NotImplementedError("Anthropic does not support Structured Output")
 
     response = anthropic_client.messages.create(**kwargs)
 
     text = response.content[0].text
-    if structured:
+    if json_object:
         text = '{' + text[:text.rfind("}") + 1]
 
     return text
@@ -781,7 +919,8 @@ def _anthropic_stream(
     model: str,
     messages: list,
     temperature: float,
-    structured: bool,
+    json_object: bool,
+    json_schema: BaseModel|None,
 ):
     system_message = _prepare_anthropic_system_message(messages)
     transformed_messages = _prepare_anthropic_messages(messages)
@@ -796,7 +935,7 @@ def _anthropic_stream(
     if system_message:
         kwargs["system"] = system_message
 
-    if structured:
+    if json_object:
         transformed_messages.append(
             {
                 "role": "assistant",
@@ -804,6 +943,8 @@ def _anthropic_stream(
             }
         )
         yield '{'
+    if json_schema:
+        raise NotImplementedError("Anthropic does not support Structured Output")
 
     with anthropic_client.messages.stream(**kwargs) as stream:
         for text in stream.text_stream:
@@ -1026,3 +1167,19 @@ def _prepare_anthropic_tools(tools: list[Callable]):
 def _load_image(image_path):
     with open(image_path, "rb") as image_file:
         return image_file.read()
+
+if __name__ == '__main__':
+    lazy_load()
+    print('OpenAI:')
+    for model in openai_models:
+        print(' ', model)
+    print()
+
+    print('Google:')
+    for model in google_models:
+        print(' ', model)
+    print()
+
+    print('Anthropic:')
+    for model in anthropic_models:
+        print(' ', model)
