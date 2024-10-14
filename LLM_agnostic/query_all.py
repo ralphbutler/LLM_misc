@@ -2,11 +2,11 @@ import backoff
 import base64
 import json
 import os
+import requests
 import textwrap
 import time
 from typing import Callable, Generator
 from pydantic import BaseModel
-
 
 try:
     from llama_cpp import Llama, LlamaGrammar
@@ -15,6 +15,8 @@ try:
 except ImportError:
     llamapython_import = False
     Llama = None
+
+import ollama
 
 try:
     from openai import OpenAI
@@ -120,9 +122,11 @@ def generate(
     if llamapython_import and isinstance(model, Llama):
         return _llamapython(model, messages, temperature, json_object, json_schema)
     elif model.startswith('llamacpp/'):
-        return _llamacpp(model, messages, temperature, json_object, json_schema)
+        return _llamacpp(model[9:], messages, temperature, json_object, json_schema)
     elif model.startswith('ollama/'):
-        return _ollama(model, messages, temperature, json_object, json_schema)
+        return _ollama(model[7:], messages, temperature, json_object, json_schema)
+    elif model.startswith('argo/'):
+        return _argo(model[5:], messages, temperature, json_object, json_schema)
     else:
         lazy_load()
         if model in openai_models:
@@ -147,9 +151,9 @@ def generate_stream(
     if llamapython_import and isinstance(model, Llama):
         return _llamapython_stream(model, messages, temperature, json_object, json_schema)
     elif model.startswith('llamacpp/'):
-        return _llamacpp_stream(model, messages, temperature, json_object, json_schema)
+        return _llamacpp_stream(model[9:], messages, temperature, json_object, json_schema)
     elif model.startswith('ollama/'):
-        return _ollama_stream(model, messages, temperature, json_object, json_schema)
+        return _ollama_stream(model[7:], messages, temperature, json_object, json_schema)
     else:
         lazy_load()
         if model in openai_models:
@@ -257,8 +261,8 @@ def _llamapython_stream(
         if chunk['choices'][0]['finish_reason'] is not None:
             break
         token = chunk['choices'][0]['delta']['content']
-        if not token:
-            break
+        # if not token:
+        #     break
         yield token
 
 def _llamapython_tools(
@@ -346,7 +350,7 @@ def _llamacpp(
     transformed_messages = _prepare_llamacpp_messages(messages)
 
     kwargs = {
-        "model": model[9:],
+        "model": model,
         "messages": transformed_messages,
         "stream": False,
         "temperature": temperature,
@@ -359,8 +363,13 @@ def _llamacpp(
         gbnf = json_schema_to_gbnf(schema)
         kwargs["extra_body"] = {"grammar": gbnf}
 
+    if ':' in model:
+        base_url = f'http://{model}/v1'
+    else:
+        base_url = f'http://localhost:{model}/v1'
+
     client = OpenAI(
-        base_url=f'http://localhost:{model[9:]}/v1',
+        base_url=base_url,
         api_key='-',
     )
     response = client.chat.completions.create(**kwargs)
@@ -378,7 +387,7 @@ def _llamacpp_stream(
     transformed_messages = _prepare_llamacpp_messages(messages)
 
     kwargs = {
-        "model": model[9:],
+        "model": model,
         "messages": transformed_messages,
         "stream": True,
         "temperature": temperature,
@@ -391,8 +400,13 @@ def _llamacpp_stream(
         gbnf = json_schema_to_gbnf(schema)
         kwargs["extra_body"] = {"grammar": gbnf}
 
+    if ':' in model:
+        base_url = f'http://{model}/v1'
+    else:
+        base_url = f'http://localhost:{model}/v1'
+
     client = OpenAI(
-        base_url=f'http://localhost:{model[9:]}/v1',
+        base_url=base_url,
         api_key='-',
     )
     response = client.chat.completions.create(**kwargs)
@@ -436,15 +450,20 @@ def _llamacpp_tools(
     transformed_messages.insert(0, {"role": "system", "content": system_message})
 
     kwargs = {
-        "model": model[9:],
+        "model": model,
         "messages": transformed_messages,
         "stream": False,
         "temperature": temperature,
         "response_format": {"type": "json_object"},
     }
 
+    if ':' in model:
+        base_url = f'http://{model}/v1'
+    else:
+        base_url = f'http://localhost:{model}/v1'
+
     client = OpenAI(
-        base_url=f'http://localhost:{model[9:]}/v1',
+        base_url=base_url,
         api_key='-',
     )
     response = client.chat.completions.create(**kwargs)
@@ -479,7 +498,7 @@ def _ollama(
     transformed_messages = _prepare_ollama_messages(messages)
 
     kwargs = {
-        "model": model[7:],
+        "model": model,
         "messages": transformed_messages,
         "stream": False,
         "temperature": temperature,
@@ -509,7 +528,7 @@ def _ollama_stream(
     transformed_messages = _prepare_ollama_messages(messages)
 
     kwargs = {
-        "model": model[7:],
+        "model": model,
         "messages": transformed_messages,
         "stream": True,
         "temperature": temperature,
@@ -565,7 +584,7 @@ def _ollama_tools(
     transformed_messages.insert(0, {"role": "system", "content": system_message})
 
     kwargs = {
-        "model": model[7:],
+        "model": model,
         "messages": transformed_messages,
         "stream": False,
         "temperature": temperature,
@@ -596,6 +615,69 @@ def _ollama_tools(
         text = 'Did not produce a valid response.'
 
     return text, tool, args
+
+
+# NEW
+def _ollama(
+    model: str,
+    messages: list,
+    temperature: float,
+    json_object: bool,
+    json_schema: BaseModel|None,
+):
+    transformed_messages = _prepare_ollama_messages(messages)
+
+    kwargs = {
+        "model": model,
+        "messages": transformed_messages,
+        "stream": False,
+        "options": {
+            "temperature": temperature,
+            "num_ctx": 2048,
+        }
+    }
+
+    if json_object:
+        kwargs["format"] = "json"
+    if json_schema:
+        raise NotImplementedError("Ollama does not support Structured Output")
+
+    response = ollama.chat(**kwargs)
+
+    text = response.message.content
+    return text
+
+def _ollama_stream(
+    model: str,
+    messages: list,
+    temperature: float,
+    json_object: bool,
+    json_schema: BaseModel|None,
+):
+    transformed_messages = _prepare_ollama_messages(messages)
+
+    kwargs = {
+        "model": model,
+        "messages": transformed_messages,
+        "stream": True,
+        "options": {
+            "temperature": temperature,
+            "num_ctx": 2048,
+        }
+    }
+
+    if json_object:
+        kwargs["format"] = "json"
+    if json_schema:
+        raise NotImplementedError("Ollama does not support Structured Output")
+
+    response = ollama.chat(**kwargs)
+
+    for chunk in response:
+        if chunk['message']['content']:
+            yield chunk['message']['content']
+
+# https://github.com/ollama/ollama/blob/main/docs/api.md#parameters-1
 
 
 def _openai(
@@ -987,6 +1069,40 @@ def _anthropic_tools(
     return text, tool, args
 
 
+def _argo(
+    model: str,
+    messages: list,
+    temperature: float,
+    json_object: bool,
+    json_schema: BaseModel|None,
+):
+    system_message = _prepare_argo_system_message(messages)
+    transformed_messages = _prepare_argo_messages(messages)
+
+    kwargs = {
+        "url": "https://apps-dev.inside.anl.gov/argoapi/api/v1/resource/chat/",
+        "headers": {"Content-Type": "application/json"},
+        "data": {
+            "user": "cels",
+            "model": model,
+            "system": system_message,
+            "prompt": [transformed_messages],
+            "temperature": temperature,
+            "top_p": 0.7,
+            "stop": [],
+        },
+    }
+
+    kwargs["data"] = json.dumps(kwargs["data"])
+
+    response = requests.post(**kwargs)
+    text = json.loads(response.text)['response']
+    if text.startswith('<assistant_message>') and text.endswith('</assistant_message>'):
+        text = text[19:-20]
+
+    return text
+
+
 def _prepare_llamacpp_messages(messages):
     messages_out = []
 
@@ -1163,6 +1279,24 @@ def _prepare_anthropic_tools(tools: list[Callable]):
 
     return anthropic_tools
 
+def _prepare_argo_messages(messages):
+    prompt = []
+    for message in messages:
+       role = message['role']
+       content = message['content']
+       prompt.append(f"<{role}_message>{content}</{role}_message>")
+    prompt = ''.join(prompt)
+
+    return prompt
+
+def _prepare_argo_system_message(messages):
+    system_message = 'You are a helpful assistant.'
+
+    for message in messages:
+        if message['role'] == 'system':
+            system_message = message['content']
+
+    return system_message
 
 def _load_image(image_path):
     with open(image_path, "rb") as image_file:
@@ -1170,6 +1304,7 @@ def _load_image(image_path):
 
 if __name__ == '__main__':
     lazy_load()
+
     print('OpenAI:')
     for model in openai_models:
         print(' ', model)
