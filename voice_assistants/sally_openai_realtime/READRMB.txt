@@ -1,0 +1,15 @@
+
+* query stock price (stock price for apple)
+
+* plotly chart (stock price of apple and nvidia for past month)
+
+* internet search (weather in Paris tomorrow)
+
+* create_python_file 
+    (create a python file named foo.py which contains a program to generate 5 random integers and print them)
+
+* execute_python_file (execute python file "foo.py")  # note the " quotes
+
+* open_browser (open firefox to url bv-brc.org)  (open firefox to url http://www.bv-brc.org)
+
+describe_image
