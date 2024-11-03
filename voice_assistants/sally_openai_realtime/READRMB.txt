@@ -1,15 +1,16 @@
 
-* query stock price (stock price for apple)
+queries demo'd:
 
-* plotly chart (stock price of apple and nvidia for past month)
+    - what is the current stock price for apple
 
-* internet search (weather in Paris tomorrow)
+    - make a chart of the stock price of apple and nvidia for past month
 
-* create_python_file 
-    (create a python file named foo.py which contains a program to generate 5 random integers and print them)
+    - what is the weather in Paris tomorrow
 
-* execute_python_file (execute python file "foo.py")  # note the " quotes
+    - create a python file named foo.py which contains a program to generate 5 random integers and print them
 
-* open_browser (open firefox to url bv-brc.org)  (open firefox to url http://www.bv-brc.org)
+    - execute the python file "foo.py"
 
-describe_image
+    - open firefox to url bv-brc.org  # may type this one also
+
+    - tell where the blue circle is in the image (board.jpg) # upload the image
