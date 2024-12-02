@@ -1,0 +1,6 @@
+gpt-4o  2.50  10.00
+gpt-4o-mini  0.15  0.60
+gemini-1.5-pro-002  1.25  5.00
+gemini-1.5-flash-002  0.075  0.30
+claude-3-5-sonnet-20241022  3.00  15.00
+claude-3-5-haiku-latest  1.00  5.00
