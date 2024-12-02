@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-LLM Tests</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            cursor: move;
+            user-select: none;
+        }
+        th.dragging {
+            opacity: 0.5;
+            background-color: #e0e0e0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .thumb-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        .success-row {
+            background-color: #e8f5e9;
+        }
+        .run-button {
+            margin: 10px 0;
+            padding: 5px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 50px;
+        }
+        .run-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .action-button {
+            padding: 5px 15px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .save-button {
+            background-color: #2196F3;
+            margin-left: 20px;
+        }
+        .input-section {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 50%;
+            min-height: 4em;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // console.log("MODELS"); console.log(models);
+        function generateRandomBenchmarkData(model) {
+            return {
+                model: model,
+                correct: (Math.random() * 100).toFixed(1) + '%',
+                completion: (Math.random() * 0.9 + 0.1).toFixed(3),
+                execTime: (Math.random() * 1000 + 100).toFixed(0),
+                totalTime: parseFloat((Math.random() * 2000 + 500).toFixed(0)),
+                execCost: (Math.random() * 0.1).toFixed(6),
+                totalCost: (Math.random() * 0.2).toFixed(6),
+            };
+        }
+
+        function BenchmarkTable() {
+            const [benchmarks, setBenchmarks] = React.useState([]);
+            const [isLoading, setIsLoading] = React.useState(false);
+            const [sortConfig, setSortConfig] = React.useState({ key: null, direction: 'asc' });
+            const [incorrectCounts, setIncorrectCounts] = React.useState({});
+            const [totalRuns, setTotalRuns] = React.useState(0);
+            const [accumulatedTimes, setAccumulatedTimes] = React.useState({});
+            const [columns, setColumns] = React.useState([
+                { id: 'model', label: 'Model' },
+                { id: 'correct', label: '% Correct' },
+                { id: 'execTime', label: 'Exec Time' },
+                { id: 'totalTime', label: 'Total Time' },
+                { id: 'execCost', label: 'Exec Cost' },
+                { id: 'totalCost', label: 'Total Cost' },
+                { id: 'completion', label: 'Completion' },
+                { id: 'actions', label: 'Actions' },
+            ]);
+
+            React.useEffect(() => {
+                const fetchModels = async () => {
+                    try {
+                        const response = await fetch('http://localhost:5555/api/get-model-names');
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const responseData = await response.json();
+                        console.log('Response from API:', responseData);
+                        const models = responseData.models;
+                        console.log('Fetched models:', models);
+                        if (!Array.isArray(models)) {
+                            throw new Error('Expected an array of models');
+                        }
+                        const initialBenchmarks = models.map(model => ({
+                            model: model,
+                            correct: '0.0%',
+                            completion: '0.000',
+                            execTime: '0.0',
+                            totalTime: '0.0',
+                            execCost: '0.0000',
+                            totalCost: '0.0000',
+                        }));
+                        console.log('Initial Benchmarks:', initialBenchmarks);
+                        setBenchmarks(initialBenchmarks);
+                        setBenchmarks(initialBenchmarks);
+                        setIncorrectCounts(Object.fromEntries(models.map(model => [model, 0])));
+                        setAccumulatedTimes(Object.fromEntries(models.map(model => [model, 0])));
+                        setIncorrectCounts(Object.fromEntries(models.map(model => [model, 0])));
+                        setAccumulatedTimes(Object.fromEntries(models.map(model => [model, 0])));
+                    } catch (error) {
+                        console.error('Error fetching model names:', error);
+                    }
+                };
+
+                fetchModels();
+            }, []);
+
+            const handleDragStart = (e, index) => {
+                e.dataTransfer.setData('text/plain', index);
+            };
+
+            const handleDragOver = (e) => {
+                e.preventDefault();
+            };
+
+            const handleSort = (columnId) => {
+                let direction = 'asc';
+                if (sortConfig.key === columnId && sortConfig.direction === 'asc') {
+                    direction = 'desc';
+                }
+                setSortConfig({ key: columnId, direction });
+            };
+
+            const getSortedBenchmarks = () => {
+                if (!sortConfig.key) return benchmarks;
+                
+                return [...benchmarks].sort((a, b) => {
+                    if (a[sortConfig.key] === b[sortConfig.key]) return 0;
+                    
+                    let aValue = a[sortConfig.key];
+                    let bValue = b[sortConfig.key];
+                    
+                    // Handle special formats
+                    if (typeof aValue === 'string') {
+                        aValue = aValue.replace(/[%$ms]/g, '');
+                        bValue = bValue.replace(/[%$ms]/g, '');
+                        
+                        if (!isNaN(aValue)) {
+                            aValue = parseFloat(aValue);
+                            bValue = parseFloat(bValue);
+                        }
+                    }
+                    
+                    if (sortConfig.direction === 'asc') {
+                        return aValue < bValue ? -1 : 1;
+                    } else {
+                        return aValue > bValue ? -1 : 1;
+                    }
+                });
+            };
+
+            const handleDrop = (e, dropIndex) => {
+                e.preventDefault();
+                const dragIndex = parseInt(e.dataTransfer.getData('text/plain'));
+                if (dragIndex === dropIndex) return;
+
+                const newColumns = [...columns];
+                const [removed] = newColumns.splice(dragIndex, 1);
+                newColumns.splice(dropIndex, 0, removed);
+                setColumns(newColumns);
+            };
+
+            const [prompt, setPrompt] = React.useState('');
+            const [error, setError] = React.useState('');
+
+            const runBenchmark = async () => {
+                if (!prompt.trim()) {
+                    setError('Please enter a prompt');
+                    return;
+                }
+                setError('');
+                setIsLoading(true);
+                try {
+                    // port 5000 sometimes used on macOS
+                    const response = await fetch('http://localhost:5555/api/run-benchmark', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ prompt: prompt.trim() })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    const newTotalRuns = totalRuns + 1;
+                    setTotalRuns(newTotalRuns);
+
+                    // Update benchmarks and accumulate execTime into totalTime and execCost into totalCost
+                    setBenchmarks(prevBenchmarks => {
+                        return data.map(benchmark => {
+                            const execTimeMs = parseFloat(benchmark.execTime);
+                            const prevBenchmark = prevBenchmarks.find(b => b.model === benchmark.model);
+                            const prevTotalTime = prevBenchmark ? parseFloat(prevBenchmark.totalTime) : 0;
+                            const newTotalTime = (prevTotalTime + execTimeMs).toFixed(3);
+                            const execCostValue = parseFloat(benchmark.execCost);
+                            const prevTotalCost = prevBenchmark ? parseFloat(prevBenchmark.totalCost) : 0;
+                            const newTotalCost = (prevTotalCost + execCostValue).toFixed(6);
+                            benchmark.execCost = execCostValue.toFixed(6);
+                            const incorrectCount = incorrectCounts[benchmark.model] || 0;
+                            const correctPercentage = newTotalRuns === 0 ? '0.0' : 
+                                ((newTotalRuns - incorrectCount) / newTotalRuns * 100).toFixed(1);
+                            return {
+                                ...benchmark,
+                                correct: correctPercentage + '%',
+                                totalTime: newTotalTime,
+                                totalCost: newTotalCost
+                            };
+                        });
+                    });
+                } catch (error) {
+                    console.error('Error fetching benchmark data:', error);
+                    setError('Failed to run benchmark. Please try again.');
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            const handleThumbClick = (modelName, isUp) => {
+                if (!isUp) {
+                    setIncorrectCounts(prev => {
+                        const newCounts = { ...prev };
+                        newCounts[modelName] = (prev[modelName] || 0) + 1;
+                        return newCounts;
+                    });
+                }
+                
+                // Update the correct percentage for this model
+                setBenchmarks(prev => {
+                    return prev.map(benchmark => {
+                        if (benchmark.model === modelName) {
+                            const newIncorrectCount = !isUp ? (incorrectCounts[modelName] || 0) + 1 : (incorrectCounts[modelName] || 0);
+                            const correctPercentage = totalRuns === 0 ? '0.0' : 
+                                ((totalRuns - newIncorrectCount) / totalRuns * 100).toFixed(1);
+                            return {
+                                ...benchmark,
+                                correct: correctPercentage + '%'
+                            };
+                        }
+                        return benchmark;
+                    });
+                });
+            };
+
+            return (
+                <div>
+                    <div className="input-section">
+                        {error && <div style={{color: 'red', marginBottom: '10px'}}>{error}</div>}
+                        <textarea 
+                            placeholder="Enter prompt"
+                            value={prompt}
+                            onChange={(e) => setPrompt(e.target.value)}
+                        ></textarea>
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+                            <button
+                                className="run-button"
+                                onClick={runBenchmark}
+                                disabled={isLoading}
+                                style={{marginTop: 0}}
+                            >
+                                {isLoading ? 'Running...' : 'Run'}
+                            </button>
+                            <button
+                                className="action-button save-button"
+                                onClick={async () => {
+                                    try {
+                                        const response = await fetch('http://localhost:5555/api/save-benchmark', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: JSON.stringify({
+                                                timestamp: new Date().toISOString(),
+                                                prompt: prompt,
+                                                results: benchmarks
+                                            })
+                                        });
+                                        if (!response.ok) {
+                                            throw new Error('Save failed');
+                                        }
+                                        const result = await response.json();
+                                        alert('Benchmark saved successfully!');
+                                    } catch (error) {
+                                        console.error('Error saving benchmark:', error);
+                                        alert('Failed to save benchmark');
+                                    }
+                                }}
+                            >
+                                Save
+                            </button>
+                            <div style={{marginLeft: '40px'}}>
+                                <strong>NumRuns:</strong> {totalRuns}
+                            </div>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                {columns.map((column, index) => (
+                                    <th
+                                        key={column.id}
+                                        draggable="true"
+                                        onDragStart={(e) => handleDragStart(e, index)}
+                                        onDragOver={handleDragOver}
+                                        onDrop={(e) => handleDrop(e, index)}
+                                        onClick={() => handleSort(column.id)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        {column.label}
+                                        {sortConfig.key === column.id && (
+                                            <span style={{marginLeft: '5px'}}>
+                                                {sortConfig.direction === 'asc' ? '↑' : '↓'}
+                                            </span>
+                                        )}
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {getSortedBenchmarks().map((row, index) => (
+                                <tr key={index} className="success-row">
+                                    {columns.map(column => (
+                                        <td key={column.id}>
+                                            {column.id === 'actions' ? (
+                                                <div className="thumb-buttons">
+                                                    <button onClick={() => handleThumbClick(row.model, true)}>👍</button>
+                                                    <button onClick={() => handleThumbClick(row.model, false)}>👎</button>
+                                                </div>
+                                            ) : row[column.id]}
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div>
+                    <h1>Multi-LLM Tests</h1>
+                    <BenchmarkTable />
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
