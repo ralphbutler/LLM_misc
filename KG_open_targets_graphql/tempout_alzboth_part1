@@ -1,0 +1,4019 @@
+
+Step 1: Searching for disease...
+
+Disease search results:
+ID: MONDO_0004975, Name: Alzheimer disease
+ID: EFO_0006514, Name: Alzheimer's disease biomarker measurement
+ID: EFO_0006801, Name: Alzheimer's disease neuropathologic change
+ID: MONDO_0011913, Name: Alzheimer disease 3
+ID: EFO_1001870, Name: late-onset Alzheimers disease
+ID: MONDO_0014265, Name: Alzheimer disease 18
+ID: MONDO_0001627, Name: dementia
+ID: Orphanet_324723, Name: Hereditary cerebral hemorrhage with amyloidosis, Arctic type
+ID: MONDO_0017949, Name: ABeta amyloidosis, Arctic type
+ID: Orphanet_324718, Name: Hereditary cerebral hemorrhage with amyloidosis, Flemish type
+ID: MONDO_0017948, Name: ABetaA21G amyloidosis
+ID: EFO_0004840, Name: cortical thickness
+ID: EFO_0004763, Name: p-tau measurement
+ID: EFO_0006794, Name: cerebrospinal fluid biomarker measurement
+ID: EFO_0004670, Name: beta-amyloid 1-42 measurement
+ID: EFO_0009178, Name: neurofilament light chain measurement
+ID: EFO_0011057, Name: neurotoxicity
+ID: EFO_0004760, Name: t-tau measurement
+ID: EFO_0006798, Name: neuritic plaque measurement
+ID: EFO_0005194, Name: amyloid-beta measurement
+ID: EFO_0007646, Name: amyloid plaque accumulation rate
+Using disease ID: MONDO_0004975
+
+Step 2: Getting primary disease-associated targets...
+
+Top disease-associated targets:
+Target: PSEN1, Score: 0.8681178963149172
+Target: APP, Score: 0.8495671982950335
+Target: PSEN2, Score: 0.7071445432744302
+Target: GRIN1, Score: 0.6880849383889996
+Target: CDK5, Score: 0.6679894276514395
+Target: SORL1, Score: 0.6634867125430397
+Target: ADAM10, Score: 0.6514626186320907
+Target: APOE, Score: 0.6350711457211572
+Target: ACHE, Score: 0.6177717482337637
+Target: HMGCR, Score: 0.6102257281794294
+
+Primary Disease-Associated Targets:
+- PSEN1 (ID: ENSG00000080815)
+- APP (ID: ENSG00000142192)
+- PSEN2 (ID: ENSG00000143801)
+- GRIN1 (ID: ENSG00000176884)
+- CDK5 (ID: ENSG00000164885)
+- SORL1 (ID: ENSG00000137642)
+- ADAM10 (ID: ENSG00000137845)
+- APOE (ID: ENSG00000130203)
+- ACHE (ID: ENSG00000087085)
+- HMGCR (ID: ENSG00000113161)
+
+Step 3: Analyzing extended relationships for each target...
+
+Analyzing extended relationships for PSEN1...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000080815:
+Found target: PSEN1
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for APP...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000142192:
+Found target: APP
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for PSEN2...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000143801:
+Found target: PSEN2
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for GRIN1...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000176884:
+Found target: GRIN1
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for CDK5...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000164885:
+Found target: CDK5
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for SORL1...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000137642:
+Found target: SORL1
+Processing 0 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for ADAM10...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000137845:
+Found target: ADAM10
+Processing 0 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for APOE...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000130203:
+Found target: APOE
+Processing 0 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for ACHE...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000087085:
+Found target: ACHE
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Analyzing extended relationships for HMGCR...
+  Fetching data from Open Targets API...
+
+Processing data for target ENSG00000113161:
+Found target: HMGCR
+Processing 25 direct drugs...
+Processing 25 protein interactions...
+Analyzing potential drug connections through interactions...
+
+Step 4: Final Analysis Results
+
+=== DIRECT RELATIONSHIPS ===
+Primary Targets and Their Direct Drugs:
+- Target: ACHE
+  Drug: DONEPEZIL (Phase: 4)
+- Target: ACHE
+  Drug: DONEPEZIL HYDROCHLORIDE (Phase: 4)
+- Target: ACHE
+  Drug: ECHOTHIOPHATE (Phase: 4)
+- Target: ACHE
+  Drug: GALANTAMINE (Phase: 4)
+- Target: ACHE
+  Drug: GALANTAMINE HYDROBROMIDE (Phase: 4)
+- Target: ACHE
+  Drug: NEOSTIGMINE (Phase: 4)
+- Target: ACHE
+  Drug: PHYSOSTIGMINE (Phase: 4)
+- Target: ACHE
+  Drug: PYRIDOSTIGMINE (Phase: 4)
+- Target: ACHE
+  Drug: PYRIDOSTIGMINE BROMIDE (Phase: 4)
+- Target: ACHE
+  Drug: RIVASTIGMINE (Phase: 4)
+- Target: APP
+  Drug: ADUCANUMAB (Phase: 4)
+- Target: APP
+  Drug: AMILOMOTIDE (Phase: 2)
+- Target: APP
+  Drug: BAPINEUZUMAB (Phase: 3)
+- Target: APP
+  Drug: CRENEZUMAB (Phase: 3)
+- Target: APP
+  Drug: DONANEMAB (Phase: 3)
+- Target: APP
+  Drug: GANTENERUMAB (Phase: 3)
+- Target: APP
+  Drug: LECANEMAB (Phase: 4)
+- Target: APP
+  Drug: PONEZUMAB (Phase: 2)
+- Target: APP
+  Drug: SOLANEZUMAB (Phase: 3)
+- Target: APP
+  Drug: TRAMIPROSATE (Phase: 3)
+- Target: APP
+  Drug: VALILTRAMIPROSATE (Phase: 3)
+- Target: CDK5
+  Drug: AT-7519 (Phase: 2)
+- Target: CDK5
+  Drug: DINACICLIB (Phase: 3)
+- Target: CDK5
+  Drug: RGB-286638 (Phase: 1)
+- Target: CDK5
+  Drug: RONICICLIB (Phase: 2)
+- Target: CDK5
+  Drug: SELICICLIB (Phase: 2)
+- Target: GRIN1
+  Drug: ACAMPROSATE (Phase: 4)
+- Target: GRIN1
+  Drug: AMANTADINE (Phase: 4)
+- Target: GRIN1
+  Drug: AMANTADINE HYDROCHLORIDE (Phase: 4)
+- Target: GRIN1
+  Drug: ESKETAMINE (Phase: 4)
+- Target: GRIN1
+  Drug: KETAMINE (Phase: 4)
+- Target: GRIN1
+  Drug: MEMANTINE (Phase: 4)
+- Target: GRIN1
+  Drug: MEMANTINE HYDROCHLORIDE (Phase: 4)
+- Target: GRIN1
+  Drug: ORPHENADRINE (Phase: 4)
+- Target: HMGCR
+  Drug: ATORVASTATIN (Phase: 4)
+- Target: HMGCR
+  Drug: ATORVASTATIN CALCIUM (Phase: 4)
+- Target: HMGCR
+  Drug: FLUVASTATIN (Phase: 4)
+- Target: HMGCR
+  Drug: LOVASTATIN (Phase: 4)
+- Target: HMGCR
+  Drug: PITAVASTATIN (Phase: 4)
+- Target: HMGCR
+  Drug: PRAVASTATIN (Phase: 4)
+- Target: HMGCR
+  Drug: PRAVASTATIN SODIUM (Phase: 4)
+- Target: HMGCR
+  Drug: ROSUVASTATIN (Phase: 4)
+- Target: HMGCR
+  Drug: ROSUVASTATIN CALCIUM (Phase: 4)
+- Target: HMGCR
+  Drug: SIMVASTATIN (Phase: 4)
+- Target: PSEN1
+  Drug: AVAGACESTAT (Phase: 2)
+- Target: PSEN1
+  Drug: NIROGACESTAT (Phase: 3)
+- Target: PSEN1
+  Drug: RG-4733 (Phase: 2)
+- Target: PSEN1
+  Drug: SEMAGACESTAT (Phase: 3)
+- Target: PSEN1
+  Drug: TARENFLURBIL (Phase: 3)
+- Target: PSEN2
+  Drug: AVAGACESTAT (Phase: 2)
+- Target: PSEN2
+  Drug: NIROGACESTAT (Phase: 3)
+- Target: PSEN2
+  Drug: RG-4733 (Phase: 2)
+- Target: PSEN2
+  Drug: SEMAGACESTAT (Phase: 3)
+- Target: PSEN2
+  Drug: TARENFLURBIL (Phase: 3)
+
+=== EXTENDED RELATIONSHIPS ===
+Promising Indirect Drugs:
+- ACADESINE
+  Path: HMGCR -> PRKAA1
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- ACADESINE
+  Path: HMGCR -> PRKAA2
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- ACADESINE
+  Path: HMGCR -> PRKAB1
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- ACADESINE
+  Path: HMGCR -> PRKAB2
+  Interaction Score: 0.92
+  Clinical Phase: 3
+- ACADESINE
+  Path: HMGCR -> PRKAG1
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- ACADESINE
+  Path: HMGCR -> PRKAG2
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- ACADESINE
+  Path: HMGCR -> PRKAG3
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- ACAMPROSATE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ACAMPROSATE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ACAMPROSATE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ACAMPROSATE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ACARBOSE
+  Path: ACHE -> MGAM
+  Interaction Score: 0.79
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- ADUCANUMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ALENDRONATE SODIUM
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- ALENDRONIC ACID
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- ALIROCUMAB
+  Path: HMGCR -> PCSK9
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- ALLOPURINOL
+  Path: ACHE -> XDH
+  Interaction Score: 0.74
+  Clinical Phase: 4
+- ALVOCIDIB
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- AMANTADINE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMANTADINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- AMILOMOTIDE
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 2
+- AMILOMOTIDE
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- AMILOMOTIDE
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AMILOMOTIDE
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- AMILOMOTIDE
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AMILOMOTIDE
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- AMILOMOTIDE
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- ANACETRAPIB
+  Path: APOE -> CETP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- ANG1005
+  Path: APOE -> LRP1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- APG115
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- APRATASTAT
+  Path: ADAM10 -> ADAM17
+  Interaction Score: 0.96
+  Clinical Phase: 2
+- ASCIMINIB
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- ASCIMINIB HYDROCHLORIDE
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- AT-7519
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 2
+- ATABECESTAT
+  Path: ACHE -> BACE1
+  Interaction Score: 0.83
+  Clinical Phase: 2
+- ATABECESTAT
+  Path: ADAM10 -> BACE1
+  Interaction Score: 0.92
+  Clinical Phase: 2
+- ATABECESTAT
+  Path: APP -> BACE1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- ATABECESTAT
+  Path: PSEN1 -> BACE1
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- ATABECESTAT
+  Path: PSEN2 -> BACE1
+  Interaction Score: 0.85
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: ACHE -> PSEN1
+  Interaction Score: 0.75
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: ADAM10 -> APH1A
+  Interaction Score: 0.85
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: ADAM10 -> NCSTN
+  Interaction Score: 0.86
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: ADAM10 -> PSEN1
+  Interaction Score: 0.91
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: ADAM10 -> PSENEN
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: APP -> APH1A
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: APP -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: APP -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: APP -> PSENEN
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN1 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN1 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN1 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN1 -> PSEN2
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN1 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN2 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN2 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN2 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN2 -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: PSEN2 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: SORL1 -> PSEN1
+  Interaction Score: 0.78
+  Clinical Phase: 2
+- AVAGACESTAT
+  Path: SORL1 -> PSEN2
+  Interaction Score: 0.78
+  Clinical Phase: 2
+- AZD9056
+  Path: GRIN1 -> P2RX7
+  Interaction Score: 0.91
+  Clinical Phase: 2
+- BALSALAZIDE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- BAPINEUZUMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- BAPINEUZUMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- BAPINEUZUMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- BAPINEUZUMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- BAPINEUZUMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- BAPINEUZUMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- BAPINEUZUMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- BENAZEPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- BENAZEPRIL HYDROCHLORIDE
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- BENDAZAC
+  Path: ACHE -> XDH
+  Interaction Score: 0.74
+  Clinical Phase: 4
+- BEPRANEMAB
+  Path: ACHE -> MAPT
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- BEPRANEMAB
+  Path: APOE -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- BEPRANEMAB
+  Path: APP -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- BEPRANEMAB
+  Path: CDK5 -> MAPT
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- BEPRANEMAB
+  Path: PSEN1 -> MAPT
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- BEPRANEMAB
+  Path: PSEN2 -> MAPT
+  Interaction Score: 0.88
+  Clinical Phase: 2
+- BEZAFIBRATE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- BOSUTINIB
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- BOSUTINIB MONOHYDRATE
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- BRONTICTUZUMAB
+  Path: ADAM10 -> NOTCH1
+  Interaction Score: 0.92
+  Clinical Phase: 2
+- BRONTICTUZUMAB
+  Path: PSEN1 -> NOTCH1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- BRONTICTUZUMAB
+  Path: PSEN2 -> NOTCH1
+  Interaction Score: 0.85
+  Clinical Phase: 2
+- CAMLIPIXANT
+  Path: GRIN1 -> P2RX3
+  Interaction Score: 0.92
+  Clinical Phase: 3
+- CAPTOPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- CE-224535
+  Path: GRIN1 -> P2RX7
+  Interaction Score: 0.91
+  Clinical Phase: 2
+- CELGOSIVIR
+  Path: ACHE -> SI
+  Interaction Score: 0.79
+  Clinical Phase: 2
+- CENERSEN
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- CENERSEN SODIUM
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- CINPANEMAB
+  Path: APOE -> SNCA
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- CINPANEMAB
+  Path: APP -> SNCA
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- CONTUSUGENE LADENOVEC
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- CRENEZUMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- CRENEZUMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- CRENEZUMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CRENEZUMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- CRENEZUMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CRENEZUMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- CRENEZUMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CUSTIRSEN
+  Path: APOE -> CLU
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CUSTIRSEN
+  Path: APP -> CLU
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CUSTIRSEN
+  Path: SORL1 -> CLU
+  Interaction Score: 0.86
+  Clinical Phase: 3
+- CUSTIRSEN SODIUM
+  Path: APOE -> CLU
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CUSTIRSEN SODIUM
+  Path: APP -> CLU
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- CUSTIRSEN SODIUM
+  Path: SORL1 -> CLU
+  Interaction Score: 0.86
+  Clinical Phase: 3
+- DALCETRAPIB
+  Path: APOE -> CETP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- DANTROLENE
+  Path: PSEN1 -> RYR3
+  Interaction Score: 0.94
+  Clinical Phase: 4
+- DANTROLENE
+  Path: PSEN2 -> RYR3
+  Interaction Score: 0.96
+  Clinical Phase: 4
+- DANTROLENE SODIUM
+  Path: PSEN1 -> RYR3
+  Interaction Score: 0.94
+  Clinical Phase: 4
+- DANTROLENE SODIUM
+  Path: PSEN2 -> RYR3
+  Interaction Score: 0.96
+  Clinical Phase: 4
+- DASATINIB
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- DASATINIB
+  Path: CDK5 -> FYN
+  Interaction Score: 0.95
+  Clinical Phase: 4
+- DEXTROMETHORPHAN
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- DEXTROMETHORPHAN HYDROBROMIDE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- DINACICLIB
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 3
+- DONANEMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- DONANEMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- DONANEMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- DONANEMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- DONANEMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- DONANEMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- DONANEMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- ELENBECESTAT
+  Path: ACHE -> BACE1
+  Interaction Score: 0.83
+  Clinical Phase: 3
+- ELENBECESTAT
+  Path: ADAM10 -> BACE1
+  Interaction Score: 0.92
+  Clinical Phase: 3
+- ELENBECESTAT
+  Path: APP -> BACE1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- ELENBECESTAT
+  Path: PSEN1 -> BACE1
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- ELENBECESTAT
+  Path: PSEN2 -> BACE1
+  Interaction Score: 0.85
+  Clinical Phase: 3
+- ENALAPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- ENALAPRIL MALEATE
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- EPRENETAPOPT
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- ESKETAMINE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ESKETAMINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- EVACETRAPIB
+  Path: APOE -> CETP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- EVOLOCUMAB
+  Path: HMGCR -> PCSK9
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- EZETIMIBE
+  Path: HMGCR -> NPC1L1
+  Interaction Score: 0.92
+  Clinical Phase: 4
+- FEBUXOSTAT
+  Path: ACHE -> XDH
+  Interaction Score: 0.74
+  Clinical Phase: 4
+- FELBAMATE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- FOSINOPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- GANTENERUMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- GANTENERUMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- GANTENERUMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- GANTENERUMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- GANTENERUMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- GANTENERUMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- GANTENERUMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- GEFAPIXANT
+  Path: GRIN1 -> P2RX3
+  Interaction Score: 0.92
+  Clinical Phase: 3
+- GEMTUZUMAB
+  Path: SORL1 -> CD33
+  Interaction Score: 0.81
+  Clinical Phase: 3
+- GEMTUZUMAB OZOGAMICIN
+  Path: SORL1 -> CD33
+  Interaction Score: 0.81
+  Clinical Phase: 4
+- GOSURANEMAB
+  Path: ACHE -> MAPT
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- GOSURANEMAB
+  Path: APOE -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- GOSURANEMAB
+  Path: APP -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- GOSURANEMAB
+  Path: CDK5 -> MAPT
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- GOSURANEMAB
+  Path: PSEN1 -> MAPT
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- GOSURANEMAB
+  Path: PSEN2 -> MAPT
+  Interaction Score: 0.88
+  Clinical Phase: 2
+- IBANDRONATE SODIUM
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- IBANDRONIC ACID
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- IDASANUTLIN
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- IMATINIB
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- IMATINIB MESYLATE
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- INCLISIRAN
+  Path: HMGCR -> PCSK9
+  Interaction Score: 0.91
+  Clinical Phase: 3
+- INCLISIRAN SODIUM
+  Path: HMGCR -> PCSK9
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- IPRONIAZID
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- ISOCARBOXAZID
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- ISOCARBOXAZID
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- JNJ-54175446
+  Path: GRIN1 -> P2RX7
+  Interaction Score: 0.91
+  Clinical Phase: 2
+- KETAMINE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- KETAMINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- LANABECESTAT
+  Path: ACHE -> BACE1
+  Interaction Score: 0.83
+  Clinical Phase: 3
+- LANABECESTAT
+  Path: ADAM10 -> BACE1
+  Interaction Score: 0.92
+  Clinical Phase: 3
+- LANABECESTAT
+  Path: APP -> BACE1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- LANABECESTAT
+  Path: PSEN1 -> BACE1
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- LANABECESTAT
+  Path: PSEN2 -> BACE1
+  Interaction Score: 0.85
+  Clinical Phase: 3
+- LAPAQUISTAT ACETATE
+  Path: HMGCR -> FDFT1
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- LECANEMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 4
+- LECANEMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 4
+- LECANEMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- LECANEMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 4
+- LECANEMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- LECANEMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- LECANEMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- LINTUZUMAB
+  Path: SORL1 -> CD33
+  Interaction Score: 0.81
+  Clinical Phase: 3
+- LISINOPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- LISINOPRIL ANHYDROUS
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- LITHIUM CARBONATE
+  Path: PSEN1 -> GSK3B
+  Interaction Score: 0.99
+  Clinical Phase: 4
+- LITHIUM CITRATE
+  Path: PSEN1 -> GSK3B
+  Interaction Score: 0.99
+  Clinical Phase: 4
+- LITHIUM CITRATE ANHYDROUS
+  Path: PSEN1 -> GSK3B
+  Interaction Score: 0.99
+  Clinical Phase: 4
+- MEMANTINE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE
+  Path: GRIN1 -> GRIN2B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2C
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MEMANTINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN3B
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MESALAMINE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- MIGLITOL
+  Path: ACHE -> MGAM
+  Interaction Score: 0.79
+  Clinical Phase: 4
+- MILATUZUMAB
+  Path: APP -> CD74
+  Interaction Score: 0.98
+  Clinical Phase: 2
+- MILCICLIB
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 2
+- MINAPRINE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- MIPOMERSEN
+  Path: APOE -> APOB
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MIPOMERSEN SODIUM
+  Path: APOE -> APOB
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- MOCLOBEMIDE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- NAVITOCLAX
+  Path: ADAM10 -> BCL2
+  Interaction Score: 0.80
+  Clinical Phase: 3
+- NAVTEMADLIN
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- NIALAMIDE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- NIALAMIDE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- NILOTINIB
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- NIROGACESTAT
+  Path: ACHE -> PSEN1
+  Interaction Score: 0.75
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: ADAM10 -> APH1A
+  Interaction Score: 0.85
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: ADAM10 -> NCSTN
+  Interaction Score: 0.86
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: ADAM10 -> PSEN1
+  Interaction Score: 0.91
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: ADAM10 -> PSENEN
+  Interaction Score: 0.82
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: APP -> APH1A
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: APP -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: APP -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: APP -> PSENEN
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN1 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN1 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN1 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN1 -> PSEN2
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN1 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN2 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN2 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN2 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN2 -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: PSEN2 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: SORL1 -> PSEN1
+  Interaction Score: 0.78
+  Clinical Phase: 3
+- NIROGACESTAT
+  Path: SORL1 -> PSEN2
+  Interaction Score: 0.78
+  Clinical Phase: 3
+- OBATOCLAX
+  Path: ADAM10 -> BCL2
+  Interaction Score: 0.80
+  Clinical Phase: 3
+- OBATOCLAX MESYLATE
+  Path: ADAM10 -> BCL2
+  Interaction Score: 0.80
+  Clinical Phase: 3
+- OBICETRAPIB
+  Path: APOE -> CETP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- OBLIMERSEN SODIUM
+  Path: ADAM10 -> BCL2
+  Interaction Score: 0.80
+  Clinical Phase: 3
+- OLEZARSEN
+  Path: APOE -> APOC3
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- OLPASIRAN
+  Path: APOE -> LPA
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- ORPHENADRINE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ORPHENADRINE
+  Path: GRIN1 -> GRIN2D
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ORPHENADRINE
+  Path: GRIN1 -> GRIN3A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ORPHENADRINE HYDROCHLORIDE
+  Path: GRIN1 -> GRIN2A
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- PAMIDRONIC ACID
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- PARGYLINE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- PARGYLINE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- PELACARSEN
+  Path: APOE -> LPA
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- PERAMPANEL
+  Path: GRIN1 -> GRIA1
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- PERAMPANEL
+  Path: GRIN1 -> GRIA2
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- PERINDOPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- PERINDOPRIL ARGININE
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- PEVONEDISTAT
+  Path: APP -> NAE1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- PHENELZINE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- PHENELZINE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- PIOGLITAZONE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- PIOGLITAZONE HYDROCHLORIDE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- PONEZUMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 2
+- PONEZUMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- PONEZUMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- PONEZUMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- PONEZUMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- PONEZUMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- PONEZUMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- POSDINEMAB
+  Path: ACHE -> MAPT
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- POSDINEMAB
+  Path: APOE -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- POSDINEMAB
+  Path: APP -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- POSDINEMAB
+  Path: CDK5 -> MAPT
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- POSDINEMAB
+  Path: PSEN1 -> MAPT
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- POSDINEMAB
+  Path: PSEN2 -> MAPT
+  Interaction Score: 0.88
+  Clinical Phase: 2
+- PRASINEZUMAB
+  Path: APOE -> SNCA
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- PRASINEZUMAB
+  Path: APP -> SNCA
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- PREXIGEBERSEN
+  Path: PSEN1 -> GRB2
+  Interaction Score: 0.94
+  Clinical Phase: 2
+- PRI-724
+  Path: PSEN1 -> CTNNB1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- PROBUCOL
+  Path: APOE -> ABCA1
+  Interaction Score: 0.98
+  Clinical Phase: 4
+- QUETMOLIMAB
+  Path: ADAM10 -> CX3CL1
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- RAMIPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- RASAGILINE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- RASAGILINE MESYLATE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- RASAGILINE TARTRATE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- REGORAFENIB
+  Path: CDK5 -> ABL1
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- REPOTRECTINIB
+  Path: APP -> CD74
+  Interaction Score: 0.98
+  Clinical Phase: 4
+- RG-4733
+  Path: ACHE -> PSEN1
+  Interaction Score: 0.75
+  Clinical Phase: 2
+- RG-4733
+  Path: ADAM10 -> APH1A
+  Interaction Score: 0.85
+  Clinical Phase: 2
+- RG-4733
+  Path: ADAM10 -> NCSTN
+  Interaction Score: 0.86
+  Clinical Phase: 2
+- RG-4733
+  Path: ADAM10 -> PSEN1
+  Interaction Score: 0.91
+  Clinical Phase: 2
+- RG-4733
+  Path: ADAM10 -> PSENEN
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- RG-4733
+  Path: APP -> APH1A
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- RG-4733
+  Path: APP -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: APP -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: APP -> PSENEN
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN1 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN1 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN1 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN1 -> PSEN2
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN1 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN2 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN2 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN2 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN2 -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: PSEN2 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- RG-4733
+  Path: SORL1 -> PSEN1
+  Interaction Score: 0.78
+  Clinical Phase: 2
+- RG-4733
+  Path: SORL1 -> PSEN2
+  Interaction Score: 0.78
+  Clinical Phase: 2
+- RISEDRONATE SODIUM
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- RISEDRONIC ACID
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- RONICICLIB
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 2
+- ROSIGLITAZONE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- ROSIGLITAZONE MALEATE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- SAFINAMIDE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- SAFINAMIDE MESYLATE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- SELEGILINE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- SELICICLIB
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 2
+- SEMAGACESTAT
+  Path: ACHE -> PSEN1
+  Interaction Score: 0.75
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: ADAM10 -> APH1A
+  Interaction Score: 0.85
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: ADAM10 -> NCSTN
+  Interaction Score: 0.86
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: ADAM10 -> PSEN1
+  Interaction Score: 0.91
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: ADAM10 -> PSENEN
+  Interaction Score: 0.82
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: APP -> APH1A
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: APP -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: APP -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: APP -> PSENEN
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN1 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN1 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN1 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN1 -> PSEN2
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN1 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN2 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN2 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN2 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN2 -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: PSEN2 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: SORL1 -> PSEN1
+  Interaction Score: 0.78
+  Clinical Phase: 3
+- SEMAGACESTAT
+  Path: SORL1 -> PSEN2
+  Interaction Score: 0.78
+  Clinical Phase: 3
+- SEMORINEMAB
+  Path: ACHE -> MAPT
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- SEMORINEMAB
+  Path: APOE -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- SEMORINEMAB
+  Path: APP -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- SEMORINEMAB
+  Path: CDK5 -> MAPT
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- SEMORINEMAB
+  Path: PSEN1 -> MAPT
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- SEMORINEMAB
+  Path: PSEN2 -> MAPT
+  Interaction Score: 0.88
+  Clinical Phase: 2
+- SIREMADLIN
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 2
+- SOLANEZUMAB
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- SOLANEZUMAB
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- SOLANEZUMAB
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SOLANEZUMAB
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- SOLANEZUMAB
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SOLANEZUMAB
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- SOLANEZUMAB
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- SPIRAPRIL
+  Path: ACHE -> ACE
+  Interaction Score: 0.73
+  Clinical Phase: 4
+- TARENFLURBIL
+  Path: ACHE -> PSEN1
+  Interaction Score: 0.75
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: ADAM10 -> APH1A
+  Interaction Score: 0.85
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: ADAM10 -> NCSTN
+  Interaction Score: 0.86
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: ADAM10 -> PSEN1
+  Interaction Score: 0.91
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: ADAM10 -> PSENEN
+  Interaction Score: 0.82
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: APP -> APH1A
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: APP -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: APP -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: APP -> PSENEN
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN1 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN1 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN1 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN1 -> PSEN2
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN1 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN2 -> APH1A
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN2 -> APH1B
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN2 -> NCSTN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN2 -> PSEN1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: PSEN2 -> PSENEN
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: SORL1 -> PSEN1
+  Interaction Score: 0.78
+  Clinical Phase: 3
+- TARENFLURBIL
+  Path: SORL1 -> PSEN2
+  Interaction Score: 0.78
+  Clinical Phase: 3
+- TAREXTUMAB
+  Path: ADAM10 -> NOTCH2
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- TAREXTUMAB
+  Path: PSEN2 -> NOTCH3
+  Interaction Score: 0.89
+  Clinical Phase: 2
+- TEPRASIRAN
+  Path: CDK5 -> TP53
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- TILARGININE
+  Path: GRIN1 -> NOS1
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- TILARGININE ACETATE
+  Path: GRIN1 -> NOS1
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- TILAVONEMAB
+  Path: ACHE -> MAPT
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- TILAVONEMAB
+  Path: APOE -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- TILAVONEMAB
+  Path: APP -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- TILAVONEMAB
+  Path: CDK5 -> MAPT
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- TILAVONEMAB
+  Path: PSEN1 -> MAPT
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- TILAVONEMAB
+  Path: PSEN2 -> MAPT
+  Interaction Score: 0.88
+  Clinical Phase: 2
+- TOLOXATONE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- TOPIRAMATE
+  Path: GRIN1 -> GRIA1
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- TOPIRAMATE
+  Path: GRIN1 -> GRIA2
+  Interaction Score: 0.90
+  Clinical Phase: 4
+- TORCETRAPIB
+  Path: APOE -> CETP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- TRAMIPROSATE
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- TRANYLCYPROMINE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- TRANYLCYPROMINE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- TRANYLCYPROMINE SULFATE
+  Path: ACHE -> MAOA
+  Interaction Score: 0.76
+  Clinical Phase: 4
+- TRANYLCYPROMINE SULFATE
+  Path: ACHE -> MAOB
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- TROGLITAZONE
+  Path: CDK5 -> PPARG
+  Interaction Score: 0.91
+  Clinical Phase: 4
+- UCN-01
+  Path: CDK5 -> CDK2
+  Interaction Score: 0.93
+  Clinical Phase: 2
+- VALILTRAMIPROSATE
+  Path: ACHE -> APP
+  Interaction Score: 0.94
+  Clinical Phase: 3
+- VALILTRAMIPROSATE
+  Path: ADAM10 -> APP
+  Interaction Score: 0.95
+  Clinical Phase: 3
+- VALILTRAMIPROSATE
+  Path: APOE -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- VALILTRAMIPROSATE
+  Path: APP -> APP
+  Interaction Score: 0.99
+  Clinical Phase: 3
+- VALILTRAMIPROSATE
+  Path: PSEN1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- VALILTRAMIPROSATE
+  Path: PSEN2 -> APP
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- VALILTRAMIPROSATE
+  Path: SORL1 -> APP
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- VANDETANIB
+  Path: ADAM10 -> EPHA1
+  Interaction Score: 0.84
+  Clinical Phase: 4
+- VENETOCLAX
+  Path: ADAM10 -> BCL2
+  Interaction Score: 0.80
+  Clinical Phase: 4
+- VERUBECESTAT
+  Path: ACHE -> BACE1
+  Interaction Score: 0.83
+  Clinical Phase: 3
+- VERUBECESTAT
+  Path: ADAM10 -> BACE1
+  Interaction Score: 0.92
+  Clinical Phase: 3
+- VERUBECESTAT
+  Path: APP -> BACE1
+  Interaction Score: 1.00
+  Clinical Phase: 3
+- VERUBECESTAT
+  Path: PSEN1 -> BACE1
+  Interaction Score: 0.97
+  Clinical Phase: 3
+- VERUBECESTAT
+  Path: PSEN2 -> BACE1
+  Interaction Score: 0.85
+  Clinical Phase: 3
+- VOGLIBOSE
+  Path: ACHE -> MGAM
+  Interaction Score: 0.79
+  Clinical Phase: 4
+- VOGLIBOSE
+  Path: ACHE -> SI
+  Interaction Score: 0.79
+  Clinical Phase: 4
+- VOLANESORSEN
+  Path: APOE -> APOC3
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- VOLANESORSEN SODIUM
+  Path: APOE -> APOC3
+  Interaction Score: 1.00
+  Clinical Phase: 4
+- ZAGOTENEMAB
+  Path: ACHE -> MAPT
+  Interaction Score: 0.82
+  Clinical Phase: 2
+- ZAGOTENEMAB
+  Path: APOE -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- ZAGOTENEMAB
+  Path: APP -> MAPT
+  Interaction Score: 0.99
+  Clinical Phase: 2
+- ZAGOTENEMAB
+  Path: CDK5 -> MAPT
+  Interaction Score: 1.00
+  Clinical Phase: 2
+- ZAGOTENEMAB
+  Path: PSEN1 -> MAPT
+  Interaction Score: 0.95
+  Clinical Phase: 2
+- ZAGOTENEMAB
+  Path: PSEN2 -> MAPT
+  Interaction Score: 0.88
+  Clinical Phase: 2
+- ZOLEDRONIC ACID
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+- ZOLEDRONIC ACID ANHYDROUS
+  Path: HMGCR -> FDPS
+  Interaction Score: 0.97
+  Clinical Phase: 4
+
+=== REPURPOSING OPPORTUNITIES ===
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: MEMANTINE
+Current Target: GRIN2C
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: AMANTADINE HYDROCHLORIDE
+Current Target: GRIN2D
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: KETAMINE HYDROCHLORIDE
+Current Target: GRIN2D
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: DEXTROMETHORPHAN HYDROBROMIDE
+Current Target: GRIN2A
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ESKETAMINE
+Current Target: GRIN2A
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: KETAMINE
+Current Target: GRIN2D
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: FELBAMATE
+Current Target: GRIN2D
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: MEMANTINE HYDROCHLORIDE
+Current Target: GRIN2D
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ACAMPROSATE
+Current Target: GRIN2A
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ESKETAMINE HYDROCHLORIDE
+Current Target: GRIN2B
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ORPHENADRINE
+Current Target: GRIN3A
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: AMANTADINE
+Current Target: GRIN2B
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ORPHENADRINE HYDROCHLORIDE
+Current Target: GRIN2A
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: DEXTROMETHORPHAN
+Current Target: GRIN2A
+Proposed Target: GRIN1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: MIPOMERSEN
+Current Target: APOB
+Proposed Target: APOE
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: VOLANESORSEN
+Current Target: APOC3
+Proposed Target: APOE
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: MIPOMERSEN SODIUM
+Current Target: APOB
+Proposed Target: APOE
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: VOLANESORSEN SODIUM
+Current Target: APOC3
+Proposed Target: APOE
+Confidence Score: 1.00
+Rationale: High-phase drug (4) with strong interaction score (1.00) through protein interaction network
+
+Drug: LITHIUM CITRATE
+Current Target: GSK3B
+Proposed Target: PSEN1
+Confidence Score: 0.99
+Rationale: High-phase drug (4) with strong interaction score (0.99) through protein interaction network
+
+Drug: LITHIUM CITRATE ANHYDROUS
+Current Target: GSK3B
+Proposed Target: PSEN1
+Confidence Score: 0.99
+Rationale: High-phase drug (4) with strong interaction score (0.99) through protein interaction network
+
+Drug: LITHIUM CARBONATE
+Current Target: GSK3B
+Proposed Target: PSEN1
+Confidence Score: 0.99
+Rationale: High-phase drug (4) with strong interaction score (0.99) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.99
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (0.99) through protein interaction network
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.99
+Status: Known relationship
+Rationale: Known High-phase drug (4) with strong interaction score (0.99) through protein interaction network
+
+Drug: REPOTRECTINIB
+Current Target: CD74
+Proposed Target: APP
+Confidence Score: 0.98
+Rationale: High-phase drug (4) with strong interaction score (0.98) through protein interaction network
+
+Drug: PROBUCOL
+Current Target: ABCA1
+Proposed Target: APOE
+Confidence Score: 0.98
+Rationale: High-phase drug (4) with strong interaction score (0.98) through protein interaction network
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: ALENDRONATE SODIUM
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: IBANDRONIC ACID
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: ALENDRONIC ACID
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: PAMIDRONIC ACID
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: RISEDRONIC ACID
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: ZOLEDRONIC ACID
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: RISEDRONATE SODIUM
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: ZOLEDRONIC ACID ANHYDROUS
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: IBANDRONATE SODIUM
+Current Target: FDPS
+Proposed Target: HMGCR
+Confidence Score: 0.97
+Rationale: High-phase drug (4) with strong interaction score (0.97) through protein interaction network
+
+Drug: DANTROLENE SODIUM
+Current Target: RYR3
+Proposed Target: PSEN2
+Confidence Score: 0.96
+Rationale: High-phase drug (4) with strong interaction score (0.96) through protein interaction network
+
+Drug: DANTROLENE
+Current Target: RYR3
+Proposed Target: PSEN2
+Confidence Score: 0.96
+Rationale: High-phase drug (4) with strong interaction score (0.96) through protein interaction network
+
+Drug: DASATINIB
+Current Target: FYN
+Proposed Target: CDK5
+Confidence Score: 0.95
+Rationale: High-phase drug (4) with strong interaction score (0.95) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.95
+Rationale: High-phase drug (4) with strong interaction score (0.95) through protein interaction network
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.95
+Rationale: High-phase drug (4) with strong interaction score (0.95) through protein interaction network
+
+Drug: DANTROLENE SODIUM
+Current Target: RYR3
+Proposed Target: PSEN1
+Confidence Score: 0.94
+Rationale: High-phase drug (4) with strong interaction score (0.94) through protein interaction network
+
+Drug: DANTROLENE
+Current Target: RYR3
+Proposed Target: PSEN1
+Confidence Score: 0.94
+Rationale: High-phase drug (4) with strong interaction score (0.94) through protein interaction network
+
+Drug: ADUCANUMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.94
+Rationale: High-phase drug (4) with strong interaction score (0.94) through protein interaction network
+
+Drug: LECANEMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.94
+Rationale: High-phase drug (4) with strong interaction score (0.94) through protein interaction network
+
+Drug: EZETIMIBE
+Current Target: NPC1L1
+Proposed Target: HMGCR
+Confidence Score: 0.92
+Rationale: High-phase drug (4) with strong interaction score (0.92) through protein interaction network
+
+Drug: RASAGILINE TARTRATE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: PHENELZINE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: TRANYLCYPROMINE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: ISOCARBOXAZID
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: RASAGILINE MESYLATE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: NIALAMIDE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: RASAGILINE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: TRANYLCYPROMINE SULFATE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: SAFINAMIDE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: SELEGILINE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: SAFINAMIDE MESYLATE
+Current Target: MAOB
+Proposed Target: ACHE
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: INCLISIRAN SODIUM
+Current Target: PCSK9
+Proposed Target: HMGCR
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: EVOLOCUMAB
+Current Target: PCSK9
+Proposed Target: HMGCR
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: ALIROCUMAB
+Current Target: PCSK9
+Proposed Target: HMGCR
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: ROSIGLITAZONE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: ROSIGLITAZONE MALEATE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: BEZAFIBRATE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: PIOGLITAZONE HYDROCHLORIDE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: MESALAMINE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: PIOGLITAZONE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: BALSALAZIDE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: TROGLITAZONE
+Current Target: PPARG
+Proposed Target: CDK5
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: PERAMPANEL
+Current Target: GRIA1
+Proposed Target: GRIN1
+Confidence Score: 0.91
+Rationale: High-phase drug (4) with strong interaction score (0.91) through protein interaction network
+
+Drug: TOPIRAMATE
+Current Target: GRIA2
+Proposed Target: GRIN1
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: ASCIMINIB
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: ASCIMINIB HYDROCHLORIDE
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: IMATINIB MESYLATE
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: NILOTINIB
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: BOSUTINIB
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: REGORAFENIB
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: BOSUTINIB MONOHYDRATE
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: IMATINIB
+Current Target: ABL1
+Proposed Target: CDK5
+Confidence Score: 0.90
+Rationale: High-phase drug (4) with strong interaction score (0.90) through protein interaction network
+
+Drug: VANDETANIB
+Current Target: EPHA1
+Proposed Target: ADAM10
+Confidence Score: 0.84
+Rationale: High-phase drug (4) with strong interaction score (0.84) through protein interaction network
+
+Drug: GEMTUZUMAB OZOGAMICIN
+Current Target: CD33
+Proposed Target: SORL1
+Confidence Score: 0.81
+Rationale: High-phase drug (4) with strong interaction score (0.81) through protein interaction network
+
+Drug: VENETOCLAX
+Current Target: BCL2
+Proposed Target: ADAM10
+Confidence Score: 0.80
+Rationale: High-phase drug (4) with strong interaction score (0.80) through protein interaction network
+
+Drug: VOGLIBOSE
+Current Target: SI
+Proposed Target: ACHE
+Confidence Score: 0.79
+Rationale: High-phase drug (4) with strong interaction score (0.79) through protein interaction network
+
+Drug: MIGLITOL
+Current Target: MGAM
+Proposed Target: ACHE
+Confidence Score: 0.79
+Rationale: High-phase drug (4) with strong interaction score (0.79) through protein interaction network
+
+Drug: ACARBOSE
+Current Target: MGAM
+Proposed Target: ACHE
+Confidence Score: 0.79
+Rationale: High-phase drug (4) with strong interaction score (0.79) through protein interaction network
+
+Drug: MINAPRINE
+Current Target: MAOA
+Proposed Target: ACHE
+Confidence Score: 0.76
+Rationale: High-phase drug (4) with strong interaction score (0.76) through protein interaction network
+
+Drug: IPRONIAZID
+Current Target: MAOA
+Proposed Target: ACHE
+Confidence Score: 0.76
+Rationale: High-phase drug (4) with strong interaction score (0.76) through protein interaction network
+
+Drug: PARGYLINE
+Current Target: MAOA
+Proposed Target: ACHE
+Confidence Score: 0.76
+Rationale: High-phase drug (4) with strong interaction score (0.76) through protein interaction network
+
+Drug: TOLOXATONE
+Current Target: MAOA
+Proposed Target: ACHE
+Confidence Score: 0.76
+Rationale: High-phase drug (4) with strong interaction score (0.76) through protein interaction network
+
+Drug: MOCLOBEMIDE
+Current Target: MAOA
+Proposed Target: ACHE
+Confidence Score: 0.76
+Rationale: High-phase drug (4) with strong interaction score (0.76) through protein interaction network
+
+Drug: NIROGACESTAT
+Current Target: PSENEN
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: TARENFLURBIL
+Current Target: NCSTN
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: SEMAGACESTAT
+Current Target: PSEN2
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: LANABECESTAT
+Current Target: BACE1
+Proposed Target: APP
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: ELENBECESTAT
+Current Target: BACE1
+Proposed Target: APP
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: VERUBECESTAT
+Current Target: BACE1
+Proposed Target: APP
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: NIROGACESTAT
+Current Target: PSEN1
+Proposed Target: PSEN2
+Confidence Score: 0.75
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: TARENFLURBIL
+Current Target: PSEN1
+Proposed Target: PSEN2
+Confidence Score: 0.75
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: SEMAGACESTAT
+Current Target: PSEN1
+Proposed Target: PSEN2
+Confidence Score: 0.75
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CUSTIRSEN
+Current Target: CLU
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: ANG1005
+Current Target: LRP1
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CUSTIRSEN SODIUM
+Current Target: CLU
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: OLEZARSEN
+Current Target: APOC3
+Proposed Target: APOE
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CUSTIRSEN
+Current Target: CLU
+Proposed Target: APP
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: PEVONEDISTAT
+Current Target: NAE1
+Proposed Target: APP
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: CUSTIRSEN SODIUM
+Current Target: CLU
+Proposed Target: APP
+Confidence Score: 0.75
+Rationale: High-phase drug (3) with strong interaction score (1.00) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.74
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: TARENFLURBIL
+Current Target: PSENEN
+Proposed Target: APP
+Confidence Score: 0.74
+Rationale: High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: SEMAGACESTAT
+Current Target: PSENEN
+Proposed Target: APP
+Confidence Score: 0.74
+Rationale: High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: NIROGACESTAT
+Current Target: PSENEN
+Proposed Target: APP
+Confidence Score: 0.74
+Rationale: High-phase drug (3) with strong interaction score (0.99) through protein interaction network
+
+Drug: FEBUXOSTAT
+Current Target: XDH
+Proposed Target: ACHE
+Confidence Score: 0.74
+Rationale: High-phase drug (4) with strong interaction score (0.74) through protein interaction network
+
+Drug: ALLOPURINOL
+Current Target: XDH
+Proposed Target: ACHE
+Confidence Score: 0.74
+Rationale: High-phase drug (4) with strong interaction score (0.74) through protein interaction network
+
+Drug: BENDAZAC
+Current Target: XDH
+Proposed Target: ACHE
+Confidence Score: 0.74
+Rationale: High-phase drug (4) with strong interaction score (0.74) through protein interaction network
+
+Drug: ENALAPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: BENAZEPRIL HYDROCHLORIDE
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: CAPTOPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: LISINOPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: PERINDOPRIL ARGININE
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: PERINDOPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: FOSINOPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: LISINOPRIL ANHYDROUS
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: ENALAPRIL MALEATE
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: BENAZEPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: SPIRAPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: RAMIPRIL
+Current Target: ACE
+Proposed Target: ACHE
+Confidence Score: 0.73
+Rationale: High-phase drug (4) with strong interaction score (0.73) through protein interaction network
+
+Drug: ANACETRAPIB
+Current Target: CETP
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: OBICETRAPIB
+Current Target: CETP
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: TORCETRAPIB
+Current Target: CETP
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: DALCETRAPIB
+Current Target: CETP
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: EVACETRAPIB
+Current Target: CETP
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: ELENBECESTAT
+Current Target: BACE1
+Proposed Target: PSEN1
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: LANABECESTAT
+Current Target: BACE1
+Proposed Target: PSEN1
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: VERUBECESTAT
+Current Target: BACE1
+Proposed Target: PSEN1
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: OLPASIRAN
+Current Target: LPA
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: PELACARSEN
+Current Target: LPA
+Proposed Target: APOE
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: EPRENETAPOPT
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: IDASANUTLIN
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: TEPRASIRAN
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.73
+Rationale: High-phase drug (3) with strong interaction score (0.97) through protein interaction network
+
+Drug: TILARGININE
+Current Target: NOS1
+Proposed Target: GRIN1
+Confidence Score: 0.72
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: TILARGININE ACETATE
+Current Target: NOS1
+Proposed Target: GRIN1
+Confidence Score: 0.72
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: LAPAQUISTAT ACETATE
+Current Target: FDFT1
+Proposed Target: HMGCR
+Confidence Score: 0.72
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.71
+Rationale: High-phase drug (3) with strong interaction score (0.95) through protein interaction network
+
+Drug: ACADESINE
+Current Target: PRKAA1
+Proposed Target: HMGCR
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: CRENEZUMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: DONANEMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: BAPINEUZUMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: SOLANEZUMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: TRAMIPROSATE
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: GANTENERUMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: VALILTRAMIPROSATE
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.94) through protein interaction network
+
+Drug: ALVOCIDIB
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.70
+Rationale: High-phase drug (3) with strong interaction score (0.93) through protein interaction network
+
+Drug: DINACICLIB
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.70
+Status: Known relationship
+Rationale: Known High-phase drug (3) with strong interaction score (0.93) through protein interaction network
+
+Drug: LANABECESTAT
+Current Target: BACE1
+Proposed Target: ADAM10
+Confidence Score: 0.69
+Rationale: High-phase drug (3) with strong interaction score (0.92) through protein interaction network
+
+Drug: ELENBECESTAT
+Current Target: BACE1
+Proposed Target: ADAM10
+Confidence Score: 0.69
+Rationale: High-phase drug (3) with strong interaction score (0.92) through protein interaction network
+
+Drug: VERUBECESTAT
+Current Target: BACE1
+Proposed Target: ADAM10
+Confidence Score: 0.69
+Rationale: High-phase drug (3) with strong interaction score (0.92) through protein interaction network
+
+Drug: GEFAPIXANT
+Current Target: P2RX3
+Proposed Target: GRIN1
+Confidence Score: 0.69
+Rationale: High-phase drug (3) with strong interaction score (0.92) through protein interaction network
+
+Drug: CAMLIPIXANT
+Current Target: P2RX3
+Proposed Target: GRIN1
+Confidence Score: 0.69
+Rationale: High-phase drug (3) with strong interaction score (0.92) through protein interaction network
+
+Drug: INCLISIRAN
+Current Target: PCSK9
+Proposed Target: HMGCR
+Confidence Score: 0.68
+Rationale: High-phase drug (3) with strong interaction score (0.91) through protein interaction network
+
+Drug: NIROGACESTAT
+Current Target: PSEN1
+Proposed Target: ADAM10
+Confidence Score: 0.68
+Rationale: High-phase drug (3) with strong interaction score (0.91) through protein interaction network
+
+Drug: TARENFLURBIL
+Current Target: PSEN1
+Proposed Target: ADAM10
+Confidence Score: 0.68
+Rationale: High-phase drug (3) with strong interaction score (0.91) through protein interaction network
+
+Drug: SEMAGACESTAT
+Current Target: NCSTN
+Proposed Target: ADAM10
+Confidence Score: 0.65
+Rationale: High-phase drug (3) with strong interaction score (0.86) through protein interaction network
+
+Drug: CUSTIRSEN SODIUM
+Current Target: CLU
+Proposed Target: SORL1
+Confidence Score: 0.65
+Rationale: High-phase drug (3) with strong interaction score (0.86) through protein interaction network
+
+Drug: CUSTIRSEN
+Current Target: CLU
+Proposed Target: SORL1
+Confidence Score: 0.65
+Rationale: High-phase drug (3) with strong interaction score (0.86) through protein interaction network
+
+Drug: ELENBECESTAT
+Current Target: BACE1
+Proposed Target: PSEN2
+Confidence Score: 0.64
+Rationale: High-phase drug (3) with strong interaction score (0.85) through protein interaction network
+
+Drug: LANABECESTAT
+Current Target: BACE1
+Proposed Target: PSEN2
+Confidence Score: 0.64
+Rationale: High-phase drug (3) with strong interaction score (0.85) through protein interaction network
+
+Drug: VERUBECESTAT
+Current Target: BACE1
+Proposed Target: PSEN2
+Confidence Score: 0.64
+Rationale: High-phase drug (3) with strong interaction score (0.85) through protein interaction network
+
+Drug: LANABECESTAT
+Current Target: BACE1
+Proposed Target: ACHE
+Confidence Score: 0.62
+Rationale: High-phase drug (3) with strong interaction score (0.83) through protein interaction network
+
+Drug: ELENBECESTAT
+Current Target: BACE1
+Proposed Target: ACHE
+Confidence Score: 0.62
+Rationale: High-phase drug (3) with strong interaction score (0.83) through protein interaction network
+
+Drug: VERUBECESTAT
+Current Target: BACE1
+Proposed Target: ACHE
+Confidence Score: 0.62
+Rationale: High-phase drug (3) with strong interaction score (0.83) through protein interaction network
+
+Drug: GEMTUZUMAB
+Current Target: CD33
+Proposed Target: SORL1
+Confidence Score: 0.61
+Rationale: High-phase drug (3) with strong interaction score (0.81) through protein interaction network
+
+Drug: LINTUZUMAB
+Current Target: CD33
+Proposed Target: SORL1
+Confidence Score: 0.61
+Rationale: High-phase drug (3) with strong interaction score (0.81) through protein interaction network
+
+Drug: OBATOCLAX MESYLATE
+Current Target: BCL2
+Proposed Target: ADAM10
+Confidence Score: 0.60
+Rationale: High-phase drug (3) with strong interaction score (0.80) through protein interaction network
+
+Drug: NAVITOCLAX
+Current Target: BCL2
+Proposed Target: ADAM10
+Confidence Score: 0.60
+Rationale: High-phase drug (3) with strong interaction score (0.80) through protein interaction network
+
+Drug: OBATOCLAX
+Current Target: BCL2
+Proposed Target: ADAM10
+Confidence Score: 0.60
+Rationale: High-phase drug (3) with strong interaction score (0.80) through protein interaction network
+
+Drug: OBLIMERSEN SODIUM
+Current Target: BCL2
+Proposed Target: ADAM10
+Confidence Score: 0.60
+Rationale: High-phase drug (3) with strong interaction score (0.80) through protein interaction network
+
+Drug: NIROGACESTAT
+Current Target: PSEN2
+Proposed Target: SORL1
+Confidence Score: 0.58
+Rationale: High-phase drug (3) with strong interaction score (0.78) through protein interaction network
+
+Drug: TARENFLURBIL
+Current Target: PSEN2
+Proposed Target: SORL1
+Confidence Score: 0.58
+Rationale: High-phase drug (3) with strong interaction score (0.78) through protein interaction network
+
+Drug: SEMAGACESTAT
+Current Target: PSEN2
+Proposed Target: SORL1
+Confidence Score: 0.58
+Rationale: High-phase drug (3) with strong interaction score (0.78) through protein interaction network
+
+Drug: NIROGACESTAT
+Current Target: PSEN1
+Proposed Target: ACHE
+Confidence Score: 0.56
+Rationale: High-phase drug (3) with strong interaction score (0.75) through protein interaction network
+
+Drug: TARENFLURBIL
+Current Target: PSEN1
+Proposed Target: ACHE
+Confidence Score: 0.56
+Rationale: High-phase drug (3) with strong interaction score (0.75) through protein interaction network
+
+Drug: SEMAGACESTAT
+Current Target: PSEN1
+Proposed Target: ACHE
+Confidence Score: 0.56
+Rationale: High-phase drug (3) with strong interaction score (0.75) through protein interaction network
+
+Drug: AVAGACESTAT
+Current Target: PSEN2
+Proposed Target: PSEN1
+Confidence Score: 0.50
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: PRI-724
+Current Target: CTNNB1
+Proposed Target: PSEN1
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: RG-4733
+Current Target: APH1B
+Proposed Target: PSEN1
+Confidence Score: 0.50
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: PSEN1
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: ATABECESTAT
+Current Target: BACE1
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: AVAGACESTAT
+Current Target: NCSTN
+Proposed Target: PSEN2
+Confidence Score: 0.50
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: RG-4733
+Current Target: PSENEN
+Proposed Target: PSEN2
+Confidence Score: 0.50
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: BEPRANEMAB
+Current Target: MAPT
+Proposed Target: CDK5
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: TILAVONEMAB
+Current Target: MAPT
+Proposed Target: CDK5
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: ZAGOTENEMAB
+Current Target: MAPT
+Proposed Target: CDK5
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: SEMORINEMAB
+Current Target: MAPT
+Proposed Target: CDK5
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: GOSURANEMAB
+Current Target: MAPT
+Proposed Target: CDK5
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: POSDINEMAB
+Current Target: MAPT
+Proposed Target: CDK5
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: SORL1
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: BRONTICTUZUMAB
+Current Target: NOTCH1
+Proposed Target: PSEN1
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: PRASINEZUMAB
+Current Target: SNCA
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: CINPANEMAB
+Current Target: SNCA
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (1.00) through protein interaction network
+
+Drug: SEMORINEMAB
+Current Target: MAPT
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: BEPRANEMAB
+Current Target: MAPT
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: ZAGOTENEMAB
+Current Target: MAPT
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: GOSURANEMAB
+Current Target: MAPT
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: POSDINEMAB
+Current Target: MAPT
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: TILAVONEMAB
+Current Target: MAPT
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: PRASINEZUMAB
+Current Target: SNCA
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: CINPANEMAB
+Current Target: SNCA
+Proposed Target: APP
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: ZAGOTENEMAB
+Current Target: MAPT
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: BEPRANEMAB
+Current Target: MAPT
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: SEMORINEMAB
+Current Target: MAPT
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: GOSURANEMAB
+Current Target: MAPT
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: POSDINEMAB
+Current Target: MAPT
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: TILAVONEMAB
+Current Target: MAPT
+Proposed Target: APOE
+Confidence Score: 0.50
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.49
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: APP
+Confidence Score: 0.49
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: RG-4733
+Current Target: PSENEN
+Proposed Target: APP
+Confidence Score: 0.49
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: AVAGACESTAT
+Current Target: APH1A
+Proposed Target: APP
+Confidence Score: 0.49
+Rationale: High-phase drug (2) with strong interaction score (0.99) through protein interaction network
+
+Drug: MILATUZUMAB
+Current Target: CD74
+Proposed Target: APP
+Confidence Score: 0.49
+Rationale: High-phase drug (2) with strong interaction score (0.98) through protein interaction network
+
+Drug: ATABECESTAT
+Current Target: BACE1
+Proposed Target: PSEN1
+Confidence Score: 0.49
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: PSEN2
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: CENERSEN
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: SIREMADLIN
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: APG115
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: CONTUSUGENE LADENOVEC
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: CENERSEN SODIUM
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: NAVTEMADLIN
+Current Target: TP53
+Proposed Target: CDK5
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.97) through protein interaction network
+
+Drug: APRATASTAT
+Current Target: ADAM17
+Proposed Target: ADAM10
+Confidence Score: 0.48
+Rationale: High-phase drug (2) with strong interaction score (0.96) through protein interaction network
+
+Drug: SEMORINEMAB
+Current Target: MAPT
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: BEPRANEMAB
+Current Target: MAPT
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: POSDINEMAB
+Current Target: MAPT
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: ZAGOTENEMAB
+Current Target: MAPT
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: TILAVONEMAB
+Current Target: MAPT
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: GOSURANEMAB
+Current Target: MAPT
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: ADAM10
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.95) through protein interaction network
+
+Drug: PREXIGEBERSEN
+Current Target: GRB2
+Proposed Target: PSEN1
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.94) through protein interaction network
+
+Drug: PONEZUMAB
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.94) through protein interaction network
+
+Drug: AMILOMOTIDE
+Current Target: APP
+Proposed Target: ACHE
+Confidence Score: 0.47
+Rationale: High-phase drug (2) with strong interaction score (0.94) through protein interaction network
+
+Drug: UCN-01
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.46
+Rationale: High-phase drug (2) with strong interaction score (0.93) through protein interaction network
+
+Drug: MILCICLIB
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.46
+Rationale: High-phase drug (2) with strong interaction score (0.93) through protein interaction network
+
+Drug: SELICICLIB
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.46
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (0.93) through protein interaction network
+
+Drug: AT-7519
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.46
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (0.93) through protein interaction network
+
+Drug: RONICICLIB
+Current Target: CDK2
+Proposed Target: CDK5
+Confidence Score: 0.46
+Status: Known relationship
+Rationale: Known High-phase drug (2) with strong interaction score (0.93) through protein interaction network
+
+Drug: BRONTICTUZUMAB
+Current Target: NOTCH1
+Proposed Target: ADAM10
+Confidence Score: 0.46
+Rationale: High-phase drug (2) with strong interaction score (0.92) through protein interaction network
+
+Drug: ATABECESTAT
+Current Target: BACE1
+Proposed Target: ADAM10
+Confidence Score: 0.46
+Rationale: High-phase drug (2) with strong interaction score (0.92) through protein interaction network
+
+Drug: CE-224535
+Current Target: P2RX7
+Proposed Target: GRIN1
+Confidence Score: 0.45
+Rationale: High-phase drug (2) with strong interaction score (0.91) through protein interaction network
+
+Drug: AZD9056
+Current Target: P2RX7
+Proposed Target: GRIN1
+Confidence Score: 0.45
+Rationale: High-phase drug (2) with strong interaction score (0.91) through protein interaction network
+
+Drug: JNJ-54175446
+Current Target: P2RX7
+Proposed Target: GRIN1
+Confidence Score: 0.45
+Rationale: High-phase drug (2) with strong interaction score (0.91) through protein interaction network
+
+Drug: AVAGACESTAT
+Current Target: PSEN1
+Proposed Target: ADAM10
+Confidence Score: 0.45
+Rationale: High-phase drug (2) with strong interaction score (0.91) through protein interaction network
+
+Drug: TAREXTUMAB
+Current Target: NOTCH3
+Proposed Target: PSEN2
+Confidence Score: 0.45
+Rationale: High-phase drug (2) with strong interaction score (0.89) through protein interaction network
+
+Drug: ZAGOTENEMAB
+Current Target: MAPT
+Proposed Target: PSEN2
+Confidence Score: 0.44
+Rationale: High-phase drug (2) with strong interaction score (0.88) through protein interaction network
+
+Drug: GOSURANEMAB
+Current Target: MAPT
+Proposed Target: PSEN2
+Confidence Score: 0.44
+Rationale: High-phase drug (2) with strong interaction score (0.88) through protein interaction network
+
+Drug: POSDINEMAB
+Current Target: MAPT
+Proposed Target: PSEN2
+Confidence Score: 0.44
+Rationale: High-phase drug (2) with strong interaction score (0.88) through protein interaction network
+
+Drug: SEMORINEMAB
+Current Target: MAPT
+Proposed Target: PSEN2
+Confidence Score: 0.44
+Rationale: High-phase drug (2) with strong interaction score (0.88) through protein interaction network
+
+Drug: BEPRANEMAB
+Current Target: MAPT
+Proposed Target: PSEN2
+Confidence Score: 0.44
+Rationale: High-phase drug (2) with strong interaction score (0.88) through protein interaction network
+
+Drug: TILAVONEMAB
+Current Target: MAPT
+Proposed Target: PSEN2
+Confidence Score: 0.44
+Rationale: High-phase drug (2) with strong interaction score (0.88) through protein interaction network
+
+Drug: RG-4733
+Current Target: NCSTN
+Proposed Target: ADAM10
+Confidence Score: 0.43
+Rationale: High-phase drug (2) with strong interaction score (0.86) through protein interaction network
+
+Drug: BRONTICTUZUMAB
+Current Target: NOTCH1
+Proposed Target: PSEN2
+Confidence Score: 0.43
+Rationale: High-phase drug (2) with strong interaction score (0.85) through protein interaction network
+
+Drug: ATABECESTAT
+Current Target: BACE1
+Proposed Target: PSEN2
+Confidence Score: 0.43
+Rationale: High-phase drug (2) with strong interaction score (0.85) through protein interaction network
+
+Drug: ATABECESTAT
+Current Target: BACE1
+Proposed Target: ACHE
+Confidence Score: 0.42
+Rationale: High-phase drug (2) with strong interaction score (0.83) through protein interaction network
+
+Drug: TAREXTUMAB
+Current Target: NOTCH2
+Proposed Target: ADAM10
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: QUETMOLIMAB
+Current Target: CX3CL1
+Proposed Target: ADAM10
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: GOSURANEMAB
+Current Target: MAPT
+Proposed Target: ACHE
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: POSDINEMAB
+Current Target: MAPT
+Proposed Target: ACHE
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: TILAVONEMAB
+Current Target: MAPT
+Proposed Target: ACHE
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: SEMORINEMAB
+Current Target: MAPT
+Proposed Target: ACHE
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: ZAGOTENEMAB
+Current Target: MAPT
+Proposed Target: ACHE
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: BEPRANEMAB
+Current Target: MAPT
+Proposed Target: ACHE
+Confidence Score: 0.41
+Rationale: High-phase drug (2) with strong interaction score (0.82) through protein interaction network
+
+Drug: CELGOSIVIR
+Current Target: SI
+Proposed Target: ACHE
+Confidence Score: 0.40
+Rationale: High-phase drug (2) with strong interaction score (0.79) through protein interaction network
+
+Drug: RG-4733
+Current Target: PSEN1
+Proposed Target: SORL1
+Confidence Score: 0.39
+Rationale: High-phase drug (2) with strong interaction score (0.78) through protein interaction network
+
+Drug: AVAGACESTAT
+Current Target: PSEN2
+Proposed Target: SORL1
+Confidence Score: 0.39
+Rationale: High-phase drug (2) with strong interaction score (0.78) through protein interaction network
+
+Drug: RG-4733
+Current Target: PSEN1
+Proposed Target: ACHE
+Confidence Score: 0.38
+Rationale: High-phase drug (2) with strong interaction score (0.75) through protein interaction network
+
+Drug: AVAGACESTAT
+Current Target: PSEN1
+Proposed Target: ACHE
+Confidence Score: 0.38
+Rationale: High-phase drug (2) with strong interaction score (0.75) through protein interaction network

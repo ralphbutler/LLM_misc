@@ -1,0 +1,179 @@
+
+Step 1: Searching for disease...
+QUERY TO SEND
+query {
+  search(queryString: "Alzheimer's disease", entityNames: ["disease"]) {
+    hits {
+      id
+      name
+    }
+  }
+}
+QUERY END
+JSON RECVD
+{'data': {'search': {'hits': [{'id': 'MONDO_0004975', 'name': 'Alzheimer disease'}, {'id': 'EFO_0006514', 'name': "Alzheimer's disease biomarker measurement"}, {'id': 'EFO_0006801', 'name': "Alzheimer's disease neuropathologic change"}, {'id': 'MONDO_0011913', 'name': 'Alzheimer disease 3'}, {'id': 'EFO_1001870', 'name': 'late-onset Alzheimers disease'}, {'id': 'MONDO_0014265', 'name': 'Alzheimer disease 18'}, {'id': 'MONDO_0001627', 'name': 'dementia'}, {'id': 'Orphanet_324723', 'name': 'Hereditary cerebral hemorrhage with amyloidosis, Arctic type'}, {'id': 'MONDO_0017949', 'name': 'ABeta amyloidosis, Arctic type'}, {'id': 'Orphanet_324718', 'name': 'Hereditary cerebral hemorrhage with amyloidosis, Flemish type'}, {'id': 'MONDO_0017948', 'name': 'ABetaA21G amyloidosis'}, {'id': 'EFO_0004840', 'name': 'cortical thickness'}, {'id': 'EFO_0004763', 'name': 'p-tau measurement'}, {'id': 'EFO_0006794', 'name': 'cerebrospinal fluid biomarker measurement'}, {'id': 'EFO_0004670', 'name': 'beta-amyloid 1-42 measurement'}, {'id': 'EFO_0009178', 'name': 'neurofilament light chain measurement'}, {'id': 'EFO_0011057', 'name': 'neurotoxicity'}, {'id': 'EFO_0004760', 'name': 't-tau measurement'}, {'id': 'EFO_0006798', 'name': 'neuritic plaque measurement'}, {'id': 'EFO_0005194', 'name': 'amyloid-beta measurement'}, {'id': 'EFO_0007646', 'name': 'amyloid plaque accumulation rate'}, {'id': 'EFO_0010151', 'name': 'soluble triggering receptor expressed on myeloid cells 2 measurement'}, {'id': 'EFO_0009179', 'name': 'beta-secretase 1 measurement'}, {'id': 'EFO_0005660', 'name': 'plasma beta-amyloid 1-42 measurement'}, {'id': 'EFO_0005659', 'name': 'plasma beta-amyloid 1-40 measurement'}]}}}
+JSON RECVD END
+HITS
+[{'id': 'MONDO_0004975', 'name': 'Alzheimer disease'}, {'id': 'EFO_0006514', 'name': "Alzheimer's disease biomarker measurement"}, {'id': 'EFO_0006801', 'name': "Alzheimer's disease neuropathologic change"}, {'id': 'MONDO_0011913', 'name': 'Alzheimer disease 3'}, {'id': 'EFO_1001870', 'name': 'late-onset Alzheimers disease'}, {'id': 'MONDO_0014265', 'name': 'Alzheimer disease 18'}, {'id': 'MONDO_0001627', 'name': 'dementia'}, {'id': 'Orphanet_324723', 'name': 'Hereditary cerebral hemorrhage with amyloidosis, Arctic type'}, {'id': 'MONDO_0017949', 'name': 'ABeta amyloidosis, Arctic type'}, {'id': 'Orphanet_324718', 'name': 'Hereditary cerebral hemorrhage with amyloidosis, Flemish type'}, {'id': 'MONDO_0017948', 'name': 'ABetaA21G amyloidosis'}, {'id': 'EFO_0004840', 'name': 'cortical thickness'}, {'id': 'EFO_0004763', 'name': 'p-tau measurement'}, {'id': 'EFO_0006794', 'name': 'cerebrospinal fluid biomarker measurement'}, {'id': 'EFO_0004670', 'name': 'beta-amyloid 1-42 measurement'}, {'id': 'EFO_0009178', 'name': 'neurofilament light chain measurement'}, {'id': 'EFO_0011057', 'name': 'neurotoxicity'}, {'id': 'EFO_0004760', 'name': 't-tau measurement'}, {'id': 'EFO_0006798', 'name': 'neuritic plaque measurement'}, {'id': 'EFO_0005194', 'name': 'amyloid-beta measurement'}, {'id': 'EFO_0007646', 'name': 'amyloid plaque accumulation rate'}, {'id': 'EFO_0010151', 'name': 'soluble triggering receptor expressed on myeloid cells 2 measurement'}, {'id': 'EFO_0009179', 'name': 'beta-secretase 1 measurement'}, {'id': 'EFO_0005660', 'name': 'plasma beta-amyloid 1-42 measurement'}, {'id': 'EFO_0005659', 'name': 'plasma beta-amyloid 1-40 measurement'}]
+HITS END
+
+Disease search results:
+ID: MONDO_0004975, Name: Alzheimer disease
+ID: EFO_0006514, Name: Alzheimer's disease biomarker measurement
+ID: EFO_0006801, Name: Alzheimer's disease neuropathologic change
+ID: MONDO_0011913, Name: Alzheimer disease 3
+ID: EFO_1001870, Name: late-onset Alzheimers disease
+ID: MONDO_0014265, Name: Alzheimer disease 18
+ID: MONDO_0001627, Name: dementia
+ID: Orphanet_324723, Name: Hereditary cerebral hemorrhage with amyloidosis, Arctic type
+ID: MONDO_0017949, Name: ABeta amyloidosis, Arctic type
+ID: Orphanet_324718, Name: Hereditary cerebral hemorrhage with amyloidosis, Flemish type
+ID: MONDO_0017948, Name: ABetaA21G amyloidosis
+ID: EFO_0004840, Name: cortical thickness
+ID: EFO_0004763, Name: p-tau measurement
+ID: EFO_0006794, Name: cerebrospinal fluid biomarker measurement
+ID: EFO_0004670, Name: beta-amyloid 1-42 measurement
+ID: EFO_0009178, Name: neurofilament light chain measurement
+ID: EFO_0011057, Name: neurotoxicity
+ID: EFO_0004760, Name: t-tau measurement
+ID: EFO_0006798, Name: neuritic plaque measurement
+ID: EFO_0005194, Name: amyloid-beta measurement
+ID: EFO_0007646, Name: amyloid plaque accumulation rate
+ID: EFO_0010151, Name: soluble triggering receptor expressed on myeloid cells 2 measurement
+ID: EFO_0009179, Name: beta-secretase 1 measurement
+ID: EFO_0005660, Name: plasma beta-amyloid 1-42 measurement
+ID: EFO_0005659, Name: plasma beta-amyloid 1-40 measurement
+Using disease ID: MONDO_0004975
+
+Step 2: Getting primary disease-associated targets...
+QUERY TO SEND
+query {
+  disease(efoId: "MONDO_0004975") {
+    associatedTargets {
+      count
+      rows {
+        score
+        target {
+          id
+          approvedSymbol
+          approvedName
+        }
+      }
+    }
+  }
+}
+QUERY END
+JSON RECVD
+{'data': {'disease': {'associatedTargets': {'count': 4626, 'rows': [{'score': 0.8681178963149172, 'target': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1', 'approvedName': 'presenilin 1'}}, {'score': 0.8495671982950335, 'target': {'id': 'ENSG00000142192', 'approvedSymbol': 'APP', 'approvedName': 'amyloid beta precursor protein'}}, {'score': 0.7071445432744302, 'target': {'id': 'ENSG00000143801', 'approvedSymbol': 'PSEN2', 'approvedName': 'presenilin 2'}}, {'score': 0.6880849383889996, 'target': {'id': 'ENSG00000176884', 'approvedSymbol': 'GRIN1', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 1'}}, {'score': 0.6679894276514395, 'target': {'id': 'ENSG00000164885', 'approvedSymbol': 'CDK5', 'approvedName': 'cyclin dependent kinase 5'}}, {'score': 0.6634867125430397, 'target': {'id': 'ENSG00000137642', 'approvedSymbol': 'SORL1', 'approvedName': 'sortilin related receptor 1'}}, {'score': 0.6514626186320907, 'target': {'id': 'ENSG00000137845', 'approvedSymbol': 'ADAM10', 'approvedName': 'ADAM metallopeptidase domain 10'}}, {'score': 0.6350711457211572, 'target': {'id': 'ENSG00000130203', 'approvedSymbol': 'APOE', 'approvedName': 'apolipoprotein E'}}, {'score': 0.6177717482337637, 'target': {'id': 'ENSG00000087085', 'approvedSymbol': 'ACHE', 'approvedName': 'acetylcholinesterase (Yt blood group)'}}, {'score': 0.6102257281794294, 'target': {'id': 'ENSG00000113161', 'approvedSymbol': 'HMGCR', 'approvedName': '3-hydroxy-3-methylglutaryl-CoA reductase'}}, {'score': 0.6077222694338583, 'target': {'id': 'ENSG00000116032', 'approvedSymbol': 'GRIN3B', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 3B'}}, {'score': 0.6008532203472327, 'target': {'id': 'ENSG00000273079', 'approvedSymbol': 'GRIN2B', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 2B'}}, {'score': 0.600732954613579, 'target': {'id': 'ENSG00000161509', 'approvedSymbol': 'GRIN2C', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 2C'}}, {'score': 0.6006401296610849, 'target': {'id': 'ENSG00000183454', 'approvedSymbol': 'GRIN2A', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 2A'}}, {'score': 0.599692141731994, 'target': {'id': 'ENSG00000198785', 'approvedSymbol': 'GRIN3A', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 3A'}}, {'score': 0.599692141731994, 'target': {'id': 'ENSG00000105464', 'approvedSymbol': 'GRIN2D', 'approvedName': 'glutamate ionotropic receptor NMDA type subunit 2D'}}, {'score': 0.5974335133412325, 'target': {'id': 'ENSG00000114200', 'approvedSymbol': 'BCHE', 'approvedName': 'butyrylcholinesterase'}}, {'score': 0.5973903346717278, 'target': {'id': 'ENSG00000101224', 'approvedSymbol': 'CDC25B', 'approvedName': 'cell division cycle 25B'}}, {'score': 0.5953181679495149, 'target': {'id': 'ENSG00000010704', 'approvedSymbol': 'HFE', 'approvedName': 'homeostatic iron regulator'}}, {'score': 0.5805707016580218, 'target': {'id': 'ENSG00000176749', 'approvedSymbol': 'CDK5R1', 'approvedName': 'cyclin dependent kinase 5 regulatory subunit 1'}}, {'score': 0.5674951874328579, 'target': {'id': 'ENSG00000159640', 'approvedSymbol': 'ACE', 'approvedName': 'angiotensin I converting enzyme'}}, {'score': 0.5511872888339344, 'target': {'id': 'ENSG00000118689', 'approvedSymbol': 'FOXO3', 'approvedName': 'forkhead box O3'}}, {'score': 0.544046812861061, 'target': {'id': 'ENSG00000142319', 'approvedSymbol': 'SLC6A3', 'approvedName': 'solute carrier family 6 member 3'}}, {'score': 0.5380923250313722, 'target': {'id': 'ENSG00000082701', 'approvedSymbol': 'GSK3B', 'approvedName': 'glycogen synthase kinase 3 beta'}}, {'score': 0.5362635516406955, 'target': {'id': 'ENSG00000197746', 'approvedSymbol': 'PSAP', 'approvedName': 'prosaposin'}}]}}}}
+JSON RECVD END
+
+Top disease-associated targets:
+Target: PSEN1, Score: 0.8681178963149172
+Target: APP, Score: 0.8495671982950335
+Target: PSEN2, Score: 0.7071445432744302
+Target: GRIN1, Score: 0.6880849383889996
+Target: CDK5, Score: 0.6679894276514395
+Target: SORL1, Score: 0.6634867125430397
+Target: ADAM10, Score: 0.6514626186320907
+Target: APOE, Score: 0.6350711457211572
+Target: ACHE, Score: 0.6177717482337637
+Target: HMGCR, Score: 0.6102257281794294
+Target: GRIN3B, Score: 0.6077222694338583
+Target: GRIN2B, Score: 0.6008532203472327
+Target: GRIN2C, Score: 0.600732954613579
+Target: GRIN2A, Score: 0.6006401296610849
+Target: GRIN3A, Score: 0.599692141731994
+Target: GRIN2D, Score: 0.599692141731994
+Target: BCHE, Score: 0.5974335133412325
+Target: CDC25B, Score: 0.5973903346717278
+Target: HFE, Score: 0.5953181679495149
+Target: CDK5R1, Score: 0.5805707016580218
+Target: ACE, Score: 0.5674951874328579
+Target: FOXO3, Score: 0.5511872888339344
+Target: SLC6A3, Score: 0.544046812861061
+Target: GSK3B, Score: 0.5380923250313722
+Target: PSAP, Score: 0.5362635516406955
+
+Primary Disease-Associated Targets:
+- PSEN1 (ID: ENSG00000080815)
+- APP (ID: ENSG00000142192)
+- PSEN2 (ID: ENSG00000143801)
+- GRIN1 (ID: ENSG00000176884)
+- CDK5 (ID: ENSG00000164885)
+- SORL1 (ID: ENSG00000137642)
+- ADAM10 (ID: ENSG00000137845)
+- APOE (ID: ENSG00000130203)
+- ACHE (ID: ENSG00000087085)
+- HMGCR (ID: ENSG00000113161)
+- GRIN3B (ID: ENSG00000116032)
+- GRIN2B (ID: ENSG00000273079)
+- GRIN2C (ID: ENSG00000161509)
+- GRIN2A (ID: ENSG00000183454)
+- GRIN3A (ID: ENSG00000198785)
+- GRIN2D (ID: ENSG00000105464)
+- BCHE (ID: ENSG00000114200)
+- CDC25B (ID: ENSG00000101224)
+- HFE (ID: ENSG00000010704)
+- CDK5R1 (ID: ENSG00000176749)
+- ACE (ID: ENSG00000159640)
+- FOXO3 (ID: ENSG00000118689)
+- SLC6A3 (ID: ENSG00000142319)
+- GSK3B (ID: ENSG00000082701)
+- PSAP (ID: ENSG00000197746)
+
+Step 3drugs: Getting drugs for target {'id': 'ENSG00000080815', 'symbol': 'PSEN1', 'score': 0.8681178963149172}
+QUERY TO SEND
+{
+  target(ensemblId: "ENSG00000080815") {
+    knownDrugs {
+      rows {
+        drug {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+QUERY END
+JSON RECVD
+{'data': {'target': {'knownDrugs': {'rows': [{'drug': {'id': 'CHEMBL190083', 'name': 'TARENFLURBIL'}}, {'drug': {'id': 'CHEMBL190083', 'name': 'TARENFLURBIL'}}, {'drug': {'id': 'CHEMBL190083', 'name': 'TARENFLURBIL'}}, {'drug': {'id': 'CHEMBL190083', 'name': 'TARENFLURBIL'}}, {'drug': {'id': 'CHEMBL1770916', 'name': 'NIROGACESTAT'}}, {'drug': {'id': 'CHEMBL520733', 'name': 'SEMAGACESTAT'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL1770916', 'name': 'NIROGACESTAT'}}, {'drug': {'id': 'CHEMBL1770916', 'name': 'NIROGACESTAT'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL1770916', 'name': 'NIROGACESTAT'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL1090771', 'name': 'AVAGACESTAT'}}, {'drug': {'id': 'CHEMBL190083', 'name': 'TARENFLURBIL'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}, {'drug': {'id': 'CHEMBL1770916', 'name': 'NIROGACESTAT'}}, {'drug': {'id': 'CHEMBL4297422', 'name': 'RG-4733'}}]}}}}
+JSON RECVD END
+
+Top disease-associated targets:
+DRUG {'drug': {'id': 'CHEMBL190083', 'name': 'TARENFLURBIL'}}
+
+Step 3interactions: Getting interactions for target {'id': 'ENSG00000080815', 'symbol': 'PSEN1', 'score': 0.8681178963149172}
+QUERY TO SEND
+{
+  target(ensemblId: "ENSG00000080815") {
+    interactions {
+      count
+      rows {
+        intA
+        targetA {
+          id
+          approvedSymbol
+        }
+        intB
+        targetB {
+          id
+          approvedSymbol
+        }
+        score
+        sourceDatabase
+        evidences {
+          evidenceScore
+          pubmedId
+        }
+      }
+    }
+  }
+}
+QUERY END
+JSON RECVD
+{'data': {'target': {'interactions': {'count': 1854, 'rows': [{'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000284981', 'targetB': {'id': 'ENSG00000142192', 'approvedSymbol': 'APP'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.982, 'pubmedId': None}, {'evidenceScore': 0.991, 'pubmedId': None}, {'evidenceScore': 0.049, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000358105', 'targetB': {'id': 'ENSG00000117362', 'approvedSymbol': 'APH1A'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.999, 'pubmedId': None}, {'evidenceScore': 0.123, 'pubmedId': None}, {'evidenceScore': 0.999, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000495360', 'targetB': {'id': 'ENSG00000168036', 'approvedSymbol': 'CTNNB1'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.83, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.957, 'pubmedId': None}, {'evidenceScore': 0.064, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000294785', 'targetB': {'id': 'ENSG00000162736', 'approvedSymbol': 'NCSTN'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.999, 'pubmedId': None}, {'evidenceScore': 0.999, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.107, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000468411', 'targetB': {'id': 'ENSG00000205155', 'approvedSymbol': 'PSENEN'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.047, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.999, 'pubmedId': None}, {'evidenceScore': 0.999, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000355747', 'targetB': {'id': 'ENSG00000143801', 'approvedSymbol': 'PSEN2'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.994, 'pubmedId': None}, {'evidenceScore': 0.049, 'pubmedId': None}, {'evidenceScore': 0.965, 'pubmedId': None}, {'evidenceScore': 0.983, 'pubmedId': None}, {'evidenceScore': 0.058, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000261879', 'targetB': {'id': 'ENSG00000138613', 'approvedSymbol': 'APH1B'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.8, 'pubmedId': None}, {'evidenceScore': 0.122, 'pubmedId': None}, {'evidenceScore': 0.996, 'pubmedId': None}, {'evidenceScore': 0.997, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000498587', 'targetB': {'id': 'ENSG00000148400', 'approvedSymbol': 'NOTCH1'}, 'score': 0.998, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.881, 'pubmedId': None}, {'evidenceScore': 0.058, 'pubmedId': None}, {'evidenceScore': 0.955, 'pubmedId': None}, {'evidenceScore': 0.65, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000324806', 'targetB': {'id': 'ENSG00000082701', 'approvedSymbol': 'GSK3B'}, 'score': 0.995, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.776, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.749, 'pubmedId': None}, {'evidenceScore': 0.08, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000307134', 'targetB': {'id': 'ENSG00000169862', 'approvedSymbol': 'CTNND2'}, 'score': 0.991, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.292, 'pubmedId': None}, {'evidenceScore': 0.988, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000303145', 'targetB': {'id': 'ENSG00000170348', 'approvedSymbol': 'TMED10'}, 'score': 0.98, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.083, 'pubmedId': None}, {'evidenceScore': 0.36, 'pubmedId': None}, {'evidenceScore': 0.712, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000261769', 'targetB': {'id': 'ENSG00000039068', 'approvedSymbol': 'CDH1'}, 'score': 0.98, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.75, 'pubmedId': None}, {'evidenceScore': 0.779, 'pubmedId': None}, {'evidenceScore': 0.676, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000318585', 'targetB': {'id': 'ENSG00000186318', 'approvedSymbol': 'BACE1'}, 'score': 0.972, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.292, 'pubmedId': None}, {'evidenceScore': 0.05, 'pubmedId': None}, {'evidenceScore': 0.959, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000401445', 'targetB': {'id': 'ENSG00000178607', 'approvedSymbol': 'ERN1'}, 'score': 0.958, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.298, 'pubmedId': None}, {'evidenceScore': 0.433, 'pubmedId': None}, {'evidenceScore': 0.049, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000252486', 'targetB': {'id': 'ENSG00000130203', 'approvedSymbol': 'APOE'}, 'score': 0.956, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.956, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000365576', 'targetB': {'id': 'ENSG00000135018', 'approvedSymbol': 'UBQLN1'}, 'score': 0.953, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.096, 'pubmedId': None}, {'evidenceScore': 0.851, 'pubmedId': None}, {'evidenceScore': 0.653, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000340820', 'targetB': {'id': 'ENSG00000186868', 'approvedSymbol': 'MAPT'}, 'score': 0.95, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.287, 'pubmedId': None}, {'evidenceScore': 0.914, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000489262', 'targetB': {'id': 'ENSG00000198838', 'approvedSymbol': 'RYR3'}, 'score': 0.944, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.045, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.462, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000269141', 'targetB': {'id': 'ENSG00000170558', 'approvedSymbol': 'CDH2'}, 'score': 0.943, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.922, 'pubmedId': None}, {'evidenceScore': 0.302, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000307235', 'targetB': {'id': 'ENSG00000172071', 'approvedSymbol': 'EIF2AK3'}, 'score': 0.942, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.042, 'pubmedId': None}, {'evidenceScore': 0.446, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000363435', 'targetB': {'id': 'ENSG00000096433', 'approvedSymbol': 'ITPR3'}, 'score': 0.941, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.9, 'pubmedId': None}, {'evidenceScore': 0.071, 'pubmedId': None}, {'evidenceScore': 0.042, 'pubmedId': None}, {'evidenceScore': 0.368, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000295225', 'targetB': {'id': 'ENSG00000115041', 'approvedSymbol': 'KCNIP3'}, 'score': 0.941, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.51, 'pubmedId': None}, {'evidenceScore': 0.884, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000306253', 'targetB': {'id': 'ENSG00000150995', 'approvedSymbol': 'ITPR1'}, 'score': 0.94, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.042, 'pubmedId': None}, {'evidenceScore': 0.357, 'pubmedId': None}, {'evidenceScore': 0.071, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000376345', 'targetB': {'id': 'ENSG00000177885', 'approvedSymbol': 'GRB2'}, 'score': 0.937, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.933, 'pubmedId': None}, {'evidenceScore': 0.065, 'pubmedId': None}, {'evidenceScore': 0.053, 'pubmedId': None}]}, {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000359719', 'targetB': {'id': 'ENSG00000142875', 'approvedSymbol': 'PRKACB'}, 'score': 0.936, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.044, 'pubmedId': None}, {'evidenceScore': 0.314, 'pubmedId': None}, {'evidenceScore': 0.9, 'pubmedId': None}]}]}}}}
+JSON RECVD END
+
+Top disease-associated targets:
+INTERACTION {'intA': 'ENSP00000326366', 'targetA': {'id': 'ENSG00000080815', 'approvedSymbol': 'PSEN1'}, 'intB': 'ENSP00000284981', 'targetB': {'id': 'ENSG00000142192', 'approvedSymbol': 'APP'}, 'score': 0.999, 'sourceDatabase': 'string', 'evidences': [{'evidenceScore': 0.982, 'pubmedId': None}, {'evidenceScore': 0.991, 'pubmedId': None}, {'evidenceScore': 0.049, 'pubmedId': None}]}
