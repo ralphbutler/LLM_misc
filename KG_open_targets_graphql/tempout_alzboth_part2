@@ -1,0 +1,39 @@
+
+Analyzing network from PSEN1...
+
+Analyzing network from APP...
+
+Most Promising Latent Relationships:
+==================================
+
+Found 1042 unique high-confidence paths
+
+Top Phase 4 Paths:
+------------------------------
+
+PSEN1 -> CTNNB1 -> SRC
+Drug: DASATINIB
+Confidence: 1.00
+
+PSEN1 -> CTNNB1 -> SRC
+Drug: TIRBANIBULIN
+Confidence: 1.00
+
+PSEN1 -> CTNNB1 -> SRC
+Drug: VANDETANIB
+Confidence: 1.00
+
+Top Phase 3 Paths:
+------------------------------
+
+PSEN1 -> APP -> BACE1
+Drug: ELENBECESTAT
+Confidence: 1.00
+
+PSEN1 -> APP -> BACE1
+Drug: LANABECESTAT
+Confidence: 1.00
+
+PSEN1 -> APP -> BACE1
+Drug: VERUBECESTAT
+Confidence: 1.00
