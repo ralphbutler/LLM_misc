@@ -1,0 +1,18 @@
+
+01 structured result_type
+02 result validation
+   02a ModelRetry due to validation problems
+
+03 agent dependencies (deps_type)
+04 tools
+    04a plain
+    04b use RunContext
+05 dynamic system prompt
+
+06 serializing messages
+07 all_messages (reusing chat history)
+08 new_messages
+
+09 streaming text responses
+10 streaming responses (perhaps with partial validation)
+
