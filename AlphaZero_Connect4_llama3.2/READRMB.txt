@@ -1,0 +1,75 @@
+
+The wt* are versions of worktrain
+The wp* are versions of workplay
+
+The mlx stuff has not been tested at present.
+
+Be sure to read this file:
+    synergystic_alphazero.txt
+about why we keep AlphaZero in the loop rather than relying solely on the trained model.
+
+Maybe I will put it here just in case :-)
+--------
+Question:
+If I reduce the number of iterations to 0, it will rely solely on the model and
+not MCTS.  But then it does not play as well.  Was there really any reason to
+train the model if I am going rely on MCTS anyway?
+
+Answer from Sonnet:
+This is a great question that gets at the heart of how AlphaZero-style systems
+work. The relationship between the model and MCTS is synergistic:
+
+1. The model provides two crucial things to MCTS:
+   - Initial policy (which moves look promising to explore)
+   - Value estimates (how good is this position)
+   This makes MCTS much more efficient than if it had to explore randomly.
+
+2. MCTS then improves upon these initial estimates by actually playing out
+   positions and finding combinations the model might have missed. It's like
+   "thinking harder" about the position.
+
+So when you:
+    - Use iterations=0: You're just using the model's "first instinct"
+    - Use iterations=200: You're letting the model "think carefully" about the position
+
+The training wasn't wasted because:
+    1. It taught the model to give good initial estimates that make MCTS more efficient
+    2. The model learned from MCTS's improved evaluations during training
+    3. The combination of model+MCTS is stronger than either alone
+
+It's similar to how a human chess player:
+    - Can make quick moves based on pattern recognition (like the model)
+    - But plays better when taking time to calculate variations (like MCTS)
+    - And improves at both quick and calculated play through practice (training)
+
+------
+
+Q2:
+Is the setting of 0 to 200 based solely on "gut feel"?
+
+A2:
+Not entirely "gut feel" - there are some practical considerations:
+
+Time/Performance tradeoff:
+
+
+iterations=0: Instant decisions but weaker play
+iterations=200: Much stronger play but takes much longer
+iterations=20-50: A middle ground that might be good enough for casual play while keeping reasonable speed
+
+
+Purpose of the system:
+
+
+Training/Learning: Use higher iterations (100-200+) because you want the best possible moves
+Playing against humans: Lower iterations (20-50) might be better for keeping the game flowing
+Analysis: Very high iterations (500+) when time doesn't matter
+
+
+Strength of the base model:
+
+
+A very well-trained model might need fewer iterations
+A weaker model might need more iterations to compensate
+
+For your casual Connect4 play, I'd suggest experimenting with values between 20-50. This should give decent play quality while maintaining reasonable response times. You could even make it configurable - letting players choose between "fast" (0-10), "normal" (20-50), and "strong" (100+) settings.
