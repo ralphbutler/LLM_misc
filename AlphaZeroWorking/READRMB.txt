@@ -1,0 +1,9 @@
+
+video:
+https://www.youtube.com/watch?v=wuSQpLinRB4&t=11298s
+
+ipython notebooks:
+https://github.com/foersterrobert/AlphaZeroFromScratch
+
+completed code without all notebooks:
+https://github.com/foersterrobert/AlphaZero
