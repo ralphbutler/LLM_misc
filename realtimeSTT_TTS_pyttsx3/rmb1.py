@@ -5,8 +5,8 @@ import time
 import pyttsx3
 import polyllm
 
-VOICE_TYPE = "realtime-tts"  # "pyttsx3"
-# VOICE_TYPE = "pyttsx3"
+# VOICE_TYPE = "realtime-tts"  # "pyttsx3"
+VOICE_TYPE = "pyttsx3"
 LLM = "ollama/phi4" # deepseek-v3, ollama:<any installed model>
 ASST_NAME = "simon"
 
