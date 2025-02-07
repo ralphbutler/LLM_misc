@@ -10,6 +10,17 @@ print(train_dataset[0])
 # In the **DeepSeek-R1** training procedure, a specific system prompt was used to generate a conversational pipeline that includes reasoning steps. We'll adapt our dataset to follow this approach, where the model is guided to first think through the problem and then present its answer.
 # 
 # The system prompt used is:
+# 
+# ```
+# A conversation between User and Assistant. The user asks a question, and the Assistant solves it.
+# The assistant first thinks about the reasoning process in the mind and then provides the user
+# with the answer. The reasoning process and answer are enclosed within <think> </think> and
+# <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think>
+# <answer> answer here </answer>. User: prompt. Assistant:
+# ```
+# 
+# We will modify our dataset to follow this conversational format, prompting the LLM to generate both the reasoning steps and the final answer.
+# 
 
 SYSTEM_PROMPT = (
     "A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant "
@@ -29,11 +40,11 @@ def make_conversation(example):
 train_dataset = train_dataset.map(make_conversation)
 test_dataset = test_dataset.map(make_conversation)
 
-# an example:
+# Let's take a look at an example:
 
 print(train_dataset[0]['prompt'])
 
-# remove messages and problem columns; we only need the custom prompt column and solution to verify the generated answer.  
+# We'll remove the `messages` and `problem` columns, as we only need the custom `prompt` column and `solution` to verify the generated answer.  
 
 train_dataset = train_dataset.remove_columns(['messages', 'problem'])
 print(train_dataset)
@@ -59,7 +70,7 @@ model = AutoModelForCausalLM.from_pretrained(
 # 
 # For the reward component of the system, we can use either pretrained reward models or reward functions defined directly in code. For training, the DeepSeek-R1 authors used an accuracy-based reward model evaluates whether the response is correct, alongside a format-based reward that ensures the model places its reasoning process between `<think> </think>` tags. You can find more details [here](https://github.com/huggingface/open-r1/blob/main/src/open_r1/grpo.py). We can simply define and implement these reward functions as generic Python functions.
 # 
-# use these reward functions:
+# In this case, we will utilize these reward functions:
 # 
 # 1. **Format Enforcement:** Ensures that the generation follows a specific format using `<think> </think> <answer> </answer>` tags for reasoning.  
 
@@ -93,6 +104,10 @@ def accuracy_reward(completions, **kwargs):
     return rewards
 
 # ### 3.4 Configuring GRPO Training Parameters
+# 
+# Next, let's configure the training parameters for GRPO. We recommend experimenting with the `max_completion_length`, `num_generations`, and `max_prompt_length` parameters (refer to the image at the beginning for details about each of them).
+# 
+# To keep things simple, we’ll start by training for just one epoch and reducing the `max_completion_length`, `num_generations`, and `max_prompt_length` from their default values.
 
 from trl import GRPOConfig
 
@@ -140,3 +155,4 @@ trainer.save_model(training_args.output_dir)
 # RMB trainer.push_to_hub(dataset_name=dataset_id)
 
 print("**** EXITING") ; exit(0)
+
