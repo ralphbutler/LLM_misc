@@ -63,7 +63,7 @@ from transformers import AutoTokenizer
 
 # model_id = "sergiopaniego/Qwen2-0.5B-GRPO"
 
-### between 60 and 200 inclusive, seem pretty good, then it seems to get worse in the reasoning
+### between 60 and 200 inclusive, seems pretty good, then it seems to get worse in the reasoning
 ### 90 may have been best ??
 model = "Qwen2-0.5B-GRPO-test/checkpoint-90"  # 60 and 70 worked ; 50 did poorly
 
@@ -74,9 +74,11 @@ trained_model = AutoModelForCausalLM.from_pretrained(
 )
 trained_tokenizer = AutoTokenizer.from_pretrained(model)
 
-# print("CHECKING")
-# print(test_dataset['prompt'][0])
-# print("-"*50)
+# Let's check one sample from the test set!
+
+print("CHECKING")
+print(test_dataset['prompt'][0])
+print("-"*50)
 
 # We'll create a function to interact with the model. In addition to generating the answer, we'll measure the inference duration and count the number of generated tokens. This will give us insights into how much the model has reasoned during generation.
 
@@ -107,7 +109,7 @@ def generate_with_reasoning(prompt):
 
   return generated_text, inference_duration, num_generated_tokens
 
-# Let's generate the answer for a sample!
+# Let's generate the answer for that test sample!
 
 prompt = test_dataset['prompt'][0]
 prompt[1]["content"] = "If John has 5 apples and gives 2 to Mary, how many apples does John have left?"
