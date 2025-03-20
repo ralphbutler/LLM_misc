@@ -1,0 +1,53 @@
+Starting Sonnet MCP client to demonstrate tool usage
+Connecting to random number server...
+Tools response: meta=None nextCursor=None tools=[Tool(name='randtool', description='\n    Generate a random integer between 1 and 100 inclusive and append it to the input string.\n    \n    Args:\n        input_string: A string to be concatenated with the random number\n    \n    Returns:\n        The input string followed by a space and a random integer between 1 and 100\n    ', inputSchema={'properties': {'input_string': {'title': 'Input String', 'type': 'string'}}, 'required': ['input_string'], 'title': 'randtoolArguments', 'type': 'object'})]
+Available tools: None found
+
+Testing randtool directly...
+Raw tool response structure: <class 'mcp.types.CallToolResult'>
+Direct tool call result: Test result: 73
+
+Sending request to Claude...
+
+================================================================================
+CLAUDE'S INITIAL RESPONSE:
+================================================================================
+I'll call the randtool with your requested input.
+
+<tool>
+{
+  "name": "randtool",
+  "input": {
+    "input_string": "Today's lucky number is"
+  }
+}
+</tool>
+================================================================================
+
+Executing tool: randtool
+Tool result: Today's lucky number is 33
+
+Sending follow-up request to Claude with tool results...
+
+================================================================================
+CLAUDE'S FINAL RESPONSE:
+================================================================================
+Today's lucky number is 33!
+
+Here are some fun ways you could use this random number:
+  
+1. Use it for a lottery number or when playing games of chance
+2. Choose the 33rd song in your playlist for today's listening
+3. Read page 33 of a book you've been meaning to start
+4. Take 33 minutes to do something you enjoy today
+5. Save $33 toward something special
+6. Try a new recipe that takes 33 minutes to prepare
+7. Write down 33 things you're grateful for
+8. Use it as inspiration for creative work (like "33" as a theme)
+9. Take 33 deep breaths as a mindfulness exercise
+10. Text a friend you haven't spoken to in more than 33 days
+
+Random numbers can add a bit of spontaneity to your day and help you make decisions when you're feeling indecisive. How do you think you might use your lucky number 33 today?
+================================================================================
+
+Client demo complete!
