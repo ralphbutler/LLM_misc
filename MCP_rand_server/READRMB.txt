@@ -1,0 +1,20 @@
+
+deactivate  ## just to start fresh when building the server
+
+mkdir testserver
+cd testserver
+uv init --name arc_server
+rm -rf .git*
+uv sync
+source .venv/bin/activate
+uv add 'mcp[cli]'
+
+# now we are ready to test the with mcp inspector
+uv run mcp dev arc_server.py
+
+# uv add anthropic (for client)
+python3 arc_client.py   # will cause server to run; no need to start separate
+    # this requires that you have done the source .venv above
+uv run arc_client.py   # will cause server to run; no need to start separate
+    # this does NOT require that you have done the source .venv above
+
