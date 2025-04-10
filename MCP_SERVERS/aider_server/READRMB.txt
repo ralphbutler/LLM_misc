@@ -1,0 +1,16 @@
+
+To install into Claude Desktop we should normally do something like run uv from:
+    add to ~/Library/Application Support/Claude/claude_desktop_config.json
+
+But because uv when run via Desktop, currently has a bug installing tiktoken, we
+are doing this in the file instead:
+
+"aider": {
+    "command": "bash",
+      "args": [
+        "-c",
+        "source /Users/rbutler/MCPSERVERS/BAK_aider_server/venv_for_desktop/.venv/bin/activate && python3 /Users/rbutler/MCPSERVERS/BAK_aider_server/aider_server.py"
+          ]
+    }
+
+NOTE we may need to delete the BAK_ part when going live
