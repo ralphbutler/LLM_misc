@@ -1,0 +1,4 @@
+
+The files are named with .source extension to call attention to the fact
+that they should probably be executed via source, e.g.:
+    source create.source

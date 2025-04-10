@@ -1,0 +1,6 @@
+
+rm -rf pyproject.toml uv.lock .python-version .venv hello.py
+
+claude mcp remove aider_server -s user  # NOTE -s user
+
+deactivate

@@ -1,0 +1,5 @@
+
+# Use absolute path instead of pwd to avoid any shell expansion issues
+claude mcp add aider_server -s user -- \
+    uv --directory /Users/rbutler/Desktop/WORKmcp \
+    run /Users/rbutler/Desktop/WORKmcp/aider_server.py
