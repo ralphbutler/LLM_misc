@@ -1,0 +1,54 @@
+
+gemini 2.5 flash has a rate limit of 10 per minute and this program consistently exceeds it.
+We could sleep longer at some points or simply reduce the number of topics discussed.
+
+Here are the key points in the code that showcase these concepts:
+
+ 1 Agent Creation and Configuration:
+    • In run_debate.py, the line moderator_agent, round_earth_agent, flat_earth_agent = create_agents() is where
+      the agents are created. While the agents.py file itself isn't provided, this line signifies the point where
+      agents are instantiated. A tutorial would typically show the content of agents.py to demonstrate how agents
+      are defined, potentially including their system instructions and how tools are attached to them.
+ 2 Tool Definition:
+    • The tools.py file is the primary demonstration of defining tools. Each function (evidence_retriever,
+      historical_reference, image_reference) represents a tool that an agent can call.
+    • The docstrings for these functions ("""Retrieves evidence on a specific Earth shape topic.""", etc.) are
+      crucial as they often serve as the descriptions the LLM uses to understand what the tool does and how to
+      use it.
+    • The function signatures (topic: str, period: str, category: str) define the parameters the tool expects.
+ 3 Tool Context and Perspective:
+    • Within the tool functions in tools.py, the use of tool_context: ToolContext = None and the logic that
+      follows (if tool_context: ... tool_context.state[...] ... calling_agent = getattr(tool_context,
+      'calling_agent', None)) demonstrates how tools can access context provided by the ADK runner.
+    • Specifically, the inference of perspective based on tool_context.calling_agent is a good example of how the
+      ADK can pass information about which agent is calling the tool, allowing the tool's behavior to be tailored
+      (in this case, returning perspective-specific data).
+ 4 Mock Data for Tools:
+    • The mock_data.py file shows how external data sources (simulated here with dictionaries) can be structured
+      and accessed by the tools. This is important for demonstrating how agents can interact with information
+      outside of their core model knowledge.
+ 5 Session Management:
+    • In run_debate.py, the lines session_service = InMemorySessionService() and session =
+      session_service.create_session(...) show how the ADK's session service is used to maintain state across
+      multiple turns of conversation.
+    • The line session.state["current_topic"] = "opening_statements" and the subsequent (commented out) state
+      tracking within the loop (session.state["round_earth_spoke"] = round_earth_spoke) demonstrate how custom
+      state can be stored and retrieved within a session, allowing the application logic to remember things about
+      the ongoing interaction.
+ 6 The Runner and Interaction Loop:
+    • In run_debate.py, the lines runner = Runner(...) show the creation of the ADK Runner, which is the core
+      component for executing agent turns.
+    • The calls runner.run(user_id=user_id, session_id=session_id, new_message=content) are the central points
+      where the user's input is sent to the agent (via the runner), and the agent's response (potentially
+      including tool calls) is processed.
+    • The loop for event in response_events: demonstrates how the runner yields events, allowing the application
+      to process different types of output from the agent (like text responses or tool outputs, although tool
+      outputs aren't explicitly handled in this print loop).
+    • The logic that checks event.author and prints the speaker header (SPEAKER: {speaker}) shows how the runner
+      provides information about which agent is speaking, which is essential for orchestrating a multi-agent
+      debate.
+
+In summary, tools.py is key for understanding tool definition and context usage, mock_data.py shows data
+sourcing, and run_debate.py demonstrates the overall ADK flow including agent execution via the Runner, session
+management, and processing agent responses. A tutorial would likely walk through these files, explaining each of
+these highlighted sections.
