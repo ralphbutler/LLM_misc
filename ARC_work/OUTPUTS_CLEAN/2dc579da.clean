@@ -1,0 +1,587 @@
+=== Extracted text from OUTPUTS1_SOLNS/2dc579da.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/2dc579da.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/2dc579da.json
+Loaded and formatted features from: FEATURES/2dc579da.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[5, 5]</input_dimensions>
+       <output_dimensions>[2, 2]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>9</size>
+           <position>[2.0, 2.0]</position>
+           <width>5</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='1'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>8</color>
+           <size>4</size>
+           <position>[0.5, 0.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='3'>
+           <color>8</color>
+           <size>4</size>
+           <position>[0.5, 3.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='4'>
+           <color>8</color>
+           <size>3</size>
+           <position>[3.3333333333333335, 0.6666666666666666]</position>
+           <width>2</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='5'>
+           <color>8</color>
+           <size>4</size>
+           <position>[3.5, 3.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </input_component>
+         <output_component id='0'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>8</color>
+           <size>3</size>
+           <position>[0.3333333333333333, 0.6666666666666666]</position>
+           <width>2</width>
+           <height>2</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -3]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -3]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>0</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>5</component_id>
+         </unmatched_inputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, -3]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>true</horizontal>
+         <vertical>true</vertical>
+         <rotational_180>true</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>13</size>
+           <position>[3.0, 3.0]</position>
+           <width>7</width>
+           <height>7</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>9</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </input_component>
+         <input_component id='3'>
+           <color>4</color>
+           <size>8</size>
+           <position>[1.0, 5.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </input_component>
+         <input_component id='4'>
+           <color>4</color>
+           <size>9</size>
+           <position>[5.0, 1.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </input_component>
+         <input_component id='5'>
+           <color>4</color>
+           <size>9</size>
+           <position>[5.0, 5.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>4</color>
+           <size>8</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[-4, 0]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>1</output_id>
+           <translation>[-4, 0]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+         </unmatched_inputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[-4, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[11, 11]</input_dimensions>
+       <output_dimensions>[5, 5]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>true</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>21</size>
+           <position>[5.0, 5.0]</position>
+           <width>11</width>
+           <height>11</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>24</size>
+           <position>[2.0, 2.0416666666666665]</position>
+           <width>5</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='2'>
+           <color>3</color>
+           <size>25</size>
+           <position>[2.0, 8.0]</position>
+           <width>5</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='3'>
+           <color>3</color>
+           <size>25</size>
+           <position>[8.0, 2.0]</position>
+           <width>5</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='4'>
+           <color>3</color>
+           <size>25</size>
+           <position>[8.0, 8.0]</position>
+           <width>5</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='5'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>24</size>
+           <position>[2.0, 2.0416666666666665]</position>
+           <width>5</width>
+           <height>5</height>
+         </output_component>
+         <output_component id='1'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>0</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+         </unmatched_inputs>
+       </unmatched_components>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[13, 13]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>1</color>
+         <size>36</size>
+         <position>[2.5, 2.5]</position>
+         <width>6</width>
+         <height>6</height>
+       </component>
+       <component id='1'>
+         <color>1</color>
+         <size>35</size>
+         <position>[2.4857142857142858, 9.542857142857143]</position>
+         <width>6</width>
+         <height>6</height>
+       </component>
+       <component id='2'>
+         <color>1</color>
+         <size>36</size>
+         <position>[9.5, 2.5]</position>
+         <width>6</width>
+         <height>6</height>
+       </component>
+       <component id='3'>
+         <color>1</color>
+         <size>36</size>
+         <position>[9.5, 9.5]</position>
+         <width>6</width>
+         <height>6</height>
+       </component>
+       <component id='4'>
+         <color>2</color>
+         <size>1</size>
+         <position>[3.0, 8.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[0, -3]</value>
+         <value>[-4, 0]</value>
+       </translation>
+     </consistent_transformations>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[8, 8, 3, 8, 8], [8, 8, 3, 8, 8], [3, 3, 3, 3, 3], [8, 8, 3, 8, 8], [4, 8, 3, 8,
+ 8]], 'output': [[8, 8], [4, 8]]}, {'input': [[4, 4, 4, 2, 4, 4, 4], [4, 4, 4, 2, 4, 1, 4], [4, 4, 4, 2,
+ 4, 4, 4], [2, 2, 2, 2, 2, 2, 2], [4, 4, 4, 2, 4, 4, 4], [4, 4, 4, 2, 4, 4, 4], [4, 4, 4, 2, 4, 4, 4]],
+ 'output': [[4, 4, 4], [4, 1, 4], [4, 4, 4]]}, {'input': [[3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3,
+ 3, 1, 3, 3, 3, 3, 3], [3, 8, 3, 3, 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3,
+ 3, 1, 3, 3, 3, 3, 3], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3,
+ 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3], [3, 3, 3, 3,
+ 3, 1, 3, 3, 3, 3, 3]], 'output': [[3, 3, 3, 3, 3], [3, 3, 3, 3, 3], [3, 8, 3, 3, 3], [3, 3, 3, 3, 3], [3,
+ 3, 3, 3, 3]]}], 'test': {'input': [[1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 1,
+ 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1, 1], [1, 1, 1,
+ 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1,
+ 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+ 1], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 8 8 3 8 8
+ 8 8 3 8 8
+ 3 3 3 3 3
+ 8 8 3 8 8
+ 4 8 3 8 8
+ Example 1 Output:
+ 8 8
+ 4 8
+ Example 2 Input:
+ 4 4 4 2 4 4 4
+ 4 4 4 2 4 1 4
+ 4 4 4 2 4 4 4
+ 2 2 2 2 2 2 2
+ 4 4 4 2 4 4 4
+ 4 4 4 2 4 4 4
+ 4 4 4 2 4 4 4
+ Example 2 Output:
+ 4 4 4
+ 4 1 4
+ 4 4 4
+ Example 3 Input:
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 8 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ 1 1 1 1 1 1 1 1 1 1 1
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ 3 3 3 3 3 1 3 3 3 3 3
+ Example 3 Output:
+ 3 3 3 3 3
+ 3 3 3 3 3
+ 3 8 3 3 3
+ 3 3 3 3 3
+ 3 3 3 3 3
+ Test Input:
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 2 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ 1 1 1 1 1 1 0 1 1 1 1 1 1
+ </ascii_grids>
+Response cost: $0.00146670 | Total cost: $0.00146670
+ API Response
+     "code": "def transform_grid(grid):\n    # Find the dimensions of the grid\n    rows = len(grid)\n
+ cols = len(grid[0])\n    # Assuming grid is square based on examples\n    n = rows\n\n    # Find the
+ unique non-zero color and its location\n    color_counts = {}\n    unique_color = -1\n\n    # Count
+ colors\n    for r in range(rows):\n        for c in range(cols):\n            color = grid[r][c]\n
+ if color != 0:\n                color_counts[color] = color_counts.get(color, 0) + 1\n\n    # Find the
+ color that appears exactly once (excluding 0)\n    # Assumes such a color always exists in the input
+ grid\n    for color, count in color_counts.items():\n        if count == 1:\n            unique_color =
+ color\n            break\n\n    # Find the location of the unique colored cell\n    # Assumes a unique
+ non-zero cell exists and is not on the separator line\n    target_row = -1\n    target_col = -1\n    for
+ r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == unique_color:\n
+ target_row = r\n                target_col = c\n                break # Found the location in this row\n
+ if target_row != -1:\n            break # Found location, break outer loop\n\n    # Calculate the
+ separator index (middle row/column for odd square grids)\n    # Assumes odd square grid based on
+ examples.\n    sep_idx = n // 2\n\n    # Determine the subgrid boundaries based on the target cell's
+ location\n    # relative to the separator.\n    if target_row < sep_idx and target_col < sep_idx:\n
+ # Top-Left quadrant\n        start_row, end_row = 0, sep_idx - 1\n        start_col, end_col = 0, sep_idx
+ - 1\n    elif target_row < sep_idx and target_col > sep_idx:\n        # Top-Right quadrant\n
+ start_row, end_row = 0, sep_idx - 1\n        start_col, end_col = sep_idx + 1, n - 1\n    elif target_row
+ > sep_idx and target_col < sep_idx:\n        # Bottom-Left quadrant\n        start_row, end_row = sep_idx
+ + 1, n - 1\n        start_col, end_col = 0, sep_idx - 1\n    elif target_row > sep_idx and target_col >
+ sep_idx:\n        # Bottom-Right quadrant\n        start_row, end_row = sep_idx + 1, n - 1\n
+ start_col, end_col = sep_idx + 1, n - 1\n\n    # Extract the subgrid\n    output_grid = []\n    for r in
+ range(start_row, end_row + 1):\n        output_grid.append(grid[r][start_col:end_col + 1])\n\n    return
+ output_grid",
+     "solution": [
+     "reasoning": "The input grids have a consistent structure featuring a central separator and four
+ corner regions. A key element is a single cell with a unique non-zero color, which is always located
+ within one of these corner regions. The transformation identifies this unique cell, determines which
+ corner region it belongs to relative to the central separator (which is the middle row and column for the
+ observed odd-sized square grids), and then extracts the entire subgrid corresponding to that specific
+ corner region as the output."
+ Generated Code
+ def transform_grid(grid):
+     # Find the dimensions of the grid
+     rows = len(grid)
+     cols = len(grid[0])
+     # Assuming grid is square based on examples
+     n = rows
+     # Find the unique non-zero color and its location
+     color_counts = {}
+     unique_color = -1
+     # Count colors
+     for r in range(rows):
+         for c in range(cols):
+             color = grid[r][c]
+             if color != 0:
+                 color_counts[color] = color_counts.get(color, 0) + 1
+     # Find the color that appears exactly once (excluding 0)
+     # Assumes such a color always exists in the input grid
+     for color, count in color_counts.items():
+         if count == 1:
+             unique_color = color
+             break
+     # Find the location of the unique colored cell
+     # Assumes a unique non-zero cell exists and is not on the separator line
+     target_row = -1
+     target_col = -1
+     for r in range(rows):
+         for c in range(cols):
+             if grid[r][c] == unique_color:
+                 target_row = r
+                 target_col = c
+                 break # Found the location in this row
+         if target_row != -1:
+             break # Found location, break outer loop
+     # Calculate the separator index (middle row/column for odd square grids)
+     # Assumes odd square grid based on examples.
+     sep_idx = n // 2
+     # Determine the subgrid boundaries based on the target cell's location
+     # relative to the separator.
+     if target_row < sep_idx and target_col < sep_idx:
+         # Top-Left quadrant
+         start_row, end_row = 0, sep_idx - 1
+         start_col, end_col = 0, sep_idx - 1
+     elif target_row < sep_idx and target_col > sep_idx:
+         # Top-Right quadrant
+         start_row, end_row = 0, sep_idx - 1
+         start_col, end_col = sep_idx + 1, n - 1
+     elif target_row > sep_idx and target_col < sep_idx:
+         # Bottom-Left quadrant
+         start_row, end_row = sep_idx + 1, n - 1
+         start_col, end_col = 0, sep_idx - 1
+     elif target_row > sep_idx and target_col > sep_idx:
+         # Bottom-Right quadrant
+         start_row, end_row = sep_idx + 1, n - 1
+         start_col, end_col = sep_idx + 1, n - 1
+     # Extract the subgrid
+     output_grid = []
+     for r in range(start_row, end_row + 1):
+         output_grid.append(grid[r][start_col:end_col + 1])
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[8, 8], [4, 8]]
+Got Output: [[8, 8], [4, 8]]
+✓ Passed
+Training example 2:
+Expected Output: [[4, 4, 4], [4, 1, 4], [4, 4, 4]]
+Got Output: [[4, 4, 4], [4, 1, 4], [4, 4, 4]]
+✓ Passed
+Training example 3:
+Expected Output: [[3, 3, 3, 3, 3], [3, 3, 3, 3, 3], [3, 8, 3, 3, 3], [3, 3, 3, 3, 3], [3, 3, 3, 3, 3]]
+Got Output: [[3, 3, 3, 3, 3], [3, 3, 3, 3, 3], [3, 8, 3, 3, 3], [3, 3, 3, 3, 3], [3, 3, 3, 3, 3]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 2, 1, 1, 1, 1], [1, 1, 1,
+1, 1, 1], [1, 1, 1, 1, 1, 1]]
+Got Output: [[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 2, 1, 1, 1, 1], [1, 1, 1, 1, 1,
+1], [1, 1, 1, 1, 1, 1]]
+         Grid Comparison
+ Correct Answer  Solution
+ 1 1 1 1 1 1     1 1 1 1 1 1
+ 1 1 1 1 1 1     1 1 1 1 1 1
+ 1 1 1 1 1 1     1 1 1 1 1 1
+ 1 2 1 1 1 1     1 2 1 1 1 1
+ 1 1 1 1 1 1     1 1 1 1 1 1
+ 1 1 1 1 1 1     1 1 1 1 1 1
+Match for test case 1: Yes
+✓ Passed this test case
+All 1 test cases passed!
+Reasoning: The input grids have a consistent structure featuring a central separator and four corner regions.
+A key element is a single cell with a unique non-zero color, which is always located within one of these
+corner regions. The transformation identifies this unique cell, determines which corner region it belongs to
+relative to the central separator (which is the middle row and column for the observed odd-sized square
+grids), and then extracts the entire subgrid corresponding to that specific corner region as the output.
+REPORT: Successful solve 2dc579da.json in 1 attempts. Time: 0:01:00
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  1               1              100.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 1                  1                 100.0%                  0:01:00          0:01:00     $0.0015
+==================================================

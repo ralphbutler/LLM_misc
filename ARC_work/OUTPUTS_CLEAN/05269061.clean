@@ -1,0 +1,3895 @@
+=== Extracted text from OUTPUTS1_SOLNS/05269061.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/05269061.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/05269061.json
+Loaded and formatted features from: FEATURES/05269061.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[7, 7]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='8'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='9'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='10'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='11'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='12'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='13'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='14'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='15'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='16'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='17'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='18'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='19'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='20'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='21'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='22'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='23'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='24'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='25'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='26'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='27'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='28'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='29'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='30'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='31'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='32'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='33'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='34'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='35'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='36'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='37'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='38'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='39'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='40'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='41'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='42'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='43'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='44'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='45'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='46'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='47'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='48'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>17</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>19</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>21</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>33</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>35</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>6</component_id>
+           <component_id>7</component_id>
+           <component_id>8</component_id>
+           <component_id>9</component_id>
+           <component_id>10</component_id>
+           <component_id>11</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>18</component_id>
+           <component_id>20</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>25</component_id>
+           <component_id>26</component_id>
+           <component_id>27</component_id>
+           <component_id>28</component_id>
+           <component_id>29</component_id>
+           <component_id>30</component_id>
+           <component_id>31</component_id>
+           <component_id>32</component_id>
+           <component_id>34</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>43</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[7, 7]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='8'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='9'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='10'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='11'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='12'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='13'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='14'>
+           <color>1</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='15'>
+           <color>1</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='16'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='17'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='18'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='19'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='20'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='21'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='22'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='23'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='24'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='25'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='26'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='27'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='28'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='29'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='30'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='31'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='32'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='33'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='34'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='35'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='36'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='37'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='38'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='39'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='40'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='41'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='42'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='43'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='44'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='45'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='46'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='47'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='48'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>6</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>8</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>10</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>12</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>14</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>25</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>6</input_id>
+           <output_id>27</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>7</input_id>
+           <output_id>29</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>8</input_id>
+           <output_id>31</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>9</input_id>
+           <output_id>44</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>10</input_id>
+           <output_id>46</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>11</input_id>
+           <output_id>48</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>7</component_id>
+           <component_id>9</component_id>
+           <component_id>11</component_id>
+           <component_id>13</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>26</component_id>
+           <component_id>28</component_id>
+           <component_id>30</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>34</component_id>
+           <component_id>35</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>43</component_id>
+           <component_id>45</component_id>
+           <component_id>47</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[7, 7]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='12'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='13'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='14'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='8'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='9'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='10'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='11'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='12'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='13'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='14'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='15'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='16'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='17'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='18'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='19'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='20'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='21'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='22'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='23'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='24'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='25'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='26'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='27'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='28'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='29'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='30'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='31'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='32'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='33'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='34'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='35'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='36'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='37'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='38'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='39'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='40'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='41'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='42'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='43'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='44'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='45'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='46'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='47'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='48'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>5</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>7</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>9</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>11</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>6</input_id>
+           <output_id>25</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>7</input_id>
+           <output_id>27</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>8</input_id>
+           <output_id>29</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>9</input_id>
+           <output_id>31</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>10</input_id>
+           <output_id>34</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>11</input_id>
+           <output_id>36</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>12</input_id>
+           <output_id>38</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>13</input_id>
+           <output_id>40</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>14</input_id>
+           <output_id>42</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>2</component_id>
+           <component_id>4</component_id>
+           <component_id>6</component_id>
+           <component_id>8</component_id>
+           <component_id>10</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>26</component_id>
+           <component_id>28</component_id>
+           <component_id>30</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>35</component_id>
+           <component_id>37</component_id>
+           <component_id>39</component_id>
+           <component_id>41</component_id>
+           <component_id>43</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[7, 7]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>1</color>
+         <size>1</size>
+         <position>[0.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='1'>
+         <color>1</color>
+         <size>1</size>
+         <position>[1.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='2'>
+         <color>2</color>
+         <size>1</size>
+         <position>[0.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='3'>
+         <color>2</color>
+         <size>1</size>
+         <position>[1.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='4'>
+         <color>2</color>
+         <size>1</size>
+         <position>[2.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='5'>
+         <color>2</color>
+         <size>1</size>
+         <position>[3.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='6'>
+         <color>2</color>
+         <size>1</size>
+         <position>[4.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='7'>
+         <color>2</color>
+         <size>1</size>
+         <position>[5.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='8'>
+         <color>2</color>
+         <size>1</size>
+         <position>[6.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='9'>
+         <color>4</color>
+         <size>1</size>
+         <position>[5.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='10'>
+         <color>4</color>
+         <size>1</size>
+         <position>[6.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[2, 8, 3, 0, 0, 0, 0], [8, 3, 0, 0, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]], 'output': [[2, 8, 3, 2,
+ 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3,
+ 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2]]}, {'input': [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 1, 2], [0, 0, 0, 0, 1, 2, 4], [0, 0, 0, 1, 2, 4, 0], [0, 0, 1, 2, 4,
+ 0, 0]], 'output': [[2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4,
+ 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2]]}, {'input': [[0, 0, 0, 0, 8,
+ 3, 0], [0, 0, 0, 8, 3, 0, 0], [0, 0, 8, 3, 0, 0, 0], [0, 8, 3, 0, 0, 0, 4], [8, 3, 0, 0, 0, 4, 0], [3, 0,
+ 0, 0, 4, 0, 0], [0, 0, 0, 4, 0, 0, 0]], 'output': [[4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4,
+ 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3,
+ 4]]}], 'test': {'input': [[0, 1, 0, 0, 0, 0, 2], [1, 0, 0, 0, 0, 2, 0], [0, 0, 0, 0, 2, 0, 0], [0, 0, 0,
+ 2, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 2, 0, 0, 0, 0, 4], [2, 0, 0, 0, 0, 4, 0]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 2 8 3 0 0 0 0
+ 8 3 0 0 0 0 0
+ 3 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ Example 1 Output:
+ 2 8 3 2 8 3 2
+ 8 3 2 8 3 2 8
+ 3 2 8 3 2 8 3
+ 2 8 3 2 8 3 2
+ 8 3 2 8 3 2 8
+ 3 2 8 3 2 8 3
+ 2 8 3 2 8 3 2
+ Example 2 Input:
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 1
+ 0 0 0 0 0 1 2
+ 0 0 0 0 1 2 4
+ 0 0 0 1 2 4 0
+ 0 0 1 2 4 0 0
+ Example 2 Output:
+ 2 4 1 2 4 1 2
+ 4 1 2 4 1 2 4
+ 1 2 4 1 2 4 1
+ 2 4 1 2 4 1 2
+ 4 1 2 4 1 2 4
+ 1 2 4 1 2 4 1
+ 2 4 1 2 4 1 2
+ Example 3 Input:
+ 0 0 0 0 8 3 0
+ 0 0 0 8 3 0 0
+ 0 0 8 3 0 0 0
+ 0 8 3 0 0 0 4
+ 8 3 0 0 0 4 0
+ 3 0 0 0 4 0 0
+ 0 0 0 4 0 0 0
+ Example 3 Output:
+ 4 8 3 4 8 3 4
+ 8 3 4 8 3 4 8
+ 3 4 8 3 4 8 3
+ 4 8 3 4 8 3 4
+ 8 3 4 8 3 4 8
+ 3 4 8 3 4 8 3
+ 4 8 3 4 8 3 4
+ Test Input:
+ 0 1 0 0 0 0 2
+ 1 0 0 0 0 2 0
+ 0 0 0 0 2 0 0
+ 0 0 0 2 0 0 0
+ 0 0 2 0 0 0 0
+ 0 2 0 0 0 0 4
+ 2 0 0 0 0 4 0
+ </ascii_grids>
+Response cost: $0.00360825 | Total cost: $0.00360825
+ API Response
+     "code": "def transform_grid(grid):\n    \"\"\"\n    Transforms the input grid by tiling it with a
+ sequence derived from the input.\n\n    The sequence is formed by the unique non-zero values in the input
+ grid,\n    ordered based on the position of their first appearance, and then rotated.\n    \"\"\"\n
+ height = len(grid)\n    width = len(grid[0])\n\n    # 1. Find unique non-zero values and their first
+ occurrence coordinates (r, c)\n    first_occurrence = {}\n    for r in range(height):\n        for c in
+ range(width):\n            value = grid[r][c]\n            if value != 0 and value not in
+ first_occurrence:\n                first_occurrence[value] = (r, c)\n\n    # 2. Create a list of
+ (first_r, first_c, value) tuples, sorted by value\n    # Sorting by value here helps ensure deterministic
+ ordering before sorting by position,\n    # although sorting by position is the primary key.\n
+ pos_value_list = [(first_occurrence[v][0], first_occurrence[v][1], v) for v in
+ sorted(first_occurrence.keys())]\n\n    # 3. Sort this list by (first_r, first_c)\n
+ pos_value_list.sort()\n\n    # 4. Extract the values into V_sorted_by_pos\n    v_sorted_by_pos = [item[2]
+ for item in pos_value_list]\n    sequence_length = len(v_sorted_by_pos)\n\n    # 5. Determine the shift
+ amount based on the pattern of first occurrences\n    # Check if all first occurrence rows are the same\n
+ all_rows = set(item[0] for item in pos_value_list)\n    all_rows_same = len(all_rows) == 1\n\n    # Check
+ if all first occurrence columns are the same\n    all_cols = set(item[1] for item in pos_value_list)\n
+ all_cols_same = len(all_cols) == 1\n\n    shift_amount = 0 # Default: no shift (e.g., horizontal line of
+ first occurrences)\n    if all_cols_same and not all_rows_same:\n        # Vertical line of first
+ occurrences -> Left shift by 1\n        shift_amount = 1\n    elif not all_rows_same and not
+ all_cols_same:\n         # Scattered first occurrences -> Right shift by 1 (equivalent to left shift by
+ length - 1)\n         shift_amount = sequence_length - 1\n\n    # 6. Apply rotation to get the final
+ sequence\n    sequence = v_sorted_by_pos[shift_amount:] + v_sorted_by_pos[:shift_amount]\n\n    # 7.
+ Create the output grid of the same size\n    output_grid = [[0] * width for _ in range(height)]\n\n    #
+ 8. Fill the output grid by tiling it with the sequence\n    for r in range(height):\n        for c in
+ range(width):\n            output_grid[r][c] = sequence[(r * width + c) % sequence_length]\n\n    return
+ output_grid",
+     "solution": [
+     "reasoning": "The puzzle requires filling the output grid with a repeating pattern derived from the
+ input grid. By analyzing the training examples, the pattern is identified as a repeating sequence of the
+ unique non-zero values present in the input grid. The specific sequence is determined by finding the
+ first occurrence (row, column) of each unique non-zero value when scanning the grid row by row, column by
+ column. These unique values are then ordered based on the (row, column) coordinates of their first
+ appearance. Finally, this ordered list of values is cyclically shifted based on the geometric arrangement
+ of the first occurrence points: if all first occurrences lie on the same row, there is no shift; if they
+ all lie on the same column, the list is left-shifted by one position; otherwise (scattered points), the
+ list is right-shifted by one position. The output grid is then constructed by tiling it row by row with
+ this final sequence, using the formula sequence[(row * width + col) % sequence_length] for each cell."
+ Generated Code
+ def transform_grid(grid):
+     """
+     Transforms the input grid by tiling it with a sequence derived from the input.
+     The sequence is formed by the unique non-zero values in the input grid,
+     ordered based on the position of their first appearance, and then rotated.
+     """
+     height = len(grid)
+     width = len(grid[0])
+     # 1. Find unique non-zero values and their first occurrence coordinates (r, c)
+     first_occurrence = {}
+     for r in range(height):
+         for c in range(width):
+             value = grid[r][c]
+             if value != 0 and value not in first_occurrence:
+                 first_occurrence[value] = (r, c)
+     # 2. Create a list of (first_r, first_c, value) tuples, sorted by value
+     # Sorting by value here helps ensure deterministic ordering before sorting by position,
+     # although sorting by position is the primary key.
+     pos_value_list = [(first_occurrence[v][0], first_occurrence[v][1], v) for v in
+ sorted(first_occurrence.keys())]
+     # 3. Sort this list by (first_r, first_c)
+     pos_value_list.sort()
+     # 4. Extract the values into V_sorted_by_pos
+     v_sorted_by_pos = [item[2] for item in pos_value_list]
+     sequence_length = len(v_sorted_by_pos)
+     # 5. Determine the shift amount based on the pattern of first occurrences
+     # Check if all first occurrence rows are the same
+     all_rows = set(item[0] for item in pos_value_list)
+     all_rows_same = len(all_rows) == 1
+     # Check if all first occurrence columns are the same
+     all_cols = set(item[1] for item in pos_value_list)
+     all_cols_same = len(all_cols) == 1
+     shift_amount = 0 # Default: no shift (e.g., horizontal line of first occurrences)
+     if all_cols_same and not all_rows_same:
+         # Vertical line of first occurrences -> Left shift by 1
+         shift_amount = 1
+     elif not all_rows_same and not all_cols_same:
+          # Scattered first occurrences -> Right shift by 1 (equivalent to left shift by length - 1)
+          shift_amount = sequence_length - 1
+     # 6. Apply rotation to get the final sequence
+     sequence = v_sorted_by_pos[shift_amount:] + v_sorted_by_pos[:shift_amount]
+     # 7. Create the output grid of the same size
+     output_grid = [[0] * width for _ in range(height)]
+     # 8. Fill the output grid by tiling it with the sequence
+     for r in range(height):
+         for c in range(width):
+             output_grid[r][c] = sequence[(r * width + c) % sequence_length]
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[2, 8, 3, 2, 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2],
+[8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2]]
+Got Output: [[2, 8, 3, 2, 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2], [8,
+3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2]]
+✓ Passed
+Training example 2:
+Expected Output: [[2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2],
+[4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2]]
+Got Output: [[2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2], [4,
+1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2]]
+✓ Passed
+Training example 3:
+Expected Output: [[4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4],
+[8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4]]
+Got Output: [[4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4], [8,
+3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[2, 1, 4, 2, 1, 4, 2], [1, 4, 2, 1, 4, 2, 1], [4, 2, 1, 4, 2, 1, 4], [2, 1, 4, 2, 1, 4, 2],
+[1, 4, 2, 1, 4, 2, 1], [4, 2, 1, 4, 2, 1, 4], [2, 1, 4, 2, 1, 4, 2]]
+Got Output: [[4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1,
+2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4]]
+          Grid Comparison
+ Correct Answer  Solution
+ 2 1 4 2 1 4 2   4 1 2 4 1 2 4
+ 1 4 2 1 4 2 1   1 2 4 1 2 4 1
+ 4 2 1 4 2 1 4   2 4 1 2 4 1 2
+ 2 1 4 2 1 4 2   4 1 2 4 1 2 4
+ 1 4 2 1 4 2 1   1 2 4 1 2 4 1
+ 4 2 1 4 2 1 4   2 4 1 2 4 1 2
+ 2 1 4 2 1 4 2   4 1 2 4 1 2 4
+Match for test case 1: No
+❌ Failed on this test case
+Failed on 1 out of 1 test cases.
+Reasoning: The puzzle requires filling the output grid with a repeating pattern derived from the input grid.
+By analyzing the training examples, the pattern is identified as a repeating sequence of the unique non-zero
+values present in the input grid. The specific sequence is determined by finding the first occurrence (row,
+column) of each unique non-zero value when scanning the grid row by row, column by column. These unique
+values are then ordered based on the (row, column) coordinates of their first appearance. Finally, this
+ordered list of values is cyclically shifted based on the geometric arrangement of the first occurrence
+points: if all first occurrences lie on the same row, there is no shift; if they all lie on the same column,
+the list is left-shifted by one position; otherwise (scattered points), the list is right-shifted by one
+position. The output grid is then constructed by tiling it row by row with this final sequence, using the
+formula sequence[(row * width + col) % sequence_length] for each cell.
+Attempt 2 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[7, 7]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='8'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='9'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='10'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='11'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='12'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='13'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='14'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='15'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='16'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='17'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='18'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='19'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='20'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='21'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='22'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='23'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='24'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='25'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='26'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='27'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='28'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='29'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='30'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='31'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='32'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='33'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='34'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='35'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='36'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='37'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='38'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='39'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='40'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='41'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='42'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='43'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='44'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='45'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='46'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='47'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='48'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>17</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>19</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>21</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>33</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>35</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>6</component_id>
+           <component_id>7</component_id>
+           <component_id>8</component_id>
+           <component_id>9</component_id>
+           <component_id>10</component_id>
+           <component_id>11</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>18</component_id>
+           <component_id>20</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>25</component_id>
+           <component_id>26</component_id>
+           <component_id>27</component_id>
+           <component_id>28</component_id>
+           <component_id>29</component_id>
+           <component_id>30</component_id>
+           <component_id>31</component_id>
+           <component_id>32</component_id>
+           <component_id>34</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>43</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[7, 7]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='8'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='9'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='10'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='11'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='12'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='13'>
+           <color>1</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='14'>
+           <color>1</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='15'>
+           <color>1</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='16'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='17'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='18'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='19'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='20'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='21'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='22'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='23'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='24'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='25'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='26'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='27'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='28'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='29'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='30'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='31'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='32'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='33'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='34'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='35'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='36'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='37'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='38'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='39'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='40'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='41'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='42'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='43'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='44'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='45'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='46'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='47'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='48'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>6</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>8</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>10</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>12</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>14</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>25</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>6</input_id>
+           <output_id>27</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>7</input_id>
+           <output_id>29</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>8</input_id>
+           <output_id>31</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>9</input_id>
+           <output_id>44</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>10</input_id>
+           <output_id>46</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>11</input_id>
+           <output_id>48</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>7</component_id>
+           <component_id>9</component_id>
+           <component_id>11</component_id>
+           <component_id>13</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>26</component_id>
+           <component_id>28</component_id>
+           <component_id>30</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>34</component_id>
+           <component_id>35</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>43</component_id>
+           <component_id>45</component_id>
+           <component_id>47</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[7, 7]</input_dimensions>
+       <output_dimensions>[7, 7]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='12'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='13'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='14'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='8'>
+           <color>3</color>
+           <size>1</size>
+           <position>[3.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='9'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='10'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='11'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='12'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='13'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='14'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='15'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='16'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='17'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='18'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='19'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='20'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='21'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='22'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='23'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='24'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='25'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='26'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='27'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='28'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='29'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='30'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='31'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='32'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='33'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='34'>
+           <color>8</color>
+           <size>1</size>
+           <position>[0.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='35'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='36'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='37'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='38'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='39'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='40'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='41'>
+           <color>8</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='42'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='43'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='44'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='45'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='46'>
+           <color>8</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='47'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='48'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>5</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>7</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>9</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>11</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>6</input_id>
+           <output_id>25</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>7</input_id>
+           <output_id>27</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>8</input_id>
+           <output_id>29</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>9</input_id>
+           <output_id>31</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>10</input_id>
+           <output_id>34</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>11</input_id>
+           <output_id>36</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>12</input_id>
+           <output_id>38</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>13</input_id>
+           <output_id>40</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>14</input_id>
+           <output_id>42</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>2</component_id>
+           <component_id>4</component_id>
+           <component_id>6</component_id>
+           <component_id>8</component_id>
+           <component_id>10</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>26</component_id>
+           <component_id>28</component_id>
+           <component_id>30</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>35</component_id>
+           <component_id>37</component_id>
+           <component_id>39</component_id>
+           <component_id>41</component_id>
+           <component_id>43</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[7, 7]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>1</color>
+         <size>1</size>
+         <position>[0.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='1'>
+         <color>1</color>
+         <size>1</size>
+         <position>[1.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='2'>
+         <color>2</color>
+         <size>1</size>
+         <position>[0.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='3'>
+         <color>2</color>
+         <size>1</size>
+         <position>[1.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='4'>
+         <color>2</color>
+         <size>1</size>
+         <position>[2.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='5'>
+         <color>2</color>
+         <size>1</size>
+         <position>[3.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='6'>
+         <color>2</color>
+         <size>1</size>
+         <position>[4.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='7'>
+         <color>2</color>
+         <size>1</size>
+         <position>[5.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='8'>
+         <color>2</color>
+         <size>1</size>
+         <position>[6.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='9'>
+         <color>4</color>
+         <size>1</size>
+         <position>[5.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='10'>
+         <color>4</color>
+         <size>1</size>
+         <position>[6.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[2, 8, 3, 0, 0, 0, 0], [8, 3, 0, 0, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]], 'output': [[2, 8, 3, 2,
+ 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3,
+ 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2]]}, {'input': [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 1, 2], [0, 0, 0, 0, 1, 2, 4], [0, 0, 0, 1, 2, 4, 0], [0, 0, 1, 2, 4,
+ 0, 0]], 'output': [[2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4,
+ 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2]]}, {'input': [[0, 0, 0, 0, 8,
+ 3, 0], [0, 0, 0, 8, 3, 0, 0], [0, 0, 8, 3, 0, 0, 0], [0, 8, 3, 0, 0, 0, 4], [8, 3, 0, 0, 0, 4, 0], [3, 0,
+ 0, 0, 4, 0, 0], [0, 0, 0, 4, 0, 0, 0]], 'output': [[4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4,
+ 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3,
+ 4]]}], 'test': {'input': [[0, 1, 0, 0, 0, 0, 2], [1, 0, 0, 0, 0, 2, 0], [0, 0, 0, 0, 2, 0, 0], [0, 0, 0,
+ 2, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 2, 0, 0, 0, 0, 4], [2, 0, 0, 0, 0, 4, 0]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 2 8 3 0 0 0 0
+ 8 3 0 0 0 0 0
+ 3 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ Example 1 Output:
+ 2 8 3 2 8 3 2
+ 8 3 2 8 3 2 8
+ 3 2 8 3 2 8 3
+ 2 8 3 2 8 3 2
+ 8 3 2 8 3 2 8
+ 3 2 8 3 2 8 3
+ 2 8 3 2 8 3 2
+ Example 2 Input:
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 1
+ 0 0 0 0 0 1 2
+ 0 0 0 0 1 2 4
+ 0 0 0 1 2 4 0
+ 0 0 1 2 4 0 0
+ Example 2 Output:
+ 2 4 1 2 4 1 2
+ 4 1 2 4 1 2 4
+ 1 2 4 1 2 4 1
+ 2 4 1 2 4 1 2
+ 4 1 2 4 1 2 4
+ 1 2 4 1 2 4 1
+ 2 4 1 2 4 1 2
+ Example 3 Input:
+ 0 0 0 0 8 3 0
+ 0 0 0 8 3 0 0
+ 0 0 8 3 0 0 0
+ 0 8 3 0 0 0 4
+ 8 3 0 0 0 4 0
+ 3 0 0 0 4 0 0
+ 0 0 0 4 0 0 0
+ Example 3 Output:
+ 4 8 3 4 8 3 4
+ 8 3 4 8 3 4 8
+ 3 4 8 3 4 8 3
+ 4 8 3 4 8 3 4
+ 8 3 4 8 3 4 8
+ 3 4 8 3 4 8 3
+ 4 8 3 4 8 3 4
+ Test Input:
+ 0 1 0 0 0 0 2
+ 1 0 0 0 0 2 0
+ 0 0 0 0 2 0 0
+ 0 0 0 2 0 0 0
+ 0 0 2 0 0 0 0
+ 0 2 0 0 0 0 4
+ 2 0 0 0 0 4 0
+ </ascii_grids>
+ <previous_attempts>
+ Your following attempted solutions failed to correctly solve the puzzle.
+ Propose a new strategy that is different from these previous approaches.
+ Attempt 1 Reasoning:
+ The puzzle requires filling the output grid with a repeating pattern derived from the input grid. By
+ analyzing the training examples, the pattern is identified as a repeating sequence of the unique non-zero
+ values present in the input grid. The specific sequence is determined by finding the first occurrence
+ (row, column) of each unique non-zero value when scanning the grid row by row, column by column. These
+ unique values are then ordered based on the (row, column) coordinates of their first appearance. Finally,
+ this ordered list of values is cyclically shifted based on the geometric arrangement of the first
+ occurrence points: if all first occurrences lie on the same row, there is no shift; if they all lie on
+ the same column, the list is left-shifted by one position; otherwise (scattered points), the list is
+ right-shifted by one position. The output grid is then constructed by tiling it row by row with this
+ final sequence, using the formula sequence[(row * width + col) % sequence_length] for each cell.
+ Result: failed test cases (failed on examples: 1)
+ Your solution must use a new approach that differs from the failed attempts above.
+ </previous_attempts>
+Response cost: $0.00381135 | Total cost: $0.00741960
+ API Response
+     "code": "def transform_grid(grid):\n    \"\"\"\n    Transforms the input grid into the output grid
+ based on a repeating pattern.\n\n    The pattern sequence is derived from the unique non-zero colors in
+ the input\n    grid, ordered by the coordinates of their first appearance (row, then column).\n    The
+ sequence is then cyclically shifted based on the spatial arrangement\n    of these first occurrence
+ points: no shift if all on the same row,\n    left shift by 1 if all on the same column, and right shift
+ by 1 otherwise.\n    The output grid is filled using the color at index (row + col) % sequence_length\n
+ of the shifted sequence for each cell (row, col).\n\n    Args:\n        grid: A 2D list of integers
+ representing the input grid.\n\n    Returns:\n        A 2D list of integers representing the transformed
+ output grid.\n    \"\"\"\n    height = len(grid)\n    width = len(grid[0])\n\n    # 1. Find unique
+ non-zero colors and their first occurrence coordinates\n    first_occurrences = {}\n    for r in
+ range(height):\n        for c in range(width):\n            color = grid[r][c]\n            # Record
+ first occurrence if color is non-zero and not seen before\n            if color != 0 and color not in
+ first_occurrences:\n                first_occurrences[color] = (r, c)\n\n    # If no non-zero elements,
+ return a grid of zeros\n    if not first_occurrences:\n        return [[0 for _ in range(width)] for _ in
+ range(height)]\n\n    # 2. Order colors based on first occurrence coordinates\n    # Create a list of
+ (row, col, color) tuples from first occurrences\n    occurrence_list = [(r, c, color) for color, (r, c)
+ in first_occurrences.items()]\n    # Sort the list by (row, col) lexicographically. This determines the
+ initial sequence order.\n    occurrence_list.sort()\n    # Extract the colors in this sorted order to get
+ the initial sequence P\n    initial_sequence = [color for r, c, color in occurrence_list]\n\n    # 3.
+ Determine the shift based on the positions of the first occurrences\n    # Extract the coordinates from
+ the sorted list\n    first_occurrence_coords = [(r, c) for r, c, color in occurrence_list]\n\n    # Check
+ if all first occurrences are on the same row\n    all_on_same_row = len(set(coord[0] for coord in
+ first_occurrence_coords)) == 1\n    # Check if all first occurrences are on the same column\n
+ all_on_same_col = len(set(coord[1] for coord in first_occurrence_coords)) == 1\n\n    shift = 0 # Default
+ shift (Same row or single point)\n    if all_on_same_col and not all_on_same_row: # All on same column
+ but not same row implies > 1 point vertically aligned\n        shift = -1 # Left shift by 1\n    elif not
+ all_on_same_row and not all_on_same_col: # Scattered points (not purely horizontal or vertical)\n
+ shift = 1 # Right shift by 1\n    # If all_on_same_row is True, shift remains 0 (includes single point
+ case)\n\n    # 4. Apply the shift to get the final output sequence Q\n    n = len(initial_sequence)\n
+ # Use modulo n for shifting index to handle wrap-around correctly\n    output_sequence =
+ initial_sequence[shift % n:] + initial_sequence[:shift % n]\n\n    # 5. Create the output grid\n
+ output_grid = [[0 for _ in range(width)] for _ in range(height)]\n\n    # 6. Fill the output grid using
+ the formula (r + c) % sequence_length\n    seq_len = len(output_sequence)\n    for r in range(height):\n
+ for c in range(width):\n            # The color at (r, c) is determined by the index (r + c) modulo
+ seq_len\n            pattern_index = (r + c) % seq_len\n            output_grid[r][c] =
+ output_sequence[pattern_index]\n\n    # 7. Return the output grid\n    return output_grid",
+     "solution": [
+     "reasoning": "The transformation rule is based on creating a repeating pattern sequence from the
+ non-zero colors in the input grid. First, identify all unique non-zero colors and their top-leftmost
+ coordinates (first occurrence during a row-by-row scan). Order these colors based on the coordinates of
+ their first appearance to get an initial sequence. Determine a cyclic shift for this initial sequence
+ based on the spatial arrangement of the first occurrence points: if they are all on the same row, apply
+ no cyclic shift. If they are all on the same column (and not also all on the same row), apply a left
+ cyclic shift by one position. Otherwise (if the points are scattered), apply a right cyclic shift by one
+ position. The final output grid is then generated by filling each cell at position (row, col) with the
+ color from the shifted sequence found at the index equal to (row + col) modulo the length of the
+ sequence. If the input grid contains no non-zero colors, the output grid is filled entirely with zeros."
+ Generated Code
+ def transform_grid(grid):
+     """
+     Transforms the input grid into the output grid based on a repeating pattern.
+     The pattern sequence is derived from the unique non-zero colors in the input
+     grid, ordered by the coordinates of their first appearance (row, then column).
+     The sequence is then cyclically shifted based on the spatial arrangement
+     of these first occurrence points: no shift if all on the same row,
+     left shift by 1 if all on the same column, and right shift by 1 otherwise.
+     The output grid is filled using the color at index (row + col) % sequence_length
+     of the shifted sequence for each cell (row, col).
+     Args:
+         grid: A 2D list of integers representing the input grid.
+     Returns:
+         A 2D list of integers representing the transformed output grid.
+     """
+     height = len(grid)
+     width = len(grid[0])
+     # 1. Find unique non-zero colors and their first occurrence coordinates
+     first_occurrences = {}
+     for r in range(height):
+         for c in range(width):
+             color = grid[r][c]
+             # Record first occurrence if color is non-zero and not seen before
+             if color != 0 and color not in first_occurrences:
+                 first_occurrences[color] = (r, c)
+     # If no non-zero elements, return a grid of zeros
+     if not first_occurrences:
+         return [[0 for _ in range(width)] for _ in range(height)]
+     # 2. Order colors based on first occurrence coordinates
+     # Create a list of (row, col, color) tuples from first occurrences
+     occurrence_list = [(r, c, color) for color, (r, c) in first_occurrences.items()]
+     # Sort the list by (row, col) lexicographically. This determines the initial sequence order.
+     occurrence_list.sort()
+     # Extract the colors in this sorted order to get the initial sequence P
+     initial_sequence = [color for r, c, color in occurrence_list]
+     # 3. Determine the shift based on the positions of the first occurrences
+     # Extract the coordinates from the sorted list
+     first_occurrence_coords = [(r, c) for r, c, color in occurrence_list]
+     # Check if all first occurrences are on the same row
+     all_on_same_row = len(set(coord[0] for coord in first_occurrence_coords)) == 1
+     # Check if all first occurrences are on the same column
+     all_on_same_col = len(set(coord[1] for coord in first_occurrence_coords)) == 1
+     shift = 0 # Default shift (Same row or single point)
+     if all_on_same_col and not all_on_same_row: # All on same column but not same row implies > 1 point
+ vertically aligned
+         shift = -1 # Left shift by 1
+     elif not all_on_same_row and not all_on_same_col: # Scattered points (not purely horizontal or
+ vertical)
+         shift = 1 # Right shift by 1
+     # If all_on_same_row is True, shift remains 0 (includes single point case)
+     # 4. Apply the shift to get the final output sequence Q
+     n = len(initial_sequence)
+     # Use modulo n for shifting index to handle wrap-around correctly
+     output_sequence = initial_sequence[shift % n:] + initial_sequence[:shift % n]
+     # 5. Create the output grid
+     output_grid = [[0 for _ in range(width)] for _ in range(height)]
+     # 6. Fill the output grid using the formula (r + c) % sequence_length
+     seq_len = len(output_sequence)
+     for r in range(height):
+         for c in range(width):
+             # The color at (r, c) is determined by the index (r + c) modulo seq_len
+             pattern_index = (r + c) % seq_len
+             output_grid[r][c] = output_sequence[pattern_index]
+     # 7. Return the output grid
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[2, 8, 3, 2, 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2],
+[8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2]]
+Got Output: [[2, 8, 3, 2, 8, 3, 2], [8, 3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2], [8,
+3, 2, 8, 3, 2, 8], [3, 2, 8, 3, 2, 8, 3], [2, 8, 3, 2, 8, 3, 2]]
+✓ Passed
+Training example 2:
+Expected Output: [[2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2],
+[4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2]]
+Got Output: [[4, 1, 2, 4, 1, 2, 4], [1, 2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4], [1,
+2, 4, 1, 2, 4, 1], [2, 4, 1, 2, 4, 1, 2], [4, 1, 2, 4, 1, 2, 4]]
+❌ Failed on this example
+Training example 3:
+Expected Output: [[4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4],
+[8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4]]
+Got Output: [[3, 4, 8, 3, 4, 8, 3], [4, 8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3], [4,
+8, 3, 4, 8, 3, 4], [8, 3, 4, 8, 3, 4, 8], [3, 4, 8, 3, 4, 8, 3]]
+❌ Failed on this example
+Not all training examples passed, skipping test case(s).
+REPORT: Failure to solve 05269061.json in 2 attempts. Time: 0:03:04
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  0               1              0.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 0                  1                 0.0%                    0:03:04          0:03:04     $0.0074
+==================================================

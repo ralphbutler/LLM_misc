@@ -1,0 +1,2859 @@
+=== Extracted text from OUTPUTS1_SOLNS/91714a58.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/91714a58.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/91714a58.json
+Loaded and formatted features from: FEATURES/91714a58.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[16, 16]</input_dimensions>
+       <output_dimensions>[16, 16]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>2</size>
+           <position>[0.0, 4.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[2.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[7.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>1</color>
+           <size>1</size>
+           <position>[9.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>1</color>
+           <size>1</size>
+           <position>[10.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>1</color>
+           <size>1</size>
+           <position>[15.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>1</color>
+           <size>1</size>
+           <position>[15.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>2</color>
+           <size>13</size>
+           <position>[4.3076923076923075, 3.923076923076923]</position>
+           <width>3</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='12'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='13'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='14'>
+           <color>2</color>
+           <size>1</size>
+           <position>[7.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='15'>
+           <color>2</color>
+           <size>1</size>
+           <position>[8.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='16'>
+           <color>2</color>
+           <size>1</size>
+           <position>[10.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='17'>
+           <color>2</color>
+           <size>1</size>
+           <position>[10.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='18'>
+           <color>2</color>
+           <size>1</size>
+           <position>[11.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='19'>
+           <color>2</color>
+           <size>1</size>
+           <position>[12.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='20'>
+           <color>2</color>
+           <size>1</size>
+           <position>[13.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='21'>
+           <color>2</color>
+           <size>1</size>
+           <position>[15.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='22'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='23'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='24'>
+           <color>3</color>
+           <size>2</size>
+           <position>[6.5, 9.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='25'>
+           <color>3</color>
+           <size>1</size>
+           <position>[9.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='26'>
+           <color>3</color>
+           <size>1</size>
+           <position>[9.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='27'>
+           <color>3</color>
+           <size>1</size>
+           <position>[13.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='28'>
+           <color>3</color>
+           <size>1</size>
+           <position>[14.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='29'>
+           <color>4</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='30'>
+           <color>4</color>
+           <size>1</size>
+           <position>[1.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='31'>
+           <color>4</color>
+           <size>1</size>
+           <position>[4.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='32'>
+           <color>4</color>
+           <size>1</size>
+           <position>[5.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='33'>
+           <color>4</color>
+           <size>1</size>
+           <position>[7.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='34'>
+           <color>4</color>
+           <size>1</size>
+           <position>[7.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='35'>
+           <color>4</color>
+           <size>1</size>
+           <position>[9.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='36'>
+           <color>4</color>
+           <size>1</size>
+           <position>[9.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='37'>
+           <color>4</color>
+           <size>1</size>
+           <position>[10.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='38'>
+           <color>4</color>
+           <size>1</size>
+           <position>[11.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='39'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='40'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='41'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='42'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='43'>
+           <color>5</color>
+           <size>1</size>
+           <position>[4.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='44'>
+           <color>5</color>
+           <size>1</size>
+           <position>[6.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='45'>
+           <color>5</color>
+           <size>1</size>
+           <position>[8.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='46'>
+           <color>5</color>
+           <size>1</size>
+           <position>[9.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='47'>
+           <color>5</color>
+           <size>1</size>
+           <position>[11.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='48'>
+           <color>5</color>
+           <size>1</size>
+           <position>[14.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='49'>
+           <color>5</color>
+           <size>1</size>
+           <position>[14.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='50'>
+           <color>6</color>
+           <size>1</size>
+           <position>[2.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='51'>
+           <color>6</color>
+           <size>1</size>
+           <position>[3.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='52'>
+           <color>6</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='53'>
+           <color>6</color>
+           <size>1</size>
+           <position>[7.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='54'>
+           <color>6</color>
+           <size>1</size>
+           <position>[9.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='55'>
+           <color>6</color>
+           <size>1</size>
+           <position>[9.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='56'>
+           <color>6</color>
+           <size>1</size>
+           <position>[10.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='57'>
+           <color>6</color>
+           <size>1</size>
+           <position>[12.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='58'>
+           <color>6</color>
+           <size>1</size>
+           <position>[12.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='59'>
+           <color>6</color>
+           <size>1</size>
+           <position>[14.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='60'>
+           <color>7</color>
+           <size>1</size>
+           <position>[5.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='61'>
+           <color>7</color>
+           <size>1</size>
+           <position>[6.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='62'>
+           <color>7</color>
+           <size>1</size>
+           <position>[7.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='63'>
+           <color>7</color>
+           <size>4</size>
+           <position>[7.5, 8.0]</position>
+           <width>3</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='64'>
+           <color>7</color>
+           <size>1</size>
+           <position>[7.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='65'>
+           <color>7</color>
+           <size>1</size>
+           <position>[8.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='66'>
+           <color>7</color>
+           <size>2</size>
+           <position>[13.5, 4.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='67'>
+           <color>7</color>
+           <size>1</size>
+           <position>[13.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='68'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='69'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='70'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='71'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='72'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='73'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='74'>
+           <color>8</color>
+           <size>1</size>
+           <position>[8.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='75'>
+           <color>9</color>
+           <size>2</size>
+           <position>[1.0, 8.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='76'>
+           <color>9</color>
+           <size>1</size>
+           <position>[4.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='77'>
+           <color>9</color>
+           <size>1</size>
+           <position>[8.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='78'>
+           <color>9</color>
+           <size>1</size>
+           <position>[9.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='79'>
+           <color>9</color>
+           <size>1</size>
+           <position>[9.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='80'>
+           <color>9</color>
+           <size>1</size>
+           <position>[13.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='81'>
+           <color>9</color>
+           <size>1</size>
+           <position>[15.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='82'>
+           <color>9</color>
+           <size>1</size>
+           <position>[15.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>12</size>
+           <position>[4.5, 4.0]</position>
+           <width>3</width>
+           <height>4</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>11</input_id>
+           <output_id>0</output_id>
+           <translation>[0, 0]</translation>
+           <size_change>
+             <from>13</from>
+             <to>12</to>
+           </size_change>
+           <shape_dimension_change>
+             <from_width_height>[3, 5]</from_width_height>
+             <to_width_height>[3, 4]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>0</component_id>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>6</component_id>
+           <component_id>7</component_id>
+           <component_id>8</component_id>
+           <component_id>9</component_id>
+           <component_id>10</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>25</component_id>
+           <component_id>26</component_id>
+           <component_id>27</component_id>
+           <component_id>28</component_id>
+           <component_id>29</component_id>
+           <component_id>30</component_id>
+           <component_id>31</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>34</component_id>
+           <component_id>35</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>43</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+           <component_id>49</component_id>
+           <component_id>50</component_id>
+           <component_id>51</component_id>
+           <component_id>52</component_id>
+           <component_id>53</component_id>
+           <component_id>54</component_id>
+           <component_id>55</component_id>
+           <component_id>56</component_id>
+           <component_id>57</component_id>
+           <component_id>58</component_id>
+           <component_id>59</component_id>
+           <component_id>60</component_id>
+           <component_id>61</component_id>
+           <component_id>62</component_id>
+           <component_id>63</component_id>
+           <component_id>64</component_id>
+           <component_id>65</component_id>
+           <component_id>66</component_id>
+           <component_id>67</component_id>
+           <component_id>68</component_id>
+           <component_id>69</component_id>
+           <component_id>70</component_id>
+           <component_id>71</component_id>
+           <component_id>72</component_id>
+           <component_id>73</component_id>
+           <component_id>74</component_id>
+           <component_id>75</component_id>
+           <component_id>76</component_id>
+           <component_id>77</component_id>
+           <component_id>78</component_id>
+           <component_id>79</component_id>
+           <component_id>80</component_id>
+           <component_id>81</component_id>
+           <component_id>82</component_id>
+         </unmatched_inputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[16, 16]</input_dimensions>
+       <output_dimensions>[16, 16]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[1.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[8.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[9.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>1</color>
+           <size>1</size>
+           <position>[14.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>1</color>
+           <size>1</size>
+           <position>[14.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>1</color>
+           <size>1</size>
+           <position>[15.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>2</color>
+           <size>2</size>
+           <position>[3.0, 0.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='12'>
+           <color>2</color>
+           <size>1</size>
+           <position>[4.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='13'>
+           <color>2</color>
+           <size>1</size>
+           <position>[5.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='14'>
+           <color>2</color>
+           <size>1</size>
+           <position>[12.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='15'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='16'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='17'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='18'>
+           <color>3</color>
+           <size>1</size>
+           <position>[4.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='19'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='20'>
+           <color>3</color>
+           <size>1</size>
+           <position>[6.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='21'>
+           <color>3</color>
+           <size>1</size>
+           <position>[9.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='22'>
+           <color>3</color>
+           <size>1</size>
+           <position>[10.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='23'>
+           <color>3</color>
+           <size>1</size>
+           <position>[10.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='24'>
+           <color>3</color>
+           <size>1</size>
+           <position>[13.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='25'>
+           <color>3</color>
+           <size>1</size>
+           <position>[15.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='26'>
+           <color>3</color>
+           <size>1</size>
+           <position>[15.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='27'>
+           <color>4</color>
+           <size>2</size>
+           <position>[5.0, 0.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='28'>
+           <color>4</color>
+           <size>1</size>
+           <position>[7.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='29'>
+           <color>4</color>
+           <size>1</size>
+           <position>[8.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='30'>
+           <color>4</color>
+           <size>1</size>
+           <position>[8.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='31'>
+           <color>4</color>
+           <size>1</size>
+           <position>[9.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='32'>
+           <color>4</color>
+           <size>1</size>
+           <position>[12.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='33'>
+           <color>4</color>
+           <size>2</size>
+           <position>[12.0, 11.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='34'>
+           <color>4</color>
+           <size>1</size>
+           <position>[13.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='35'>
+           <color>5</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='36'>
+           <color>5</color>
+           <size>1</size>
+           <position>[8.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='37'>
+           <color>5</color>
+           <size>1</size>
+           <position>[9.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='38'>
+           <color>5</color>
+           <size>1</size>
+           <position>[10.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='39'>
+           <color>5</color>
+           <size>1</size>
+           <position>[10.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='40'>
+           <color>5</color>
+           <size>1</size>
+           <position>[13.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='41'>
+           <color>5</color>
+           <size>1</size>
+           <position>[13.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='42'>
+           <color>5</color>
+           <size>1</size>
+           <position>[14.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='43'>
+           <color>6</color>
+           <size>1</size>
+           <position>[0.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='44'>
+           <color>6</color>
+           <size>1</size>
+           <position>[0.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='45'>
+           <color>6</color>
+           <size>1</size>
+           <position>[4.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='46'>
+           <color>6</color>
+           <size>1</size>
+           <position>[6.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='47'>
+           <color>6</color>
+           <size>1</size>
+           <position>[8.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='48'>
+           <color>6</color>
+           <size>1</size>
+           <position>[10.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='49'>
+           <color>6</color>
+           <size>14</size>
+           <position>[11.5, 5.0]</position>
+           <width>7</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='50'>
+           <color>6</color>
+           <size>1</size>
+           <position>[12.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='51'>
+           <color>6</color>
+           <size>1</size>
+           <position>[13.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='52'>
+           <color>7</color>
+           <size>1</size>
+           <position>[0.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='53'>
+           <color>7</color>
+           <size>1</size>
+           <position>[0.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='54'>
+           <color>7</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='55'>
+           <color>7</color>
+           <size>1</size>
+           <position>[5.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='56'>
+           <color>7</color>
+           <size>1</size>
+           <position>[7.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='57'>
+           <color>7</color>
+           <size>1</size>
+           <position>[10.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='58'>
+           <color>7</color>
+           <size>1</size>
+           <position>[11.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='59'>
+           <color>7</color>
+           <size>1</size>
+           <position>[14.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='60'>
+           <color>7</color>
+           <size>2</size>
+           <position>[14.5, 14.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='61'>
+           <color>8</color>
+           <size>1</size>
+           <position>[1.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='62'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='63'>
+           <color>8</color>
+           <size>1</size>
+           <position>[2.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='64'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='65'>
+           <color>8</color>
+           <size>1</size>
+           <position>[6.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='66'>
+           <color>8</color>
+           <size>1</size>
+           <position>[7.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='67'>
+           <color>8</color>
+           <size>1</size>
+           <position>[9.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='68'>
+           <color>8</color>
+           <size>1</size>
+           <position>[13.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='69'>
+           <color>8</color>
+           <size>1</size>
+           <position>[15.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='70'>
+           <color>8</color>
+           <size>1</size>
+           <position>[15.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='71'>
+           <color>9</color>
+           <size>1</size>
+           <position>[2.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='72'>
+           <color>9</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='73'>
+           <color>9</color>
+           <size>1</size>
+           <position>[5.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='74'>
+           <color>9</color>
+           <size>1</size>
+           <position>[7.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='75'>
+           <color>9</color>
+           <size>1</size>
+           <position>[8.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='76'>
+           <color>9</color>
+           <size>1</size>
+           <position>[9.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='77'>
+           <color>9</color>
+           <size>1</size>
+           <position>[10.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='78'>
+           <color>9</color>
+           <size>1</size>
+           <position>[10.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='79'>
+           <color>9</color>
+           <size>1</size>
+           <position>[13.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='80'>
+           <color>9</color>
+           <size>1</size>
+           <position>[14.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>6</color>
+           <size>14</size>
+           <position>[11.5, 5.0]</position>
+           <width>7</width>
+           <height>2</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>49</input_id>
+           <output_id>0</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>0</component_id>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>6</component_id>
+           <component_id>7</component_id>
+           <component_id>8</component_id>
+           <component_id>9</component_id>
+           <component_id>10</component_id>
+           <component_id>11</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>25</component_id>
+           <component_id>26</component_id>
+           <component_id>27</component_id>
+           <component_id>28</component_id>
+           <component_id>29</component_id>
+           <component_id>30</component_id>
+           <component_id>31</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>34</component_id>
+           <component_id>35</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>43</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+           <component_id>50</component_id>
+           <component_id>51</component_id>
+           <component_id>52</component_id>
+           <component_id>53</component_id>
+           <component_id>54</component_id>
+           <component_id>55</component_id>
+           <component_id>56</component_id>
+           <component_id>57</component_id>
+           <component_id>58</component_id>
+           <component_id>59</component_id>
+           <component_id>60</component_id>
+           <component_id>61</component_id>
+           <component_id>62</component_id>
+           <component_id>63</component_id>
+           <component_id>64</component_id>
+           <component_id>65</component_id>
+           <component_id>66</component_id>
+           <component_id>67</component_id>
+           <component_id>68</component_id>
+           <component_id>69</component_id>
+           <component_id>70</component_id>
+           <component_id>71</component_id>
+           <component_id>72</component_id>
+           <component_id>73</component_id>
+           <component_id>74</component_id>
+           <component_id>75</component_id>
+           <component_id>76</component_id>
+           <component_id>77</component_id>
+           <component_id>78</component_id>
+           <component_id>79</component_id>
+           <component_id>80</component_id>
+         </unmatched_inputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[16, 16]</input_dimensions>
+       <output_dimensions>[16, 16]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>1</color>
+           <size>1</size>
+           <position>[9.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>1</color>
+           <size>1</size>
+           <position>[12.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>1</color>
+           <size>1</size>
+           <position>[13.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>1</color>
+           <size>1</size>
+           <position>[13.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>2</color>
+           <size>1</size>
+           <position>[3.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='8'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='9'>
+           <color>2</color>
+           <size>1</size>
+           <position>[13.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='10'>
+           <color>2</color>
+           <size>1</size>
+           <position>[14.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='11'>
+           <color>2</color>
+           <size>1</size>
+           <position>[15.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='12'>
+           <color>2</color>
+           <size>1</size>
+           <position>[15.0, 12.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='13'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='14'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='15'>
+           <color>3</color>
+           <size>1</size>
+           <position>[5.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='16'>
+           <color>3</color>
+           <size>2</size>
+           <position>[5.0, 11.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='17'>
+           <color>3</color>
+           <size>1</size>
+           <position>[7.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='18'>
+           <color>3</color>
+           <size>1</size>
+           <position>[8.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='19'>
+           <color>3</color>
+           <size>1</size>
+           <position>[9.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='20'>
+           <color>3</color>
+           <size>2</size>
+           <position>[10.0, 10.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='21'>
+           <color>3</color>
+           <size>1</size>
+           <position>[12.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='22'>
+           <color>3</color>
+           <size>1</size>
+           <position>[14.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='23'>
+           <color>3</color>
+           <size>1</size>
+           <position>[15.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='24'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='25'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='26'>
+           <color>4</color>
+           <size>1</size>
+           <position>[6.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='27'>
+           <color>4</color>
+           <size>1</size>
+           <position>[11.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='28'>
+           <color>4</color>
+           <size>1</size>
+           <position>[12.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='29'>
+           <color>4</color>
+           <size>1</size>
+           <position>[13.0, 15.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='30'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='31'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='32'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='33'>
+           <color>5</color>
+           <size>1</size>
+           <position>[5.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='34'>
+           <color>5</color>
+           <size>1</size>
+           <position>[11.0, 13.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='35'>
+           <color>5</color>
+           <size>2</size>
+           <position>[12.5, 10.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='36'>
+           <color>5</color>
+           <size>1</size>
+           <position>[15.0, 10.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='37'>
+           <color>6</color>
+           <size>1</size>
+           <position>[0.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='38'>
+           <color>6</color>
+           <size>1</size>
+           <position>[4.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='39'>
+           <color>6</color>
+           <size>1</size>
+           <position>[5.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='40'>
+           <color>6</color>
+           <size>1</size>
+           <position>[5.0, 8.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='41'>
+           <color>6</color>
+           <size>1</size>
+           <position>[8.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='42'>
+           <color>7</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='43'>
+           <color>7</color>
+           <size>10</size>
+           <position>[3.1, 8.8]</position>
+           <width>4</width>
+           <height>3</height>
+         </input_component>
+         <input_component id='44'>
+           <color>7</color>
+           <size>1</size>
+           <position>[10.0, 14.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='45'>
+           <color>7</color>
+           <size>1</size>
+           <position>[12.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='46'>
+           <color>7</color>
+           <size>1</size>
+           <position>[12.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='47'>
+           <color>7</color>
+           <size>1</size>
+           <position>[13.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='48'>
+           <color>7</color>
+           <size>1</size>
+           <position>[15.0, 5.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='49'>
+           <color>8</color>
+           <size>2</size>
+           <position>[2.0, 5.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='50'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='51'>
+           <color>8</color>
+           <size>1</size>
+           <position>[7.0, 11.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='52'>
+           <color>8</color>
+           <size>1</size>
+           <position>[9.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='53'>
+           <color>9</color>
+           <size>1</size>
+           <position>[1.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='54'>
+           <color>9</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='55'>
+           <color>9</color>
+           <size>1</size>
+           <position>[7.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='56'>
+           <color>9</color>
+           <size>1</size>
+           <position>[8.0, 9.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='57'>
+           <color>9</color>
+           <size>1</size>
+           <position>[9.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='58'>
+           <color>9</color>
+           <size>1</size>
+           <position>[15.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>7</color>
+           <size>9</size>
+           <position>[3.0, 9.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>43</input_id>
+           <output_id>0</output_id>
+           <translation>[0, 0]</translation>
+           <size_change>
+             <from>10</from>
+             <to>9</to>
+           </size_change>
+           <shape_dimension_change>
+             <from_width_height>[4, 3]</from_width_height>
+             <to_width_height>[3, 3]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>0</component_id>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+           <component_id>3</component_id>
+           <component_id>4</component_id>
+           <component_id>5</component_id>
+           <component_id>6</component_id>
+           <component_id>7</component_id>
+           <component_id>8</component_id>
+           <component_id>9</component_id>
+           <component_id>10</component_id>
+           <component_id>11</component_id>
+           <component_id>12</component_id>
+           <component_id>13</component_id>
+           <component_id>14</component_id>
+           <component_id>15</component_id>
+           <component_id>16</component_id>
+           <component_id>17</component_id>
+           <component_id>18</component_id>
+           <component_id>19</component_id>
+           <component_id>20</component_id>
+           <component_id>21</component_id>
+           <component_id>22</component_id>
+           <component_id>23</component_id>
+           <component_id>24</component_id>
+           <component_id>25</component_id>
+           <component_id>26</component_id>
+           <component_id>27</component_id>
+           <component_id>28</component_id>
+           <component_id>29</component_id>
+           <component_id>30</component_id>
+           <component_id>31</component_id>
+           <component_id>32</component_id>
+           <component_id>33</component_id>
+           <component_id>34</component_id>
+           <component_id>35</component_id>
+           <component_id>36</component_id>
+           <component_id>37</component_id>
+           <component_id>38</component_id>
+           <component_id>39</component_id>
+           <component_id>40</component_id>
+           <component_id>41</component_id>
+           <component_id>42</component_id>
+           <component_id>44</component_id>
+           <component_id>45</component_id>
+           <component_id>46</component_id>
+           <component_id>47</component_id>
+           <component_id>48</component_id>
+           <component_id>49</component_id>
+           <component_id>50</component_id>
+           <component_id>51</component_id>
+           <component_id>52</component_id>
+           <component_id>53</component_id>
+           <component_id>54</component_id>
+           <component_id>55</component_id>
+           <component_id>56</component_id>
+           <component_id>57</component_id>
+           <component_id>58</component_id>
+         </unmatched_inputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[16, 16]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>1</color>
+         <size>1</size>
+         <position>[0.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='1'>
+         <color>1</color>
+         <size>1</size>
+         <position>[0.0, 10.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='2'>
+         <color>1</color>
+         <size>1</size>
+         <position>[2.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='3'>
+         <color>1</color>
+         <size>1</size>
+         <position>[2.0, 8.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='4'>
+         <color>1</color>
+         <size>1</size>
+         <position>[4.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='5'>
+         <color>1</color>
+         <size>2</size>
+         <position>[6.0, 1.5]</position>
+         <width>2</width>
+         <height>1</height>
+       </component>
+       <component id='6'>
+         <color>1</color>
+         <size>1</size>
+         <position>[8.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='7'>
+         <color>1</color>
+         <size>1</size>
+         <position>[9.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='8'>
+         <color>1</color>
+         <size>1</size>
+         <position>[9.0, 14.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='9'>
+         <color>1</color>
+         <size>1</size>
+         <position>[11.0, 12.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='10'>
+         <color>1</color>
+         <size>2</size>
+         <position>[12.5, 6.0]</position>
+         <width>1</width>
+         <height>2</height>
+       </component>
+       <component id='11'>
+         <color>1</color>
+         <size>1</size>
+         <position>[12.0, 14.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='12'>
+         <color>2</color>
+         <size>1</size>
+         <position>[0.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='13'>
+         <color>2</color>
+         <size>1</size>
+         <position>[7.0, 10.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='14'>
+         <color>2</color>
+         <size>1</size>
+         <position>[8.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='15'>
+         <color>2</color>
+         <size>1</size>
+         <position>[12.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='16'>
+         <color>2</color>
+         <size>1</size>
+         <position>[12.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='17'>
+         <color>3</color>
+         <size>1</size>
+         <position>[0.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='18'>
+         <color>3</color>
+         <size>1</size>
+         <position>[1.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='19'>
+         <color>3</color>
+         <size>1</size>
+         <position>[3.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='20'>
+         <color>3</color>
+         <size>1</size>
+         <position>[3.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='21'>
+         <color>3</color>
+         <size>2</size>
+         <position>[4.5, 10.0]</position>
+         <width>1</width>
+         <height>2</height>
+       </component>
+       <component id='22'>
+         <color>3</color>
+         <size>1</size>
+         <position>[10.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='23'>
+         <color>3</color>
+         <size>1</size>
+         <position>[11.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='24'>
+         <color>3</color>
+         <size>1</size>
+         <position>[12.0, 7.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='25'>
+         <color>3</color>
+         <size>1</size>
+         <position>[13.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='26'>
+         <color>3</color>
+         <size>1</size>
+         <position>[14.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='27'>
+         <color>4</color>
+         <size>1</size>
+         <position>[0.0, 13.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='28'>
+         <color>4</color>
+         <size>1</size>
+         <position>[2.0, 14.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='29'>
+         <color>4</color>
+         <size>1</size>
+         <position>[8.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='30'>
+         <color>4</color>
+         <size>1</size>
+         <position>[10.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='31'>
+         <color>4</color>
+         <size>1</size>
+         <position>[11.0, 13.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='32'>
+         <color>5</color>
+         <size>1</size>
+         <position>[4.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='33'>
+         <color>5</color>
+         <size>1</size>
+         <position>[4.0, 14.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='34'>
+         <color>5</color>
+         <size>1</size>
+         <position>[6.0, 13.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='35'>
+         <color>5</color>
+         <size>1</size>
+         <position>[9.0, 15.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='36'>
+         <color>5</color>
+         <size>13</size>
+         <position>[10.615384615384615, 7.3076923076923075]</position>
+         <width>6</width>
+         <height>3</height>
+       </component>
+       <component id='37'>
+         <color>5</color>
+         <size>1</size>
+         <position>[12.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='38'>
+         <color>5</color>
+         <size>1</size>
+         <position>[12.0, 15.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='39'>
+         <color>5</color>
+         <size>1</size>
+         <position>[15.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='40'>
+         <color>6</color>
+         <size>1</size>
+         <position>[1.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='41'>
+         <color>6</color>
+         <size>1</size>
+         <position>[2.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='42'>
+         <color>6</color>
+         <size>1</size>
+         <position>[11.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='43'>
+         <color>6</color>
+         <size>1</size>
+         <position>[12.0, 10.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='44'>
+         <color>6</color>
+         <size>1</size>
+         <position>[13.0, 7.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='45'>
+         <color>6</color>
+         <size>1</size>
+         <position>[13.0, 13.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='46'>
+         <color>6</color>
+         <size>1</size>
+         <position>[14.0, 9.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='47'>
+         <color>7</color>
+         <size>1</size>
+         <position>[0.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='48'>
+         <color>7</color>
+         <size>1</size>
+         <position>[0.0, 14.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='49'>
+         <color>7</color>
+         <size>1</size>
+         <position>[2.0, 12.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='50'>
+         <color>7</color>
+         <size>1</size>
+         <position>[5.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='51'>
+         <color>7</color>
+         <size>1</size>
+         <position>[6.0, 15.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='52'>
+         <color>7</color>
+         <size>1</size>
+         <position>[7.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='53'>
+         <color>7</color>
+         <size>1</size>
+         <position>[7.0, 13.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='54'>
+         <color>7</color>
+         <size>1</size>
+         <position>[8.0, 10.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='55'>
+         <color>7</color>
+         <size>1</size>
+         <position>[13.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='56'>
+         <color>7</color>
+         <size>1</size>
+         <position>[13.0, 9.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='57'>
+         <color>7</color>
+         <size>2</size>
+         <position>[14.0, 6.5]</position>
+         <width>2</width>
+         <height>1</height>
+       </component>
+       <component id='58'>
+         <color>8</color>
+         <size>1</size>
+         <position>[1.0, 7.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='59'>
+         <color>8</color>
+         <size>1</size>
+         <position>[2.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='60'>
+         <color>8</color>
+         <size>1</size>
+         <position>[2.0, 15.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='61'>
+         <color>8</color>
+         <size>1</size>
+         <position>[3.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='62'>
+         <color>8</color>
+         <size>1</size>
+         <position>[3.0, 8.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='63'>
+         <color>8</color>
+         <size>1</size>
+         <position>[4.0, 7.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='64'>
+         <color>8</color>
+         <size>1</size>
+         <position>[4.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='65'>
+         <color>8</color>
+         <size>1</size>
+         <position>[5.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='66'>
+         <color>8</color>
+         <size>1</size>
+         <position>[6.0, 11.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='67'>
+         <color>8</color>
+         <size>1</size>
+         <position>[10.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='68'>
+         <color>8</color>
+         <size>1</size>
+         <position>[14.0, 12.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='69'>
+         <color>8</color>
+         <size>1</size>
+         <position>[15.0, 6.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='70'>
+         <color>9</color>
+         <size>1</size>
+         <position>[7.0, 7.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='71'>
+         <color>9</color>
+         <size>1</size>
+         <position>[8.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='72'>
+         <color>9</color>
+         <size>1</size>
+         <position>[8.0, 14.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='73'>
+         <color>9</color>
+         <size>1</size>
+         <position>[10.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='74'>
+         <color>9</color>
+         <size>1</size>
+         <position>[12.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='75'>
+         <color>9</color>
+         <size>1</size>
+         <position>[14.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='76'>
+         <color>9</color>
+         <size>1</size>
+         <position>[15.0, 15.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[0, 0]</value>
+       </translation>
+     </consistent_transformations>
+     <size_patterns>
+       <from_size value='13'>
+         <to_size value='12' count='1'/>
+       </from_size>
+       <from_size value='10'>
+         <to_size value='9' count='1'/>
+       </from_size>
+     </size_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[0, 0, 0, 0, 1, 1, 4, 0, 2, 0, 0, 0, 0, 2, 0, 5], [0, 0, 0, 3, 5, 0, 0, 0, 9, 9, 8,
+ 0, 4, 0, 5, 8], [1, 0, 8, 2, 8, 0, 0, 6, 0, 8, 5, 0, 0, 0, 8, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 6, 0,
+ 0, 0, 0], [0, 0, 1, 2, 2, 2, 0, 0, 1, 9, 5, 0, 0, 2, 0, 4], [0, 4, 0, 2, 2, 2, 0, 2, 0, 0, 7, 0, 0, 0, 0,
+ 0], [3, 0, 6, 2, 2, 2, 0, 0, 0, 3, 5, 0, 7, 0, 0, 0], [7, 0, 4, 6, 0, 0, 4, 7, 7, 3, 0, 2, 0, 0, 7, 1],
+ [0, 7, 0, 0, 0, 0, 0, 9, 7, 7, 0, 0, 0, 8, 5, 2], [1, 5, 6, 4, 9, 3, 0, 3, 0, 0, 0, 0, 0, 9, 4, 6], [0,
+ 2, 4, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 6, 0, 0], [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4], [0, 0, 6,
+ 0, 0, 0, 0, 0, 6, 0, 0, 2, 0, 0, 0, 0], [0, 3, 0, 0, 7, 0, 2, 0, 7, 9, 0, 0, 0, 0, 0, 0], [0, 0, 5, 0, 7,
+ 0, 0, 0, 0, 0, 0, 0, 6, 5, 3, 0], [1, 0, 0, 9, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 9, 0]], 'output': [[0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 7, 0, 0, 6, 0, 6, 0, 0, 0, 7, 3, 0,
+ 0, 0], [0, 0, 3, 0, 0, 1, 0, 0, 8, 0, 0, 2, 0, 0, 0, 0], [0, 0, 0, 0, 3, 9, 0, 0, 0, 0, 0, 0, 0, 8, 0,
+ 8], [2, 2, 0, 2, 9, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0], [0, 5, 2, 0, 0, 7, 0, 6, 0, 0, 0, 3, 0, 0, 1, 0],
+ [4, 4, 0, 3, 9, 0, 0, 0, 0, 7, 0, 2, 0, 0, 0, 0], [8, 0, 0, 0, 0, 6, 0, 0, 0, 8, 0, 0, 3, 0, 0, 0], [0,
+ 9, 0, 0, 0, 4, 8, 0, 0, 0, 7, 0, 0, 0, 0, 0], [0, 0, 9, 5, 0, 0, 0, 0, 4, 6, 0, 1, 4, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 3, 1, 0, 8, 0, 5, 9, 4], [0, 9, 3, 9, 0, 3, 0, 0, 5, 6, 7, 0, 5, 0, 0, 0], [0, 0, 6, 6, 6,
+ 6, 6, 6, 6, 0, 0, 0, 0, 7, 0, 0], [0, 4, 6, 6, 6, 6, 6, 6, 6, 0, 0, 4, 4, 6, 0, 2], [0, 5, 0, 0, 0, 0, 4,
+ 5, 3, 0, 8, 0, 0, 0, 6, 9], [0, 0, 9, 7, 5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7, 1], [0, 8, 0, 0, 0, 0, 0, 1, 0,
+ 3, 0, 0, 3, 8, 7, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]},
+ {'input': [[3, 0, 0, 0, 0, 0, 6, 2, 0, 0, 0, 5, 0, 0, 0, 3], [0, 7, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0,
+ 5, 0], [0, 0, 0, 0, 0, 8, 8, 0, 7, 7, 7, 0, 0, 0, 0, 4], [0, 2, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 2, 0, 5,
+ 0], [0, 8, 0, 0, 9, 6, 1, 7, 7, 7, 7, 0, 0, 0, 0, 0], [5, 0, 0, 0, 0, 3, 6, 0, 6, 0, 0, 3, 3, 0, 0, 0],
+ [0, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0], [9, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0], [0,
+ 0, 3, 0, 0, 0, 0, 6, 0, 9, 0, 0, 0, 0, 0, 0], [9, 0, 0, 0, 1, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 7, 0], [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0], [4, 0, 0, 1, 7,
+ 0, 3, 0, 0, 7, 5, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 7, 2, 0, 0, 5, 0, 0, 1, 0, 4], [0, 0, 0, 0, 0, 0, 0,
+ 3, 0, 0, 2, 0, 0, 0, 0, 0], [0, 2, 0, 0, 0, 7, 9, 0, 0, 0, 5, 0, 2, 0, 3, 0]], 'output': [[0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 7, 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 7,
+ 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}], 'test': {'input': [[0, 0, 1, 7, 3, 0, 0, 0, 0, 0, 1, 2,
+ 0, 4, 7, 0], [0, 0, 0, 3, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, 0], [6, 0, 0, 8, 0, 1, 0, 0, 1, 0, 0, 0, 7, 0,
+ 4, 8], [0, 3, 8, 0, 0, 0, 3, 0, 8, 0, 0, 0, 0, 0, 0, 0], [5, 0, 0, 0, 1, 0, 0, 8, 0, 0, 3, 8, 0, 0, 5,
+ 0], [0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 3, 7, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 5, 0, 7],
+ [0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 2, 7, 0, 7, 0, 0], [9, 4, 0, 2, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 9, 0], [0,
+ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5], [0, 8, 9, 4, 0, 5, 5, 5, 5, 5, 5, 3, 0, 0, 0, 0], [0, 0, 3,
+ 0, 6, 5, 5, 5, 5, 5, 5, 0, 1, 4, 0, 0], [9, 5, 2, 0, 0, 5, 1, 3, 0, 0, 6, 2, 0, 0, 1, 5], [0, 7, 0, 0, 0,
+ 0, 1, 6, 0, 7, 0, 3, 0, 6, 0, 0], [0, 0, 9, 0, 0, 3, 7, 7, 0, 6, 0, 0, 8, 0, 0, 0], [5, 0, 0, 0, 0, 0, 8,
+ 0, 0, 0, 0, 0, 0, 0, 0, 9]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 0 0 0 0 1 1 4 0 2 0 0 0 0 2 0 5
+ 0 0 0 3 5 0 0 0 9 9 8 0 4 0 5 8
+ 1 0 8 2 8 0 0 6 0 8 5 0 0 0 8 0
+ 0 0 0 2 2 2 0 0 0 0 0 6 0 0 0 0
+ 0 0 1 2 2 2 0 0 1 9 5 0 0 2 0 4
+ 0 4 0 2 2 2 0 2 0 0 7 0 0 0 0 0
+ 3 0 6 2 2 2 0 0 0 3 5 0 7 0 0 0
+ 7 0 4 6 0 0 4 7 7 3 0 2 0 0 7 1
+ 0 7 0 0 0 0 0 9 7 7 0 0 0 8 5 2
+ 1 5 6 4 9 3 0 3 0 0 0 0 0 9 4 6
+ 0 2 4 0 0 0 0 0 0 0 2 0 1 6 0 0
+ 0 0 0 5 0 0 0 0 0 0 0 0 0 0 2 4
+ 0 0 6 0 0 0 0 0 6 0 0 2 0 0 0 0
+ 0 3 0 0 7 0 2 0 7 9 0 0 0 0 0 0
+ 0 0 5 0 7 0 0 0 0 0 0 0 6 5 3 0
+ 1 0 0 9 0 0 0 2 0 0 0 1 0 0 9 0
+ Example 1 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Input:
+ 0 0 7 0 0 6 0 6 0 0 0 7 3 0 0 0
+ 0 0 3 0 0 1 0 0 8 0 0 2 0 0 0 0
+ 0 0 0 0 3 9 0 0 0 0 0 0 0 8 0 8
+ 2 2 0 2 9 0 0 0 0 1 0 2 0 0 0 0
+ 0 5 2 0 0 7 0 6 0 0 0 3 0 0 1 0
+ 4 4 0 3 9 0 0 0 0 7 0 2 0 0 0 0
+ 8 0 0 0 0 6 0 0 0 8 0 0 3 0 0 0
+ 0 9 0 0 0 4 8 0 0 0 7 0 0 0 0 0
+ 0 0 9 5 0 0 0 0 4 6 0 1 4 0 0 0
+ 0 0 0 0 0 0 0 0 3 1 0 8 0 5 9 4
+ 0 9 3 9 0 3 0 0 5 6 7 0 5 0 0 0
+ 0 0 6 6 6 6 6 6 6 0 0 0 0 7 0 0
+ 0 4 6 6 6 6 6 6 6 0 0 4 4 6 0 2
+ 0 5 0 0 0 0 4 5 3 0 8 0 0 0 6 9
+ 0 0 9 7 5 0 0 0 0 0 0 0 1 0 7 1
+ 0 8 0 0 0 0 0 1 0 3 0 0 3 8 7 0
+ Example 2 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 6 6 6 6 6 6 6 0 0 0 0 0 0 0
+ 0 0 6 6 6 6 6 6 6 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Input:
+ 3 0 0 0 0 0 6 2 0 0 0 5 0 0 0 3
+ 0 7 0 0 0 0 9 0 0 0 0 0 0 0 5 0
+ 0 0 0 0 0 8 8 0 7 7 7 0 0 0 0 4
+ 0 2 0 0 0 0 0 0 7 7 7 0 2 0 5 0
+ 0 8 0 0 9 6 1 7 7 7 7 0 0 0 0 0
+ 5 0 0 0 0 3 6 0 6 0 0 3 3 0 0 0
+ 0 4 0 2 0 0 0 0 0 0 0 0 0 0 4 0
+ 9 0 0 0 0 0 0 0 0 3 0 8 0 0 0 0
+ 0 0 3 0 0 0 0 6 0 9 0 0 0 0 0 0
+ 9 0 0 0 1 0 0 3 0 8 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 3 3 0 0 7 0
+ 0 0 0 0 0 0 0 4 0 0 0 0 0 5 0 0
+ 4 0 0 1 7 0 3 0 0 7 5 0 0 0 0 0
+ 0 0 0 0 0 1 7 2 0 0 5 0 0 1 0 4
+ 0 0 0 0 0 0 0 3 0 0 2 0 0 0 0 0
+ 0 2 0 0 0 7 9 0 0 0 5 0 2 0 3 0
+ Example 3 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 7 7 7 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 7 7 7 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 7 7 7 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Test Input:
+ 0 0 1 7 3 0 0 0 0 0 1 2 0 4 7 0
+ 0 0 0 3 0 0 6 8 0 0 0 0 0 0 0 0
+ 6 0 0 8 0 1 0 0 1 0 0 0 7 0 4 8
+ 0 3 8 0 0 0 3 0 8 0 0 0 0 0 0 0
+ 5 0 0 0 1 0 0 8 0 0 3 8 0 0 5 0
+ 0 8 0 0 0 0 0 0 0 0 3 7 0 0 0 0
+ 0 1 1 0 0 0 0 0 0 0 0 8 0 5 0 7
+ 0 0 0 0 0 0 0 9 0 0 2 7 0 7 0 0
+ 9 4 0 2 1 0 0 0 0 0 7 0 0 0 9 0
+ 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 5
+ 0 8 9 4 0 5 5 5 5 5 5 3 0 0 0 0
+ 0 0 3 0 6 5 5 5 5 5 5 0 1 4 0 0
+ 9 5 2 0 0 5 1 3 0 0 6 2 0 0 1 5
+ 0 7 0 0 0 0 1 6 0 7 0 3 0 6 0 0
+ 0 0 9 0 0 3 7 7 0 6 0 0 8 0 0 0
+ 5 0 0 0 0 0 8 0 0 0 0 0 0 0 0 9
+ </ascii_grids>
+Response cost: $0.00607170 | Total cost: $0.00607170
+ API Response
+     "code": "def transform_grid(grid):\n    rows = len(grid)\n    cols = len(grid[0])\n\n    max_size =
+ 0\n    best_r1, best_c1, best_r2, best_c2 = -1, -1, -1, -1\n    best_color = 0\n\n    # Iterate through
+ all possible top-left corners\n    for r1 in range(rows):\n        for c1 in range(cols):\n
+ color = grid[r1][c1]\n            if color == 0:\n                continue\n\n            # Iterate
+ through all possible bottom-right corners\n            for r2 in range(r1, rows):\n                for c2
+ in range(c1, cols):\n                    # Check if the rectangle (r1, c1) to (r2, c2) is solid with
+ 'color'\n                    is_solid = True\n                    for r in range(r1, r2 + 1):\n
+ for c in range(c1, c2 + 1):\n                            if grid[r][c] != color:\n
+ is_solid = False\n                                break\n                        if not is_solid:\n
+ break\n\n                    if is_solid:\n                        current_size = (r2 - r1 + 1) * (c2 -
+ c1 + 1)\n                        if current_size > max_size:\n                            max_size =
+ current_size\n                            best_r1, best_c1, best_r2, best_c2 = r1, c1, r2, c2\n
+ best_color = color\n\n    # Create the output grid\n    output_grid = [[0 for _ in range(cols)] for _ in
+ range(rows)]\n\n    # If a solid block was found, copy it to the output grid\n    if max_size > 0:\n
+ for r in range(best_r1, best_r2 + 1):\n            for c in range(best_c1, best_c2 + 1):\n
+ output_grid[r][c] = best_color\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The transformation rule is to find the largest solid rectangular block of a single
+ non-zero color within the input grid. A solid block means all cells within the rectangle have the same
+ non-zero color. The algorithm iterates through all possible rectangles, checks if they are solid blocks
+ of a single color, and keeps track of the largest one found by area. The output grid is then created with
+ the same dimensions as the input, initialized with zeros, and the cells corresponding to the largest
+ solid block found in the input are copied to their original positions."
+ Generated Code
+ def transform_grid(grid):
+     rows = len(grid)
+     cols = len(grid[0])
+     max_size = 0
+     best_r1, best_c1, best_r2, best_c2 = -1, -1, -1, -1
+     best_color = 0
+     # Iterate through all possible top-left corners
+     for r1 in range(rows):
+         for c1 in range(cols):
+             color = grid[r1][c1]
+             if color == 0:
+                 continue
+             # Iterate through all possible bottom-right corners
+             for r2 in range(r1, rows):
+                 for c2 in range(c1, cols):
+                     # Check if the rectangle (r1, c1) to (r2, c2) is solid with 'color'
+                     is_solid = True
+                     for r in range(r1, r2 + 1):
+                         for c in range(c1, c2 + 1):
+                             if grid[r][c] != color:
+                                 is_solid = False
+                                 break
+                         if not is_solid:
+                             break
+                     if is_solid:
+                         current_size = (r2 - r1 + 1) * (c2 - c1 + 1)
+                         if current_size > max_size:
+                             max_size = current_size
+                             best_r1, best_c1, best_r2, best_c2 = r1, c1, r2, c2
+                             best_color = color
+     # Create the output grid
+     output_grid = [[0 for _ in range(cols)] for _ in range(rows)]
+     # If a solid block was found, copy it to the output grid
+     if max_size > 0:
+         for r in range(best_r1, best_r2 + 1):
+             for c in range(best_c1, best_c2 + 1):
+                 output_grid[r][c] = best_color
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2,
+2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+✓ Passed
+Training example 2:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0,
+0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0], [0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+✓ Passed
+Training example 3:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0], [0,
+0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 5, 5, 5, 5,
+5, 5, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 5, 5, 5, 5, 5,
+5, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+                           Grid Comparison
+ Correct Answer                   Solution
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 5 5 5 5 5 5 0 0 0 0 0  0 0 0 0 0 5 5 5 5 5 5 0 0 0 0 0
+ 0 0 0 0 0 5 5 5 5 5 5 0 0 0 0 0  0 0 0 0 0 5 5 5 5 5 5 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Match for test case 1: Yes
+✓ Passed this test case
+All 1 test cases passed!
+Reasoning: The transformation rule is to find the largest solid rectangular block of a single non-zero color
+within the input grid. A solid block means all cells within the rectangle have the same non-zero color. The
+algorithm iterates through all possible rectangles, checks if they are solid blocks of a single color, and
+keeps track of the largest one found by area. The output grid is then created with the same dimensions as the
+input, initialized with zeros, and the cells corresponding to the largest solid block found in the input are
+copied to their original positions.
+REPORT: Successful solve 91714a58.json in 1 attempts. Time: 0:01:40
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  1               1              100.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 1                  1                 100.0%                  0:01:40          0:01:40     $0.0061
+==================================================

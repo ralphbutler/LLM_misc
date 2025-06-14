@@ -1,0 +1,1250 @@
+=== Extracted text from OUTPUTS1_SOLNS/5521c0d9.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/5521c0d9.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/5521c0d9.json
+Loaded and formatted features from: FEATURES/5521c0d9.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[15, 15]</input_dimensions>
+       <output_dimensions>[15, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>8</size>
+           <position>[12.5, 1.5]</position>
+           <width>2</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>8</size>
+           <position>[13.5, 5.5]</position>
+           <width>4</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>16</size>
+           <position>[12.5, 10.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>8</size>
+           <position>[8.5, 1.5]</position>
+           <width>2</width>
+           <height>4</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>8</size>
+           <position>[11.5, 5.5]</position>
+           <width>4</width>
+           <height>2</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>16</size>
+           <position>[8.5, 10.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -2]</translation>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -4]</translation>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <translation>[0, -4]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[0, -4]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[15, 15]</input_dimensions>
+       <output_dimensions>[15, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[13.5, 7.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>10</size>
+           <position>[12.0, 11.5]</position>
+           <width>2</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>24</size>
+           <position>[11.5, 2.5]</position>
+           <width>4</width>
+           <height>6</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[11.5, 7.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>10</size>
+           <position>[7.0, 11.5]</position>
+           <width>2</width>
+           <height>5</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>24</size>
+           <position>[5.5, 2.5]</position>
+           <width>4</width>
+           <height>6</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -2]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -5]</translation>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <translation>[0, -6]</translation>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[0, -5]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[15, 15]</input_dimensions>
+       <output_dimensions>[15, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[12.5, 7.0]</position>
+           <width>1</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>4</size>
+           <position>[14.0, 2.5]</position>
+           <width>4</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>6</size>
+           <position>[13.0, 11.5]</position>
+           <width>2</width>
+           <height>3</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[8.5, 7.0]</position>
+           <width>1</width>
+           <height>4</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>4</size>
+           <position>[13.0, 2.5]</position>
+           <width>4</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>6</size>
+           <position>[10.0, 11.5]</position>
+           <width>2</width>
+           <height>3</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -1]</translation>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <translation>[0, -3]</translation>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -4]</translation>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[0, -4]</common_translation>
+       </example_patterns>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[15, 15]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>1</color>
+         <size>15</size>
+         <position>[13.0, 12.0]</position>
+         <width>5</width>
+         <height>3</height>
+       </component>
+       <component id='1'>
+         <color>2</color>
+         <size>28</size>
+         <position>[11.0, 1.5]</position>
+         <width>4</width>
+         <height>7</height>
+       </component>
+       <component id='2'>
+         <color>4</color>
+         <size>18</size>
+         <position>[11.5, 6.0]</position>
+         <width>3</width>
+         <height>6</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[0, -2]</value>
+         <value>[0, -4]</value>
+         <value>[0, -5]</value>
+         <value>[0, -6]</value>
+         <value>[0, -1]</value>
+         <value>[0, -3]</value>
+       </translation>
+     </consistent_transformations>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0,
+ 0], [0, 1, 1, 0, 2, 2, 2, 2, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 2, 2, 2, 2, 0, 4, 4, 4, 4, 0, 0]],
+ 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4,
+ 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0,
+ 0], [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4,
+ 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 1, 1,
+ 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 1, 1, 0, 0, 2, 2, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4,
+ 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 2, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+ 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 2, 2, 2, 2, 0,
+ 0, 1, 0, 0, 0, 4, 4, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0,
+ 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0]]}], 'test': {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0,
+ 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 1, 1, 1, 1,
+ 1], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 1, 1, 1, 1, 1], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 1, 1, 1, 1, 1]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 2 2 2 2 0 4 4 4 4 0 0
+ 0 1 1 0 2 2 2 2 0 4 4 4 4 0 0
+ Example 1 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 1 1 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 1 1 0 0 2 2 0 0
+ Example 2 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 2 2 2 2 0 0 1 0 0 0 4 4 0 0
+ Example 3 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Test Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
+ 2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
+ 2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
+ </ascii_grids>
+Response cost: $0.00260745 | Total cost: $0.00260745
+ API Response
+     "code": "# Helper function to find a connected component and its bounding box\ndef
+ find_component(grid, start_row, start_col, visited, color):\n    \"\"\"\n    Finds a connected component
+ of a given color starting from a cell\n    and returns its cells and bounding box information.\n    Uses
+ Breadth-First Search (BFS).\n    \"\"\"\n    rows = len(grid)\n    cols = len(grid[0])\n
+ component_cells = []\n    queue = [(start_row, start_col)]\n    visited.add((start_row, start_col))\n
+ \n    min_r, max_r, min_c, max_c = start_row, start_row, start_col, start_col\n    \n    # Directions for
+ checking neighbors (up, down, left, right)\n    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)] \n    \n
+ while queue:\n        curr_r, curr_c = queue.pop(0) # Get the next cell from the queue (BFS)\n
+ component_cells.append((curr_r, curr_c))\n        \n        # Update bounding box coordinates\n
+ min_r = min(min_r, curr_r)\n        max_r = max(max_r, curr_r)\n        min_c = min(min_c, curr_c)\n
+ max_c = max(max_c, curr_c)\n        \n        # Check neighbors\n        for dr, dc in directions:\n
+ next_r, next_c = curr_r + dr, curr_c + dc\n            \n            # Check bounds, cell color, and
+ visited status\n            if 0 <= next_r < rows and 0 <= next_c < cols and \\\n
+ grid[next_r][next_c] == color and \\\n               (next_r, next_c) not in visited:\n                \n
+ visited.add((next_r, next_c)) # Mark neighbor as visited\n                queue.append((next_r, next_c))
+ # Add neighbor to the queue\n                \n    # Calculate the height of the bounding box\n    height
+ = max_r - min_r + 1\n    \n    # Return the list of cells in the component, the top-left corner of\n    #
+ the bounding box, and the height.\n    return component_cells, min_r, min_c, height\n\ndef
+ transform_grid(grid):\n    \"\"\"\n    Transforms the input grid by identifying connected components
+ and\n    translating each component upwards by a distance equal to its height.\n    \"\"\"\n    rows =
+ len(grid)\n    cols = len(grid[0])\n    \n    # Create a new grid of the same size filled with zeros\n
+ output_grid = [[0 for _ in range(cols)] for _ in range(rows)]\n    \n    # Set to keep track of visited
+ cells to avoid processing components multiple times\n    visited = set()\n    \n    # Iterate through
+ each cell in the grid\n    for r in range(rows):\n        for c in range(cols):\n            # If the
+ cell is part of an unvisited component (non-zero color)\n            if grid[r][c] != 0 and (r, c) not in
+ visited:\n                color = grid[r][c]\n                \n                # Find the component
+ starting from this cell\n                component_cells, min_r, min_c, height = find_component(grid, r,
+ c, visited, color)\n                \n                # The vertical translation amount is equal to the
+ component's height\n                dy = height\n                \n                # Place each cell of
+ the component in the output grid at its new position\n                for cell_r, cell_c in
+ component_cells:\n                    # Calculate the new row after vertical translation\n
+ new_r = cell_r - dy\n                    # The column remains unchanged\n                    new_c =
+ cell_c \n                    \n                    # Place the color in the output grid at the new
+ position\n                    # Check bounds explicitly, although in this specific puzzle,\n
+ # the transformations seem designed to keep components within bounds.\n                    if 0 <= new_r
+ < rows and 0 <= new_c < cols:\n                         output_grid[new_r][new_c] = color\n
+ \n    return output_grid",
+     "solution": [
+     "reasoning": "The core transformation is to translate each connected block of colored cells
+ (component) upwards by a distance equal to its height. The horizontal position of each component remains
+ unchanged. The solution works by first identifying each distinct connected component in the input grid.
+ For each component, it determines its bounding box and calculates its height. Then, it creates a new grid
+ and places each cell from the original component into the new grid, shifting its row index upwards by the
+ calculated height. Cells not part of a component remain zero."
+ Generated Code
+ # Helper function to find a connected component and its bounding box
+ def find_component(grid, start_row, start_col, visited, color):
+     """
+     Finds a connected component of a given color starting from a cell
+     and returns its cells and bounding box information.
+     Uses Breadth-First Search (BFS).
+     """
+     rows = len(grid)
+     cols = len(grid[0])
+     component_cells = []
+     queue = [(start_row, start_col)]
+     visited.add((start_row, start_col))
+     min_r, max_r, min_c, max_c = start_row, start_row, start_col, start_col
+     # Directions for checking neighbors (up, down, left, right)
+     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+     while queue:
+         curr_r, curr_c = queue.pop(0) # Get the next cell from the queue (BFS)
+         component_cells.append((curr_r, curr_c))
+         # Update bounding box coordinates
+         min_r = min(min_r, curr_r)
+         max_r = max(max_r, curr_r)
+         min_c = min(min_c, curr_c)
+         max_c = max(max_c, curr_c)
+         # Check neighbors
+         for dr, dc in directions:
+             next_r, next_c = curr_r + dr, curr_c + dc
+             # Check bounds, cell color, and visited status
+             if 0 <= next_r < rows and 0 <= next_c < cols and \
+                grid[next_r][next_c] == color and \
+                (next_r, next_c) not in visited:
+                 visited.add((next_r, next_c)) # Mark neighbor as visited
+                 queue.append((next_r, next_c)) # Add neighbor to the queue
+     # Calculate the height of the bounding box
+     height = max_r - min_r + 1
+     # Return the list of cells in the component, the top-left corner of
+     # the bounding box, and the height.
+     return component_cells, min_r, min_c, height
+ def transform_grid(grid):
+     """
+     Transforms the input grid by identifying connected components and
+     translating each component upwards by a distance equal to its height.
+     """
+     rows = len(grid)
+     cols = len(grid[0])
+     # Create a new grid of the same size filled with zeros
+     output_grid = [[0 for _ in range(cols)] for _ in range(rows)]
+     # Set to keep track of visited cells to avoid processing components multiple times
+     visited = set()
+     # Iterate through each cell in the grid
+     for r in range(rows):
+         for c in range(cols):
+             # If the cell is part of an unvisited component (non-zero color)
+             if grid[r][c] != 0 and (r, c) not in visited:
+                 color = grid[r][c]
+                 # Find the component starting from this cell
+                 component_cells, min_r, min_c, height = find_component(grid, r, c, visited, color)
+                 # The vertical translation amount is equal to the component's height
+                 dy = height
+                 # Place each cell of the component in the output grid at its new position
+                 for cell_r, cell_c in component_cells:
+                     # Calculate the new row after vertical translation
+                     new_r = cell_r - dy
+                     # The column remains unchanged
+                     new_c = cell_c
+                     # Place the color in the output grid at the new position
+                     # Check bounds explicitly, although in this specific puzzle,
+                     # the transformations seem designed to keep components within bounds.
+                     if 0 <= new_r < rows and 0 <= new_c < cols:
+                          output_grid[new_r][new_c] = color
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4,
+0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 0,
+0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 1: name 'find_component' is not defined
+Training example 2:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4,
+4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0,
+0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2,
+0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 2: name 'find_component' is not defined
+Training example 3:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 2, 2, 2, 2, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 3: name 'find_component' is not defined
+Not all training examples passed, skipping test case(s).
+Attempt 2 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[15, 15]</input_dimensions>
+       <output_dimensions>[15, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>8</size>
+           <position>[12.5, 1.5]</position>
+           <width>2</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>8</size>
+           <position>[13.5, 5.5]</position>
+           <width>4</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>16</size>
+           <position>[12.5, 10.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>8</size>
+           <position>[8.5, 1.5]</position>
+           <width>2</width>
+           <height>4</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>8</size>
+           <position>[11.5, 5.5]</position>
+           <width>4</width>
+           <height>2</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>16</size>
+           <position>[8.5, 10.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -2]</translation>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -4]</translation>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <translation>[0, -4]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[0, -4]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[15, 15]</input_dimensions>
+       <output_dimensions>[15, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[13.5, 7.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>10</size>
+           <position>[12.0, 11.5]</position>
+           <width>2</width>
+           <height>5</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>24</size>
+           <position>[11.5, 2.5]</position>
+           <width>4</width>
+           <height>6</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[11.5, 7.5]</position>
+           <width>2</width>
+           <height>2</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>10</size>
+           <position>[7.0, 11.5]</position>
+           <width>2</width>
+           <height>5</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>24</size>
+           <position>[5.5, 2.5]</position>
+           <width>4</width>
+           <height>6</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -2]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -5]</translation>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <translation>[0, -6]</translation>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[0, -5]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[15, 15]</input_dimensions>
+       <output_dimensions>[15, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[12.5, 7.0]</position>
+           <width>1</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>4</size>
+           <position>[14.0, 2.5]</position>
+           <width>4</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>4</color>
+           <size>6</size>
+           <position>[13.0, 11.5]</position>
+           <width>2</width>
+           <height>3</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>4</size>
+           <position>[8.5, 7.0]</position>
+           <width>1</width>
+           <height>4</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>4</size>
+           <position>[13.0, 2.5]</position>
+           <width>4</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>6</size>
+           <position>[10.0, 11.5]</position>
+           <width>2</width>
+           <height>3</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[0, -1]</translation>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <translation>[0, -3]</translation>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, -4]</translation>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[0, -4]</common_translation>
+       </example_patterns>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[15, 15]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>1</color>
+         <size>15</size>
+         <position>[13.0, 12.0]</position>
+         <width>5</width>
+         <height>3</height>
+       </component>
+       <component id='1'>
+         <color>2</color>
+         <size>28</size>
+         <position>[11.0, 1.5]</position>
+         <width>4</width>
+         <height>7</height>
+       </component>
+       <component id='2'>
+         <color>4</color>
+         <size>18</size>
+         <position>[11.5, 6.0]</position>
+         <width>3</width>
+         <height>6</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[0, -2]</value>
+         <value>[0, -4]</value>
+         <value>[0, -5]</value>
+         <value>[0, -6]</value>
+         <value>[0, -1]</value>
+         <value>[0, -3]</value>
+       </translation>
+     </consistent_transformations>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0,
+ 0], [0, 1, 1, 0, 2, 2, 2, 2, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 2, 2, 2, 2, 0, 4, 4, 4, 4, 0, 0]],
+ 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4,
+ 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0,
+ 0], [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4,
+ 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 1, 1,
+ 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 1, 1, 0, 0, 2, 2, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4,
+ 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 2, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+ 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 2, 2, 2, 2, 0,
+ 0, 1, 0, 0, 0, 4, 4, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0,
+ 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0]]}], 'test': {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0,
+ 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 1, 1, 1, 1,
+ 1], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 1, 1, 1, 1, 1], [2, 2, 2, 2, 0, 4, 4, 4, 0, 0, 1, 1, 1, 1, 1]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 2 2 2 2 0 4 4 4 4 0 0
+ 0 1 1 0 2 2 2 2 0 4 4 4 4 0 0
+ Example 1 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 1 1 0 0 0 0 0 0 4 4 4 4 0 0
+ 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 1 1 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 1 1 0 0 2 2 0 0
+ Example 2 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 4 4 4 4 0 0 0 0 0 0 2 2 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 2 2 2 2 0 0 1 0 0 0 4 4 0 0
+ Example 3 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 1 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Test Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 0 0 0 0 0
+ 2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
+ 2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
+ 2 2 2 2 0 4 4 4 0 0 1 1 1 1 1
+ </ascii_grids>
+ <previous_attempts>
+ Your following attempted solutions failed to correctly solve the puzzle.
+ Propose a new strategy that is different from these previous approaches.
+ Attempt 1 Reasoning:
+ The core transformation is to translate each connected block of colored cells (component) upwards by a
+ distance equal to its height. The horizontal position of each component remains unchanged. The solution
+ works by first identifying each distinct connected component in the input grid. For each component, it
+ determines its bounding box and calculates its height. Then, it creates a new grid and places each cell
+ from the original component into the new grid, shifting its row index upwards by the calculated height.
+ Cells not part of a component remain zero.
+ Result: failed training examples (failed on examples: 1, 2, 3)
+ Your solution must use a new approach that differs from the failed attempts above.
+ </previous_attempts>
+Response cost: $0.00266535 | Total cost: $0.00527280
+ API Response
+     "code": "def get_components(grid):\n    rows = len(grid)\n    cols = len(grid[0])\n    # Use a 2D
+ list to track visited cells\n    visited = [[False for _ in range(cols)] for _ in range(rows)]\n
+ components = []\n\n    # Iterate through each cell in the grid\n    for r in range(rows):\n        for c
+ in range(cols):\n            color = grid[r][c]\n            # If the cell is colored and hasn't been
+ visited yet, start a new component discovery\n            if color != 0 and not visited[r][c]:\n
+ # Use BFS to find all connected cells of the same color\n                component_cells = []\n
+ queue = [(r, c)]\n                visited[r][c] = True\n                min_row, max_row = r, r\n
+ min_col, max_col = c, c\n\n                # Process the queue\n                while queue:\n
+ curr_r, curr_c = queue.pop(0) # Get cell from queue\n                    component_cells.append((curr_r,
+ curr_c, color))\n\n                    # Update bounding box coordinates\n                    min_row =
+ min(min_row, curr_r)\n                    max_row = max(max_row, curr_r)\n                    min_col =
+ min(min_col, curr_c)\n                    max_col = max(max_col, curr_c)\n\n                    # Check
+ neighbors (up, down, left, right)\n                    neighbors = [(curr_r - 1, curr_c), (curr_r + 1,
+ curr_c), (curr_r, curr_c - 1), (curr_r, curr_c + 1)]\n                    for nr, nc in neighbors:\n
+ # Check bounds, color match, and visited status\n                        if 0 <= nr < rows and 0 <= nc <
+ cols and grid[nr][nc] == color and not visited[nr][nc]:\n                            visited[nr][nc] =
+ True\n                            queue.append((nr, nc))\n\n                # Component discovery
+ finished, calculate height and store component details\n                height = max_row - min_row + 1\n
+ components.append({'cells': component_cells, 'height': height, 'min_row': min_row})\n\n    return
+ components\n\ndef transform_grid(grid):\n    rows = len(grid)\n    cols = len(grid[0])\n    # Initialize
+ the output grid with zeros\n    output_grid = [[0 for _ in range(cols)] for _ in range(rows)]\n\n    #
+ Find all distinct connected components in the input grid\n    components = get_components(grid)\n\n    #
+ Place each component in the output grid, shifted upwards by its height\n    for component in
+ components:\n        cells = component['cells']\n        shift_amount = component['height'] # The rule is
+ to shift up by the component's height\n\n        # For each cell in the component, calculate its new
+ position after the upward shift\n        for r, c, color in cells:\n            # The new row is the
+ original row minus the shift amount (height)\n            new_r = r - shift_amount\n            # Place
+ the cell in the output grid at the new position\n            output_grid[new_r][c] = color\n\n    #
+ Return the resulting transformed grid\n    return output_grid\n",
+     "solution": [
+     "reasoning": "The core transformation involves identifying contiguous blocks of colored cells
+ (components) and moving each block upwards by a distance equal to its own height. The first step is to
+ iterate through the grid and use a connected components algorithm (implemented here using Breadth-First
+ Search) to find all distinct blocks of non-zero cells. While finding each component, its bounding box is
+ determined to calculate its height. Once a component's cells and height are known, a new output grid is
+ created, initially filled with zeros. For each cell in the original component, its new row is calculated
+ by subtracting the component's height from its original row, while the column remains unchanged. These
+ cells are then placed in the corresponding positions in the new output grid."
+ Generated Code
+ def get_components(grid):
+     rows = len(grid)
+     cols = len(grid[0])
+     # Use a 2D list to track visited cells
+     visited = [[False for _ in range(cols)] for _ in range(rows)]
+     components = []
+     # Iterate through each cell in the grid
+     for r in range(rows):
+         for c in range(cols):
+             color = grid[r][c]
+             # If the cell is colored and hasn't been visited yet, start a new component discovery
+             if color != 0 and not visited[r][c]:
+                 # Use BFS to find all connected cells of the same color
+                 component_cells = []
+                 queue = [(r, c)]
+                 visited[r][c] = True
+                 min_row, max_row = r, r
+                 min_col, max_col = c, c
+                 # Process the queue
+                 while queue:
+                     curr_r, curr_c = queue.pop(0) # Get cell from queue
+                     component_cells.append((curr_r, curr_c, color))
+                     # Update bounding box coordinates
+                     min_row = min(min_row, curr_r)
+                     max_row = max(max_row, curr_r)
+                     min_col = min(min_col, curr_c)
+                     max_col = max(max_col, curr_c)
+                     # Check neighbors (up, down, left, right)
+                     neighbors = [(curr_r - 1, curr_c), (curr_r + 1, curr_c), (curr_r, curr_c - 1),
+ (curr_r, curr_c + 1)]
+                     for nr, nc in neighbors:
+                         # Check bounds, color match, and visited status
+                         if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == color and not
+ visited[nr][nc]:
+                             visited[nr][nc] = True
+                             queue.append((nr, nc))
+                 # Component discovery finished, calculate height and store component details
+                 height = max_row - min_row + 1
+                 components.append({'cells': component_cells, 'height': height, 'min_row': min_row})
+     return components
+ def transform_grid(grid):
+     rows = len(grid)
+     cols = len(grid[0])
+     # Initialize the output grid with zeros
+     output_grid = [[0 for _ in range(cols)] for _ in range(rows)]
+     # Find all distinct connected components in the input grid
+     components = get_components(grid)
+     # Place each component in the output grid, shifted upwards by its height
+     for component in components:
+         cells = component['cells']
+         shift_amount = component['height'] # The rule is to shift up by the component's height
+         # For each cell in the component, calculate its new position after the upward shift
+         for r, c, color in cells:
+             # The new row is the original row minus the shift amount (height)
+             new_r = r - shift_amount
+             # Place the cell in the output grid at the new position
+             output_grid[new_r][c] = color
+     # Return the resulting transformed grid
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4,
+0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0], [0, 0,
+0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 1: name 'get_components' is not defined
+Training example 2:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4,
+4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0,
+0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 2, 2,
+0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 2: name 'get_components' is not defined
+Training example 3:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 4, 0, 0], [0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 2, 2, 2, 2, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 3: name 'get_components' is not defined
+Not all training examples passed, skipping test case(s).
+REPORT: Failure to solve 5521c0d9.json in 2 attempts. Time: 0:02:11
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  0               1              0.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 0                  1                 0.0%                    0:02:11          0:02:11     $0.0053
+==================================================

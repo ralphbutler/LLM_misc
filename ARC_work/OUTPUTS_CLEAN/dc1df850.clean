@@ -1,0 +1,528 @@
+=== Extracted text from OUTPUTS1_SOLNS/dc1df850.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/dc1df850.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/dc1df850.json
+Loaded and formatted features from: FEATURES/dc1df850.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[5, 5]</input_dimensions>
+       <output_dimensions>[5, 5]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>6</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>11</size>
+           <position>[0.9090909090909091, 2.3636363636363638]</position>
+           <width>5</width>
+           <height>3</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>6</color>
+           <size>1</size>
+           <position>[3.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[8, 8]</input_dimensions>
+       <output_dimensions>[8, 8]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>3</size>
+           <position>[0.6666666666666666, 6.333333333333333]</position>
+           <width>2</width>
+           <height>2</height>
+         </output_component>
+         <output_component id='1'>
+           <color>1</color>
+           <size>8</size>
+           <position>[6.0, 2.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </output_component>
+         <output_component id='2'>
+           <color>2</color>
+           <size>1</size>
+           <position>[0.0, 7.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>2</color>
+           <size>1</size>
+           <position>[6.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>3</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>8</color>
+           <size>1</size>
+           <position>[4.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>4</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>5</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>1</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[4, 5]</input_dimensions>
+       <output_dimensions>[4, 5]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>8</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>3</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[10, 10]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>2</color>
+         <size>1</size>
+         <position>[1.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='1'>
+         <color>2</color>
+         <size>1</size>
+         <position>[3.0, 7.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='2'>
+         <color>2</color>
+         <size>1</size>
+         <position>[7.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='3'>
+         <color>5</color>
+         <size>1</size>
+         <position>[9.0, 9.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='4'>
+         <color>7</color>
+         <size>1</size>
+         <position>[0.0, 8.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='5'>
+         <color>7</color>
+         <size>1</size>
+         <position>[5.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[2, 0, 0, 0, 0], [0, 0, 0, 2, 0], [0, 0, 0, 0, 0], [0, 6, 0, 0, 0], [0, 0, 0, 0,
+ 0]], 'output': [[2, 1, 1, 1, 1], [1, 1, 1, 2, 1], [0, 0, 1, 1, 1], [0, 6, 0, 0, 0], [0, 0, 0, 0, 0]]},
+ {'input': [[0, 0, 0, 0, 0, 0, 0, 2], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 3, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 1, 2], [0, 0, 0, 0, 0, 0, 1, 1], [0, 0, 0, 3, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0], [0, 1, 1, 1, 0, 0, 0, 0], [0, 1, 2, 1, 0, 0, 0, 0], [0,
+ 1, 1, 1, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0], [0, 2, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],
+ 'output': [[1, 1, 1, 0, 0], [1, 2, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0]]}], 'test': {'input': [[0,
+ 0, 0, 0, 0, 0, 0, 0, 7, 0], [0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+ 0, 0, 0, 2, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 0, 0, 2, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 5]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 2 0 0 0 0
+ 0 0 0 2 0
+ 0 0 0 0 0
+ 0 6 0 0 0
+ 0 0 0 0 0
+ Example 1 Output:
+ 2 1 1 1 1
+ 1 1 1 2 1
+ 0 0 1 1 1
+ 0 6 0 0 0
+ 0 0 0 0 0
+ Example 2 Input:
+ 0 0 0 0 0 0 0 2
+ 0 0 0 0 0 0 0 0
+ 0 0 0 3 0 0 0 0
+ 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 8 0
+ 0 0 0 0 0 0 0 0
+ 0 0 2 0 0 0 0 0
+ 0 0 0 0 0 0 0 0
+ Example 2 Output:
+ 0 0 0 0 0 0 1 2
+ 0 0 0 0 0 0 1 1
+ 0 0 0 3 0 0 0 0
+ 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 8 0
+ 0 1 1 1 0 0 0 0
+ 0 1 2 1 0 0 0 0
+ 0 1 1 1 0 0 0 0
+ Example 3 Input:
+ 0 0 0 0 0
+ 0 2 0 0 0
+ 0 0 0 0 0
+ 0 0 0 0 0
+ Example 3 Output:
+ 1 1 1 0 0
+ 1 2 1 0 0
+ 1 1 1 0 0
+ 0 0 0 0 0
+ Test Input:
+ 0 0 0 0 0 0 0 0 7 0
+ 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 2 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 7 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 2 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 5
+ </ascii_grids>
+Response cost: $0.00132315 | Total cost: $0.00132315
+ API Response
+     "code": "import copy\n\ndef transform_grid(grid):\n    # Get grid dimensions\n    height =
+ len(grid)\n    width = len(grid[0])\n\n    # Create the output grid, initially filled with zeros\n
+ output_grid = [[0 for _ in range(width)] for _ in range(height)]\n\n    # Copy original non-zero values
+ to the output grid\n    # This ensures values like 2, 6, 3, 8, 7, 5 are preserved\n    for r in
+ range(height):\n        for c in range(width):\n            if grid[r][c] != 0:\n
+ output_grid[r][c] = grid[r][c]\n\n    # Iterate through the input grid to find cells with value 2\n
+ for r in range(height):\n        for c in range(width):\n            if grid[r][c] == 2:\n
+ # Calculate the bounds of the 3x3 square centered at (r, c)\n                # Ensure bounds stay within
+ the grid\n                r_start = max(0, r - 1)\n                r_end = min(height - 1, r + 1)\n
+ c_start = max(0, c - 1)\n                c_end = min(width - 1, c + 1)\n\n                # Iterate
+ through the 3x3 square\n                for i in range(r_start, r_end + 1):\n                    for j in
+ range(c_start, c_end + 1):\n                        # If the original cell was empty (0), fill it with 1
+ in the output grid\n                        # Cells with original value 2 or other non-zero values are
+ not changed here\n                        # as they were already copied in the initialization step\n
+ if grid[i][j] == 0:\n                            output_grid[i][j] = 1\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The transformation involves locating specific non-zero cells (those with value 2) and
+ filling the surrounding empty cells (0s) with a new color (1). Other non-zero cells retain their original
+ values. For each cell with value 2, a 3x3 square centered at that cell is considered. Any cell within
+ this 3x3 square that was originally empty (0) is filled with color 1 in the output grid. Cells within
+ this 3x3 square that were originally non-zero (including the 2 itself and other colors) retain their
+ original values. The implementation first creates a copy of the input grid containing all original
+ non-zero values, and then iterates through the locations of 2s in the input grid, filling the 0-cells in
+ the surrounding 3x3 area with 1."
+ Generated Code
+ import copy
+ def transform_grid(grid):
+     # Get grid dimensions
+     height = len(grid)
+     width = len(grid[0])
+     # Create the output grid, initially filled with zeros
+     output_grid = [[0 for _ in range(width)] for _ in range(height)]
+     # Copy original non-zero values to the output grid
+     # This ensures values like 2, 6, 3, 8, 7, 5 are preserved
+     for r in range(height):
+         for c in range(width):
+             if grid[r][c] != 0:
+                 output_grid[r][c] = grid[r][c]
+     # Iterate through the input grid to find cells with value 2
+     for r in range(height):
+         for c in range(width):
+             if grid[r][c] == 2:
+                 # Calculate the bounds of the 3x3 square centered at (r, c)
+                 # Ensure bounds stay within the grid
+                 r_start = max(0, r - 1)
+                 r_end = min(height - 1, r + 1)
+                 c_start = max(0, c - 1)
+                 c_end = min(width - 1, c + 1)
+                 # Iterate through the 3x3 square
+                 for i in range(r_start, r_end + 1):
+                     for j in range(c_start, c_end + 1):
+                         # If the original cell was empty (0), fill it with 1 in the output grid
+                         # Cells with original value 2 or other non-zero values are not changed here
+                         # as they were already copied in the initialization step
+                         if grid[i][j] == 0:
+                             output_grid[i][j] = 1
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[2, 1, 1, 1, 1], [1, 1, 1, 2, 1], [0, 0, 1, 1, 1], [0, 6, 0, 0, 0], [0, 0, 0, 0, 0]]
+Got Output: [[2, 1, 1, 1, 1], [1, 1, 1, 2, 1], [0, 0, 1, 1, 1], [0, 6, 0, 0, 0], [0, 0, 0, 0, 0]]
+✓ Passed
+Training example 2:
+Expected Output: [[0, 0, 0, 0, 0, 0, 1, 2], [0, 0, 0, 0, 0, 0, 1, 1], [0, 0, 0, 3, 0, 0, 0, 0], [0, 0, 0, 0,
+0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0], [0, 1, 1, 1, 0, 0, 0, 0], [0, 1, 2, 1, 0, 0, 0, 0], [0, 1, 1, 1, 0, 0,
+0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 1, 2], [0, 0, 0, 0, 0, 0, 1, 1], [0, 0, 0, 3, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 0, 0, 8, 0], [0, 1, 1, 1, 0, 0, 0, 0], [0, 1, 2, 1, 0, 0, 0, 0], [0, 1, 1, 1, 0, 0, 0,
+0]]
+✓ Passed
+Training example 3:
+Expected Output: [[1, 1, 1, 0, 0], [1, 2, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0]]
+Got Output: [[1, 1, 1, 0, 0], [1, 2, 1, 0, 0], [1, 1, 1, 0, 0], [0, 0, 0, 0, 0]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[0, 1, 1, 1, 0, 0, 0, 0, 7, 0], [0, 1, 2, 1, 0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 0, 0, 1, 1, 1,
+0], [0, 0, 0, 0, 0, 0, 1, 2, 1, 0], [0, 0, 0, 0, 0, 0, 1, 1, 1, 0], [0, 7, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 1, 2, 1, 0, 0, 0], [0, 0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+0, 0, 5]]
+Got Output: [[0, 1, 1, 1, 0, 0, 0, 0, 7, 0], [0, 1, 2, 1, 0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 0, 0, 1, 1, 1, 0],
+[0, 0, 0, 0, 0, 0, 1, 2, 1, 0], [0, 0, 0, 0, 0, 0, 1, 1, 1, 0], [0, 7, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 1, 2, 1, 0, 0, 0], [0, 0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+0, 5]]
+               Grid Comparison
+ Correct Answer       Solution
+ 0 1 1 1 0 0 0 0 7 0  0 1 1 1 0 0 0 0 7 0
+ 0 1 2 1 0 0 0 0 0 0  0 1 2 1 0 0 0 0 0 0
+ 0 1 1 1 0 0 1 1 1 0  0 1 1 1 0 0 1 1 1 0
+ 0 0 0 0 0 0 1 2 1 0  0 0 0 0 0 0 1 2 1 0
+ 0 0 0 0 0 0 1 1 1 0  0 0 0 0 0 0 1 1 1 0
+ 0 7 0 0 0 0 0 0 0 0  0 7 0 0 0 0 0 0 0 0
+ 0 0 0 0 1 1 1 0 0 0  0 0 0 0 1 1 1 0 0 0
+ 0 0 0 0 1 2 1 0 0 0  0 0 0 0 1 2 1 0 0 0
+ 0 0 0 0 1 1 1 0 0 0  0 0 0 0 1 1 1 0 0 0
+ 0 0 0 0 0 0 0 0 0 5  0 0 0 0 0 0 0 0 0 5
+Match for test case 1: Yes
+✓ Passed this test case
+All 1 test cases passed!
+Reasoning: The transformation involves locating specific non-zero cells (those with value 2) and filling the
+surrounding empty cells (0s) with a new color (1). Other non-zero cells retain their original values. For
+each cell with value 2, a 3x3 square centered at that cell is considered. Any cell within this 3x3 square
+that was originally empty (0) is filled with color 1 in the output grid. Cells within this 3x3 square that
+were originally non-zero (including the 2 itself and other colors) retain their original values. The
+implementation first creates a copy of the input grid containing all original non-zero values, and then
+iterates through the locations of 2s in the input grid, filling the 0-cells in the surrounding 3x3 area with
+REPORT: Successful solve dc1df850.json in 1 attempts. Time: 0:00:55
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  1               1              100.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 1                  1                 100.0%                  0:00:55          0:00:55     $0.0013
+==================================================

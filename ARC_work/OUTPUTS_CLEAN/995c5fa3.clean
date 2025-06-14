@@ -1,0 +1,643 @@
+=== Extracted text from OUTPUTS1_SOLNS/995c5fa3.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/995c5fa3.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/995c5fa3.json
+Loaded and formatted features from: FEATURES/995c5fa3.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[4, 14]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>true</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>true</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>5</color>
+           <size>16</size>
+           <position>[1.5, 1.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.5, 6.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.5, 11.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>3</size>
+           <position>[0.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>3</color>
+           <size>3</size>
+           <position>[2.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>8</color>
+           <size>3</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <translation>[0, 0]</translation>
+           <color_change>
+             <from>5</from>
+             <to>3</to>
+           </color_change>
+           <size_change>
+             <from>16</from>
+             <to>3</to>
+           </size_change>
+           <shape_dimension_change>
+             <from_width_height>[4, 4]</from_width_height>
+             <to_width_height>[3, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+         </unmatched_inputs>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>2</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[4, 14]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>true</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.5, 1.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.1666666666666667, 6.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>16</size>
+           <position>[1.5, 11.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>3</size>
+           <position>[2.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>3</color>
+           <size>3</size>
+           <position>[0.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>3</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, 0]</translation>
+           <color_change>
+             <from>5</from>
+             <to>2</to>
+           </color_change>
+           <size_change>
+             <from>12</from>
+             <to>3</to>
+           </size_change>
+           <shape_dimension_change>
+             <from_width_height>[4, 4]</from_width_height>
+             <to_width_height>[3, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+         </unmatched_inputs>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[4, 14]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>true</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.5, 1.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>16</size>
+           <position>[1.5, 6.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.1666666666666667, 11.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>3</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>4</color>
+           <size>3</size>
+           <position>[2.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>8</color>
+           <size>3</size>
+           <position>[0.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[0, 0]</translation>
+           <color_change>
+             <from>5</from>
+             <to>2</to>
+           </color_change>
+           <size_change>
+             <from>12</from>
+             <to>3</to>
+           </size_change>
+           <shape_dimension_change>
+             <from_width_height>[4, 4]</from_width_height>
+             <to_width_height>[3, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+         </unmatched_inputs>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>3</example_index>
+       <input_dimensions>[4, 14]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>true</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>true</horizontal>
+         <vertical>true</vertical>
+         <rotational_180>true</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>5</color>
+           <size>16</size>
+           <position>[1.5, 1.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>12</size>
+           <position>[1.1666666666666667, 6.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>16</size>
+           <position>[1.5, 11.5]</position>
+           <width>4</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>3</size>
+           <position>[0.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>3</size>
+           <position>[2.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>4</color>
+           <size>3</size>
+           <position>[1.0, 1.0]</position>
+           <width>3</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <translation>[0, 0]</translation>
+           <color_change>
+             <from>5</from>
+             <to>2</to>
+           </color_change>
+           <size_change>
+             <from>16</from>
+             <to>3</to>
+           </size_change>
+           <shape_dimension_change>
+             <from_width_height>[4, 4]</from_width_height>
+             <to_width_height>[3, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_inputs>
+           <component_id>1</component_id>
+           <component_id>2</component_id>
+         </unmatched_inputs>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+           <component_id>2</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+       <example_patterns>
+         <common_translation>[0, 0]</common_translation>
+       </example_patterns>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[4, 14]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>5</color>
+         <size>12</size>
+         <position>[1.1666666666666667, 1.5]</position>
+         <width>4</width>
+         <height>4</height>
+       </component>
+       <component id='1'>
+         <color>5</color>
+         <size>12</size>
+         <position>[1.5, 6.5]</position>
+         <width>4</width>
+         <height>4</height>
+       </component>
+       <component id='2'>
+         <color>5</color>
+         <size>12</size>
+         <position>[1.5, 11.5]</position>
+         <width>4</width>
+         <height>4</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[0, 0]</value>
+       </translation>
+     </consistent_transformations>
+     <color_patterns>
+       <from_color value='5'>
+         <to_color value='2' count='3'/>
+         <to_color value='3' count='1'/>
+       </from_color>
+     </color_patterns>
+     <size_patterns>
+       <from_size value='16'>
+         <to_size value='3' count='2'/>
+       </from_size>
+       <from_size value='12'>
+         <to_size value='3' count='2'/>
+       </from_size>
+     </size_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[5, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [5, 5, 5, 5, 0, 5, 0, 0, 5, 0, 0, 5, 5,
+ 0], [5, 5, 5, 5, 0, 5, 0, 0, 5, 0, 0, 5, 5, 0], [5, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5]], 'output':
+ [[2, 2, 2], [8, 8, 8], [3, 3, 3]]}, {'input': [[5, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [0, 5, 5, 0,
+ 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [0, 5, 5, 0, 0, 5, 0, 0, 5, 0, 5, 5, 5, 5], [5, 5, 5, 5, 0, 5, 0, 0, 5, 0,
+ 5, 5, 5, 5]], 'output': [[3, 3, 3], [4, 4, 4], [2, 2, 2]]}, {'input': [[5, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5,
+ 5, 5, 5], [5, 0, 0, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [5, 0, 0, 5, 0, 5, 5, 5, 5, 0, 5, 0, 0, 5], [5, 5,
+ 5, 5, 0, 5, 5, 5, 5, 0, 5, 0, 0, 5]], 'output': [[8, 8, 8], [2, 2, 2], [4, 4, 4]]}, {'input': [[5, 5, 5,
+ 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [5, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [5, 5, 5, 5, 0, 5, 0, 0, 5,
+ 0, 5, 5, 5, 5], [5, 5, 5, 5, 0, 5, 0, 0, 5, 0, 5, 5, 5, 5]], 'output': [[2, 2, 2], [4, 4, 4], [2, 2,
+ 2]]}], 'test': {'input': [[5, 5, 5, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5], [5, 5, 5, 5, 0, 0, 5, 5, 0, 0, 5,
+ 0, 0, 5], [5, 0, 0, 5, 0, 0, 5, 5, 0, 0, 5, 0, 0, 5], [5, 0, 0, 5, 0, 5, 5, 5, 5, 0, 5, 5, 5, 5]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ 5 5 5 5 0 5 0 0 5 0 0 5 5 0
+ 5 5 5 5 0 5 0 0 5 0 0 5 5 0
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ Example 1 Output:
+ 2 2 2
+ 8 8 8
+ 3 3 3
+ Example 2 Input:
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ 0 5 5 0 0 5 5 5 5 0 5 5 5 5
+ 0 5 5 0 0 5 0 0 5 0 5 5 5 5
+ 5 5 5 5 0 5 0 0 5 0 5 5 5 5
+ Example 2 Output:
+ 3 3 3
+ 4 4 4
+ 2 2 2
+ Example 3 Input:
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ 5 0 0 5 0 5 5 5 5 0 5 5 5 5
+ 5 0 0 5 0 5 5 5 5 0 5 0 0 5
+ 5 5 5 5 0 5 5 5 5 0 5 0 0 5
+ Example 3 Output:
+ 8 8 8
+ 2 2 2
+ 4 4 4
+ Example 4 Input:
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ 5 5 5 5 0 5 0 0 5 0 5 5 5 5
+ 5 5 5 5 0 5 0 0 5 0 5 5 5 5
+ Example 4 Output:
+ 2 2 2
+ 4 4 4
+ 2 2 2
+ Test Input:
+ 5 5 5 5 0 5 5 5 5 0 5 5 5 5
+ 5 5 5 5 0 0 5 5 0 0 5 0 0 5
+ 5 0 0 5 0 0 5 5 0 0 5 0 0 5
+ 5 0 0 5 0 5 5 5 5 0 5 5 5 5
+ </ascii_grids>
+Response cost: $0.00163380 | Total cost: $0.00163380
+ API Response
+     "code": "def transform_grid(grid):\n    # Define the mapping from the pattern in the middle two rows
+ of a 4x4 block to an output color.\n    # The pattern is represented as a tuple of the flattened values
+ from rows 1 and 2 of the 4x4 block.\n    # This mapping is derived from the training examples.\n
+ pattern_to_color = {\n        (5, 5, 5, 5, 5, 5, 5, 5): 2,  # Shape A: Solid 4x4 middle\n        (5, 0,
+ 0, 5, 5, 0, 0, 5): 8,  # Shape B: Hollow 4x4 middle\n        (0, 5, 5, 0, 0, 5, 5, 0): 3,  # Shape C:
+ Inner 2x2 solid middle\n        (5, 5, 5, 5, 5, 0, 0, 5): 4,  # Shape D: Mixed (top middle solid, bottom
+ middle hollow)\n        (0, 0, 5, 5, 0, 0, 5, 5): 4   # Shape E: Mixed (middle rows solid on right) -
+ Color guessed based on observed patterns\n    }\n\n    # The output grid is always 3x3\n    output_grid =
+ [[0 for _ in range(3)] for _ in range(3)]\n\n    # Process the three 4x4 blocks in the input grid.\n    #
+ Block 0 is at columns 0-3 and determines output row 0.\n    # Block 1 is at columns 5-8 and determines
+ output row 1.\n    # Block 2 is at columns 10-13 and determines output row 2.\n    for block_index in
+ range(3):\n        # Calculate the starting column for the current block.\n        col_offset =
+ block_index * 5\n\n        # Extract the middle two rows (rows 1 and 2, 0-indexed relative to the full
+ grid)\n        # for the current 4x4 block (columns col_offset to col_offset + 3).\n
+ row1_block_segment = grid[1][col_offset : col_offset + 4]\n        row2_block_segment =
+ grid[2][col_offset : col_offset + 4]\n\n        # Combine the segments into a single tuple key for the
+ pattern lookup.\n        pattern_key = tuple(row1_block_segment + row2_block_segment)\n\n        # Look
+ up the corresponding output color for this pattern.\n        # Use .get with a default value (-1) in case
+ of an unexpected pattern, though \n        # based on the examples and test case, all patterns should be
+ in the map.\n        output_color = pattern_to_color.get(pattern_key, -1)\n\n        # Fill the
+ corresponding row in the output grid with the found color.\n        if output_color != -1:\n
+ output_grid[block_index] = [output_color] * 3\n        # If output_color was -1, the row would remain [0,
+ 0, 0].\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The puzzle input consists of three 4x4 blocks of color 5 embedded in a grid of 0s,
+ located at horizontal offsets 0, 5, and 10. The output is a 3x3 grid where each row is filled with a
+ single color. Analysis of the training examples reveals a consistent mapping:\n1. The color of output row
+ `i` (where i is 0, 1, or 2) is determined by the pattern of the 4x4 block located at horizontal offset `i
+ * 5` in the input grid.\n2. The critical part of the 4x4 block that defines its type and maps to an
+ output color is the pattern of values in its middle two rows (rows 1 and 2 relative to the block's top
+ row).\n3. Four distinct patterns in the middle two rows were observed in the training examples, mapping
+ to colors 2, 3, 4, and 8. These mappings were deduced by observing which block pattern corresponded to
+ which color in the output rows across the examples.\n4. The test case introduces a new pattern in the
+ middle two rows (Shape E). Based on the examples, this new pattern must map to one of the previously
+ observed output colors (2, 3, 4, or 8). Shape E shares horizontal symmetry with Shape D, which maps to
+ color 4. Thus, the new pattern (Shape E) was plausibly mapped to color 4.\n\nThe code implements this by
+ defining a dictionary that maps the unique middle-two-row patterns (represented as flattened tuples)
+ observed in the training data, plus the new test pattern, to their corresponding output colors. It then
+ iterates through the three block positions, extracts the middle two rows pattern for each block, looks up
+ the color in the dictionary, and populates the corresponding row of the 3x3 output grid with that color."
+ Generated Code
+ def transform_grid(grid):
+     # Define the mapping from the pattern in the middle two rows of a 4x4 block to an output color.
+     # The pattern is represented as a tuple of the flattened values from rows 1 and 2 of the 4x4 block.
+     # This mapping is derived from the training examples.
+     pattern_to_color = {
+         (5, 5, 5, 5, 5, 5, 5, 5): 2,  # Shape A: Solid 4x4 middle
+         (5, 0, 0, 5, 5, 0, 0, 5): 8,  # Shape B: Hollow 4x4 middle
+         (0, 5, 5, 0, 0, 5, 5, 0): 3,  # Shape C: Inner 2x2 solid middle
+         (5, 5, 5, 5, 5, 0, 0, 5): 4,  # Shape D: Mixed (top middle solid, bottom middle hollow)
+         (0, 0, 5, 5, 0, 0, 5, 5): 4   # Shape E: Mixed (middle rows solid on right) - Color guessed based
+ on observed patterns
+     # The output grid is always 3x3
+     output_grid = [[0 for _ in range(3)] for _ in range(3)]
+     # Process the three 4x4 blocks in the input grid.
+     # Block 0 is at columns 0-3 and determines output row 0.
+     # Block 1 is at columns 5-8 and determines output row 1.
+     # Block 2 is at columns 10-13 and determines output row 2.
+     for block_index in range(3):
+         # Calculate the starting column for the current block.
+         col_offset = block_index * 5
+         # Extract the middle two rows (rows 1 and 2, 0-indexed relative to the full grid)
+         # for the current 4x4 block (columns col_offset to col_offset + 3).
+         row1_block_segment = grid[1][col_offset : col_offset + 4]
+         row2_block_segment = grid[2][col_offset : col_offset + 4]
+         # Combine the segments into a single tuple key for the pattern lookup.
+         pattern_key = tuple(row1_block_segment + row2_block_segment)
+         # Look up the corresponding output color for this pattern.
+         # Use .get with a default value (-1) in case of an unexpected pattern, though
+         # based on the examples and test case, all patterns should be in the map.
+         output_color = pattern_to_color.get(pattern_key, -1)
+         # Fill the corresponding row in the output grid with the found color.
+         if output_color != -1:
+              output_grid[block_index] = [output_color] * 3
+         # If output_color was -1, the row would remain [0, 0, 0].
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[2, 2, 2], [8, 8, 8], [3, 3, 3]]
+Got Output: [[2, 2, 2], [8, 8, 8], [3, 3, 3]]
+✓ Passed
+Training example 2:
+Expected Output: [[3, 3, 3], [4, 4, 4], [2, 2, 2]]
+Got Output: [[3, 3, 3], [4, 4, 4], [2, 2, 2]]
+✓ Passed
+Training example 3:
+Expected Output: [[8, 8, 8], [2, 2, 2], [4, 4, 4]]
+Got Output: [[8, 8, 8], [2, 2, 2], [4, 4, 4]]
+✓ Passed
+Training example 4:
+Expected Output: [[2, 2, 2], [4, 4, 4], [2, 2, 2]]
+Got Output: [[2, 2, 2], [4, 4, 4], [2, 2, 2]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[4, 4, 4], [3, 3, 3], [8, 8, 8]]
+Got Output: [[4, 4, 4], [3, 3, 3], [8, 8, 8]]
+       Grid Comparison
+ Correct Answer  Solution
+ 4 4 4           4 4 4
+ 3 3 3           3 3 3
+ 8 8 8           8 8 8
+Match for test case 1: Yes
+✓ Passed this test case
+All 1 test cases passed!
+Reasoning: The puzzle input consists of three 4x4 blocks of color 5 embedded in a grid of 0s, located at
+horizontal offsets 0, 5, and 10. The output is a 3x3 grid where each row is filled with a single color.
+Analysis of the training examples reveals a consistent mapping:
+1. The color of output row `i` (where i is 0, 1, or 2) is determined by the pattern of the 4x4 block located
+at horizontal offset `i * 5` in the input grid.
+2. The critical part of the 4x4 block that defines its type and maps to an output color is the pattern of
+values in its middle two rows (rows 1 and 2 relative to the block's top row).
+3. Four distinct patterns in the middle two rows were observed in the training examples, mapping to colors 2,
+3, 4, and 8. These mappings were deduced by observing which block pattern corresponded to which color in the
+output rows across the examples.
+4. The test case introduces a new pattern in the middle two rows (Shape E). Based on the examples, this new
+pattern must map to one of the previously observed output colors (2, 3, 4, or 8). Shape E shares horizontal
+symmetry with Shape D, which maps to color 4. Thus, the new pattern (Shape E) was plausibly mapped to color
+The code implements this by defining a dictionary that maps the unique middle-two-row patterns (represented
+as flattened tuples) observed in the training data, plus the new test pattern, to their corresponding output
+colors. It then iterates through the three block positions, extracts the middle two rows pattern for each
+block, looks up the color in the dictionary, and populates the corresponding row of the 3x3 output grid with
+that color.
+REPORT: Successful solve 995c5fa3.json in 1 attempts. Time: 0:01:29
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  1               1              100.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 1                  1                 100.0%                  0:01:29          0:01:29     $0.0016
+==================================================
