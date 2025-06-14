@@ -1,0 +1,1301 @@
+=== Extracted text from OUTPUTS1_SOLNS/25d487eb.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/25d487eb.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/25d487eb.json
+Loaded and formatted features from: FEATURES/25d487eb.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[10, 15]</input_dimensions>
+       <output_dimensions>[10, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>8</size>
+           <position>[4.0, 3.625]</position>
+           <width>3</width>
+           <height>5</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>1</color>
+           <size>9</size>
+           <position>[4.0, 10.0]</position>
+           <width>9</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>2</color>
+           <size>8</size>
+           <position>[4.0, 3.625]</position>
+           <width>3</width>
+           <height>5</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[12, 12]</input_dimensions>
+       <output_dimensions>[12, 12]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[8.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>8</color>
+           <size>15</size>
+           <position>[7.066666666666666, 6.0]</position>
+           <width>7</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>5</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>5</height>
+         </output_component>
+         <output_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[8.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>8</color>
+           <size>15</size>
+           <position>[7.066666666666666, 6.0]</position>
+           <width>7</width>
+           <height>4</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[15, 12]</input_dimensions>
+       <output_dimensions>[15, 12]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>8</size>
+           <position>[2.625, 4.0]</position>
+           <width>5</width>
+           <height>3</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>10</size>
+           <position>[9.5, 4.0]</position>
+           <width>1</width>
+           <height>10</height>
+         </output_component>
+         <output_component id='2'>
+           <color>3</color>
+           <size>8</size>
+           <position>[2.625, 4.0]</position>
+           <width>5</width>
+           <height>3</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[16, 11]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>4</color>
+         <size>15</size>
+         <position>[13.066666666666666, 4.0]</position>
+         <width>7</width>
+         <height>4</height>
+       </component>
+       <component id='1'>
+         <color>8</color>
+         <size>1</size>
+         <position>[14.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0,
+ 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0, 0, 0, 8, 8, 8, 3, 8, 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'output': [[0, 0, 0, 0,
+ 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0, 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0, 0, 0, 8, 8, 8, 3, 8,
+ 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [0, 0, 3, 3, 2, 3, 3, 0, 0, 0, 0, 0], [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'output': [[0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 3, 3, 2, 3, 3, 0, 0, 0, 0, 0], [0,
+ 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 2, 0, 0, 0, 0, 0, 0, 0]]}], 'test': {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0], [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0], [0, 0, 4, 4, 4,
+ 4, 4, 0, 0, 0, 0], [0, 4, 4, 4, 8, 4, 4, 4, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 1 2 2 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 1 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 1 2 2 1 1 1 1 1 1 1 1 1
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 8 0 0 0 0 0
+ 0 0 0 0 0 8 8 8 0 0 0 0
+ 0 0 0 0 8 8 8 8 8 0 0 0
+ 0 0 0 8 8 8 3 8 8 8 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Output:
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 8 0 0 0 0 0
+ 0 0 0 0 0 8 8 8 0 0 0 0
+ 0 0 0 0 8 8 8 8 8 0 0 0
+ 0 0 0 8 8 8 3 8 8 8 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 3 3 2 3 3 0 0 0 0 0
+ 0 0 0 3 3 3 0 0 0 0 0 0
+ 0 0 0 0 3 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 3 3 2 3 3 0 0 0 0 0
+ 0 0 0 3 3 3 0 0 0 0 0 0
+ 0 0 0 0 3 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ Test Input:
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 4 0 0 0 0 0 0
+ 0 0 0 4 4 4 0 0 0 0 0
+ 0 0 4 4 4 4 4 0 0 0 0
+ 0 4 4 4 8 4 4 4 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ </ascii_grids>
+Response cost: $0.00291240 | Total cost: $0.00291240
+ API Response
+     "code": "import copy\n\ndef transform_grid(grid):\n    # Get grid dimensions\n    height =
+ len(grid)\n    width = len(grid[0])\n    # Create a deep copy for the output grid\n    output_grid =
+ copy.deepcopy(grid)\n\n    # 1. Find the single cell color and its location\n    color_counts = {}\n
+ for r in range(height):\n        for c in range(width):\n            color = grid[r][c]\n            if
+ color != 0:\n                color_counts[color] = color_counts.get(color, 0) + 1\n\n    single_color =
+ None\n    block_color = None\n    single_row, single_col = -1, -1\n\n    # Identify the single color and
+ the block color\n    for color, count in color_counts.items():\n        if count == 1:\n
+ single_color = color\n        elif count > 1: # Assuming there is only one other major color\n
+ block_color = color\n            \n    # Find the coordinates of the single cell\n    for r in
+ range(height):\n        for c in range(width):\n            if grid[r][c] == single_color:\n
+ single_row, single_col = r, c\n                break\n        if single_row != -1: # Found the single
+ cell, break outer loop\n            break\n\n    # 2. Find the bounding box of the main block (all cells
+ of block_color)\n    min_r, min_c = float('inf'), float('inf')\n    max_r, max_c = -float('inf'),
+ -float('inf')\n\n    for r in range(height):\n        for c in range(width):\n            if grid[r][c]
+ == block_color:\n                min_r = min(min_r, r)\n                max_r = max(max_r, r)\n
+ min_c = min(min_c, c)\n                max_c = max(max_c, c)\n\n    # 3. Determine the line direction and
+ starting point based on the single cell's\n    # position relative to the block's bounding box edges.\n
+ # Apply precedence rules based on training examples:\n    # Down (if single cell row matches block min_r)
+ >\n    # Up (if single cell row matches block max_r) >\n    # Right (if single cell col matches block
+ min_c) >\n    # Left (if single cell col matches block max_c).\n    # This handles cases where the single
+ cell is on a corner (matches multiple edges).\n    direction = None\n    start_row, start_col = -1,
+ -1\n\n    # Check for Down direction (single cell is on the top edge of the block bbox)\n    if
+ single_row == min_r:\n        direction = 'Down'\n        start_row = max_r + 1 # Start just below the
+ block\n        start_col = single_col # Stay in the single cell's column\n    # Check for Up direction
+ (single cell is on the bottom edge of the block bbox)\n    elif single_row == max_r:\n        direction =
+ 'Up'\n        start_row = min_r - 1 # Start just above the block\n        start_col = single_col # Stay
+ in the single cell's column\n    # Check for Right direction (single cell is on the left edge of the
+ block bbox)\n    elif single_col == min_c:\n        direction = 'Right'\n        start_row = single_row #
+ Stay in the single cell's row\n        start_col = max_c + 1 # Start just right of the block\n    # Check
+ for Left direction (single cell is on the right edge of the block bbox) - default if other conditions not
+ met\n    # Note: This 'Left' case is inferred to complete the pattern; not explicitly shown in
+ examples.\n    # Based on the precedence, this is reached only if the single cell is NOT on min_r, NOT on
+ max_r, and NOT on min_c edge.\n    # Given the training examples, the single cell is always on at least
+ one of these edges relative to the main block.\n    elif single_col == max_c:\n         direction =
+ 'Left'\n         start_row = single_row # Stay in the single cell's row\n         start_col = min_c - 1 #
+ Start just left of the block\n\n    # 4. Draw the line in the output grid using the single cell's
+ color.\n    # The line extends from the calculated start point towards the grid edge.\n    # It is
+ assumed the line is drawn into empty space (color 0). The starting point\n    # calculation places it
+ adjacent to the block, typically in empty space.\n    if direction == 'Down':\n        # Draw vertical
+ line downwards from start_row to the bottom edge\n        for r in range(start_row, height):\n
+ # Only draw if within grid bounds (should be, but defensive check)\n            if 0 <= r < height and 0
+ <= start_col < width:\n                 output_grid[r][start_col] = single_color\n    elif direction ==
+ 'Up':\n        # Draw vertical line upwards from start_row to the top edge\n        for r in
+ range(start_row, -1, -1): # Iterate backwards\n            # Only draw if within grid bounds\n
+ if 0 <= r < height and 0 <= start_col < width:\n                 output_grid[r][start_col] =
+ single_color\n    elif direction == 'Right':\n        # Draw horizontal line rightwards from start_col to
+ the right edge\n        for c in range(start_col, width):\n            # Only draw if within grid
+ bounds\n             if 0 <= start_row < height and 0 <= c < width:\n
+ output_grid[start_row][c] = single_color\n    elif direction == 'Left':\n        # Draw horizontal line
+ leftwards from start_col to the left edge\n        for c in range(start_col, -1, -1): # Iterate
+ backwards\n            # Only draw if within grid bounds\n             if 0 <= start_row < height and 0
+ <= c < width:\n                output_grid[start_row][c] = single_color\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The task is to replicate a transformation where a single colored cell adjacent to a
+ larger block causes a line of the single cell's color to be drawn from the block towards a grid edge. The
+ direction and starting point of the line depend on the single cell's position relative to the block's
+ bounding box.\n\n1.  **Identify Single Cell and Block:** Scan the grid to count colors. The color with
+ count 1 is the single cell's color. The other non-zero color is the block's color. Find the exact
+ coordinates of the single cell.\n2.  **Find Block Bounding Box:** Determine the minimum and maximum row
+ and column indices (`min_r`, `max_r`, `min_c`, `max_c`) for all cells belonging to the block color. This
+ defines the rectangular area covering the block.\n3.  **Determine Line Direction and Start:** Analyze the
+ position of the single cell (`single_row`, `single_col`) relative to the block's bounding box edges. The
+ examples suggest the direction depends on which edge the single cell's row or column matches. A
+ precedence rule is observed:\n    *   If `single_row` matches `min_r` (top edge): Draw Downwards. Start
+ the line vertically one step below the block's bottom edge (`max_r + 1`), in the single cell's column
+ (`single_col`). (Seen in Example 3).\n    *   Else if `single_row` matches `max_r` (bottom edge): Draw
+ Upwards. Start the line vertically one step above the block's top edge (`min_r - 1`), in the single
+ cell's column (`single_col`). (Seen in Example 2).\n    *   Else if `single_col` matches `min_c` (left
+ edge): Draw Rightwards. Start the line horizontally one step right of the block's right edge (`max_c +
+ 1`), in the single cell's row (`single_row`). (Seen in Example 1).\n    *   Else if `single_col` matches
+ `max_c` (right edge): Draw Leftwards. Start the line horizontally one step left of the block's left edge
+ (`min_c - 1`), in the single cell's row (`single_row`). (Inferred to complete the four directions and
+ handle cases not covered by the vertical/right rules).\n4.  **Draw the Line:** Create a copy of the input
+ grid. Based on the determined direction, color the cells of the output grid with the `single_color` from
+ the calculated starting point towards the corresponding grid edge (top, bottom, left, or right). The
+ drawing loop goes up to or down to/across the grid boundaries. The starting point ensures the line begins
+ in empty space adjacent to the block.\n\nThis logic is applied to the test grid. The single cell (8) is
+ at (14, 4). The block (4) has a bounding box from (11, 4) to (14, 7). The single cell's row (14) matches
+ `max_r` (14), triggering the 'Up' direction rule. The line will be drawn upwards in column 4, starting at
+ row `min_r - 1` (11 - 1 = 10), using color 8."
+ Generated Code
+ import copy
+ def transform_grid(grid):
+     # Get grid dimensions
+     height = len(grid)
+     width = len(grid[0])
+     # Create a deep copy for the output grid
+     output_grid = copy.deepcopy(grid)
+     # 1. Find the single cell color and its location
+     color_counts = {}
+     for r in range(height):
+         for c in range(width):
+             color = grid[r][c]
+             if color != 0:
+                 color_counts[color] = color_counts.get(color, 0) + 1
+     single_color = None
+     block_color = None
+     single_row, single_col = -1, -1
+     # Identify the single color and the block color
+     for color, count in color_counts.items():
+         if count == 1:
+             single_color = color
+         elif count > 1: # Assuming there is only one other major color
+             block_color = color
+     # Find the coordinates of the single cell
+     for r in range(height):
+         for c in range(width):
+             if grid[r][c] == single_color:
+                 single_row, single_col = r, c
+                 break
+         if single_row != -1: # Found the single cell, break outer loop
+             break
+     # 2. Find the bounding box of the main block (all cells of block_color)
+     min_r, min_c = float('inf'), float('inf')
+     max_r, max_c = -float('inf'), -float('inf')
+     for r in range(height):
+         for c in range(width):
+             if grid[r][c] == block_color:
+                 min_r = min(min_r, r)
+                 max_r = max(max_r, r)
+                 min_c = min(min_c, c)
+                 max_c = max(max_c, c)
+     # 3. Determine the line direction and starting point based on the single cell's
+     # position relative to the block's bounding box edges.
+     # Apply precedence rules based on training examples:
+     # Down (if single cell row matches block min_r) >
+     # Up (if single cell row matches block max_r) >
+     # Right (if single cell col matches block min_c) >
+     # Left (if single cell col matches block max_c).
+     # This handles cases where the single cell is on a corner (matches multiple edges).
+     direction = None
+     start_row, start_col = -1, -1
+     # Check for Down direction (single cell is on the top edge of the block bbox)
+     if single_row == min_r:
+         direction = 'Down'
+         start_row = max_r + 1 # Start just below the block
+         start_col = single_col # Stay in the single cell's column
+     # Check for Up direction (single cell is on the bottom edge of the block bbox)
+     elif single_row == max_r:
+         direction = 'Up'
+         start_row = min_r - 1 # Start just above the block
+         start_col = single_col # Stay in the single cell's column
+     # Check for Right direction (single cell is on the left edge of the block bbox)
+     elif single_col == min_c:
+         direction = 'Right'
+         start_row = single_row # Stay in the single cell's row
+         start_col = max_c + 1 # Start just right of the block
+     # Check for Left direction (single cell is on the right edge of the block bbox) - default if other
+ conditions not met
+     # Note: This 'Left' case is inferred to complete the pattern; not explicitly shown in examples.
+     # Based on the precedence, this is reached only if the single cell is NOT on min_r, NOT on max_r, and
+ NOT on min_c edge.
+     # Given the training examples, the single cell is always on at least one of these edges relative to
+ the main block.
+     elif single_col == max_c:
+          direction = 'Left'
+          start_row = single_row # Stay in the single cell's row
+          start_col = min_c - 1 # Start just left of the block
+     # 4. Draw the line in the output grid using the single cell's color.
+     # The line extends from the calculated start point towards the grid edge.
+     # It is assumed the line is drawn into empty space (color 0). The starting point
+     # calculation places it adjacent to the block, typically in empty space.
+     if direction == 'Down':
+         # Draw vertical line downwards from start_row to the bottom edge
+         for r in range(start_row, height):
+             # Only draw if within grid bounds (should be, but defensive check)
+             if 0 <= r < height and 0 <= start_col < width:
+                  output_grid[r][start_col] = single_color
+     elif direction == 'Up':
+         # Draw vertical line upwards from start_row to the top edge
+         for r in range(start_row, -1, -1): # Iterate backwards
+             # Only draw if within grid bounds
+             if 0 <= r < height and 0 <= start_col < width:
+                  output_grid[r][start_col] = single_color
+     elif direction == 'Right':
+         # Draw horizontal line rightwards from start_col to the right edge
+         for c in range(start_col, width):
+             # Only draw if within grid bounds
+              if 0 <= start_row < height and 0 <= c < width:
+                 output_grid[start_row][c] = single_color
+     elif direction == 'Left':
+         # Draw horizontal line leftwards from start_col to the left edge
+         for c in range(start_col, -1, -1): # Iterate backwards
+             # Only draw if within grid bounds
+              if 0 <= start_row < height and 0 <= c < width:
+                 output_grid[start_row][c] = single_color
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 1: name 'copy' is not defined
+Training example 2:
+Expected Output: [[0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 8, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0, 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0,
+0, 0, 8, 8, 8, 3, 8, 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 2: name 'copy' is not defined
+Training example 3:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 3, 3, 2,
+3, 3, 0, 0, 0, 0, 0], [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0,
+0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0]]
+Error executing generated code on training example 3: name 'copy' is not defined
+Not all training examples passed, skipping test case(s).
+Attempt 2 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[10, 15]</input_dimensions>
+       <output_dimensions>[10, 15]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>8</size>
+           <position>[4.0, 3.625]</position>
+           <width>3</width>
+           <height>5</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>1</color>
+           <size>9</size>
+           <position>[4.0, 10.0]</position>
+           <width>9</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>2</color>
+           <size>8</size>
+           <position>[4.0, 3.625]</position>
+           <width>3</width>
+           <height>5</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[12, 12]</input_dimensions>
+       <output_dimensions>[12, 12]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[8.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>8</color>
+           <size>15</size>
+           <position>[7.066666666666666, 6.0]</position>
+           <width>7</width>
+           <height>4</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>5</size>
+           <position>[2.0, 6.0]</position>
+           <width>1</width>
+           <height>5</height>
+         </output_component>
+         <output_component id='1'>
+           <color>3</color>
+           <size>1</size>
+           <position>[8.0, 6.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>8</color>
+           <size>15</size>
+           <position>[7.066666666666666, 6.0]</position>
+           <width>7</width>
+           <height>4</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>0</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[15, 12]</input_dimensions>
+       <output_dimensions>[15, 12]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>3</color>
+           <size>8</size>
+           <position>[2.625, 4.0]</position>
+           <width>5</width>
+           <height>3</height>
+         </input_component>
+         <output_component id='0'>
+           <color>2</color>
+           <size>1</size>
+           <position>[2.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>10</size>
+           <position>[9.5, 4.0]</position>
+           <width>1</width>
+           <height>10</height>
+         </output_component>
+         <output_component id='2'>
+           <color>3</color>
+           <size>8</size>
+           <position>[2.625, 4.0]</position>
+           <width>5</width>
+           <height>3</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>2</output_id>
+         </transformation>
+       </transformations>
+       <unmatched_components>
+         <unmatched_outputs>
+           <component_id>1</component_id>
+         </unmatched_outputs>
+       </unmatched_components>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[16, 11]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>4</color>
+         <size>15</size>
+         <position>[13.066666666666666, 4.0]</position>
+         <width>7</width>
+         <height>4</height>
+       </component>
+       <component id='1'>
+         <color>8</color>
+         <size>1</size>
+         <position>[14.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 1, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'output': [[0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0,
+ 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0, 0, 0, 8, 8, 8, 3, 8, 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'output': [[0, 0, 0, 0,
+ 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0, 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0, 0, 0, 8, 8, 8, 3, 8,
+ 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0]]}, {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0], [0, 0, 3, 3, 2, 3, 3, 0, 0, 0, 0, 0], [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0,
+ 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'output': [[0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 3, 3, 2, 3, 3, 0, 0, 0, 0, 0], [0,
+ 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+ 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0,
+ 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2,
+ 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+ 0, 0, 2, 0, 0, 0, 0, 0, 0, 0]]}], 'test': {'input': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0], [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0], [0, 0, 4, 4, 4,
+ 4, 4, 0, 0, 0, 0], [0, 4, 4, 4, 8, 4, 4, 4, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 1 2 2 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 1 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 1 2 2 1 1 1 1 1 1 1 1 1
+ 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 8 0 0 0 0 0
+ 0 0 0 0 0 8 8 8 0 0 0 0
+ 0 0 0 0 8 8 8 8 8 0 0 0
+ 0 0 0 8 8 8 3 8 8 8 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 2 Output:
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 3 0 0 0 0 0
+ 0 0 0 0 0 0 8 0 0 0 0 0
+ 0 0 0 0 0 8 8 8 0 0 0 0
+ 0 0 0 0 8 8 8 8 8 0 0 0
+ 0 0 0 8 8 8 3 8 8 8 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Input:
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 3 3 2 3 3 0 0 0 0 0
+ 0 0 0 3 3 3 0 0 0 0 0 0
+ 0 0 0 0 3 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ Example 3 Output:
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 3 3 2 3 3 0 0 0 0 0
+ 0 0 0 3 3 3 0 0 0 0 0 0
+ 0 0 0 0 3 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ 0 0 0 0 2 0 0 0 0 0 0 0
+ Test Input:
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 4 0 0 0 0 0 0
+ 0 0 0 4 4 4 0 0 0 0 0
+ 0 0 4 4 4 4 4 0 0 0 0
+ 0 4 4 4 8 4 4 4 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0
+ </ascii_grids>
+ <previous_attempts>
+ Your following attempted solutions failed to correctly solve the puzzle.
+ Propose a new strategy that is different from these previous approaches.
+ Attempt 1 Reasoning:
+ The task is to replicate a transformation where a single colored cell adjacent to a larger block causes a
+ line of the single cell's color to be drawn from the block towards a grid edge. The direction and
+ starting point of the line depend on the single cell's position relative to the block's bounding box.
+ 1.  **Identify Single Cell and Block:** Scan the grid to count colors. The color with count 1 is the
+ single cell's color. The other non-zero color is the block's color. Find the exact coordinates of the
+ single cell.
+ 2.  **Find Block Bounding Box:** Determine the minimum and maximum row and column indices (`min_r`,
+ `max_r`, `min_c`, `max_c`) for all cells belonging to the block color. This defines the rectangular area
+ covering the block.
+ 3.  **Determine Line Direction and Start:** Analyze the position of the single cell (`single_row`,
+ `single_col`) relative to the block's bounding box edges. The examples suggest the direction depends on
+ which edge the single cell's row or column matches. A precedence rule is observed:
+     *   If `single_row` matches `min_r` (top edge): Draw Downwards. Start the line vertically one step
+ below the block's bottom edge (`max_r + 1`), in the single cell's column (`single_col`). (Seen in Example
+ 3).
+     *   Else if `single_row` matches `max_r` (bottom edge): Draw Upwards. Start the line vertically one
+ step above the block's top edge (`min_r - 1`), in the single cell's column (`single_col`). (Seen in
+ Example 2).
+     *   Else if `single_col` matches `min_c` (left edge): Draw Rightwards. Start the line horizontally
+ one step right of the block's right edge (`max_c + 1`), in the single cell's row (`single_row`). (Seen in
+ Example 1).
+     *   Else if `single_col` matches `max_c` (right edge): Draw Leftwards. Start the line horizontally
+ one step left of the block's left edge (`min_c - 1`), in the single cell's row (`single_row`). (Inferred
+ to complete the four directions and handle cases not covered by the vertical/right rules).
+ 4.  **Draw the Line:** Create a copy of the input grid. Based on the determined direction, color the
+ cells of the output grid with the `single_color` from the calculated starting point towards the
+ corresponding grid edge (top, bottom, left, or right). The drawing loop goes up to or down to/across the
+ grid boundaries. The starting point ensures the line begins in empty space adjacent to the block.
+ This logic is applied to the test grid. The single cell (8) is at (14, 4). The block (4) has a bounding
+ box from (11, 4) to (14, 7). The single cell's row (14) matches `max_r` (14), triggering the 'Up'
+ direction rule. The line will be drawn upwards in column 4, starting at row `min_r - 1` (11 - 1 = 10),
+ using color 8.
+ Result: failed training examples (failed on examples: 1, 2, 3)
+ Your solution must use a new approach that differs from the failed attempts above.
+ </previous_attempts>
+Response cost: $0.00276540 | Total cost: $0.00567780
+ API Response
+     "code": "def transform_grid(grid):\n    \"\"\"\n    Draws a line of the single cell's color from a
+ position adjacent\n    to the block bounding box towards the grid edge, based on which\n    block
+ bounding box edge the single cell is located on.\n    \"\"\"\n    height = len(grid)\n    width =
+ len(grid[0])\n\n    # 1. Find colors and identify single cell and block colors\n    color_counts = {}\n
+ for r in range(height):\n        for c in range(width):\n            cell = grid[r][c]\n            if
+ cell != 0:\n                color_counts[cell] = color_counts.get(cell, 0) + 1\n\n    single_color =
+ None\n    block_color = None\n    for color, count in color_counts.items():\n        if count == 1:\n
+ single_color = color\n        else:\n            block_color = color # Assuming only one other color for
+ the block\n\n    # 2. Find single cell coordinates and block bounding box\n    single_row, single_col =
+ -1, -1\n    min_r, max_r, min_c, max_c = height, -1, width, -1\n\n    for r in range(height):\n
+ for c in range(width):\n            if grid[r][c] == single_color:\n                single_row,
+ single_col = r, c\n            elif grid[r][c] == block_color:\n                min_r = min(min_r, r)\n
+ max_r = max(max_r, r)\n                min_c = min(min_c, c)\n                max_c = max(max_c, c)\n\n
+ # Create a copy of the grid for the output\n    output_grid = [row[:] for row in grid]\n\n    # 3.
+ Determine line parameters based on single cell position relative to block bounding box edges\n
+ line_color = single_color\n\n    # The line extends from a point adjacent to the block bounding box
+ towards the grid edge.\n    # The direction is opposite the edge the single cell is on.\n\n
+ is_vertical = False\n    line_start_coord = -1\n    line_end_coord = -1\n    fixed_coord = -1\n\n    if
+ single_row == min_r: # Single cell is on the top edge of the block bounding box\n        is_vertical =
+ True\n        fixed_coord = single_col # Line is vertical in single cell's column\n
+ line_start_coord = max_r + 1 # Start after the bottom edge of the block box\n        line_end_coord =
+ height - 1 # End at the bottom grid edge\n    elif single_row == max_r: # Single cell is on the bottom
+ edge\n        is_vertical = True\n        fixed_coord = single_col # Line is vertical in single cell's
+ column\n        line_start_coord = min_r - 1 # Start before the top edge of the block box\n
+ line_end_coord = 0 # End at the top grid edge\n    elif single_col == min_c: # Single cell is on the left
+ edge\n        is_vertical = False\n        fixed_coord = single_row # Line is horizontal in single cell's
+ row\n        line_start_coord = max_c + 1 # Start after the right edge of the block box\n
+ line_end_coord = width - 1 # End at the right grid edge\n    elif single_col == max_c: # Single cell is
+ on the right edge\n        is_vertical = False\n        fixed_coord = single_row # Line is horizontal in
+ single cell's row\n        line_start_coord = min_c - 1 # Start before the left edge of the block box\n
+ line_end_coord = 0 # End at the left grid edge\n    # Note: Assuming the single cell is always on one of
+ the bounding box edges based on examples.\n\n    # 4. Draw the line on the output grid\n    if
+ is_vertical:\n        # Draw vertical line. Iterate through rows.\n        if line_start_coord <=
+ line_end_coord: # Draw downwards (start <= end)\n            for r in range(line_start_coord,
+ line_end_coord + 1):\n                if 0 <= r < height and 0 <= fixed_coord < width:\n
+ output_grid[r][fixed_coord] = line_color\n        else: # Draw upwards (start > end)\n            for r
+ in range(line_start_coord, line_end_coord - 1, -1):\n                 if 0 <= r < height and 0 <=
+ fixed_coord < width:\n                    output_grid[r][fixed_coord] = line_color\n    else:\n        #
+ Draw horizontal line. Iterate through columns.\n        if line_start_coord <= line_end_coord: # Draw
+ rightwards (start <= end)\n            for c in range(line_start_coord, line_end_coord + 1):\n
+ if 0 <= fixed_coord < height and 0 <= c < width:\n                    output_grid[fixed_coord][c] =
+ line_color\n        else: # Draw leftwards (start > end)\n            for c in range(line_start_coord,
+ line_end_coord - 1, -1):\n                 if 0 <= fixed_coord < height and 0 <= c < width:\n
+ output_grid[fixed_coord][c] = line_color\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The transformation involves a single colored cell and a larger block of a different
+ color. The output shows a line of the single cell's color drawn from a point near the block towards a
+ grid edge. Analyzing the examples reveals a pattern: the line is drawn in the row or column of the single
+ cell, extending away from the side of the block's bounding box that the single cell is adjacent to.
+ Specifically:\n1. Identify the single cell color and its coordinates (sc_row, sc_col).\n2. Identify the
+ block color and determine its bounding box (min_r, max_r, min_c, max_c).\n3. If the single cell's row
+ matches the minimum row of the bounding box (sc_row == min_r), the line is vertical, drawn downwards in
+ the single cell's column (sc_col), starting one row below the block's maximum row (max_r + 1) and
+ extending to the bottom of the grid.\n4. If the single cell's row matches the maximum row of the bounding
+ box (sc_row == max_r), the line is vertical, drawn upwards in the single cell's column (sc_col), starting
+ one row above the block's minimum row (min_r - 1) and extending to the top of the grid.\n5. If the single
+ cell's column matches the minimum column of the bounding box (sc_col == min_c), the line is horizontal,
+ drawn rightwards in the single cell's row (sc_row), starting one column right of the block's maximum
+ column (max_c + 1) and extending to the right of the grid.\n6. If the single cell's column matches the
+ maximum column of the bounding box (sc_col == max_c), the line is horizontal, drawn leftwards in the
+ single cell's row (sc_row), starting one column left of the block's minimum column (min_c - 1) and
+ extending to the left of the grid.\nA new grid is created as a copy, and the determined line is drawn
+ onto this copy using the single cell's color."
+ Generated Code
+ def transform_grid(grid):
+     """
+     Draws a line of the single cell's color from a position adjacent
+     to the block bounding box towards the grid edge, based on which
+     block bounding box edge the single cell is located on.
+     """
+     height = len(grid)
+     width = len(grid[0])
+     # 1. Find colors and identify single cell and block colors
+     color_counts = {}
+     for r in range(height):
+         for c in range(width):
+             cell = grid[r][c]
+             if cell != 0:
+                 color_counts[cell] = color_counts.get(cell, 0) + 1
+     single_color = None
+     block_color = None
+     for color, count in color_counts.items():
+         if count == 1:
+             single_color = color
+         else:
+             block_color = color # Assuming only one other color for the block
+     # 2. Find single cell coordinates and block bounding box
+     single_row, single_col = -1, -1
+     min_r, max_r, min_c, max_c = height, -1, width, -1
+     for r in range(height):
+         for c in range(width):
+             if grid[r][c] == single_color:
+                 single_row, single_col = r, c
+             elif grid[r][c] == block_color:
+                 min_r = min(min_r, r)
+                 max_r = max(max_r, r)
+                 min_c = min(min_c, c)
+                 max_c = max(max_c, c)
+     # Create a copy of the grid for the output
+     output_grid = [row[:] for row in grid]
+     # 3. Determine line parameters based on single cell position relative to block bounding box edges
+     line_color = single_color
+     # The line extends from a point adjacent to the block bounding box towards the grid edge.
+     # The direction is opposite the edge the single cell is on.
+     is_vertical = False
+     line_start_coord = -1
+     line_end_coord = -1
+     fixed_coord = -1
+     if single_row == min_r: # Single cell is on the top edge of the block bounding box
+         is_vertical = True
+         fixed_coord = single_col # Line is vertical in single cell's column
+         line_start_coord = max_r + 1 # Start after the bottom edge of the block box
+         line_end_coord = height - 1 # End at the bottom grid edge
+     elif single_row == max_r: # Single cell is on the bottom edge
+         is_vertical = True
+         fixed_coord = single_col # Line is vertical in single cell's column
+         line_start_coord = min_r - 1 # Start before the top edge of the block box
+         line_end_coord = 0 # End at the top grid edge
+     elif single_col == min_c: # Single cell is on the left edge
+         is_vertical = False
+         fixed_coord = single_row # Line is horizontal in single cell's row
+         line_start_coord = max_c + 1 # Start after the right edge of the block box
+         line_end_coord = width - 1 # End at the right grid edge
+     elif single_col == max_c: # Single cell is on the right edge
+         is_vertical = False
+         fixed_coord = single_row # Line is horizontal in single cell's row
+         line_start_coord = min_c - 1 # Start before the left edge of the block box
+         line_end_coord = 0 # End at the left grid edge
+     # Note: Assuming the single cell is always on one of the bounding box edges based on examples.
+     # 4. Draw the line on the output grid
+     if is_vertical:
+         # Draw vertical line. Iterate through rows.
+         if line_start_coord <= line_end_coord: # Draw downwards (start <= end)
+             for r in range(line_start_coord, line_end_coord + 1):
+                 if 0 <= r < height and 0 <= fixed_coord < width:
+                     output_grid[r][fixed_coord] = line_color
+         else: # Draw upwards (start > end)
+             for r in range(line_start_coord, line_end_coord - 1, -1):
+                  if 0 <= r < height and 0 <= fixed_coord < width:
+                     output_grid[r][fixed_coord] = line_color
+     else:
+         # Draw horizontal line. Iterate through columns.
+         if line_start_coord <= line_end_coord: # Draw rightwards (start <= end)
+             for c in range(line_start_coord, line_end_coord + 1):
+                 if 0 <= fixed_coord < height and 0 <= c < width:
+                     output_grid[fixed_coord][c] = line_color
+         else: # Draw leftwards (start > end)
+             for c in range(line_start_coord, line_end_coord - 1, -1):
+                  if 0 <= fixed_coord < height and 0 <= c < width:
+                     output_grid[fixed_coord][c] = line_color
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 2,
+2, 1, 1, 1, 1, 1, 1, 1, 1, 1], [0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+✓ Passed
+Training example 2:
+Expected Output: [[0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0,
+0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 0, 0, 8, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0, 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0,
+0, 0, 8, 8, 8, 3, 8, 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0,
+3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+0, 0, 8, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 8, 8, 8, 0, 0, 0, 0], [0, 0, 0, 0, 8, 8, 8, 8, 8, 0, 0, 0], [0, 0,
+0, 8, 8, 8, 3, 8, 8, 8, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+✓ Passed
+Training example 3:
+Expected Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 3, 3, 2,
+3, 3, 0, 0, 0, 0, 0], [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0,
+0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0,
+0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 3, 3, 2, 3,
+3, 0, 0, 0, 0, 0], [0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0,
+2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0,
+0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0,
+0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 4, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0], [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0], [0, 4, 4, 4, 8, 4, 4, 4, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+Got Output: [[0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0,
+0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0,
+0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0,
+0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0], [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0], [0, 4, 4, 4, 8, 4, 4, 4, 0, 0, 0], [0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+                 Grid Comparison
+ Correct Answer         Solution
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 8 0 0 0 0 0 0  0 0 0 0 8 0 0 0 0 0 0
+ 0 0 0 0 4 0 0 0 0 0 0  0 0 0 0 4 0 0 0 0 0 0
+ 0 0 0 4 4 4 0 0 0 0 0  0 0 0 4 4 4 0 0 0 0 0
+ 0 0 4 4 4 4 4 0 0 0 0  0 0 4 4 4 4 4 0 0 0 0
+ 0 4 4 4 8 4 4 4 0 0 0  0 4 4 4 8 4 4 4 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0  0 0 0 0 0 0 0 0 0 0 0
+Match for test case 1: Yes
+✓ Passed this test case
+All 1 test cases passed!
+Reasoning: The transformation involves a single colored cell and a larger block of a different color. The
+output shows a line of the single cell's color drawn from a point near the block towards a grid edge.
+Analyzing the examples reveals a pattern: the line is drawn in the row or column of the single cell,
+extending away from the side of the block's bounding box that the single cell is adjacent to. Specifically:
+1. Identify the single cell color and its coordinates (sc_row, sc_col).
+2. Identify the block color and determine its bounding box (min_r, max_r, min_c, max_c).
+3. If the single cell's row matches the minimum row of the bounding box (sc_row == min_r), the line is
+vertical, drawn downwards in the single cell's column (sc_col), starting one row below the block's maximum
+row (max_r + 1) and extending to the bottom of the grid.
+4. If the single cell's row matches the maximum row of the bounding box (sc_row == max_r), the line is
+vertical, drawn upwards in the single cell's column (sc_col), starting one row above the block's minimum row
+(min_r - 1) and extending to the top of the grid.
+5. If the single cell's column matches the minimum column of the bounding box (sc_col == min_c), the line is
+horizontal, drawn rightwards in the single cell's row (sc_row), starting one column right of the block's
+maximum column (max_c + 1) and extending to the right of the grid.
+6. If the single cell's column matches the maximum column of the bounding box (sc_col == max_c), the line is
+horizontal, drawn leftwards in the single cell's row (sc_row), starting one column left of the block's
+minimum column (min_c - 1) and extending to the left of the grid.
+A new grid is created as a copy, and the determined line is drawn onto this copy using the single cell's
+color.
+REPORT: Successful solve 25d487eb.json in 2 attempts. Time: 0:02:19
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  1               1              100.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 1                  1                 100.0%                  0:02:19          0:02:19     $0.0057
+==================================================

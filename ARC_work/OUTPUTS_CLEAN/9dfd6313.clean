@@ -1,0 +1,1663 @@
+=== Extracted text from OUTPUTS1_SOLNS/9dfd6313.rich ===
+FILES TO USE: ['DATA1/training/d4469b4b.json', 'DATA1/training/29ec7d0e.json', 'DATA1/training/6455b5f5.json', 'DATA1/training/264363fd.json', 'DATA1/training/846bdb03.json', 'DATA1/training/de1cd16c.json', 'DATA1/training/7b6016b9.json', 'DATA1/training/ff28f65a.json', 'DATA1/training/e3497940.json', 'DATA1/training/09629e4f.json', 'DATA1/training/995c5fa3.json', 'DATA1/training/3618c87e.json', 'DATA1/training/3de23699.json', 'DATA1/training/08ed6ac7.json', 'DATA1/training/dbc1a6ce.json', 'DATA1/training/e98196ab.json', 'DATA1/training/6c434453.json', 'DATA1/training/045e512c.json', 'DATA1/training/b548a754.json', 'DATA1/training/1f0c79e5.json', 'DATA1/training/d07ae81c.json', 'DATA1/training/ce22a75a.json', 'DATA1/training/fcc82909.json', 'DATA1/training/1b60fb0c.json', 'DATA1/training/6855a6e4.json', 'DATA1/training/4612dd53.json', 'DATA1/training/0b148d64.json', 'DATA1/training/178fcbfb.json', 'DATA1/training/776ffc46.json', 'DATA1/training/a1570a43.json', 'DATA1/training/05269061.json', 'DATA1/training/3345333e.json', 'DATA1/training/82819916.json', 'DATA1/training/e50d258f.json', 'DATA1/training/9edfc990.json', 'DATA1/training/1bfc4729.json', 'DATA1/training/3631a71a.json', 'DATA1/training/9565186b.json', 'DATA1/training/8e5a5113.json', 'DATA1/training/67e8384a.json', 'DATA1/training/834ec97d.json', 'DATA1/training/5168d44c.json', 'DATA1/training/2bcee788.json', 'DATA1/training/c3e719e8.json', 'DATA1/training/a78176bb.json', 'DATA1/training/3eda0437.json', 'DATA1/training/363442ee.json', 'DATA1/training/dc1df850.json', 'DATA1/training/56ff96f3.json', 'DATA1/training/a87f7484.json']
+DOING FILE DATA1/training/9dfd6313.json
+Using model: gemini/gemini-2.5-flash-preview-04-17
+API base:
+Max Tokens: 8000
+Max Cost: $1.00
+Processing puzzle file: DATA1/training/9dfd6313.json
+Loaded and formatted features from: FEATURES/9dfd6313.json
+Attempt 1 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[3, 3]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[1, -1]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[1, -1]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[4, 4]</input_dimensions>
+       <output_dimensions>[4, 4]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>6</color>
+           <size>2</size>
+           <position>[2.5, 0.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <output_component id='0'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>6</color>
+           <size>2</size>
+           <position>[0.0, 2.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>4</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[1, -1]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>5</output_id>
+           <translation>[2, -2]</translation>
+           <shape_dimension_change>
+             <from_width_height>[1, 2]</from_width_height>
+             <to_width_height>[2, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[2, -2]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[5, 5]</input_dimensions>
+       <output_dimensions>[5, 5]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>2</size>
+           <position>[3.5, 1.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>5</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>8</color>
+           <size>2</size>
+           <position>[2.0, 0.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>2</size>
+           <position>[1.0, 3.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>5</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>8</color>
+           <size>2</size>
+           <position>[0.5, 2.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>4</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>5</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>6</input_id>
+           <output_id>6</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[1, -1]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>7</input_id>
+           <output_id>7</output_id>
+           <translation>[2, -2]</translation>
+           <shape_dimension_change>
+             <from_width_height>[2, 1]</from_width_height>
+             <to_width_height>[1, 2]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[2, -2]</translation>
+           <shape_dimension_change>
+             <from_width_height>[1, 2]</from_width_height>
+             <to_width_height>[2, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[2, -2]</common_translation>
+       </example_patterns>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[6, 6]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>2</color>
+         <size>2</size>
+         <position>[4.5, 0.0]</position>
+         <width>1</width>
+         <height>2</height>
+       </component>
+       <component id='1'>
+         <color>3</color>
+         <size>2</size>
+         <position>[2.0, 0.5]</position>
+         <width>2</width>
+         <height>1</height>
+       </component>
+       <component id='2'>
+         <color>5</color>
+         <size>1</size>
+         <position>[0.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='3'>
+         <color>5</color>
+         <size>1</size>
+         <position>[1.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='4'>
+         <color>5</color>
+         <size>1</size>
+         <position>[2.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='5'>
+         <color>5</color>
+         <size>1</size>
+         <position>[3.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='6'>
+         <color>5</color>
+         <size>1</size>
+         <position>[4.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='7'>
+         <color>5</color>
+         <size>1</size>
+         <position>[5.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='8'>
+         <color>6</color>
+         <size>1</size>
+         <position>[5.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='9'>
+         <color>8</color>
+         <size>2</size>
+         <position>[4.0, 2.5]</position>
+         <width>2</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[1, -1]</value>
+         <value>[2, -2]</value>
+       </translation>
+     </consistent_transformations>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[5, 0, 0], [3, 5, 0], [0, 0, 5]], 'output': [[5, 3, 0], [0, 5, 0], [0, 0, 5]]},
+ {'input': [[5, 0, 0, 0], [0, 5, 0, 0], [6, 0, 5, 0], [6, 0, 4, 5]], 'output': [[5, 0, 6, 6], [0, 5, 0,
+ 0], [0, 0, 5, 4], [0, 0, 0, 5]]}, {'input': [[5, 0, 0, 0, 0], [0, 5, 0, 0, 0], [8, 8, 5, 0, 0], [0, 2, 0,
+ 5, 0], [0, 2, 0, 1, 5]], 'output': [[5, 0, 8, 0, 0], [0, 5, 8, 2, 2], [0, 0, 5, 0, 0], [0, 0, 0, 5, 1],
+ [0, 0, 0, 0, 5]]}], 'test': {'input': [[5, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0], [3, 3, 5, 0, 0, 0], [0, 0,
+ 0, 5, 0, 0], [2, 0, 8, 8, 5, 0], [2, 0, 6, 0, 0, 5]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 5 0 0
+ 3 5 0
+ 0 0 5
+ Example 1 Output:
+ 5 3 0
+ 0 5 0
+ 0 0 5
+ Example 2 Input:
+ 5 0 0 0
+ 0 5 0 0
+ 6 0 5 0
+ 6 0 4 5
+ Example 2 Output:
+ 5 0 6 6
+ 0 5 0 0
+ 0 0 5 4
+ 0 0 0 5
+ Example 3 Input:
+ 5 0 0 0 0
+ 0 5 0 0 0
+ 8 8 5 0 0
+ 0 2 0 5 0
+ 0 2 0 1 5
+ Example 3 Output:
+ 5 0 8 0 0
+ 0 5 8 2 2
+ 0 0 5 0 0
+ 0 0 0 5 1
+ 0 0 0 0 5
+ Test Input:
+ 5 0 0 0 0 0
+ 0 5 0 0 0 0
+ 3 3 5 0 0 0
+ 0 0 0 5 0 0
+ 2 0 8 8 5 0
+ 2 0 6 0 0 5
+ </ascii_grids>
+Response cost: $0.00226080 | Total cost: $0.00226080
+ API Response
+     "code": "import collections\n\ndef get_components(grid, initial_visited):\n    \"\"\"Finds connected
+ components of non-zero cells, respecting initial_visited.\"\"\"\n    rows = len(grid)\n    cols =
+ len(grid[0])\n    visited = [row[:] for row in initial_visited] # Make a deep copy\n    components = []\n
+ directions = [(-1, 0), (1, 0), (0, -1), (0, 1)] # Up, Down, Left, Right\n\n    for r in range(rows):\n
+ for c in range(cols):\n            # Start BFS/DFS from non-zero, unvisited cells\n            if
+ grid[r][c] != 0 and not visited[r][c]:\n                current_color = grid[r][c]\n
+ current_component_cells = []\n                q = collections.deque([(r, c)]) # Use deque for efficient
+ BFS\n                visited[r][c] = True\n\n                while q:\n                    curr_r, curr_c
+ = q.popleft() # Use popleft() for BFS\n                    current_component_cells.append((curr_r,
+ curr_c))\n\n                    for dr, dc in directions:\n                        next_r, next_c =
+ curr_r + dr, curr_c + dc\n\n                        # Check bounds\n                        if 0 <=
+ next_r < rows and 0 <= next_c < cols:\n                            # Neighbors are part of the same
+ component if they have the same color\n                            # and haven't been visited in *any*
+ component search yet.\n                            if grid[next_r][next_c] == current_color and not
+ visited[next_r][next_c]:\n                                visited[next_r][next_c] = True\n
+ q.append((next_r, next_c))\n\n                # Only add components that are not just single diagonal 5s
+ (these are handled separately)\n                # This check is technically redundant due to
+ initial_visited, but harmless.\n                is_diagonal_5_component = (current_color == 5 and
+ len(current_component_cells) == 1 and current_component_cells[0][0] == current_component_cells[0][1])\n
+ if not is_diagonal_5_component:\n                     components.append((current_color,
+ current_component_cells))\n\n    return components\n\ndef get_bounding_box_dims(cells):\n
+ \"\"\"Calculates the bounding box dimensions (min_row, min_col, height, width) for a list of
+ cells.\"\"\"\n    if not cells:\n        return 0, 0, 0, 0\n    min_row = min(r for r, c in cells)\n
+ max_row = max(r for r, c in cells)\n    min_col = min(c for r, c in cells)\n    max_col = max(c for r, c
+ in cells)\n    height = max_row - min_row + 1\n    width = max_col - min_col + 1\n    return min_row,
+ min_col, height, width\n\ndef rotate_90_cw_relative(relative_cells, original_width):\n    \"\"\"Rotates
+ relative cell coordinates 90 degrees clockwise based on original block width.\"\"\"\n
+ rotated_relative_cells = []\n    for rel_r, rel_c in relative_cells:\n        # Rotation formula (r, c)
+ -> (W - 1 - c, r) for WxH grid/block\n        new_rel_r = original_width - 1 - rel_c\n        new_rel_c =
+ rel_r\n        rotated_relative_cells.append((new_rel_r, new_rel_c))\n    return
+ rotated_relative_cells\n\ndef transform_grid(grid):\n    \"\"\"Transforms the input grid according to the
+ puzzle rules.\"\"\"\n    rows = len(grid)\n    cols = len(grid[0])\n\n    # Initialize output grid with
+ zeros\n    output_grid = [[0 for _ in range(cols)] for _ in range(rows)]\n\n    # Initialize blocked grid
+ to mark cells that cannot be overwritten (diagonal 5s)\n    blocked = [[False for _ in range(cols)] for _
+ in range(rows)]\n\n    # Identify and place diagonal 5s (they stay in place) and mark their positions as
+ blocked\n    for r in range(rows):\n        for c in range(cols):\n            if r == c and grid[r][c]
+ == 5:\n                output_grid[r][c] = 5\n                blocked[r][c] = True\n\n    # Find
+ components of non-zero cells, excluding the already handled diagonal 5s\n    # get_components uses the
+ 'blocked' grid to avoid starting search from diagonal 5s\n    # and avoids including them in components
+ of other colors.\n    components = get_components(grid, blocked)\n\n    # Process each found component
+ (non-diagonal 5s)\n    for color, cells in components:\n        min_row, min_col, height, width =
+ get_bounding_box_dims(cells)\n\n        target_placements = []\n        # Single cells (size 1) translate
+ by (r-1, c+1)\n        if len(cells) == 1:\n            r, c = cells[0]\n            new_r, new_c = r -
+ 1, c + 1\n            target_placements.append((new_r, new_c))\n        # Blocks (size >= 2) translate
+ top-left by (r-2, c+2) and rotate 90 deg CW\n        elif len(cells) >= 2:\n            r, c = min_row,
+ min_col # Original top-left of bounding box\n            new_r, new_c = r - 2, c + 2 # New top-left of
+ bounding box\n\n            # Calculate relative coordinates within the original bounding box\n
+ relative_cells = [(cell_r - min_row, cell_c - min_col) for cell_r, cell_c in cells]\n\n            #
+ Rotate the relative coordinates 90 degrees clockwise\n            rotated_relative_cells =
+ rotate_90_cw_relative(relative_cells, width)\n\n            # Calculate the absolute target positions for
+ the rotated block\n            for rel_r, rel_c in rotated_relative_cells:\n
+ target_placements.append((new_r + rel_r, new_c + rel_c))\n\n        # Check if the target placement for
+ the entire component is valid (within bounds and not blocked)\n        can_place = True\n
+ valid_target_cells = []\n        for tr, tc in target_placements:\n            if tr < 0 or tr >= rows or
+ tc < 0 or tc >= cols or blocked[tr][tc]:\n                can_place = False\n                break\n
+ valid_target_cells.append((tr, tc))\n\n        # If the placement is valid, draw the component in the
+ output grid\n        if can_place:\n            for tr, tc in valid_target_cells:\n
+ output_grid[tr][tc] = color\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The puzzle requires transforming an input grid based on the properties of connected
+ components of non-zero cells.\n\n1.  **Diagonal 5s Stay:** Cells with value 5 that are located on the
+ main diagonal (row == column) remain in their original positions. These positions are considered
+ 'blocked' for other moving objects.\n2.  **Other Non-zero Cells Move:** All other non-zero cells are part
+ of components (either single cells or blocks of connected cells). These components move and potentially
+ rotate.\n3.  **Single Cell Transformation:** Any component consisting of a single cell (not a diagonal 5)
+ is translated one step up and one step right (row - 1, column + 1).\n4.  **Block Transformation:** Any
+ component consisting of two or more connected cells (not just diagonal 5s) undergoes two
+ transformations:\n    *   Its bounding box's top-left corner is translated two steps up and two steps
+ right (row - 2, column + 2).\n    *   The shape of the block is rotated 90 degrees clockwise. The new
+ cell positions are calculated relative to the translated top-left corner after applying the relative
+ rotation.\n5.  **Placement:** The transformed components are placed in the output grid. A component is
+ only placed if all its target cells are within the grid boundaries and are not blocked by a diagonal 5
+ that stayed in place. Based on the examples, it appears transformed objects never land on a diagonal
+ 5.\n\nThe code implements this logic: it first identifies and places the diagonal 5s, marking their
+ positions as blocked. Then, it finds all other components using BFS while respecting the blocked
+ positions. Finally, for each movable component, it calculates the transformed positions based on size
+ (single vs. block) and rotation, checks for conflicts with blocked cells, and places the component if
+ there are no conflicts."
+ Generated Code
+ import collections
+ def get_components(grid, initial_visited):
+     """Finds connected components of non-zero cells, respecting initial_visited."""
+     rows = len(grid)
+     cols = len(grid[0])
+     visited = [row[:] for row in initial_visited] # Make a deep copy
+     components = []
+     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)] # Up, Down, Left, Right
+     for r in range(rows):
+         for c in range(cols):
+             # Start BFS/DFS from non-zero, unvisited cells
+             if grid[r][c] != 0 and not visited[r][c]:
+                 current_color = grid[r][c]
+                 current_component_cells = []
+                 q = collections.deque([(r, c)]) # Use deque for efficient BFS
+                 visited[r][c] = True
+                 while q:
+                     curr_r, curr_c = q.popleft() # Use popleft() for BFS
+                     current_component_cells.append((curr_r, curr_c))
+                     for dr, dc in directions:
+                         next_r, next_c = curr_r + dr, curr_c + dc
+                         # Check bounds
+                         if 0 <= next_r < rows and 0 <= next_c < cols:
+                             # Neighbors are part of the same component if they have the same color
+                             # and haven't been visited in *any* component search yet.
+                             if grid[next_r][next_c] == current_color and not visited[next_r][next_c]:
+                                 visited[next_r][next_c] = True
+                                 q.append((next_r, next_c))
+                 # Only add components that are not just single diagonal 5s (these are handled separately)
+                 # This check is technically redundant due to initial_visited, but harmless.
+                 is_diagonal_5_component = (current_color == 5 and len(current_component_cells) == 1 and
+ current_component_cells[0][0] == current_component_cells[0][1])
+                 if not is_diagonal_5_component:
+                      components.append((current_color, current_component_cells))
+     return components
+ def get_bounding_box_dims(cells):
+     """Calculates the bounding box dimensions (min_row, min_col, height, width) for a list of cells."""
+     if not cells:
+         return 0, 0, 0, 0
+     min_row = min(r for r, c in cells)
+     max_row = max(r for r, c in cells)
+     min_col = min(c for r, c in cells)
+     max_col = max(c for r, c in cells)
+     height = max_row - min_row + 1
+     width = max_col - min_col + 1
+     return min_row, min_col, height, width
+ def rotate_90_cw_relative(relative_cells, original_width):
+     """Rotates relative cell coordinates 90 degrees clockwise based on original block width."""
+     rotated_relative_cells = []
+     for rel_r, rel_c in relative_cells:
+         # Rotation formula (r, c) -> (W - 1 - c, r) for WxH grid/block
+         new_rel_r = original_width - 1 - rel_c
+         new_rel_c = rel_r
+         rotated_relative_cells.append((new_rel_r, new_rel_c))
+     return rotated_relative_cells
+ def transform_grid(grid):
+     """Transforms the input grid according to the puzzle rules."""
+     rows = len(grid)
+     cols = len(grid[0])
+     # Initialize output grid with zeros
+     output_grid = [[0 for _ in range(cols)] for _ in range(rows)]
+     # Initialize blocked grid to mark cells that cannot be overwritten (diagonal 5s)
+     blocked = [[False for _ in range(cols)] for _ in range(rows)]
+     # Identify and place diagonal 5s (they stay in place) and mark their positions as blocked
+     for r in range(rows):
+         for c in range(cols):
+             if r == c and grid[r][c] == 5:
+                 output_grid[r][c] = 5
+                 blocked[r][c] = True
+     # Find components of non-zero cells, excluding the already handled diagonal 5s
+     # get_components uses the 'blocked' grid to avoid starting search from diagonal 5s
+     # and avoids including them in components of other colors.
+     components = get_components(grid, blocked)
+     # Process each found component (non-diagonal 5s)
+     for color, cells in components:
+         min_row, min_col, height, width = get_bounding_box_dims(cells)
+         target_placements = []
+         # Single cells (size 1) translate by (r-1, c+1)
+         if len(cells) == 1:
+             r, c = cells[0]
+             new_r, new_c = r - 1, c + 1
+             target_placements.append((new_r, new_c))
+         # Blocks (size >= 2) translate top-left by (r-2, c+2) and rotate 90 deg CW
+         elif len(cells) >= 2:
+             r, c = min_row, min_col # Original top-left of bounding box
+             new_r, new_c = r - 2, c + 2 # New top-left of bounding box
+             # Calculate relative coordinates within the original bounding box
+             relative_cells = [(cell_r - min_row, cell_c - min_col) for cell_r, cell_c in cells]
+             # Rotate the relative coordinates 90 degrees clockwise
+             rotated_relative_cells = rotate_90_cw_relative(relative_cells, width)
+             # Calculate the absolute target positions for the rotated block
+             for rel_r, rel_c in rotated_relative_cells:
+                  target_placements.append((new_r + rel_r, new_c + rel_c))
+         # Check if the target placement for the entire component is valid (within bounds and not blocked)
+         can_place = True
+         valid_target_cells = []
+         for tr, tc in target_placements:
+             if tr < 0 or tr >= rows or tc < 0 or tc >= cols or blocked[tr][tc]:
+                 can_place = False
+                 break
+             valid_target_cells.append((tr, tc))
+         # If the placement is valid, draw the component in the output grid
+         if can_place:
+             for tr, tc in valid_target_cells:
+                 output_grid[tr][tc] = color
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[5, 3, 0], [0, 5, 0], [0, 0, 5]]
+Error executing generated code on training example 1: name 'get_components' is not defined
+Training example 2:
+Expected Output: [[5, 0, 6, 6], [0, 5, 0, 0], [0, 0, 5, 4], [0, 0, 0, 5]]
+Error executing generated code on training example 2: name 'get_components' is not defined
+Training example 3:
+Expected Output: [[5, 0, 8, 0, 0], [0, 5, 8, 2, 2], [0, 0, 5, 0, 0], [0, 0, 0, 5, 1], [0, 0, 0, 0, 5]]
+Error executing generated code on training example 3: name 'get_components' is not defined
+Not all training examples passed, skipping test case(s).
+Attempt 2 of 2
+ Request to gemini/gemini-2.5-flash-preview-04-17
+ Prompt: You are an expert at solving ARC challenge puzzles.
+ <task>
+ Write a function named transform_grid(grid) that transforms input grids to output grids.
+ - Input/Output: Takes a 2D list of integers, returns a 2D list of integers
+ - Must work for all examples and generalize to the test case
+ - Use only Python standard library functions
+ - Include comments explaining key steps
+ - Write concise, readable code without markdown annotations
+ </task>
+ <grid_info>
+ - Grids are 2D arrays of integers (0 represents empty space)
+ - Grid sizes vary - solution must be size-independent
+ - Same integer values maintain consistent meaning across grids
+ - All necessary information is in the input grid
+ - Positions are zero-indexed from top-left corner
+ </grid_info>
+ <puzzle_features>
+ <puzzle_analysis>
+   <training_examples>
+     <example_analysis>
+       <example_index>0</example_index>
+       <input_dimensions>[3, 3]</input_dimensions>
+       <output_dimensions>[3, 3]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[1.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>3</color>
+           <size>1</size>
+           <position>[0.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[1, -1]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[1, -1]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>1</example_index>
+       <input_dimensions>[4, 4]</input_dimensions>
+       <output_dimensions>[4, 4]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>4</color>
+           <size>1</size>
+           <position>[3.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>6</color>
+           <size>2</size>
+           <position>[2.5, 0.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <output_component id='0'>
+           <color>4</color>
+           <size>1</size>
+           <position>[2.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>6</color>
+           <size>2</size>
+           <position>[0.0, 2.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>4</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[1, -1]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>5</output_id>
+           <translation>[2, -2]</translation>
+           <shape_dimension_change>
+             <from_width_height>[1, 2]</from_width_height>
+             <to_width_height>[2, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[2, -2]</common_translation>
+       </example_patterns>
+     </example_analysis>
+     <example_analysis>
+       <example_index>2</example_index>
+       <input_dimensions>[5, 5]</input_dimensions>
+       <output_dimensions>[5, 5]</output_dimensions>
+       <input_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </input_symmetry>
+       <output_symmetry>
+         <horizontal>false</horizontal>
+         <vertical>false</vertical>
+         <rotational_180>false</rotational_180>
+       </output_symmetry>
+       <components>
+         <input_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[4.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='1'>
+           <color>2</color>
+           <size>2</size>
+           <position>[3.5, 1.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </input_component>
+         <input_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='5'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='6'>
+           <color>5</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </input_component>
+         <input_component id='7'>
+           <color>8</color>
+           <size>2</size>
+           <position>[2.0, 0.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </input_component>
+         <output_component id='0'>
+           <color>1</color>
+           <size>1</size>
+           <position>[3.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='1'>
+           <color>2</color>
+           <size>2</size>
+           <position>[1.0, 3.5]</position>
+           <width>2</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='2'>
+           <color>5</color>
+           <size>1</size>
+           <position>[0.0, 0.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='3'>
+           <color>5</color>
+           <size>1</size>
+           <position>[1.0, 1.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='4'>
+           <color>5</color>
+           <size>1</size>
+           <position>[2.0, 2.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='5'>
+           <color>5</color>
+           <size>1</size>
+           <position>[3.0, 3.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='6'>
+           <color>5</color>
+           <size>1</size>
+           <position>[4.0, 4.0]</position>
+           <width>1</width>
+           <height>1</height>
+         </output_component>
+         <output_component id='7'>
+           <color>8</color>
+           <size>2</size>
+           <position>[0.5, 2.0]</position>
+           <width>1</width>
+           <height>2</height>
+         </output_component>
+       </components>
+       <transformations>
+         <transformation>
+           <input_id>2</input_id>
+           <output_id>2</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>3</input_id>
+           <output_id>3</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>4</input_id>
+           <output_id>4</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>5</input_id>
+           <output_id>5</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>6</input_id>
+           <output_id>6</output_id>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>0</input_id>
+           <output_id>0</output_id>
+           <translation>[1, -1]</translation>
+           <potential_rotation_90>true</potential_rotation_90>
+         </transformation>
+         <transformation>
+           <input_id>7</input_id>
+           <output_id>7</output_id>
+           <translation>[2, -2]</translation>
+           <shape_dimension_change>
+             <from_width_height>[2, 1]</from_width_height>
+             <to_width_height>[1, 2]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+         <transformation>
+           <input_id>1</input_id>
+           <output_id>1</output_id>
+           <translation>[2, -2]</translation>
+           <shape_dimension_change>
+             <from_width_height>[1, 2]</from_width_height>
+             <to_width_height>[2, 1]</to_width_height>
+           </shape_dimension_change>
+         </transformation>
+       </transformations>
+       <example_patterns>
+         <common_translation>[2, -2]</common_translation>
+       </example_patterns>
+     </example_analysis>
+   </training_examples>
+   <test_input>
+     <dimensions>[6, 6]</dimensions>
+     <symmetry>
+       <horizontal>false</horizontal>
+       <vertical>false</vertical>
+       <rotational_180>false</rotational_180>
+     </symmetry>
+     <components>
+       <component id='0'>
+         <color>2</color>
+         <size>2</size>
+         <position>[4.5, 0.0]</position>
+         <width>1</width>
+         <height>2</height>
+       </component>
+       <component id='1'>
+         <color>3</color>
+         <size>2</size>
+         <position>[2.0, 0.5]</position>
+         <width>2</width>
+         <height>1</height>
+       </component>
+       <component id='2'>
+         <color>5</color>
+         <size>1</size>
+         <position>[0.0, 0.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='3'>
+         <color>5</color>
+         <size>1</size>
+         <position>[1.0, 1.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='4'>
+         <color>5</color>
+         <size>1</size>
+         <position>[2.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='5'>
+         <color>5</color>
+         <size>1</size>
+         <position>[3.0, 3.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='6'>
+         <color>5</color>
+         <size>1</size>
+         <position>[4.0, 4.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='7'>
+         <color>5</color>
+         <size>1</size>
+         <position>[5.0, 5.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='8'>
+         <color>6</color>
+         <size>1</size>
+         <position>[5.0, 2.0]</position>
+         <width>1</width>
+         <height>1</height>
+       </component>
+       <component id='9'>
+         <color>8</color>
+         <size>2</size>
+         <position>[4.0, 2.5]</position>
+         <width>2</width>
+         <height>1</height>
+       </component>
+     </components>
+   </test_input>
+   <global_patterns>
+     <consistent_transformations>
+       <translation>
+         <value>[1, -1]</value>
+         <value>[2, -2]</value>
+       </translation>
+     </consistent_transformations>
+   </global_patterns>
+ </puzzle_analysis>
+ </puzzle_features>
+ Here is the puzzle:
+ {'train': [{'input': [[5, 0, 0], [3, 5, 0], [0, 0, 5]], 'output': [[5, 3, 0], [0, 5, 0], [0, 0, 5]]},
+ {'input': [[5, 0, 0, 0], [0, 5, 0, 0], [6, 0, 5, 0], [6, 0, 4, 5]], 'output': [[5, 0, 6, 6], [0, 5, 0,
+ 0], [0, 0, 5, 4], [0, 0, 0, 5]]}, {'input': [[5, 0, 0, 0, 0], [0, 5, 0, 0, 0], [8, 8, 5, 0, 0], [0, 2, 0,
+ 5, 0], [0, 2, 0, 1, 5]], 'output': [[5, 0, 8, 0, 0], [0, 5, 8, 2, 2], [0, 0, 5, 0, 0], [0, 0, 0, 5, 1],
+ [0, 0, 0, 0, 5]]}], 'test': {'input': [[5, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0], [3, 3, 5, 0, 0, 0], [0, 0,
+ 0, 5, 0, 0], [2, 0, 8, 8, 5, 0], [2, 0, 6, 0, 0, 5]]}}
+ <ascii_grids>
+ Train Examples:
+ Example 1 Input:
+ 5 0 0
+ 3 5 0
+ 0 0 5
+ Example 1 Output:
+ 5 3 0
+ 0 5 0
+ 0 0 5
+ Example 2 Input:
+ 5 0 0 0
+ 0 5 0 0
+ 6 0 5 0
+ 6 0 4 5
+ Example 2 Output:
+ 5 0 6 6
+ 0 5 0 0
+ 0 0 5 4
+ 0 0 0 5
+ Example 3 Input:
+ 5 0 0 0 0
+ 0 5 0 0 0
+ 8 8 5 0 0
+ 0 2 0 5 0
+ 0 2 0 1 5
+ Example 3 Output:
+ 5 0 8 0 0
+ 0 5 8 2 2
+ 0 0 5 0 0
+ 0 0 0 5 1
+ 0 0 0 0 5
+ Test Input:
+ 5 0 0 0 0 0
+ 0 5 0 0 0 0
+ 3 3 5 0 0 0
+ 0 0 0 5 0 0
+ 2 0 8 8 5 0
+ 2 0 6 0 0 5
+ </ascii_grids>
+ <previous_attempts>
+ Your following attempted solutions failed to correctly solve the puzzle.
+ Propose a new strategy that is different from these previous approaches.
+ Attempt 1 Reasoning:
+ The puzzle requires transforming an input grid based on the properties of connected components of
+ non-zero cells.
+ 1.  **Diagonal 5s Stay:** Cells with value 5 that are located on the main diagonal (row == column) remain
+ in their original positions. These positions are considered 'blocked' for other moving objects.
+ 2.  **Other Non-zero Cells Move:** All other non-zero cells are part of components (either single cells
+ or blocks of connected cells). These components move and potentially rotate.
+ 3.  **Single Cell Transformation:** Any component consisting of a single cell (not a diagonal 5) is
+ translated one step up and one step right (row - 1, column + 1).
+ 4.  **Block Transformation:** Any component consisting of two or more connected cells (not just diagonal
+ 5s) undergoes two transformations:
+     *   Its bounding box's top-left corner is translated two steps up and two steps right (row - 2,
+ column + 2).
+     *   The shape of the block is rotated 90 degrees clockwise. The new cell positions are calculated
+ relative to the translated top-left corner after applying the relative rotation.
+ 5.  **Placement:** The transformed components are placed in the output grid. A component is only placed
+ if all its target cells are within the grid boundaries and are not blocked by a diagonal 5 that stayed in
+ place. Based on the examples, it appears transformed objects never land on a diagonal 5.
+ The code implements this logic: it first identifies and places the diagonal 5s, marking their positions
+ as blocked. Then, it finds all other components using BFS while respecting the blocked positions.
+ Finally, for each movable component, it calculates the transformed positions based on size (single vs.
+ block) and rotation, checks for conflicts with blocked cells, and places the component if there are no
+ conflicts.
+ Result: failed training examples (failed on examples: 1, 2, 3)
+ Your solution must use a new approach that differs from the failed attempts above.
+ </previous_attempts>
+Response cost: $0.00241365 | Total cost: $0.00467445
+ API Response
+     "code": "def transform_grid(grid):\n    \"\"\"\n    Transforms an input grid based on specific rules
+ for diagonal 5s and other components.\n\n    1. Diagonal 5s remain in place.\n    2. Other non-zero cells
+ form connected components.\n    3. Size 1 components (not diagonal 5s) translate (-1, +1).\n    4. Size >
+ 1 components translate (-2, +2) (top-left of bounding box) and rotate 90 deg clockwise.\n    5.
+ Components are only placed if target cells are valid and not occupied by original diagonal 5s.\n
+ \"\"\"\n    rows = len(grid)\n    cols = len(grid[0])\n    output_grid = [[0 for _ in range(cols)] for _
+ in range(rows)]\n    visited = set()\n    diagonal_fives_positions = set()\n\n    # Step 1: Handle
+ diagonal 5s and mark as visited/blocked\n    for i in range(min(rows, cols)):\n        if grid[i][i] ==
+ 5:\n            output_grid[i][i] = 5\n            visited.add((i, i))\n
+ diagonal_fives_positions.add((i, i))\n\n    # Helper function for BFS neighbors\n    def get_neighbors(r,
+ c):\n        neighbors = []\n        for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:\n            nr,
+ nc = r + dr, c + dc\n            if 0 <= nr < rows and 0 <= nc < cols:\n
+ neighbors.append((nr, nc))\n        return neighbors\n\n    # Step 2-5: Find and process other
+ components\n    for r in range(rows):\n        for c in range(cols):\n            # If cell is non-zero
+ and hasn't been visited (either as diagonal 5 or part of previous component)\n            if grid[r][c]
+ != 0 and (r, c) not in visited:\n                # Found a new component start cell\n
+ component_cells = []\n                component_color = grid[r][c]\n                q = [(r, c)]\n
+ visited.add((r, c)) # Mark starting cell as visited\n\n                # BFS to find all cells in the
+ connected component of the same color\n                while q:\n                    curr_r, curr_c =
+ q.pop(0)\n                    component_cells.append((curr_r, curr_c))\n\n                    for nr, nc
+ in get_neighbors(curr_r, curr_c):\n                        # Only add neighbor if it has the same color
+ and hasn't been visited yet\n                        if grid[nr][nc] == component_color and (nr, nc) not
+ in visited:\n                            visited.add((nr, nc))\n                            q.append((nr,
+ nc))\n\n                # Process the found component\n                size = len(component_cells)\n\n
+ if size == 1:\n                    # Size 1 component: Translate (-1, +1)\n                    r_cell,
+ c_cell = component_cells[0]\n                    new_r, new_c = r_cell - 1, c_cell + 1\n
+ color = grid[r_cell][c_cell] # Use color from the original cell\n\n                    # Check if target
+ position is valid and not on a static diagonal 5\n                    if 0 <= new_r < rows and 0 <= new_c
+ < cols and (new_r, new_c) not in diagonal_fives_positions:\n
+ output_grid[new_r][new_c] = color\n\n                else:\n                    # Size > 1 component:
+ Translate (-2, +2) and rotate 90 degrees\n\n                    # Find bounding box of the original
+ component cells\n                    min_r = min(cell[0] for cell in component_cells)\n
+ max_r = max(cell[0] for cell in component_cells)\n                    min_c = min(cell[1] for cell in
+ component_cells)\n                    max_c = max(cell[1] for cell in component_cells)\n\n
+ bbox_height = max_r - min_r + 1\n\n                    # Calculate the new top-left position based on
+ translation (-2, +2)\n                    new_min_r = min_r - 2\n                    new_min_c = min_c +
+ 2\n\n                    new_cells = []\n                    valid_placement = True\n
+ color = grid[r][c] # Color is the same for all cells in the component\n\n                    # Calculate
+ new positions for each cell based on rotation\n                    # Rotation formula for a point (dr,
+ dc) relative to top-left in a HxW box\n                    # rotated 90 deg clockwise is (dc, H - 1 - dr)
+ relative to the new top-left\n                    for r_cell, c_cell in component_cells:\n
+ # Relative position within original bounding box\n                        dr = r_cell - min_r\n
+ dc = c_cell - min_c\n\n                        # Apply rotation formula\n                        dr_prime
+ = dc\n                        dc_prime = bbox_height - 1 - dr\n\n                        # New absolute
+ position by adding rotated relative position to new top-left\n                        new_r = new_min_r +
+ dr_prime\n                        new_c = new_min_c + dc_prime\n
+ new_cells.append((new_r, new_c))\n\n                        # Check validity of the new position: within
+ bounds and not on a static diagonal 5\n                        if not (0 <= new_r < rows and 0 <= new_c <
+ cols) or (new_r, new_c) in diagonal_fives_positions:\n                            valid_placement =
+ False\n                            # If any target cell is invalid, the whole component is not placed\n
+ break\n\n                    # If all target positions are valid, place the component in the output
+ grid\n                    if valid_placement:\n                        for nr, nc in new_cells:\n
+ output_grid[nr][nc] = color\n\n    return output_grid",
+     "solution": [
+     "reasoning": "The puzzle involves transforming a grid by moving non-diagonal objects while keeping
+ diagonal '5's fixed. Diagonal '5's act as static obstacles. Other non-zero cells form connected
+ components that are either single cells or blocks.\n\n1.  **Identify and Fix Diagonal 5s:** The core
+ observation is that cells with value 5 located on the main diagonal (row index equals column index)
+ remain in their original positions. These cells are copied directly to the output grid and their
+ positions are marked as 'visited' and stored in a set `diagonal_fives_positions` to check for conflicts
+ later.\n2.  **Find Other Components:** Iterate through the grid row by row, column by column. For any
+ non-zero cell `(r, c)` that has not been visited (meaning it's not a fixed diagonal 5 and hasn't been
+ processed as part of a previous component), start a Breadth-First Search (BFS). The BFS explores
+ connected cells (up, down, left, right) that have the same non-zero color as the starting cell and have
+ not been visited yet. All cells found during this traversal constitute a single connected component. Mark
+ all cells in the component as 'visited' in the main `visited` set to avoid processing them again.\n3.
+ **Transform Components Based on Size:**\n    *   **Size 1 Components:** If a component consists of
+ exactly one cell `(r_cell, c_cell)`, its transformation is a simple translation. The new position is
+ `(r_cell - 1, c_cell + 1)`, moving one step up and one step right.\n    *   **Size > 1 Components
+ (Blocks):** If a component contains more than one cell, it's treated as a block. This transformation has
+ two parts: (a) Translation of the reference point: The top-left corner `(min_r, min_c)` of the
+ component's bounding box is translated by `(-2, +2)`, resulting in a potential new top-left `(new_min_r,
+ new_min_c) = (min_r - 2, min_c + 2)`. (b) Rotation of the shape: The shape of the block is rotated 90
+ degrees clockwise. For each cell `(r_cell, c_cell)` in the original component, its position relative to
+ the original bounding box top-left is `(dr, dc) = (r_cell - min_r, c_cell - min_c)`. The rotated relative
+ position `(dr', dc')` is calculated using the formula `(dc, bbox_height - 1 - dr)`, where `bbox_height`
+ is the height of the *original* bounding box. The new absolute position for the cell is then `(new_r,
+ new_c) = (new_min_r + dr', new_min_c + dc')`.\n4.  **Place Transformed Components:** Before placing a
+ transformed component in the `output_grid`, all its calculated target positions (`new_cells`) must be
+ validated. A target position `(nr, nc)` is valid if it is within the bounds of the grid (`0 <= nr < rows`
+ and `0 <= nc < cols`) and is not present in the `diagonal_fives_positions` set (i.e., it does not land on
+ a position occupied by a static diagonal 5). If *all* target positions for the component are valid, the
+ component's color is placed at these positions in the `output_grid`. If even one target position is
+ invalid, the entire component is discarded and not placed.\n\nAfter iterating through the entire grid and
+ processing all non-visited, non-zero components, the `output_grid` contains the transformed grid."
+ Generated Code
+ def transform_grid(grid):
+     """
+     Transforms an input grid based on specific rules for diagonal 5s and other components.
+     1. Diagonal 5s remain in place.
+     2. Other non-zero cells form connected components.
+     3. Size 1 components (not diagonal 5s) translate (-1, +1).
+     4. Size > 1 components translate (-2, +2) (top-left of bounding box) and rotate 90 deg clockwise.
+     5. Components are only placed if target cells are valid and not occupied by original diagonal 5s.
+     """
+     rows = len(grid)
+     cols = len(grid[0])
+     output_grid = [[0 for _ in range(cols)] for _ in range(rows)]
+     visited = set()
+     diagonal_fives_positions = set()
+     # Step 1: Handle diagonal 5s and mark as visited/blocked
+     for i in range(min(rows, cols)):
+         if grid[i][i] == 5:
+             output_grid[i][i] = 5
+             visited.add((i, i))
+             diagonal_fives_positions.add((i, i))
+     # Helper function for BFS neighbors
+     def get_neighbors(r, c):
+         neighbors = []
+         for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+             nr, nc = r + dr, c + dc
+             if 0 <= nr < rows and 0 <= nc < cols:
+                 neighbors.append((nr, nc))
+         return neighbors
+     # Step 2-5: Find and process other components
+     for r in range(rows):
+         for c in range(cols):
+             # If cell is non-zero and hasn't been visited (either as diagonal 5 or part of previous
+ component)
+             if grid[r][c] != 0 and (r, c) not in visited:
+                 # Found a new component start cell
+                 component_cells = []
+                 component_color = grid[r][c]
+                 q = [(r, c)]
+                 visited.add((r, c)) # Mark starting cell as visited
+                 # BFS to find all cells in the connected component of the same color
+                 while q:
+                     curr_r, curr_c = q.pop(0)
+                     component_cells.append((curr_r, curr_c))
+                     for nr, nc in get_neighbors(curr_r, curr_c):
+                         # Only add neighbor if it has the same color and hasn't been visited yet
+                         if grid[nr][nc] == component_color and (nr, nc) not in visited:
+                             visited.add((nr, nc))
+                             q.append((nr, nc))
+                 # Process the found component
+                 size = len(component_cells)
+                 if size == 1:
+                     # Size 1 component: Translate (-1, +1)
+                     r_cell, c_cell = component_cells[0]
+                     new_r, new_c = r_cell - 1, c_cell + 1
+                     color = grid[r_cell][c_cell] # Use color from the original cell
+                     # Check if target position is valid and not on a static diagonal 5
+                     if 0 <= new_r < rows and 0 <= new_c < cols and (new_r, new_c) not in
+ diagonal_fives_positions:
+                          output_grid[new_r][new_c] = color
+                 else:
+                     # Size > 1 component: Translate (-2, +2) and rotate 90 degrees
+                     # Find bounding box of the original component cells
+                     min_r = min(cell[0] for cell in component_cells)
+                     max_r = max(cell[0] for cell in component_cells)
+                     min_c = min(cell[1] for cell in component_cells)
+                     max_c = max(cell[1] for cell in component_cells)
+                     bbox_height = max_r - min_r + 1
+                     # Calculate the new top-left position based on translation (-2, +2)
+                     new_min_r = min_r - 2
+                     new_min_c = min_c + 2
+                     new_cells = []
+                     valid_placement = True
+                     color = grid[r][c] # Color is the same for all cells in the component
+                     # Calculate new positions for each cell based on rotation
+                     # Rotation formula for a point (dr, dc) relative to top-left in a HxW box
+                     # rotated 90 deg clockwise is (dc, H - 1 - dr) relative to the new top-left
+                     for r_cell, c_cell in component_cells:
+                         # Relative position within original bounding box
+                         dr = r_cell - min_r
+                         dc = c_cell - min_c
+                         # Apply rotation formula
+                         dr_prime = dc
+                         dc_prime = bbox_height - 1 - dr
+                         # New absolute position by adding rotated relative position to new top-left
+                         new_r = new_min_r + dr_prime
+                         new_c = new_min_c + dc_prime
+                         new_cells.append((new_r, new_c))
+                         # Check validity of the new position: within bounds and not on a static diagonal
+                         if not (0 <= new_r < rows and 0 <= new_c < cols) or (new_r, new_c) in
+ diagonal_fives_positions:
+                             valid_placement = False
+                             # If any target cell is invalid, the whole component is not placed
+                             break
+                     # If all target positions are valid, place the component in the output grid
+                     if valid_placement:
+                         for nr, nc in new_cells:
+                             output_grid[nr][nc] = color
+     return output_grid
+Testing on training examples:
+Training example 1:
+Expected Output: [[5, 3, 0], [0, 5, 0], [0, 0, 5]]
+Got Output: [[5, 3, 0], [0, 5, 0], [0, 0, 5]]
+✓ Passed
+Training example 2:
+Expected Output: [[5, 0, 6, 6], [0, 5, 0, 0], [0, 0, 5, 4], [0, 0, 0, 5]]
+Got Output: [[5, 0, 6, 6], [0, 5, 0, 0], [0, 0, 5, 4], [0, 0, 0, 5]]
+✓ Passed
+Training example 3:
+Expected Output: [[5, 0, 8, 0, 0], [0, 5, 8, 2, 2], [0, 0, 5, 0, 0], [0, 0, 0, 5, 1], [0, 0, 0, 0, 5]]
+Got Output: [[5, 0, 8, 0, 0], [0, 5, 8, 2, 2], [0, 0, 5, 0, 0], [0, 0, 0, 5, 1], [0, 0, 0, 0, 5]]
+✓ Passed
+All training examples passed, testing on test case(s)...
+Test case 1:
+Expected Output: [[5, 0, 3, 0, 2, 2], [0, 5, 3, 0, 0, 0], [0, 0, 5, 0, 8, 6], [0, 0, 0, 5, 8, 0], [0, 0, 0,
+0, 5, 0], [0, 0, 0, 0, 0, 5]]
+Got Output: [[5, 0, 3, 0, 0, 0], [0, 5, 3, 0, 0, 0], [0, 0, 5, 0, 8, 0], [0, 0, 0, 5, 8, 0], [0, 0, 0, 6, 5,
+0], [0, 0, 0, 0, 0, 5]]
+         Grid Comparison
+ Correct Answer  Solution
+ 5 0 3 0 2 2     5 0 3 0 0 0
+ 0 5 3 0 0 0     0 5 3 0 0 0
+ 0 0 5 0 8 6     0 0 5 0 8 0
+ 0 0 0 5 8 0     0 0 0 5 8 0
+ 0 0 0 0 5 0     0 0 0 6 5 0
+ 0 0 0 0 0 5     0 0 0 0 0 5
+Match for test case 1: No
+❌ Failed on this test case
+Failed on 1 out of 1 test cases.
+Reasoning: The puzzle involves transforming a grid by moving non-diagonal objects while keeping diagonal '5's
+fixed. Diagonal '5's act as static obstacles. Other non-zero cells form connected components that are either
+single cells or blocks.
+1.  **Identify and Fix Diagonal 5s:** The core observation is that cells with value 5 located on the main
+diagonal (row index equals column index) remain in their original positions. These cells are copied directly
+to the output grid and their positions are marked as 'visited' and stored in a set `diagonal_fives_positions`
+to check for conflicts later.
+2.  **Find Other Components:** Iterate through the grid row by row, column by column. For any non-zero cell
+`(r, c)` that has not been visited (meaning it's not a fixed diagonal 5 and hasn't been processed as part of
+a previous component), start a Breadth-First Search (BFS). The BFS explores connected cells (up, down, left,
+right) that have the same non-zero color as the starting cell and have not been visited yet. All cells found
+during this traversal constitute a single connected component. Mark all cells in the component as 'visited'
+in the main `visited` set to avoid processing them again.
+3.  **Transform Components Based on Size:**
+    *   **Size 1 Components:** If a component consists of exactly one cell `(r_cell, c_cell)`, its
+transformation is a simple translation. The new position is `(r_cell - 1, c_cell + 1)`, moving one step up
+and one step right.
+    *   **Size > 1 Components (Blocks):** If a component contains more than one cell, it's treated as a
+block. This transformation has two parts: (a) Translation of the reference point: The top-left corner
+`(min_r, min_c)` of the component's bounding box is translated by `(-2, +2)`, resulting in a potential new
+top-left `(new_min_r, new_min_c) = (min_r - 2, min_c + 2)`. (b) Rotation of the shape: The shape of the block
+is rotated 90 degrees clockwise. For each cell `(r_cell, c_cell)` in the original component, its position
+relative to the original bounding box top-left is `(dr, dc) = (r_cell - min_r, c_cell - min_c)`. The rotated
+relative position `(dr', dc')` is calculated using the formula `(dc, bbox_height - 1 - dr)`, where
+`bbox_height` is the height of the *original* bounding box. The new absolute position for the cell is then
+`(new_r, new_c) = (new_min_r + dr', new_min_c + dc')`.
+4.  **Place Transformed Components:** Before placing a transformed component in the `output_grid`, all its
+calculated target positions (`new_cells`) must be validated. A target position `(nr, nc)` is valid if it is
+within the bounds of the grid (`0 <= nr < rows` and `0 <= nc < cols`) and is not present in the
+`diagonal_fives_positions` set (i.e., it does not land on a position occupied by a static diagonal 5). If
+*all* target positions for the component are valid, the component's color is placed at these positions in the
+`output_grid`. If even one target position is invalid, the entire component is discarded and not placed.
+After iterating through the entire grid and processing all non-visited, non-zero components, the
+`output_grid` contains the transformed grid.
+REPORT: Failure to solve 9dfd6313.json in 2 attempts. Time: 0:03:20
+Overall Results:
+                              Puzzle Solving Performance (Summary)
+┳┳┳
+ Model                                  Puzzles Solved  Total Puzzles  Puzzle Success Rate
+╇╇╇
+ gemini/gemini-2.5-flash-preview-04-17  0               1              0.0%
+                                             Performance Details
+┳┳┳┳┳
+ Test Cases Passed  Total Test Cases  Test Case Success Rate  Avg Time/Puzzle  Total Time  Total Cost
+╇╇╇╇╇
+ 0                  1                 0.0%                    0:03:20          0:03:20     $0.0047
+==================================================
