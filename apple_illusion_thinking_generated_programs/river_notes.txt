@@ -1,0 +1,54 @@
+boat capacity 4 is needed to go past N 5 and then 4 takes us to 12 (21 moves)
+                                                  4 takes us to 13 (23 moves)   66 seconds
+                                                  5             14 (21 moves)  656 seconds
+
+
+Please write a small program to solve the river-crossing problem, with rules which I provide
+below.  Have the program accept a single cmd-line arg for the value of N.  Have it print each
+individual move.
+Here are the rules:
+
+River Crossing is a constraint satisfaction planning puzzle that tests multi-
+agent coordination and constraint management. This puzzle is a generalization of classic problems
+such as the Missionaries and Cannibals problem and the Bridge and Torch problem, which have been
+widely studied in planning literature [45, 46]. The river crossing puzzle involves N actors (denoted by
+a1,a2, ..., aN )andtheircorrespondingN agents(denotedbyA1,A2,..., AN )whomustcrossariverus-
+ing a boat. In the initial state, all 2N individuals are on the left bank of the river. The goal is to trans-
+port everyone safely to the right bank. The puzzle operates under several key movement constraints:
+(1) Boat Capacity Constraint: The boat can carry at most k individuals at a time, where k is typically
+set to 2 for smaller puzzles (N ≤ 3) and 3 for larger puzzles (N ≤ 5); (2) Non-Empty Boat Constraint:
+The boat cannot travel empty and must have at least one person aboard; (3) Safety Constraint: An
+actor cannot be in the presence of another agent unless their own agent is also present, as agents must
+protect their clients from competing agents. This safety constraint applies both on the banks and in
+theboat
+
+
+--------
+
+The program runs but finds no solution for N=10. This could be due to:
+
+  1. No valid solution exists for N=10 with the given constraints
+  2. Search space explosion - with 20 people (10 actors + 10 agents), the state space becomes
+  enormous (2^20 possible states per boat position)
+  3. Memory limitations - BFS stores all visited states, which grows exponentially
+
+  For large N values like 10, you'd likely need:
+  - A more efficient search algorithm (A*, iterative deepening)
+  - Optimized state representation
+  - Or the problem may simply be unsolvable with standard boat capacities
+
+  The current implementation works well for small N (≤3) but hits computational limits beyond that.
+
+----
+Yes, it works for N=5! The program successfully finds a solution in 11 moves. With N=5, it uses a
+   boat capacity of 3 (as specified in the rules for N≤5), and the larger boat capacity makes the
+  problem solvable even with 10 people total.
+
+  The key difference is that N=5 with boat capacity 3 is still within the tractable range, while
+  N=10 with 20 people creates a much larger search space that either has no solution or exceeds the
+   program's computational limits.
+
+The issue isn't computational limits but that no valid solutions exist for N≥6 with the given
+  constraints. The safety constraint becomes too restrictive - with 6+ actors/agents and only 3
+  boat capacity, it's mathematically impossible to satisfy all movement and safety requirements.
+

@@ -1,0 +1,36 @@
+
+Please write program to play the game of Towers of Hanoi.  It should accept a single cmd-line
+arg which is the number of disks in the game.  Print the start and end configuration.
+Since large numbers of disks may require many moves, only print individual moves for small numbers.
+Print the total number of moves made.
+
+Here are the rules:
+The Tower of Hanoi is a classic recursive puzzle that serves as a great
+problem for evaluating sequential reasoning and planning capabilities in reasoning models. The
+puzzle consists of three pegs (labeled 0, 1, and 2 from left to right) and N disks of varying sizes,
+where each disk is uniquely numbered from 1 (smallest) to N (largest). In the initial configuration,
+all N disks are stacked on the leftmost peg (peg 0) in descending order of size, with the largest disk
+at the bottom and the smallest at the top. The remaining two pegs (1 and 2) are initially empty.
+The goal is to transfer all disks from peg 0 to peg 2, maintaining the same size ordering (largest
+at bottom, smallest at top). This puzzle is governed by three fundamental constraints: (1) Single
+Disk Movement: Only one disk may be moved at a time; (2) Top Disk Access: Only the topmost
+disk from any peg can be selected for movement; and (3) Size Ordering Constraint: A larger disk
+may never be placed on top of a smaller disk.
+
+From claude after the program was written:
+I've created hanoi.py with a smart approach to intermediate state printing:
+
+  For ≤4 disks: Shows each move step-by-step with visual tower states, since this is educational
+  and manageable (at most 15 moves).
+
+  For >4 disks: Shows only start state, end state, and total move count, since it gets verbose
+  quickly (31 moves for 5 disks, 63 for 6 disks, etc.).
+
+  The program includes:
+  - Visual ASCII representation of the towers and disks
+  - Command-line argument validation
+  - Safety warning for very large numbers of disks
+  - Move counter that matches the theoretical minimum (2^n - 1)
+
+  You can test it with: python hanoi.py 3 (shows all steps) or python hanoi.py 5 (condensed
+  output).
