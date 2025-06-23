@@ -1,0 +1,27 @@
+The difficulty of this puzzle can be scaled by adjusting several parameters: the number of
+blocks, the number of stacks, and the complexity of the initial and goal configurations.
+We primarily control complexity through the block count N, while following clear
+structural patterns in the initial and goal configurations. In our experimental design,
+the initial configuration consistently divides the N blocks between two stacks in
+alphabetical order, with the third stack empty as workspace. The goal configuration
+consolidates all blocks onto the first stack in a systematic interleaved pattern that
+alternates between blocks from the two initial stacks, with specific positioning that
+requires complete disassembly and reassembly of the existing stacks.
+
+For example, for N = 4, the initial state has blocks divided between two stacks
+    [["A", "B"], ["C", "D"], []] and the goal state
+    [["D", "B", "C", "A"], [], []]
+requires interleaving blocks from both stacks; and for N = 6, the initial state
+    [["A", "B", "C"], ["D", "E", "F"], []]     must be transformed to
+    [["F", "C", "E", "B", "D", "A"], [], []]   forming a complex alternating pattern. 
+
+----
+
+Perfect! The program is working correctly now. The goal state matches your expected pattern [9,
+  5, 8, 4, 7, 3, 6, 2, 1] and the solver found an 18-move solution.
+
+  The program successfully:
+  - Parses input strings like "1 2 3 4 5 0 6 7 8 9"
+  - Generates the correct goal state using alternating pattern (middle→left→middle→left...)
+  - Uses BFS to find the minimum number of moves
+  - Shows clear step-by-step solution

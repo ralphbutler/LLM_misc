@@ -1,0 +1,17 @@
+
+The towers and checkers puzzles are pretty easy for the tester; about all you have to do is
+pick a value for N and run the program.  For the river problem, it is more complicated because
+you have set two hyper-parameters, N (2N) for travelers, and K for the boat capacity.  Then,
+the blocks puzzle can be more complex because not only can you vary the number of blocks, and
+the number of stacks, but you also have to choose the starting and ending configurations.
+
+For river, I ran a variety of tests to determine values for N and K that work well together.
+For blocks, the authors made a set of simplifying assumptions about number of stacks and start
+and end configurations.  So, I went with those and told claude to write the program using
+those constraints.
+
+The 4 programs are attached and I think they meet the spirit of the authors' intentions well.
+
+My guess is that the authors of the paper would not be impressed because they were trying to
+measure raw reasoning ability of the LLMs.  Whereas we measured code-writing ability.
+

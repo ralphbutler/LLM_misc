@@ -1,0 +1,24 @@
+Please write a program to solve the blocks puzzle.
+The puzzle involves multiple stacks of blocks that must be rearranged from an initial
+configuration to a specified goal configuration.
+Each block is uniquely identified by its number, and the objective is to find the minimum
+sequence of moves needed to transform the initial state into the goal state.
+So, we might have these initial 3 stacks:  [[1,2], [3,4], []]
+and this goal state: [[4,2,3,1], [], []]
+The top block is always the right-most in a list.
+The puzzle operates only under two fundamental constraints:
+    (1) Top Block Movement: Only the topmost block from any stack can be moved; and
+    (2) Valid Placement: A block can only be placed either on an empty position or on top of another block
+
+Our tests will always have exactly 3 stacks, and the right one will always start empty.
+Write a program that takes values on the cmd-line that provide the starting configuration,
+where 0 separates the two stack values.
+For example:  1 2 3 4 5 0 6 7 8 9
+shows left stack with values 1 2 3 4 5 where 5 is at the top,
+and 6 7 8 9 on right stack with 9 on top.
+
+The final configuration of the left stack should be:
+    9 5 8 4 7 3 6 2 1
+We move one from top of each stack onto left stack, and then put any remainders on top.
+
+Ask clarifying questions if needed.

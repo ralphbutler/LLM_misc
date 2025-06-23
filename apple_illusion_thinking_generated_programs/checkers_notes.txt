@@ -1,0 +1,22 @@
+It prints every single move.
+I forgot to time how long to write the program, but I would guess 30 seconds.
+20 checkers per side took 440 moves in 44 seconds on my M4 MBP.
+
+We are going to write a new program that performs moves similar to checkers.  The board starts 
+with N red checkers on the left (we will call them 1 instead of red) and N blue checkers on the
+right (we will call them 2 instead of blue).  I am going to give you the rules of the game here
+and I ask that you write a small python program to solve the puzzle for N red and N blue
+checkers.  The value of N should be provided by the user as the only cmd-line arg in sys.argv[1].
+Here are the rules: 
+Checker Jumping is a one-dimensional constraint-satisfaction puzzle
+designed to test sequential reasoning, planning, and rule understanding capabilities. The puzzle
+consists of a linear arrangement of red checkers (’R’), blue checkers (’B’), and a single empty space
+(’_’). In the standard configuration, N red checkers are positioned on the left side, followed by an
+empty space in the middle, and N blue checkers on the right side, forming a linear board of length
+2N + 1. The objective is to swap the positions of all red and blue checkers, effectively mirroring the
+initial configuration, where red checkers end up on the right and blue checkers on the left. Movement
+in this puzzle is governed by two fundamental rules: (1) Slide Movement: A checker can slide
+forward into an adjacent empty space; and (2) Jump Movement: A checker can jump forward over
+exactly one checker of the opposite color to land in an empty space. Therefore, checkers cannot
+move backward toward their starting side—red checkers can only move rightward, and blue checkers
+can only move leftward from the initial configuration.
