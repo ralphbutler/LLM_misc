@@ -51,6 +51,26 @@ Subprocess-based MCP servers providing access to the P3-Tools command-line suite
 
 **Total Tools:** 73+ tools across all categories
 
+## 🧪 Specialized Analysis Servers
+
+### Mutation Variant Analysis Server
+**File:** `mutation_variant_analysis_server.py`
+
+Focused MCP server for cancer genetics and variant analysis, providing:
+- **ClinVar variant lookup** - Search pathogenicity and clinical significance
+- **Protein structure discovery** - PDB and AlphaFold structure information  
+- **Pathway analysis** - KEGG biological pathway associations
+- **Therapy search** - Targeted treatments and clinical trial discovery
+
+### Sequence Analysis Server  
+**File:** `sequence_analysis_server.py`
+
+DNA sequence analysis MCP server offering:
+- **Basic sequence statistics** - GC content, base composition, length analysis
+- **Reading frame analysis** - ORF detection across all six frames
+- **Codon usage calculation** - Frequency analysis and amino acid usage
+- **NCBI BLAST searches** - Homology searches with result monitoring
+
 ## 🚀 Usage
 
 These MCP servers are designed to integrate with Claude and other AI systems to provide seamless access to bioinformatics data and analysis capabilities. Each server handles authentication, error management, and provides structured JSON responses.
