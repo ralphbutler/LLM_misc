@@ -47,7 +47,7 @@ def run_p3_tool(command: List[str], input_data: str = None, timeout: int = 300,
         
         # Add shell piping for limiting results if specified
         if limit_results and limit_results > 0:
-            command_str += f" | head -n {limit_results + 1}"  # +1 for header
+            command_str += f" | head -n {limit_results + 3}"  # +3 for welcome line, empty line, and header
         
         full_command = f"source /Applications/BV-BRC.app/user-env.sh && {command_str}"
         
@@ -205,7 +205,7 @@ def robust_p3_execution(command: List[str], input_data: str = None,
 def parse_p3_tabular_output(output: str) -> List[Dict[str, str]]:
     """
     Parse standard P3-Tools tabular output into list of dictionaries
-    Filters out BV-BRC welcome messages and handles headers properly
+    Filters out BV-BRC welcome messages and handles multi-line fields properly
     
     Args:
         output: Raw stdout from P3 tool
@@ -218,12 +218,12 @@ def parse_p3_tabular_output(output: str) -> List[Dict[str, str]]:
     
     lines = output.strip().split('\n')
     
-    # Filter out welcome message and non-data lines
-    data_lines = []
+    # Filter out welcome message and find header
     headers = None
     found_header = False
+    data_start_idx = 0
     
-    for line in lines:
+    for i, line in enumerate(lines):
         # Skip welcome messages
         if "Welcome to the BV-BRC" in line:
             continue
@@ -237,30 +237,92 @@ def parse_p3_tabular_output(output: str) -> List[Dict[str, str]]:
             # This is likely the header row
             headers = line.split('\t')
             found_header = True
+            data_start_idx = i + 1
+            break
+    
+    if not headers:
+        return []
+    
+    # Clean up header names (remove prefixes like 'genome.' for readability)
+    clean_headers = []
+    for header in headers:
+        clean_header = header
+        for prefix in ['genome.', 'subsystem.', 'feature.', 'drug.', 'taxonomy.']:
+            if header.startswith(prefix):
+                clean_header = header.replace(prefix, '')
+                break
+        clean_headers.append(clean_header)
+    
+    # Get remaining data lines after header
+    data_lines = lines[data_start_idx:]
+    if not data_lines:
+        return []
+    
+    # Strategy: Find record start points by looking for lines that start with non-whitespace
+    # and contain at least some tabs, then parse each record by accumulating fields
+    results = []
+    num_cols = len(headers)
+    import re
+    
+    # Identify potential record start lines
+    # These should start with non-whitespace and have tabs
+    potential_starts = []
+    for i, line in enumerate(data_lines):
+        # Skip empty lines
+        if not line.strip():
+            continue
+        # Lines starting with just tabs are continuation lines
+        if line.startswith('\t'):
+            continue
+        # Lines with no tabs are likely continuation text
+        if '\t' not in line:
+            continue
+        # This looks like a record start
+        potential_starts.append(i)
+    
+    # Process each potential record
+    for i, start_idx in enumerate(potential_starts):
+        # Determine end of this record (start of next record or end of data)
+        if i + 1 < len(potential_starts):
+            end_idx = potential_starts[i + 1]
+        else:
+            end_idx = len(data_lines)
+        
+        # Combine all lines for this record
+        record_lines = data_lines[start_idx:end_idx]
+        record_text = '\n'.join(record_lines)
+        
+        # Parse fields carefully
+        # Start by splitting on tabs, but handle the last field specially
+        # since it may contain embedded newlines
+        parts = record_text.split('\t')
+        
+        # We need exactly num_cols fields
+        if len(parts) >= num_cols:
+            # Take the first num_cols-1 fields directly
+            fields = parts[:num_cols-1]
+            # The last field is everything remaining joined back with tabs
+            last_field = '\t'.join(parts[num_cols-1:])
+            fields.append(last_field)
+        elif len(parts) == num_cols - 1:
+            # Missing the last field - might be empty
+            fields = parts + ['']
+        else:
+            # Not enough fields, skip this record
             continue
         
-        # This is actual data
-        if found_header:
-            data_lines.append(line)
-    
-    # Parse data rows
-    results = []
-    if headers and data_lines:
-        # Clean up header names (remove prefixes like 'genome.' for readability)
-        clean_headers = []
-        for header in headers:
-            clean_header = header
-            for prefix in ['genome.', 'subsystem.', 'feature.', 'drug.', 'taxonomy.']:
-                if header.startswith(prefix):
-                    clean_header = header.replace(prefix, '')
-                    break
-            clean_headers.append(clean_header)
+        # Clean up fields
+        cleaned_fields = []
+        for field in fields:
+            # Strip leading/trailing whitespace and normalize internal whitespace
+            cleaned_field = field.strip()
+            # Replace multiple whitespace with single spaces
+            cleaned_field = re.sub(r'\s+', ' ', cleaned_field)
+            cleaned_fields.append(cleaned_field)
         
-        for line in data_lines:
-            values = line.split('\t')
-            if len(values) == len(clean_headers):
-                row_dict = dict(zip(clean_headers, values))
-                results.append(row_dict)
+        # Create the record
+        row_dict = dict(zip(clean_headers, cleaned_fields))
+        results.append(row_dict)
     
     return results
 
@@ -347,7 +409,8 @@ def p3_all_drugs(drug_name: Optional[str] = None,
                  drug_class: Optional[str] = None,
                  additional_filters: Optional[List[str]] = None,
                  attributes: Optional[List[str]] = None,
-                 count_only: bool = False) -> str:
+                 count_only: bool = False,
+                 limit: int = 1000) -> str:
     """
     Get drug/antimicrobial data using p3-all-drugs
     
@@ -357,6 +420,7 @@ def p3_all_drugs(drug_name: Optional[str] = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         JSON string with drug data or error information
@@ -387,7 +451,9 @@ def p3_all_drugs(drug_name: Optional[str] = None,
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = robust_p3_execution(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
@@ -477,7 +543,8 @@ def p3_all_subsystem_roles(subsystem_name: Optional[str] = None,
                           role_name: Optional[str] = None,
                           additional_filters: Optional[List[str]] = None,
                           attributes: Optional[List[str]] = None,
-                          count_only: bool = False) -> str:
+                          count_only: bool = False,
+                          limit: int = 1000) -> str:
     """
     Get subsystem functional roles using p3-all-subsystem-roles
     
@@ -487,6 +554,7 @@ def p3_all_subsystem_roles(subsystem_name: Optional[str] = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         JSON string with subsystem role data or error information
@@ -517,7 +585,9 @@ def p3_all_subsystem_roles(subsystem_name: Optional[str] = None,
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = robust_p3_execution(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
@@ -537,7 +607,8 @@ def p3_all_subsystems(subsystem_class: Optional[str] = None,
                      subsystem_name: Optional[str] = None,
                      additional_filters: Optional[List[str]] = None,
                      attributes: Optional[List[str]] = None,
-                     count_only: bool = False) -> str:
+                     count_only: bool = False,
+                     limit: int = 1000) -> str:
     """
     Get subsystem data using p3-all-subsystems
     
@@ -547,6 +618,7 @@ def p3_all_subsystems(subsystem_class: Optional[str] = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         JSON string with subsystem data or error information
@@ -571,18 +643,22 @@ def p3_all_subsystems(subsystem_class: Optional[str] = None,
             for attr in attributes:
                 command.extend(['--attr', attr])
         else:
-            # Default subsystem attributes
-            default_attrs = ['subsystem_id', 'subsystem_name', 'class', 'subclass', 
-                           'description', 'role_count']
+            # Default subsystem attributes (including potentially problematic fields)
+            default_attrs = ['subsystem_id', 'subsystem_name', 'class', 'subclass', 'description', 'role_count']
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = robust_p3_execution(command)
+    # Execute command without shell piping limit for count_only, apply limit after parsing for others
+    limit_results = None if count_only else None  # Don't use shell piping for limiting
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
             return json.dumps({'count': result['stdout'].strip()}, indent=2)
         parsed_data = parse_p3_tabular_output(result['stdout'])
+        # Apply limit by slicing the parsed data array to get exact number requested
+        if limit and limit > 0:
+            parsed_data = parsed_data[:limit]
         return json.dumps({'success': True, 'data': parsed_data, 'count': len(parsed_data)}, indent=2)
     else:
         return json.dumps({
@@ -598,7 +674,8 @@ def p3_all_taxonomies(taxon_name: Optional[str] = None,
                      taxon_id: Optional[int] = None,
                      additional_filters: Optional[List[str]] = None,
                      attributes: Optional[List[str]] = None,
-                     count_only: bool = False) -> str:
+                     count_only: bool = False,
+                     limit: int = 1000) -> str:
     """
     Get taxonomic data using p3-all-taxonomies
     
@@ -609,6 +686,7 @@ def p3_all_taxonomies(taxon_name: Optional[str] = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         JSON string with taxonomic data or error information
@@ -641,7 +719,9 @@ def p3_all_taxonomies(taxon_name: Optional[str] = None,
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = robust_p3_execution(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
