@@ -49,13 +49,17 @@ import json
 from typing import List, Dict, Any, Optional
 
 # Core execution functions
-def run_p3_tool(command: List[str], input_data: str = None, timeout: int = 300) -> Dict[str, Any]:
+def run_p3_tool(command: List[str], input_data: str = None, timeout: int = 300,
+                limit_results: int = None) -> Dict[str, Any]:
     # Implementation from P3_TOOLS_GUIDE_CORE.md
+    # limit_results uses shell piping with head command
     pass
 
 def robust_p3_execution(command: List[str], input_data: str = None, 
-                       timeout: int = 300, max_retries: int = 2) -> Dict[str, Any]:
+                       timeout: int = 300, max_retries: int = 2,
+                       limit_results: int = None) -> Dict[str, Any]:
     # Implementation from P3_TOOLS_GUIDE_CORE.md
+    # limit_results parameter added for token management
     pass
 
 def parse_p3_tabular_output(output: str) -> List[Dict[str, str]]:
@@ -241,7 +245,8 @@ contig_count = p3_all_contigs(genome_id="83333.111", count_only=True)
 def p3_all_drugs(drug_name: str = None, drug_class: str = None,
                  additional_filters: List[str] = None,
                  attributes: List[str] = None,
-                 count_only: bool = False) -> List[Dict[str, str]]:
+                 count_only: bool = False,
+                 limit: int = 1000) -> List[Dict[str, str]]:
     """
     Get drug/antimicrobial data using p3-all-drugs
     
@@ -251,6 +256,7 @@ def p3_all_drugs(drug_name: str = None, drug_class: str = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         List of dictionaries with drug data
@@ -281,7 +287,9 @@ def p3_all_drugs(drug_name: str = None, drug_class: str = None,
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = run_p3_tool(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
@@ -291,9 +299,9 @@ def p3_all_drugs(drug_name: str = None, drug_class: str = None,
         return []
 
 # Usage examples
-all_drugs = p3_all_drugs()
-antibiotics = p3_all_drugs(drug_class="Antibiotic")
-penicillin_drugs = p3_all_drugs(drug_name="Penicillin")
+all_drugs = p3_all_drugs(limit=500)  # Limit to 500 results
+antibiotics = p3_all_drugs(drug_class="Antibiotic", limit=200)
+penicillin_drugs = p3_all_drugs(drug_name="Penicillin", limit=50)
 ```
 
 ### p3-all-genomes - Complete Genome Records
@@ -366,7 +374,8 @@ k12_genomes = p3_all_genomes(species="Escherichia coli", strain="K-12")
 def p3_all_subsystem_roles(subsystem_name: str = None, role_name: str = None,
                           additional_filters: List[str] = None,
                           attributes: List[str] = None,
-                          count_only: bool = False) -> List[Dict[str, str]]:
+                          count_only: bool = False,
+                          limit: int = 1000) -> List[Dict[str, str]]:
     """
     Get subsystem functional roles using p3-all-subsystem-roles
     
@@ -376,6 +385,7 @@ def p3_all_subsystem_roles(subsystem_name: str = None, role_name: str = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         List of dictionaries with subsystem role data
@@ -406,7 +416,9 @@ def p3_all_subsystem_roles(subsystem_name: str = None, role_name: str = None,
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = run_p3_tool(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
@@ -416,9 +428,9 @@ def p3_all_subsystem_roles(subsystem_name: str = None, role_name: str = None,
         return []
 
 # Usage examples
-all_roles = p3_all_subsystem_roles()
-glycolysis_roles = p3_all_subsystem_roles(subsystem_name="Glycolysis")
-kinase_roles = p3_all_subsystem_roles(role_name="kinase")
+all_roles = p3_all_subsystem_roles(limit=500)  # Limit to 500 results
+glycolysis_roles = p3_all_subsystem_roles(subsystem_name="Glycolysis", limit=100)
+kinase_roles = p3_all_subsystem_roles(role_name="kinase", limit=50)
 ```
 
 ### p3-all-subsystems - Subsystem Data
@@ -426,7 +438,8 @@ kinase_roles = p3_all_subsystem_roles(role_name="kinase")
 def p3_all_subsystems(subsystem_class: str = None, subsystem_name: str = None,
                      additional_filters: List[str] = None,
                      attributes: List[str] = None,
-                     count_only: bool = False) -> List[Dict[str, str]]:
+                     count_only: bool = False,
+                     limit: int = 1000) -> List[Dict[str, str]]:
     """
     Get subsystem data using p3-all-subsystems
     
@@ -436,6 +449,7 @@ def p3_all_subsystems(subsystem_class: str = None, subsystem_name: str = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         List of dictionaries with subsystem data
@@ -460,13 +474,16 @@ def p3_all_subsystems(subsystem_class: str = None, subsystem_name: str = None,
             for attr in attributes:
                 command.extend(['--attr', attr])
         else:
-            # Default subsystem attributes
+            # Default subsystem attributes (includes all comprehensive fields)
+            # Note: Enhanced parsing now handles multi-line descriptions and empty fields
             default_attrs = ['subsystem_id', 'subsystem_name', 'class', 'subclass', 
                            'description', 'role_count']
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = run_p3_tool(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
@@ -476,9 +493,9 @@ def p3_all_subsystems(subsystem_class: str = None, subsystem_name: str = None,
         return []
 
 # Usage examples
-all_subsystems = p3_all_subsystems()
-metabolism_subsystems = p3_all_subsystems(subsystem_class="Metabolism")
-amino_acid_subsystems = p3_all_subsystems(additional_filters=["subclass,Amino Acids and Derivatives"])
+all_subsystems = p3_all_subsystems(limit=500)  # Limit to 500 results
+metabolism_subsystems = p3_all_subsystems(subsystem_class="Metabolism", limit=200)
+amino_acid_subsystems = p3_all_subsystems(additional_filters=["subclass,Amino Acids and Derivatives"], limit=100)
 ```
 
 ### p3-all-taxonomies - Taxonomic Data
@@ -487,7 +504,8 @@ def p3_all_taxonomies(taxon_name: str = None, taxon_rank: str = None,
                      taxon_id: int = None,
                      additional_filters: List[str] = None,
                      attributes: List[str] = None,
-                     count_only: bool = False) -> List[Dict[str, str]]:
+                     count_only: bool = False,
+                     limit: int = 1000) -> List[Dict[str, str]]:
     """
     Get taxonomic data using p3-all-taxonomies
     
@@ -498,6 +516,7 @@ def p3_all_taxonomies(taxon_name: str = None, taxon_rank: str = None,
         additional_filters: Additional --eq filters
         attributes: Fields to return
         count_only: Return count instead of records
+        limit: Maximum number of results (implemented via shell piping)
     
     Returns:
         List of dictionaries with taxonomic data
@@ -530,7 +549,9 @@ def p3_all_taxonomies(taxon_name: str = None, taxon_rank: str = None,
             for attr in default_attrs:
                 command.extend(['--attr', attr])
     
-    result = run_p3_tool(command)
+    # Use shell piping for limiting unless doing count_only
+    limit_results = None if count_only else limit
+    result = robust_p3_execution(command, limit_results=limit_results)
     
     if result['success']:
         if count_only:
@@ -540,9 +561,11 @@ def p3_all_taxonomies(taxon_name: str = None, taxon_rank: str = None,
         return []
 
 # Usage examples
-all_species = p3_all_taxonomies(taxon_rank="species")
-ecoli_taxonomy = p3_all_taxonomies(taxon_name="Escherichia coli")
-bacteria_taxonomy = p3_all_taxonomies(taxon_id=2)  # Bacteria kingdom
+all_species = p3_all_taxonomies(taxon_rank="species", limit=500)  # Limit to 500 results
+ecoli_taxonomy = p3_all_taxonomies(taxon_name="Escherichia coli", limit=100)  # Limit to 100 results
+bacteria_taxonomy = p3_all_taxonomies(taxon_id=2, limit=50)  # Bacteria kingdom, limited to 50
+# To avoid token limits with large result sets:
+mycobacterium_limited = p3_all_taxonomies(taxon_name="Mycobacterium tuberculosis", limit=100)
 ```
 
 ## p3-get-* Tools (26 tools)
@@ -1376,6 +1399,46 @@ ecoli_analysis = comprehensive_genome_analysis("Escherichia coli")
 ```
 
 ## Best Practices
+
+### Managing Large Result Sets and Token Limits
+
+**Important Note**: Some queries can return very large datasets that exceed MCP token limits (25,000 tokens). Use the `limit` parameter to control result size:
+
+```python
+# Token Limit Management Examples
+
+# BAD: This may exceed token limits
+all_mycobacterium = p3_all_taxonomies(taxon_name="Mycobacterium tuberculosis")
+
+# GOOD: Use limit to control result size
+mycobacterium_sample = p3_all_taxonomies(taxon_name="Mycobacterium tuberculosis", limit=100)
+
+# For exploration, start small and increase as needed
+small_sample = p3_all_taxonomies(taxon_name="Escherichia coli", limit=10)
+larger_sample = p3_all_taxonomies(taxon_name="Escherichia coli", limit=50)
+
+# Use count_only to check total results before retrieving data
+result_count = p3_all_taxonomies(taxon_name="Mycobacterium tuberculosis", count_only=True)
+print(f"Total results available: {result_count[0]['count']}")
+
+# Then use appropriate limit based on count
+if int(result_count[0]['count']) > 1000:
+    # Large dataset - use smaller limit
+    data = p3_all_taxonomies(taxon_name="Mycobacterium tuberculosis", limit=100)
+else:
+    # Smaller dataset - can use default limit
+    data = p3_all_taxonomies(taxon_name="Mycobacterium tuberculosis")
+```
+
+**Functions with `limit` parameter support**:
+- `p3_all_contigs(limit=1000)` 
+- `p3_all_genomes(limit=1000)`
+- `p3_all_taxonomies(limit=1000)` ✨ *Recently added*
+- `p3_all_drugs(limit=1000)` ✨ *Recently added*
+- `p3_all_subsystem_roles(limit=1000)` ✨ *Recently added*
+- `p3_all_subsystems(limit=1000)` ✨ *Recently added*
+
+**All `p3_all_*` functions now support the `limit` parameter!**
 
 ### Efficient Data Retrieval
 ```python
