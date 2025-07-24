@@ -360,11 +360,22 @@ def p3_submit_msa(sequences: Dict[str, str],
     sequence_file = create_temp_input_file(fasta_content, '.fasta')
     
     try:
-        command = ['p3-submit-MSA', output_path, output_name]
+        # Upload FASTA file to workspace first
+        workspace_fasta_path = f"{output_path}/msa_input_{output_name}.fasta"
+        upload_command = ['p3-cp', sequence_file, f'ws:{workspace_fasta_path}']
+        upload_result = robust_p3_execution(upload_command, timeout=60)
         
-        # P3 MSA doesn't have alignment-method parameter, it uses default method
-        command.extend(['--fasta-file', sequence_file])
-        command.extend(['--workspace-upload-path', output_path])
+        if not upload_result['success']:
+            return json.dumps({
+                'submitted': False,
+                'error': f"Failed to upload FASTA file to workspace: {upload_result['stderr']}",
+                'service': 'MSA',
+                'diagnosis': {'error_type': 'upload_failed', 'retry_recommended': True}
+            }, indent=2)
+        
+        # Submit MSA job using workspace file
+        command = ['p3-submit-MSA', output_path, output_name]
+        command.extend(['--fasta-file', f'ws:{workspace_fasta_path}'])
         
         if additional_params:
             for param, value in additional_params.items():
@@ -379,7 +390,8 @@ def p3_submit_msa(sequences: Dict[str, str],
                 'alignment_method': alignment_method,
                 'output_path': output_path,
                 'output_name': output_name,
-                'sequence_count': len(sequences)
+                'sequence_count': len(sequences),
+                'input_file': workspace_fasta_path
             })
             return json.dumps(job_info, indent=2)
         else:
