@@ -231,7 +231,7 @@ def p3_submit_msa(sequences: Dict[str, str],
         sequences: Dict of sequence_id -> sequence
         output_path: Workspace output directory  
         output_name: Job name/output prefix
-        alignment_method: Alignment algorithm (muscle, clustalw, mafft)
+        alignment_method: Alignment algorithm (kept for API compatibility, but P3-MSA uses default method)
         additional_params: Additional parameters
     
     Returns:
@@ -242,10 +242,21 @@ def p3_submit_msa(sequences: Dict[str, str],
     sequence_file = create_temp_input_file(fasta_content, '.fasta')
     
     try:
-        command = ['p3-submit-MSA', output_path, output_name]
+        # Upload FASTA file to workspace first
+        workspace_fasta_path = f"{output_path}/msa_input_{output_name}.fasta"
+        upload_command = ['p3-cp', sequence_file, f'ws:{workspace_fasta_path}']
+        upload_result = run_p3_tool(upload_command, timeout=60)
         
-        command.extend(['--alignment-method', alignment_method])
-        command.extend(['--sequence-file', sequence_file])
+        if not upload_result['success']:
+            return {
+                'submitted': False,
+                'error': f"Failed to upload FASTA file to workspace: {upload_result['stderr']}",
+                'service': 'MSA'
+            }
+        
+        # Submit MSA job using workspace file
+        command = ['p3-submit-MSA', output_path, output_name]
+        command.extend(['--fasta-file', f'ws:{workspace_fasta_path}'])
         
         if additional_params:
             for param, value in additional_params.items():
@@ -259,7 +270,9 @@ def p3_submit_msa(sequences: Dict[str, str],
                 'service': 'MSA',
                 'alignment_method': alignment_method,
                 'output_path': output_path,
-                'output_name': output_name
+                'output_name': output_name,
+                'sequence_count': len(sequences),
+                'input_file': workspace_fasta_path
             })
             return job_info
         else:
