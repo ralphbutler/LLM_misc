@@ -993,8 +993,7 @@ def p3_get_feature_sequence(feature_ids: List[str],
     
     command = ['p3-get-feature-sequence']
     
-    if sequence_type == 'protein':
-        command.append('--protein')
+    command.append('--' + sequence_type)
     
     result = robust_p3_execution(command, input_data=stdin_data)
     
