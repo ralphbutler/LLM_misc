@@ -226,6 +226,9 @@ async def get_genes_by_name(gene_name: str, genome_ids: Optional[List[str]] = No
                           limit: int = 100, offset: int = 0) -> str:
     """Find genes by name across genomes
     
+    ⚠️  COORDINATE SYSTEM WARNING: start/end coordinates are CONTIG-RELATIVE!
+    Always use the sequence_id field when extracting sequences.
+    
     Args:
         gene_name: Gene name/symbol
         genome_ids: Limit to specific genomes (optional)
@@ -241,7 +244,7 @@ async def get_genes_by_name(gene_name: str, genome_ids: Optional[List[str]] = No
     else:
         params = f"eq(gene,{gene_query})&limit({limit},{offset})"
     
-    params += "&select(genome_id,patric_id,gene,product,start,end,strand)"
+    params += "&select(genome_id,patric_id,gene,product,start,end,strand,sequence_id)"
     
     result = await safe_api_request(url, params)
     return json.dumps(result, indent=2)
@@ -250,6 +253,9 @@ async def get_genes_by_name(gene_name: str, genome_ids: Optional[List[str]] = No
 async def get_cds_features(genome_id: str, limit: int = 1000, offset: int = 0) -> str:
     """Get all CDS features for a genome
     
+    ⚠️  COORDINATE SYSTEM WARNING: start/end coordinates are CONTIG-RELATIVE!
+    Always use the sequence_id field when extracting sequences.
+    
     Args:
         genome_id: BV-BRC genome ID
         limit: Maximum number of results (default: 1000)
@@ -257,7 +263,7 @@ async def get_cds_features(genome_id: str, limit: int = 1000, offset: int = 0) -
     """
     url = f"{BASE_URL}genome_feature/"
     params = f"and(eq(genome_id,{genome_id}),eq(feature_type,CDS))&limit({limit},{offset})"
-    params += "&select(patric_id,gene,product,start,end,strand,aa_length)"
+    params += "&select(patric_id,gene,product,start,end,strand,sequence_id,aa_length)"
     
     result = await safe_api_request(url, params)
     return json.dumps(result, indent=2)
@@ -317,11 +323,16 @@ async def analyze_gene_across_genomes(gene_name: str, species: str, max_genomes:
     # Step 3: Extract sequences for each gene instance
     gene_sequences = []
     for feature in gene_features:
+        # Skip if sequence_id is missing (required for correct extraction)
+        if not feature.get('sequence_id'):
+            continue
+            
         sequence_result = await extract_gene_sequence(
             feature['genome_id'],
             feature['start'],
             feature['end'],
-            feature['strand']
+            feature['strand'],
+            feature['sequence_id']
         )
         sequence_data = json.loads(sequence_result)
         
@@ -397,28 +408,39 @@ async def get_genome_sequence(genome_id: str) -> str:
     return json.dumps(result, indent=2)
 
 @mcp.tool()
-async def extract_gene_sequence(genome_id: str, start: int, end: int, strand: str) -> str:
+async def extract_gene_sequence(genome_id: str, start: int, end: int, strand: str, sequence_id: str) -> str:
     """Extract gene sequence using coordinates
+    
+    ⚠️  CRITICAL COORDINATE SYSTEM WARNING ⚠️
+    
+    Gene coordinates from genome_feature endpoint are CONTIG-RELATIVE, not genome-relative!
+    You MUST use the sequence_id (contig ID) to get the correct contig sequence.
+    
+    WRONG: Using coordinates directly on full genome sequence
+    RIGHT: Get specific contig sequence using sequence_id, then apply coordinates
     
     Args:
         genome_id: BV-BRC genome ID
-        start: Start coordinate (1-based)
-        end: End coordinate (1-based)
+        start: Start coordinate (1-based, contig-relative)
+        end: End coordinate (1-based, contig-relative)  
         strand: Strand orientation (fwd or rev)
+        sequence_id: Contig/sequence identifier (e.g., '2077273.86.con.0059')
     """
-    # Get full genome sequence
-    genome_result = await get_genome_sequence(genome_id)
-    genome_data = json.loads(genome_result)
+    # Get specific contig sequence (NOT full genome sequence)
+    url = f"{BASE_URL}genome_sequence/"
+    params = f"and(eq(genome_id,{genome_id}),eq(sequence_id,{sequence_id}))&select(sequence)"
     
-    if not genome_data.get("success") or not genome_data.get("data") or len(genome_data["data"]) == 0:
-        return json.dumps({"success": False, "error": "Genome sequence not found"}, indent=2)
+    result = await safe_api_request(url, params)
     
-    genome_seq = genome_data["data"][0].get('sequence')
-    if not genome_seq:
+    if not result.get("success") or not result.get("data") or len(result["data"]) == 0:
+        return json.dumps({"success": False, "error": "Contig sequence not found"}, indent=2)
+    
+    contig_seq = result["data"][0].get('sequence')
+    if not contig_seq:
         return json.dumps({"success": False, "error": "Sequence field not found"}, indent=2)
     
     # Extract subsequence (convert to 0-based indexing)
-    gene_seq = genome_seq[start-1:end]
+    gene_seq = contig_seq[start-1:end]
     
     # Handle reverse strand
     if strand == 'rev':

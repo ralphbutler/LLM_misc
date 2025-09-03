@@ -168,9 +168,10 @@ def get_genomes_by_ids(genome_ids):
 - `feature_id` - Alternative feature identifier
 - `gene` - Gene name/symbol
 - `product` - Protein product description
-- `start` - Start coordinate (1-based)
-- `end` - End coordinate (1-based)
+- `start` - Start coordinate (1-based, **CONTIG-RELATIVE**)
+- `end` - End coordinate (1-based, **CONTIG-RELATIVE**)
 - `strand` - Strand orientation ("fwd" or "rev")
+- `sequence_id` - **CRITICAL**: Contig/sequence identifier (required for sequence extraction)
 - `feature_type` - Type (CDS, rRNA, tRNA, etc.)
 - `go_terms` - Gene Ontology terms
 - `ec_number` - Enzyme Commission number
@@ -178,6 +179,11 @@ def get_genomes_by_ids(genome_ids):
 - `protein_id` - Protein identifier
 - `aa_length` - Amino acid sequence length
 - `na_length` - Nucleotide sequence length
+
+> **⚠️ COORDINATE SYSTEM WARNING:** 
+> The `start` and `end` coordinates are **contig-relative**, not genome-relative!
+> Always use the `sequence_id` field to identify which contig contains the feature.
+> Using coordinates directly on the full genome sequence will give incorrect results.
 
 #### Common Queries
 ```python
@@ -192,7 +198,7 @@ def get_genes_by_name(gene_name, genome_ids=None, limit=100):
     else:
         params = f"eq(gene,{gene_query})&limit({limit})"
     
-    params += "&select(genome_id,patric_id,gene,product,start,end,strand)"
+    params += "&select(genome_id,patric_id,gene,product,start,end,strand,sequence_id)"
     
     response = requests.get(f"{url}?{params}", headers=HEADERS)
     return response.json() if response.status_code == 200 else None
@@ -201,7 +207,7 @@ def get_cds_features(genome_id, limit=1000):
     """Get all CDS features for a genome"""
     url = "https://www.bv-brc.org/api/genome_feature/"
     params = f"and(eq(genome_id,{genome_id}),eq(feature_type,CDS))&limit({limit})"
-    params += "&select(patric_id,gene,product,start,end,strand,aa_length)"
+    params += "&select(patric_id,gene,product,start,end,strand,sequence_id,aa_length)"
     
     response = requests.get(f"{url}?{params}", headers=HEADERS)
     return response.json() if response.status_code == 200 else None
@@ -252,17 +258,40 @@ def get_genome_sequence(genome_id):
         return data[0]  # Usually one sequence per genome
     return None
 
-def extract_gene_sequence(genome_id, start, end, strand):
-    """Extract gene sequence using coordinates"""
-    # Get full genome sequence
-    genome_data = get_genome_sequence(genome_id)
-    if not genome_data or 'sequence' not in genome_data:
-        return None
+def extract_gene_sequence(genome_id, start, end, strand, sequence_id):
+    """Extract gene sequence using coordinates
     
-    genome_seq = genome_data['sequence']
+    ⚠️  CRITICAL COORDINATE SYSTEM WARNING ⚠️
+    
+    Gene coordinates from genome_feature endpoint are CONTIG-RELATIVE, not genome-relative!
+    You MUST use the sequence_id (contig ID) to get the correct contig sequence.
+    
+    WRONG: Using coordinates directly on full genome sequence
+    RIGHT: Get specific contig sequence using sequence_id, then apply coordinates
+    
+    Args:
+        genome_id: BV-BRC genome identifier  
+        start: Start coordinate (1-based, contig-relative)
+        end: End coordinate (1-based, contig-relative)
+        strand: Strand orientation ('fwd' or 'rev')
+        sequence_id: Contig/sequence identifier (e.g., '2077273.86.con.0059')
+    """
+    # Get specific contig sequence (NOT full genome sequence)
+    url = f"https://www.bv-brc.org/api/genome_sequence/"
+    params = f"and(eq(genome_id,{genome_id}),eq(sequence_id,{sequence_id}))&select(sequence)"
+    
+    response = requests.get(f"{url}?{params}", headers=HEADERS)
+    if response.status_code != 200:
+        return None
+        
+    data = response.json()
+    if not data or not data[0].get('sequence'):
+        return None
+        
+    contig_seq = data[0]['sequence']
     
     # Extract subsequence (convert to 0-based indexing)
-    gene_seq = genome_seq[start-1:end]
+    gene_seq = contig_seq[start-1:end]
     
     # Handle reverse strand
     if strand == 'rev':
