@@ -1,0 +1,25 @@
+
+Solve this logic riddle in the most effective way.
+
+You are trapped in a skyscraper with an elevator system that operates under
+peculiar rules. Each floor has a unique condition that determines how the
+elevator moves. Your goal is to reach the top floor (Floor 30) starting from the
+ground floor (Floor 0), using the elevator efficiently.
+
+Elevator Rules:
+Button A: Moves you up n+1 floors, where n is the current floor number.
+          If this action would land you on a floor divisible by 5, the elevator sends you back to n/2.
+Button B: Moves you up 4 floors but subtracts 3 from the new floor if the resulting floor is even.
+Button C: Moves you down 7 floors, but if the floor you land on is a prime number, you immediately bounce back up 10 floors.
+Button D: Moves you to the next floor that is a multiple of 3 (always up).
+Button E: Moves you up 2 floors and doubles the number of floors moved if the current floor number is odd.
+
+Challenge:
+Determine the shortest sequence of button presses to reach Floor 30.
+Track your movement across all floors and provide a step-by-step explanation of your path.
+If multiple paths are possible, find the one with the fewest presses and explain why it is optimal.
+
+Extra Layer of Complexity:
+Introduce "trap floors":
+Trap Floor 13: You cannot press any button other than Button D here.
+Trap Floor 22: If you land here, you are forced to go back to Floor 10.

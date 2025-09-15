@@ -1,0 +1,79 @@
+# Extraction Test Configuration
+# Small focused test set for evaluating answer extraction capabilities
+# Tests different answer formats that challenge LLM-based extraction
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Multiple choice - clear A/B/C/D format
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 2    # Clean multiple choice format
+
+  # Multiple choice - different format style
+  piqa:
+    path: "piqa"
+    format: "huggingface"
+    trust_remote_code: true
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 2    # Different MC presentation
+
+  # Numerical answers - integers
+  gsm8k:
+    path: "openai/gsm8k"
+    format: "huggingface"
+    config: "main"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 3    # Pure numerical answers
+
+  # Complex numerical - competition math
+  competition_math:
+    path: "qwedsacf/competition_math"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "real"
+    counts:
+      easy: 2    # May have fractions, decimals
+
+  # Scenario completion - longer text responses
+  hellaswag:
+    path: "hellaswag"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 2    # Tests extraction from verbose responses
+
+  # Formal logic - structured reasoning
+  logiqa:
+    path: "lucasmccabe/logiqa"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 2    # Clean logical answers
+
+# Total: 13 problems
+# Coverage:
+#   - Multiple choice (A/B/C/D variations)
+#   - Numerical (integers, fractions, decimals)
+#   - Different response verbosity levels
+#   - Various dataset formatting styles
+# Purpose: Test extraction robustness across answer formats

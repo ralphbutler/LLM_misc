@@ -1,0 +1,8 @@
+[
+  {
+    "question": "I have a full barrel and empty barrel, plus 12L and 6L jugs. To move exactly 6L from full to empty barrel, what's the minimum number of pour operations?",
+    "options": ["1", "2", "3", "4"],
+    "answer": "2",
+    "difficulty": "easy"
+  }
+]

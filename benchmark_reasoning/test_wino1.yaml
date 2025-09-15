@@ -1,0 +1,17 @@
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Common sense reasoning
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 3    # Commonsense reasoning
+      medium: 3    # Commonsense reasoning

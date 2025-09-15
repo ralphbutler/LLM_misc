@@ -1,0 +1,43 @@
+# Math Gradient Configuration
+# Tests mathematical reasoning across difficulty levels
+# Shows where a model's math capabilities start to break down
+# Good for: Understanding math skill ceiling, comparing math performance
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Elementary math - should be very solvable
+  gsm8k:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--openai--gsm8k/snapshots/e53f048856ff4f594e959d75785d2c2d37b678ee/main/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 5      # Grade school level math
+      medium: 3    # More complex word problems
+
+  # Advanced undergraduate/graduate level math
+  numina_math:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--AI-MO--NuminaMath-TIR/snapshots/77a91d7b7a1a98ac4b1beb7d86c09d156b935dcd/data/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "assumed"
+    counts:
+      hard: 3      # University-level mathematics
+
+  # Competition-level math olympiad problems
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"
+    counts:
+      very_hard: 4   # Mathematical olympiad problems
+
+# Total: 15 problems across difficulty spectrum
+# Expected performance gradient: High on GSM8K → Medium on Numina → Low on AIME
+# Suggested timeout: 120-180 seconds (math reasoning needs time)
+# Note: Only numina_math shows "not evaluated" - GSM8K and AIME have full evaluation

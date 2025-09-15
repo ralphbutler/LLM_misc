@@ -1,0 +1,19 @@
+# RMB Puzzles Test Configuration
+# Single water jug puzzle for testing custom dataset integration
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  rmb_puzzles:
+    path: "rmb_puzzles.json"
+    format: "json"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "real"
+    counts:
+      easy: 1
+
+# Total: 1 problem
+# Purpose: Test custom puzzle dataset integration with benchmark system

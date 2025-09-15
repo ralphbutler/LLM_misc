@@ -1,0 +1,77 @@
+# Capability Sampler Configuration
+# Samples problems from all major domains for broad model comparison
+# Balanced test across different types of reasoning and knowledge
+# Good for: Quick model comparison, identifying strengths/weaknesses across domains
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Mathematical reasoning - word problems
+  gsm8k:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--openai--gsm8k/snapshots/e53f048856ff4f594e959d75785d2c2d37b678ee/main/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 4      # Elementary math
+
+  # Scientific reasoning - multiple choice
+  arc_challenge:
+    path: "allenai/ai2_arc"
+    format: "huggingface"
+    config: "ARC-Challenge"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 4    # Science knowledge and reasoning
+
+  # Advanced mathematical reasoning
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"
+    counts:
+      very_hard: 3   # Competition mathematics
+
+  # Common sense reasoning
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 3    # Commonsense reasoning
+
+  # Physical reasoning
+  piqa:
+    path: "piqa"
+    format: "huggingface"
+    trust_remote_code: true
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 2      # Practical reasoning
+
+  # Logical reasoning
+  logiqa:
+    path: "lucasmccabe/logiqa"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      hard: 2      # University-level logic
+
+# Total: 18 problems across 6 different capability areas
+# Shows: Math, Science, Common Sense, Advanced Math, Physical Reasoning, Formal Logic
+# Expected performance: Varies by model strengths - creates capability profile
+# Suggested timeout: 90-120 seconds
+# All datasets now have full evaluation support!
