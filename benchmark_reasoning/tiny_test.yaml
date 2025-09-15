@@ -1,0 +1,28 @@
+# Tiny Test Configuration - Just 2 problems for quick real LLM testing
+# Total: 2 problems (~30 seconds to 2 minutes depending on model speed)
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Math word problem - 1 sample
+  gsm8k:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--openai--gsm8k/snapshots/e53f048856ff4f594e959d75785d2c2d37b678ee/main/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 1      # Just 1 math problem
+
+  # Logic puzzle - 1 sample
+  puzzte:
+    path: "tasksource/puzzte"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "proxy"
+    counts:
+      easy: 1      # Just 1 logic puzzle
+
+# Total: 2 problems for minimal real testing

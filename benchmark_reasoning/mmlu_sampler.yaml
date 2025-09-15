@@ -1,0 +1,33 @@
+# MMLU Sampler Configuration
+# Tests academic knowledge across multiple subjects from the comprehensive MMLU benchmark
+# MMLU covers 57 subjects from elementary to graduate level across all major academic domains
+# Good for: Evaluating breadth of academic knowledge and subject-specific expertise
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # MMLU: Massive Multitask Language Understanding
+  # 57 subjects including: Math, Science, History, Philosophy, Law, Medicine, etc.
+  # 14,042 test questions total - sampling across subjects for balanced evaluation
+  mmlu:
+    path: "cais/mmlu"
+    format: "huggingface"
+    config: "all"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "uniform"  # Questions vary by subject but treated uniformly
+    counts:
+      # Sample across difficulty levels (subjects vary in complexity)
+      medium: 15    # STEM subjects (math, science, computer science)
+      hard: 10      # Advanced subjects (law, medicine, philosophy)
+      very_hard: 5  # Specialized subjects (abstract math, advanced physics)
+
+# Total: 30 problems across diverse academic domains
+# Provides comprehensive evaluation of academic knowledge breadth
+# Expected performance: Varies widely by model - creates detailed knowledge profile
+# Subject coverage: Mathematics, Sciences, Humanities, Social Sciences, Professional Fields
+# Suggested timeout: 60-90 seconds (knowledge-based, less reasoning-intensive than logic puzzles)
+# Expected runtime: 3-5 minutes for most models
+# Note: Full evaluation support - no "not evaluated" warnings

@@ -1,0 +1,146 @@
+# Sample Benchmark Configuration - Realistic Difficulty Ratings
+# NOTE: Only Knights & Knaves and Puzzte have real difficulty indicators
+# Other datasets use assumed/estimated difficulty levels
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Math word problems - NO BUILT-IN DIFFICULTY (estimated by position)
+  gsm8k:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--openai--gsm8k/snapshots/e53f048856ff4f594e959d75785d2c2d37b678ee/main/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "estimated"  # No real difficulty ratings
+    counts:  # 1319 total
+      easy: 50      # Problems 1-400 (assumed easier)
+      medium: 75    # Problems 401-900 (assumed medium) 
+      hard: 50      # Problems 901-1319 (assumed harder)
+      
+  # Advanced math problems - NO BUILT-IN DIFFICULTY (all assumed hard)
+  numina_math:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--AI-MO--NuminaMath-TIR/snapshots/77a91d7b7a1a98ac4b1beb7d86c09d156b935dcd/data/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "assumed"  # All problems assumed difficult
+    counts:  # 99 total
+      medium: 20    # First half (assumed slightly easier)
+      hard: 15      # Later problems (assumed harder)
+
+  # Competition mathematics - HAS REAL DIFFICULTY (by level)
+  competition_math:
+    path: "qwedsacf/competition_math"
+    format: "huggingface"
+    split: "train"  # Only split available
+    mode: "counts"
+    difficulty_source: "real"  # Has Level 1-5 difficulty ratings
+    counts:  # 12500 total
+      medium: 20    # Level 1-2 problems
+      hard: 20      # Level 3-4 problems
+      very_hard: 15 # Level 5 problems
+
+  # Science reasoning - NO BUILT-IN DIFFICULTY (uniform assumed)
+  arc_challenge:
+    path: "allenai/ai2_arc"
+    format: "huggingface"
+    config: "ARC-Challenge"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "uniform"  # No difficulty info - treat as uniform
+    counts:  # 1172 total
+      medium: 100   # All problems treated as medium difficulty
+
+  # Commonsense reasoning - NO BUILT-IN DIFFICULTY (uniform assumed)
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"  # No difficulty info
+    counts:  # 1267 total
+      medium: 50    # All problems treated as medium
+
+  # AIME competition math - NO BUILT-IN DIFFICULTY (all very hard)
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"  # All AIME problems are very hard
+    counts:  # 30 total
+      very_hard: 25   # All problems are olympiad-level
+
+  # AIME competition math - NO BUILT-IN DIFFICULTY (all very hard)
+  aime_2025:
+    path: "yentinglin/aime_2025"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"  # All AIME problems are very hard
+    counts:  # 30 total
+      very_hard: 20   # All problems are olympiad-level
+
+  # Physical reasoning - NO BUILT-IN DIFFICULTY (uniform assumed)
+  piqa:
+    path: "piqa"
+    format: "huggingface"
+    trust_remote_code: true
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"  # No difficulty info
+    counts:  # 1838 total
+      easy: 25      # All problems treated as easy-medium
+      medium: 25    # Practical reasoning
+
+  # Commonsense scenario reasoning - NO BUILT-IN DIFFICULTY (uniform assumed)
+  hellaswag:
+    path: "hellaswag"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"  # No difficulty info
+    counts:  # 10042 total
+      medium: 40    # All problems treated as medium
+      hard: 20      # Scenario continuation reasoning
+
+  # Formal logical reasoning - NO BUILT-IN DIFFICULTY (uniform assumed)
+  logiqa:
+    path: "lucasmccabe/logiqa"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"  # No difficulty info
+    counts:  # 651 total
+      hard: 25      # University-level logic
+      very_hard: 15 # Formal reasoning
+
+  # Academic knowledge - NO BUILT-IN DIFFICULTY (uniform assumed)
+  mmlu:
+    path: "cais/mmlu"
+    format: "huggingface"
+    config: "all"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "uniform"  # No difficulty info - varies by subject
+    counts:  # 14042 total
+      medium: 50    # STEM and general subjects
+      hard: 30      # Advanced academic subjects
+      very_hard: 20 # Specialized professional fields
+
+  # Logic puzzles - HAS AMBIGUITY SCORES (can use as difficulty proxy)
+  puzzte:
+    path: "tasksource/puzzte"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts" 
+    difficulty_source: "proxy"  # Has ambiguity scores (0.0-47.6, mean=11.4)
+    difficulty_mapping:  # How we interpret ambiguity scores
+      easy: "ambiguity < 5.0"     # Low ambiguity = easier
+      medium: "5.0 <= ambiguity < 20.0"  # Medium ambiguity 
+      hard: "ambiguity >= 20.0"   # High ambiguity = harder
+    counts:  # 1193 total
+      easy: 30    # Low ambiguity problems
+      medium: 40  # Medium ambiguity problems
+      hard: 30    # High ambiguity problems

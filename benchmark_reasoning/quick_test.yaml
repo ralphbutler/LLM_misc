@@ -1,0 +1,64 @@
+# Quick Test Configuration - Only datasets with reliable difficulty info
+# This config uses only the datasets where we have real or good proxy difficulty indicators
+# Total: ~120 problems for fast evaluation
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Commonsense and logical reasoning - fully evaluated datasets
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:  # 1267 total available
+      medium: 15  # Commonsense reasoning
+
+  hellaswag:
+    path: "hellaswag"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:  # 10042 total available
+      medium: 20  # Scenario reasoning
+
+  logiqa:
+    path: "lucasmccabe/logiqa"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:  # 651 total available
+      hard: 15    # Formal logic
+
+  # Logic puzzles - PROXY difficulty via ambiguity scores  
+  puzzte:
+    path: "tasksource/puzzte"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "proxy"
+    counts:  # 1193 total available
+      easy: 15    # ambiguity < 5.0
+      medium: 25  # 5.0 <= ambiguity < 20.0
+      hard: 15    # ambiguity >= 20.0
+
+  # AIME problems - INHERENT very hard difficulty
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train" 
+    mode: "counts"
+    difficulty_source: "inherent"
+    counts:  # 30 total
+      very_hard: 15   # All olympiad-level
+
+# Total: 50 + 55 + 15 = 120 problems
+# Fast evaluation time: ~8-12 minutes
+# All datasets now have full evaluation support - no "not evaluated" warnings
+# Covers: Commonsense, Scenario reasoning, Formal logic, Complex puzzles, Olympiad math

@@ -1,0 +1,47 @@
+# Local Friendly Configuration
+# Designed for local models that may be slower but can be given more time
+# Focuses on easier problems with generous timeouts for thorough evaluation
+# Good for: Testing local LLMs, comparing local vs cloud performance
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Easy math word problems - local models should handle these with time
+  gsm8k:
+    path: "/Users/rbutler/.cache/huggingface/hub/datasets--openai--gsm8k/snapshots/e53f048856ff4f594e959d75785d2c2d37b678ee/main/test-00000-of-00001.parquet"
+    format: "parquet"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 8      # Focus on elementary math problems
+      medium: 2    # A few slightly harder word problems
+
+  # Physical reasoning - practical problems that local models can handle
+  piqa:
+    path: "piqa"
+    format: "huggingface"
+    trust_remote_code: true
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 8      # Real-world problem solving
+
+  # Commonsense reasoning - good test for local models
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 5    # Commonsense reasoning
+
+# Total: 23 problems (all with full evaluation support)
+# Expected local model performance: 50-70% (realistic for decent local models)
+# Suggested timeout: 180-300 seconds (local models need more time)
+# Coverage: Elementary math, practical reasoning, commonsense - good baseline for local models
+# Note: Focuses on easier, more accessible problems suitable for local model capabilities

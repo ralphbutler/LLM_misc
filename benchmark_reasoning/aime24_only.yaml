@@ -1,0 +1,20 @@
+# AIME 2024 Only Configuration
+# All problems are competition-level math (inherently hard)
+# Total: 30 problems available, configure count as needed
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # AIME 2024 competition math - all very hard
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"  # All AIME problems are very hard
+    counts:
+      very_hard: 1   # Adjust this number (max 30 available)
+
+# Suggested timeout: 120-180 seconds for complex math reasoning

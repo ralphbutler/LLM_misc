@@ -1,0 +1,99 @@
+# Balanced1 Configuration
+# Balanced mix of knowledge breadth and reasoning capabilities
+# Covers knowledge (MMLU), commonsense + logic, and math reasoning
+# Good for: Comprehensive model evaluation, comparing overall capabilities
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Academic knowledge breadth - for comparability and knowledge assessment
+  mmlu:
+    path: "cais/mmlu"
+    format: "huggingface"
+    config: "all"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 5    # STEM and general subjects
+      hard: 3      # Advanced academic subjects
+
+  # Commonsense reasoning suite
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 3    # Coreference resolution
+
+  piqa:
+    path: "piqa"
+    format: "huggingface"
+    trust_remote_code: true
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 3      # Physical reasoning
+
+  hellaswag:
+    path: "hellaswag"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 3    # Scenario reasoning
+
+  # Formal logical reasoning
+  logiqa:
+    path: "lucasmccabe/logiqa"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      hard: 2      # University-level logic
+
+  # Mathematical reasoning spectrum
+  gsm8k:
+    path: "openai/gsm8k"
+    format: "huggingface"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 3      # Elementary math
+      medium: 2    # More complex word problems
+
+  # Competition mathematics - MATH dataset
+  competition_math:
+    path: "qwedsacf/competition_math"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "real"
+    counts:
+      medium: 2    # Level 1-2 problems
+      hard: 2      # Level 3-4 problems
+
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"
+    counts:
+      very_hard: 1   # Mathematical olympiad
+
+# Total: 30 problems across 4 major capability areas
+# Balance: Knowledge (8) + Commonsense/Logic (11) + Math (11)
+# Coverage: Academic breadth, commonsense reasoning, logical thinking, mathematical reasoning (elementary to olympiad)
+# Expected performance: Creates comprehensive capability profile
+# Suggested timeout: 90-120 seconds (mix of knowledge and reasoning)
+# All datasets have full evaluation support

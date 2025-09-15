@@ -1,0 +1,92 @@
+# Reasoning1 Configuration
+# Focused on problem-solving and reasoning rather than encyclopedic recall
+# Emphasizes datasets that demand actual thinking and logical deduction
+# Good for: Evaluating reasoning capabilities, problem-solving skills
+
+global_options:
+  random_seed: 42
+  output_format: "json"
+
+datasets:
+  # Elementary mathematical reasoning - start with easier problems
+  gsm8k:
+    path: "openai/gsm8k"
+    format: "huggingface"
+    config: "main"
+    split: "test"
+    mode: "counts"
+    difficulty_source: "estimated"
+    counts:
+      easy: 3      # Elementary math reasoning
+      medium: 2    # Slightly more complex word problems
+
+  # Commonsense reasoning and coreference resolution
+  winogrande:
+    path: "winogrande"
+    format: "huggingface"
+    config: "winogrande_xl"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 3    # Commonsense reasoning
+
+  # Physical reasoning and real-world problem solving
+  piqa:
+    path: "piqa"
+    format: "huggingface"
+    trust_remote_code: true
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      easy: 3      # Practical reasoning
+
+  # Scenario continuation and commonsense reasoning
+  hellaswag:
+    path: "hellaswag"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      medium: 3    # Situation reasoning
+
+  # Formal logical reasoning
+  logiqa:
+    path: "lucasmccabe/logiqa"
+    format: "huggingface"
+    split: "validation"
+    mode: "counts"
+    difficulty_source: "uniform"
+    counts:
+      hard: 2      # University-level logic
+
+  # Competition mathematics - MATH dataset with level-based difficulty
+  competition_math:
+    path: "qwedsacf/competition_math"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "real"
+    counts:
+      medium: 2    # Level 1-2 problems
+      hard: 2      # Level 3-4 problems
+      very_hard: 1 # Level 5 problems
+
+  # AIME - ultimate reasoning challenge
+  aime_2024:
+    path: "Maxwell-Jia/AIME_2024"
+    format: "huggingface"
+    split: "train"
+    mode: "counts"
+    difficulty_source: "inherent"
+    counts:
+      very_hard: 1   # Mathematical olympiad reasoning
+
+# Total: 21 problems focused on pure reasoning
+# No MMLU (avoids encyclopedic recall, focuses on thinking)
+# Expected performance: Shows reasoning capability gradient across domains
+# Coverage: Math reasoning, Commonsense, Physical reasoning, Logic, Competition math, Advanced math
+# Suggested timeout: 120-180 seconds (reasoning takes time)
+# All datasets have full evaluation support

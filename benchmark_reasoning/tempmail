@@ -1,0 +1,49 @@
+Even though we are usually given benchmark performance for new LLMs, I decided to create a
+framework to do my own testing with a variety of common benchmark datasets.  In particular,
+I wanted to be able to run tests for various forms of reasoning:
+    - MMLU (breadth / comparability)
+    - Winogrande / PIQA / HellaSwag / LogiQA (commonsense + logic)
+    - GSM8K / AIME / MATH (math reasoning)
+
+Now I can evaluate reasoning by any LLM for which we have API keys, or for any LLM which I
+can install locally, e.g. in LM Studio or Ollama.
+The model to evaluate is specified as a command-line arg when the program is run.
+A second argument is the yaml file that determines problems to be run from the datasets, e.g.:
+
+      # Quick Solvable Test Configuration
+      # 10 problems that should be solvable (90+%) by reasonable cloud LLMs (e.g., sonnet-4)
+      # Suggested timeout: 60-90 seconds
+  
+      global_options:
+        random_seed: 42
+        output_format: "json"
+  
+      datasets:
+        gsm8k:
+          path: "openai/gsm8k"
+          format: "huggingface"
+          config: "main"
+          split: "test"
+          mode: "counts"
+          difficulty_source: "estimated"
+          counts:
+            easy: 10     # Only the easiest grade school math problems
+
+The benchmark program performs a first evaluation by extracting answers from LLM output using
+regex facilities.
+But, it also writes all results to a json file that can be post-processed.
+Then, a post-processing program can perform a second evaluation by using the json file to
+perform extractions from LLM outputs, but this time using a local LLM to do the parsing to
+retrieve results into a Pydantic structure.
+We tested several local LLMs to find the best one to produce the Pydantic structured output,
+hosted by LM Studio, including these:
+    glm-4.5-air
+    qwen3-32b-mlx
+    llama-3.2-3b-instruct
+    deepseek-r1-0528-qwen3-8b-mlx
+    phi-4-reasoning-plus-mlx
+Somewhat to my surprise, phi-4 did the best job.
+And, it is true that using the LLM to retrieve structured output generally performs better
+than our hand-coded regex functions.
+
+As usual I can put this stuff into GitHub if anyone is interested.

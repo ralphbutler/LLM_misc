@@ -1,0 +1,104 @@
+Loaded config from: reasoning1.yaml
+Random seed: 42
+Datasets to process: 7
+
+Using cloud API or direct model name: claude-sonnet-4-20250514
+Testing model 'claude-sonnet-4-20250514' with a simple completion...
+  Debug: Sending model name: 'claude-sonnet-4-20250514'
+  Debug: API base: ''
+✓ Model 'claude-sonnet-4-20250514' is loaded and responding
+  Debug: Test response was: '2 + 2 = 4'
+Loading dataset: gsm8k
+  Loaded 1319 total problems
+  Selected 5 problems
+Loading dataset: winogrande
+  Loaded 1267 total problems
+  Selected 3 problems
+Loading dataset: piqa
+  Loaded 1838 total problems
+  Selected 3 problems
+Loading dataset: hellaswag
+  Loaded 10042 total problems
+  Selected 3 problems
+Loading dataset: logiqa
+  Loaded 651 total problems
+  Selected 2 problems
+Loading dataset: competition_math
+  Loaded 12500 total problems
+  Selected 5 problems
+Loading dataset: aime_2024
+  Loaded 30 total problems
+  Selected 1 problems
+
+Total problems loaded: 22
+
+Dataset breakdown:
+  gsm8k: 5 problems
+  winogrande: 3 problems
+  piqa: 3 problems
+  hellaswag: 3 problems
+  logiqa: 2 problems
+  competition_math: 5 problems
+  aime_2024: 1 problems
+
+Difficulty breakdown:
+  medium: 10 problems
+  easy: 6 problems
+  hard: 4 problems
+  very_hard: 2 problems
+
+Starting benchmark run with model: claude-sonnet-4-20250514
+Timeout: 90s per problem
+============================================================
+[  1/22] gsm8k_medium_001
+  ○ Completed in 4.2s (incorrect)
+[  2/22] gsm8k_easy_002
+  ✓ Correct in 3.4s
+[  3/22] gsm8k_easy_003
+  ✓ Correct in 4.5s
+[  4/22] gsm8k_medium_004
+  ✓ Correct in 4.1s
+[  5/22] gsm8k_easy_005
+  ✓ Correct in 5.2s
+[  6/22] winogrande_medium_006
+  ✓ Correct in 6.2s
+[  7/22] winogrande_medium_007
+  ✓ Correct in 6.2s
+[  8/22] winogrande_medium_008
+  ✓ Correct in 4.4s
+[  9/22] piqa_easy_009
+  ✓ Correct in 5.4s
+[ 10/22] piqa_easy_010
+  ✓ Correct in 10.3s
+[ 11/22] piqa_easy_011
+  ✓ Correct in 7.0s
+[ 12/22] hellaswag_medium_012
+  ✓ Correct in 15.1s
+[ 13/22] hellaswag_medium_013
+  ✓ Correct in 7.7s
+[ 14/22] hellaswag_medium_014
+  ✓ Correct in 13.4s
+[ 15/22] logiqa_hard_015
+  ✓ Correct in 12.0s
+[ 16/22] logiqa_hard_016
+  ○ Completed in 14.4s (incorrect)
+[ 17/22] competition_math_medium_017
+  ○ Completed in 9.1s (incorrect)
+[ 18/22] competition_math_hard_018
+  ○ Completed in 14.4s (incorrect)
+[ 19/22] competition_math_medium_019
+  ○ Completed in 9.1s (incorrect)
+[ 20/22] competition_math_very_hard_020
+  ○ Completed in 9.8s (incorrect)
+[ 21/22] competition_math_hard_021
+  ○ Completed in 10.7s (incorrect)
+[ 22/22] aime_2024_very_hard_022
+  ✓ Correct in 17.9s
+============================================================
+Benchmark completed!
+Total time: 226.0s
+Successful completions: 22/22 (100.0%)
+Correct answers: 15/22 (68.2%)
+Accuracy (of completed): 15/22 (68.2%)
+Average time per problem: 10.3s
+Results saved to: JSON_RESULTS/benchmark_results_claude-sonnet-4-20250514_20250914_163223.json
