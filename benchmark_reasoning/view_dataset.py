@@ -14,28 +14,22 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 def load_gsm8k_data() -> List[Dict[str, Any]]:
-    """Load GSM8K dataset from local parquet file"""
-    parquet_path = "/Users/rbutler/.cache/huggingface/hub/datasets--openai--gsm8k/snapshots/e53f048856ff4f594e959d75785d2c2d37b678ee/main/test-00000-of-00001.parquet"
-
-    if not Path(parquet_path).exists():
-        print(f"GSM8K parquet file not found at: {parquet_path}")
-        print("Try running a benchmark with GSM8K first to download the dataset.")
+    """Load GSM8K dataset using datasets library"""
+    try:
+        dataset = load_dataset("openai/gsm8k", "main")
+        return list(dataset['test'])
+    except Exception as e:
+        print(f"Error loading GSM8K: {e}")
         sys.exit(1)
-
-    df = pd.read_parquet(parquet_path)
-    return df.to_dict('records')
 
 def load_numina_math_data() -> List[Dict[str, Any]]:
-    """Load Numina Math dataset from local parquet file"""
-    parquet_path = "/Users/rbutler/.cache/huggingface/hub/datasets--AI-MO--NuminaMath-TIR/snapshots/77a91d7b7a1a98ac4b1beb7d86c09d156b935dcd/data/test-00000-of-00001.parquet"
-
-    if not Path(parquet_path).exists():
-        print(f"Numina Math parquet file not found at: {parquet_path}")
-        print("Try running a benchmark with Numina Math first to download the dataset.")
+    """Load Numina Math dataset using datasets library"""
+    try:
+        dataset = load_dataset("AI-MO/NuminaMath-TIR")
+        return list(dataset['test'])
+    except Exception as e:
+        print(f"Error loading Numina Math: {e}")
         sys.exit(1)
-
-    df = pd.read_parquet(parquet_path)
-    return df.to_dict('records')
 
 def load_dataset_data(dataset_name: str) -> List[Dict[str, Any]]:
     """Load data from specified dataset"""
