@@ -10,6 +10,7 @@ openai/gemma-3n-e4b-it	http://localhost:1234/v1
 openai/qwq-32b	http://localhost:1234/v1
 openai/glm-4.5-air	http://localhost:1234/v1
 openai/rstar2-agent-14b-mlx	http://localhost:1234/v1
+openai/qwen3-next-80b-a3b-instruct	http://localhost:1234/v1
 
 ollama_chat/llama3.2:3b	http://localhost:11434
 

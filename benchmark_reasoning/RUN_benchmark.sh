@@ -2,9 +2,10 @@
 ## model_config.tsv contains MODEL names and info
 # MODEL=gpt-4o-mini
 # MODEL=claude-3-7-sonnet-latest
+# MODEL=claude-sonnet-4-20250514
 # MODEL=openai/phi-4-reasoning-plus-mlx
 # MODEL=openai/rstar2-agent-14b-mlx
-MODEL=claude-sonnet-4-20250514
+MODEL=openai/qwen3-next-80b-a3b-instruct
 
 TIMEOUT=90
 

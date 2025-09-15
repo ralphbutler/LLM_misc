@@ -1,11 +1,11 @@
 Answer Extractor - LLM-Based Answer Extraction
 ==================================================
 Using extraction model: openai/phi-4-reasoning-plus-mlx
-Auto-discovered latest benchmark results: JSON_RESULTS/benchmark_results_claude-sonnet-4-20250514_20250914_163223.json
-Processing benchmark results from: JSON_RESULTS/benchmark_results_claude-sonnet-4-20250514_20250914_163223.json
+Auto-discovered latest benchmark results: JSON_RESULTS/benchmark_results_openai_qwen3-next-80b-a3b-instruct_20250915_175502.json
+Processing benchmark results from: JSON_RESULTS/benchmark_results_openai_qwen3-next-80b-a3b-instruct_20250915_175502.json
 Original results:
   Total problems: 22
-  Original accuracy: 6820.0%
+  Original accuracy: 59.1%
   Datasets: ['gsm8k', 'winogrande', 'piqa', 'hellaswag', 'logiqa', 'competition_math', 'aime_2024'] ({'gsm8k': 5, 'winogrande': 3, 'piqa': 3, 'hellaswag': 3, 'logiqa': 2, 'competition_math': 5, 'aime_2024': 1})
 
 Processing gsm8k...
@@ -24,8 +24,8 @@ Processing winogrande...
   Problem 2/3
   Problem 3/3
   winogrande Results:
-    Original accuracy: 100.0%
-    LLM accuracy: 100.0%
+    Original accuracy: 66.7%
+    LLM accuracy: 66.7%
     Successful extractions: 3/3
 
 Processing piqa...
@@ -33,7 +33,7 @@ Processing piqa...
   Problem 2/3
   Problem 3/3
   piqa Results:
-    Original accuracy: 100.0%
+    Original accuracy: 66.7%
     LLM accuracy: 100.0%
     Successful extractions: 3/3
 
@@ -75,7 +75,7 @@ Processing aime_2024...
 ============================================================
 EXTRACTION COMPARISON SUMMARY
 ============================================================
-Original benchmark accuracy: 6820.0%
+Original benchmark accuracy: 59.1%
 Extraction success rate: 100.0%
 Average extraction confidence: 0.95
 Low confidence extractions: 0/22 (0.0%)
@@ -84,15 +84,15 @@ Dataset Comparison:
 Dataset              Original   LLM        Improved   Degraded  
 ------------------------------------------------------------
 gsm8k                80.0%     80.0%     0         0        
-winogrande           100.0%    100.0%    0         0        
-piqa                 100.0%    100.0%    0         0        
+winogrande           66.7%     66.7%     0         0        
+piqa                 66.7%     100.0%    1         0        
 hellaswag            100.0%    100.0%    0         0        
 logiqa               50.0%     100.0%    1         0        
 competition_math     0.0%      0.0%      0         0        
 aime_2024            100.0%    100.0%    0         0        
 ------------------------------------------------------------
-OVERALL              68.2%     72.7%    
+OVERALL              59.1%     68.2%    
 
-Net improvement: +4.5%
+Net improvement: +9.1%
 
-Enhanced results saved to: JSON_RESULTS/benchmark_results_claude-sonnet-4-20250514_20250914_163223_llm_extracted.json
+Enhanced results saved to: JSON_RESULTS/benchmark_results_openai_qwen3-next-80b-a3b-instruct_20250915_175502_llm_extracted.json
