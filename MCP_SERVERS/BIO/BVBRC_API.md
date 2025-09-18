@@ -2,6 +2,38 @@
 
 This document provides a comprehensive programming reference for the BV-BRC (Bacterial and Viral Bioinformatics Resource Center) REST API. It covers the core endpoints, programming patterns, and best practices needed to build applications that interact with BV-BRC data.
 
+## ⚠️ CRITICAL WARNING: RefSeq vs PATRIC Annotations
+
+**Before using this API for CDS counting, you MUST understand the difference between RefSeq and PATRIC annotations:**
+
+- **PATRIC CDS**: Internal BV-BRC annotations (available for all genomes)
+- **RefSeq CDS**: Official NCBI RefSeq annotations (only available for genomes submitted to RefSeq)
+
+### 🚨 WRONG WAY - Will Count PATRIC Instead of RefSeq:
+```python
+# This will return PATRIC annotations, NOT RefSeq!
+features = get_cds_features(genome_id)  # Returns PATRIC CDS count
+count = len(features)  # WRONG for RefSeq questions
+```
+
+### ✅ CORRECT WAY - For RefSeq CDS Counts:
+```python
+# Use comprehensive_genome_analysis() to get both counts
+analysis = comprehensive_genome_analysis(genome_id)
+refseq_count = analysis['basic_info']['refseq_cds']    # RefSeq CDS count
+patric_count = analysis['basic_info']['patric_cds']    # PATRIC CDS count
+```
+
+**Key Fields in Comprehensive Analysis:**
+- `refseq_cds`: Official NCBI RefSeq CDS count (may be 0 if not in RefSeq)
+- `patric_cds`: Internal BV-BRC CDS count (always present)
+- `refseq_accessions`: RefSeq accession numbers (shows "-" if not in RefSeq)
+
+**This distinction is critical because:**
+1. Many genomes have PATRIC annotations but NO RefSeq annotations
+2. Using the wrong count can cause systematic errors in analysis
+3. Questions specifically asking for "RefSeq CDS" require the `refseq_cds` field
+
 ## Table of Contents
 - [API Fundamentals](#api-fundamentals)
 - [Core Endpoints](#core-endpoints)
@@ -204,11 +236,20 @@ def get_genes_by_name(gene_name, genome_ids=None, limit=100):
     return response.json() if response.status_code == 200 else None
 
 def get_cds_features(genome_id, limit=1000):
-    """Get all CDS features for a genome"""
+    """Get all CDS features for a genome
+
+    ⚠️  CRITICAL WARNING: This returns PATRIC CDS features, NOT RefSeq!
+
+    For RefSeq CDS counts, use comprehensive_genome_analysis() instead:
+        analysis = comprehensive_genome_analysis(genome_id)
+        refseq_count = analysis['basic_info']['refseq_cds']
+
+    This function should only be used when you specifically need PATRIC annotations.
+    """
     url = "https://www.bv-brc.org/api/genome_feature/"
     params = f"and(eq(genome_id,{genome_id}),eq(feature_type,CDS))&limit({limit})"
     params += "&select(patric_id,gene,product,start,end,strand,sequence_id,aa_length)"
-    
+
     response = requests.get(f"{url}?{params}", headers=HEADERS)
     return response.json() if response.status_code == 200 else None
 

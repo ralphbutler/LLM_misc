@@ -10,13 +10,20 @@
 """
 BV-BRC API MCP Server
 
-This MCP server provides access to the BV-BRC (Bacterial and Viral Bioinformatics Resource Center) 
-REST API through standardized tools. It implements the comprehensive functionality documented in 
+This MCP server provides access to the BV-BRC (Bacterial and Viral Bioinformatics Resource Center)
+REST API through standardized tools. It implements the comprehensive functionality documented in
 the BVBRC_REST_API_GUIDE.md.
+
+🚨 CRITICAL: RefSeq vs PATRIC Annotations
+When counting CDS features, understand the difference:
+- PATRIC CDS: Internal BV-BRC annotations (get_cds_features, genome_feature_summary)
+- RefSeq CDS: Official NCBI annotations (comprehensive_genome_analysis['basic_info']['refseq_cds'])
+
+For RefSeq CDS questions, ALWAYS use comprehensive_genome_analysis()!
 
 The server exposes ~26 tools covering:
 - Genome queries and metadata
-- Gene/feature annotations  
+- Gene/feature annotations
 - Sequence retrieval
 - Taxonomic information
 - Functional analysis (subsystems, pathways)
@@ -154,7 +161,11 @@ async def find_similar_genomes(target_species: str, target_strain: Optional[str]
 @mcp.tool()
 async def genome_feature_summary(genome_id: str) -> str:
     """Generate comprehensive feature summary for a genome
-    
+
+    ⚠️  NOTE: This function analyzes PATRIC CDS features, not RefSeq!
+
+    For RefSeq-specific counts, use comprehensive_genome_analysis() instead.
+
     Args:
         genome_id: BV-BRC genome ID
     """
@@ -252,10 +263,18 @@ async def get_genes_by_name(gene_name: str, genome_ids: Optional[List[str]] = No
 @mcp.tool()
 async def get_cds_features(genome_id: str, limit: int = 1000, offset: int = 0) -> str:
     """Get all CDS features for a genome
-    
+
+    🚨 CRITICAL WARNING: This returns PATRIC CDS features, NOT RefSeq!
+
+    For RefSeq CDS counts, use comprehensive_genome_analysis() instead:
+        analysis = comprehensive_genome_analysis(genome_id)
+        refseq_count = analysis['basic_info']['refseq_cds']
+
+    This function should only be used when you specifically need PATRIC annotations.
+
     ⚠️  COORDINATE SYSTEM WARNING: start/end coordinates are CONTIG-RELATIVE!
     Always use the sequence_id field when extracting sequences.
-    
+
     Args:
         genome_id: BV-BRC genome ID
         limit: Maximum number of results (default: 1000)
@@ -762,7 +781,16 @@ async def compare_amr_methods(limit: int = 1000, offset: int = 0) -> str:
 @mcp.tool()
 async def comprehensive_genome_analysis(genome_id: str) -> str:
     """Complete analysis combining multiple endpoints
-    
+
+    ✅ This is the CORRECT function for RefSeq vs PATRIC CDS counts!
+
+    Returns both annotation types in basic_info:
+    - refseq_cds: Official NCBI RefSeq CDS count (may be 0 if not in RefSeq)
+    - patric_cds: Internal BV-BRC CDS count (always present)
+    - refseq_accessions: RefSeq accession numbers (shows "-" if not in RefSeq)
+
+    Use this function when you need to distinguish between RefSeq and PATRIC annotations.
+
     Args:
         genome_id: BV-BRC genome ID
     """
