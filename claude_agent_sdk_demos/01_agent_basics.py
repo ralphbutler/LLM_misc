@@ -38,8 +38,8 @@ from claude_agent_sdk import (
 
 @tool(
     name="calculate",
-    description="Perform mathematical calculations. Supports basic arithmetic operations.",
-    input_schema={"expression": "string"}
+    description="Perform mathematical calculations. Supports basic arithmetic operations. Provide a mathematical expression like '2 + 2' or '10 * 5'.",
+    input_schema={"expression": str}
 )
 async def calculate(args):
     """

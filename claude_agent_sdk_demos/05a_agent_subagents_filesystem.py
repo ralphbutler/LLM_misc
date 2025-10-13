@@ -153,7 +153,7 @@ Prioritize test clarity, maintainability, and comprehensive coverage.
 def create_sample_code():
     """Create sample code files for the subagents to work with."""
 
-    samples_dir = Path.cwd() / "demo_05_sample_code"
+    samples_dir = Path.cwd() / "demo_05a_sample_code"
     samples_dir.mkdir(exist_ok=True)
 
     # Sample Python function

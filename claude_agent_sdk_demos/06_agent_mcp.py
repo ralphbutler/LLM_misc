@@ -46,8 +46,8 @@ from claude_agent_sdk import (
 
 @tool(
     name="json_format",
-    description="Format and pretty-print JSON data",
-    input_schema={"json_string": "string"}
+    description="Format and pretty-print JSON data. Provide a JSON string to format.",
+    input_schema={"json_string": str}
 )
 async def json_format(args):
     """Format JSON data for better readability."""
@@ -73,8 +73,8 @@ async def json_format(args):
 
 @tool(
     name="json_validate",
-    description="Validate JSON syntax and structure",
-    input_schema={"json_string": "string"}
+    description="Validate JSON syntax and structure. Provide a JSON string to validate.",
+    input_schema={"json_string": str}
 )
 async def json_validate(args):
     """Validate JSON data."""
@@ -106,8 +106,8 @@ async def json_validate(args):
 
 @tool(
     name="csv_analyze",
-    description="Analyze CSV data and provide statistics",
-    input_schema={"csv_content": "string"}
+    description="Analyze CSV data and provide statistics. Provide CSV content to analyze.",
+    input_schema={"csv_content": str}
 )
 async def csv_analyze(args):
     """Analyze CSV data."""
@@ -166,8 +166,8 @@ async def csv_analyze(args):
 
 @tool(
     name="string_reverse",
-    description="Reverse a string",
-    input_schema={"text": "string"}
+    description="Reverse a string. Provide text to reverse.",
+    input_schema={"text": str}
 )
 async def string_reverse(args):
     """Reverse a string."""
@@ -184,8 +184,8 @@ async def string_reverse(args):
 
 @tool(
     name="string_stats",
-    description="Get statistics about a string",
-    input_schema={"text": "string"}
+    description="Get statistics about a string. Provide text to analyze.",
+    input_schema={"text": str}
 )
 async def string_stats(args):
     """Analyze string statistics."""
@@ -209,8 +209,8 @@ async def string_stats(args):
 
 @tool(
     name="string_case_convert",
-    description="Convert string case (upper, lower, title, snake, camel)",
-    input_schema={"text": "string", "case_type": "string"}
+    description="Convert string case. Provide text and case_type (upper, lower, title, snake, or camel).",
+    input_schema={"text": str, "case_type": str}
 )
 async def string_case_convert(args):
     """Convert string case."""
@@ -241,8 +241,8 @@ async def string_case_convert(args):
 
 @tool(
     name="current_timestamp",
-    description="Get the current timestamp in various formats",
-    input_schema={"format": "string"}
+    description="Get the current timestamp in various formats. Provide format type (iso, unix, readable, date, or time).",
+    input_schema={"format": str}
 )
 async def current_timestamp(args):
     """Get current timestamp."""
@@ -279,6 +279,12 @@ async def main():
     print("=" * 80)
     print("Claude Agent SDK - MCP Servers Demo")
     print("=" * 80)
+    print()
+
+    # Create a temporary directory for file operations
+    work_dir = Path.cwd() / "demo_06_mcp"
+    work_dir.mkdir(exist_ok=True)
+    print(f"📁 Working directory: {work_dir}")
     print()
 
     # ========================================================================
@@ -355,6 +361,9 @@ async def main():
             "Write",
             "Read",
         ],
+
+        # Working directory for file operations
+        cwd=str(work_dir),
 
         permission_mode="acceptEdits"
     )
@@ -561,6 +570,8 @@ Charlie,35,Tokyo"""
     print()
     print("  Model Context Protocol: https://modelcontextprotocol.io")
     print("  Claude Agent SDK: https://docs.claude.com/en/api/agent-sdk/python")
+    print()
+    print(f"📁 Output files created in: {work_dir}")
     print()
 
 

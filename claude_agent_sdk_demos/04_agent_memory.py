@@ -48,8 +48,8 @@ MEMORY_DIR = Path.cwd() / "demo_04_memory"
 
 @tool(
     name="memory_create",
-    description="Create a new memory file to store information persistently",
-    input_schema={"filename": "string", "content": "string"}
+    description="Create a new memory file to store information persistently. Provide a filename (without extension) and the content to store.",
+    input_schema={"filename": str, "content": str}
 )
 async def memory_create(args):
     """Create a memory file with content."""
@@ -88,8 +88,8 @@ async def memory_create(args):
 
 @tool(
     name="memory_view",
-    description="View the contents of a memory file or list all memory files",
-    input_schema={"filename": "string"}
+    description="View the contents of a memory file or list all memory files. Provide a filename to view specific memory, or leave empty to list all files.",
+    input_schema={"filename": str}
 )
 async def memory_view(args):
     """View memory contents or list all memories."""
@@ -146,8 +146,8 @@ async def memory_view(args):
 
 @tool(
     name="memory_update",
-    description="Update the contents of an existing memory file",
-    input_schema={"filename": "string", "content": "string"}
+    description="Update the contents of an existing memory file. Provide the filename and new content.",
+    input_schema={"filename": str, "content": str}
 )
 async def memory_update(args):
     """Update an existing memory file."""
@@ -192,8 +192,8 @@ async def memory_update(args):
 
 @tool(
     name="memory_delete",
-    description="Delete a memory file",
-    input_schema={"filename": "string"}
+    description="Delete a memory file. Provide the filename to delete.",
+    input_schema={"filename": str}
 )
 async def memory_delete(args):
     """Delete a memory file."""
