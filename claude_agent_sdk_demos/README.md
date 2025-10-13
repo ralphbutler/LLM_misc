@@ -14,7 +14,8 @@ The Claude Agent SDK is a high-level framework for building production-ready AI 
 | **02_agent_hooks.py** | Hooks system: PreToolUse/PostToolUse for validation and logging |
 | **03_agent_permissions.py** | All 4 permission modes: default, acceptEdits, plan, bypassPermissions |
 | **04_agent_memory.py** | Persistent storage: Memory tool for cross-session data persistence |
-| **05_agent_subagents.py** | Subagents: Isolated contexts, task delegation, specialization |
+| **05a_agent_subagents_filesystem.py** | Subagents (filesystem): YAML definitions, isolated contexts, task delegation |
+| **05b_agent_subagents_programmatic.py** | Subagents (programmatic): AgentDefinition, runtime creation |
 | **06_agent_mcp.py** | MCP servers: In-process custom tool servers with multiple tools |
 | **07_agent_websearch.py** | Web research: WebSearch, WebFetch, automatic context management |
 
@@ -159,7 +160,7 @@ uv run 04_agent_memory.py
 
 ---
 
-### 👥 05_agent_subagents.py - Specialized Agents
+### 👥 05a_agent_subagents_filesystem.py - Specialized Agents (Filesystem Approach)
 
 **What it demonstrates:**
 - Creating subagent definitions with YAML frontmatter
@@ -179,11 +180,37 @@ uv run 04_agent_memory.py
 
 **What to watch for:**
 - The program **creates `.claude/agents/` directory** with three subagent definition files
-- Sample code is created in `demo_05_sample_code/` for the subagents to analyze
+- Sample code is created in `demo_05a_sample_code/` for the subagents to analyze
 - Each subagent has its own specialized system prompt and limited tool access
 
 ```bash
-uv run 05_agent_subagents.py
+uv run 05a_agent_subagents_filesystem.py
+```
+
+---
+
+### 👥 05b_agent_subagents_programmatic.py - Specialized Agents (Programmatic Approach)
+
+**What it demonstrates:**
+- Programmatic subagent definition using `AgentDefinition` objects
+- No filesystem dependencies - pure Python configuration
+- Runtime agent creation and composition
+- Same three subagents as 05a but defined in code
+
+**Key concepts:**
+- `AgentDefinition` class for programmatic agents
+- Dynamic agent generation
+- Easier testing and version control
+- Loading agents from configs/APIs/databases
+
+**What to watch for:**
+- No `.claude/agents/` directory created
+- Agents defined entirely in Python code
+- Sample code created in `demo_05b_sample_code/`
+- Compare with 05a to see filesystem vs programmatic approaches
+
+```bash
+uv run 05b_agent_subagents_programmatic.py
 ```
 
 ---
@@ -208,6 +235,7 @@ uv run 05_agent_subagents.py
 **What to watch for:**
 - Three separate MCP servers are created with 7 total tools
 - The final test demonstrates using tools from multiple servers in one workflow
+- Creates `report.json` in `demo_06_mcp/` directory (TEST 5)
 - Compare this architectural approach with the basic single-tool approach in 01
 
 ```bash
@@ -329,8 +357,8 @@ from claude_agent_sdk import tool, create_sdk_mcp_server
 
 @tool(
     name="my_tool",
-    description="What the tool does",
-    input_schema={"param": "string"}
+    description="What the tool does. Describe parameters here.",
+    input_schema={"param": str}  # Python type mapping (recommended in SDK 0.1.3+)
 )
 async def my_tool(args):
     result = process(args["param"])
@@ -404,19 +432,22 @@ options = ClaudeAgentOptions(
 ```
 WORK/
 ├── README.md                    # This file
-├── PLAN01.md                    # Detailed planning document
+├── PLANPY.md                    # Detailed planning document
 ├── 01_agent_basics.py          # Core functionality
 ├── 02_agent_hooks.py           # Hooks system
 ├── 03_agent_permissions.py     # Permission modes
 ├── 04_agent_memory.py          # Memory tool
-├── 05_agent_subagents.py       # Subagents
+├── 05a_agent_subagents_filesystem.py  # Subagents (filesystem)
+├── 05b_agent_subagents_programmatic.py  # Subagents (programmatic)
 ├── 06_agent_mcp.py             # MCP servers
 ├── 07_agent_websearch.py       # Web research
 ├── demo_01_output/             # Output from 01
 ├── demo_02_hooks/              # Output from 02
 ├── demo_03_permissions/        # Output from 03
 ├── demo_04_memory/             # Output from 04
-├── demo_05_sample_code/        # Output from 05
+├── demo_05a_sample_code/       # Output from 05a
+├── demo_05b_sample_code/       # Output from 05b
+├── demo_06_mcp/                # Output from 06
 ├── demo_07_research/           # Output from 07
 └── .claude/
     └── agents/                 # Subagent definitions
@@ -433,7 +464,8 @@ Recommended order for exploring the demos:
 2. **06_agent_mcp.py** - Learn about tool organization
 3. **02_agent_hooks.py** - Add validation and monitoring
 4. **03_agent_permissions.py** - Understand security modes
-5. **05_agent_subagents.py** - Explore specialization
+5. **05a_agent_subagents_filesystem.py** - Explore specialization (filesystem)
+5b. **05b_agent_subagents_programmatic.py** - Alternative programmatic approach
 6. **04_agent_memory.py** - Add persistence
 7. **07_agent_websearch.py** - Build a complete research agent
 
@@ -476,6 +508,15 @@ These are demonstration programs designed for learning. For production use:
 - Implement proper logging and monitoring
 - Consider security implications of tool access
 - Test thoroughly in your specific environment
+
+### Why is this Python-only? What about TypeScript?
+
+This demo suite is **Python-only by design**. We explored creating TypeScript equivalents but discovered the TypeScript SDK (v0.1.x) has fundamental API differences:
+- Python has `ClaudeSDKClient` for stateful conversations; TypeScript only has a `query()` function for single-shot interactions
+- Different tool definition patterns, schemas, and capabilities
+- TypeScript SDK is less mature and feature-complete
+
+Creating equivalent demos would be impossible due to these architectural differences. Python demos demonstrate the full SDK capabilities. TypeScript developers can understand concepts from Python examples and adapt them to TypeScript's more limited API.
 
 ## 🤝 Contributing
 
