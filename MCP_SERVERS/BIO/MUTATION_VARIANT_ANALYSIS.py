@@ -11,6 +11,11 @@ Biology Analysis MCP Server
 
 Provides tools for cancer mutation analysis, protein structure discovery,
 pathway analysis, and therapy/clinical trial search.
+
+CHANGELOG (v1.1):
+- Fixed PDB API query to use UniProt accession instead of gene name grouping
+- PDB now queries via rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession
+- This fixes HTTP 400 errors that occurred with the previous grouped taxonomy+gene query approach
 """
 
 import requests
@@ -36,8 +41,12 @@ def get_uniprot_id_helper(gene_name: str) -> dict:
         "fields": "accession,id", 
         "size": "1" 
     }
+    headers = {
+        "User-Agent": "BiologyAnalysisScript/1.0"
+    }
+    
     try:
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
         if data.get("results"):
@@ -185,52 +194,64 @@ def get_protein_structure_info(gene_name: str) -> str:
         structure ID, data download URL, and web viewer URL
         
     Example:
-        get_protein_structure_info("BRCA1") -> returns AlphaFold structure info for BRCA1 protein
+        get_protein_structure_info("TP53") -> returns PDB structure 1A1U or AlphaFold prediction
         
     Note:
-        Searches PDB first for experimental structures, falls back to AlphaFold predictions
+        Searches PDB first for experimental structures, falls back to AlphaFold predictions.
+        PDB query uses UniProt accession for reliable matching (fixes previous HTTP 400 errors).
     """
     print(f"INFO: Searching for protein structure for '{gene_name}'...")
-    print("INFO: Attempting to find experimental structure in PDB...")
+    print("INFO: Attempting to find experimental structure in PDB (via UniProt reference)...")
     
-    pdb_url = f"https://search.rcsb.org/rcsbsearch/v2/query"
-    query = { 
-        "query": { 
-            "type": "group", 
-            "logical_operator": "and", 
-            "nodes": [ 
-                {"type": "terminal", "service": "text", "parameters": {"attribute": "rcsb_entity_source_organism.taxonomy_id", "operator": "exact_match", "value": "9606"}}, 
-                {"type": "terminal", "service": "text", "parameters": {"attribute": "struct_gene.gene_name", "operator": "exact_match", "value": gene_name.upper()}} 
-            ]
-        }, 
-        "return_type": "entry", 
-        "request_options": {"pager": {"start": 0, "rows": 1}} 
-    }
-    
-    try:
-        response = requests.post(pdb_url, json=query)
-        response.raise_for_status()
-        pdb_data = response.json()
-        if pdb_data.get("total_count", 0) > 0:
-            structure_id = pdb_data["result_set"][0]["identifier"]
-            print(f"INFO: SUCCESS! Found PDB ID: {structure_id}")
-            return json.dumps({ 
-                "status": "success", 
-                "source": "PDB (Experimental)", 
-                "id": structure_id, 
-                "data_url": f"https://files.rcsb.org/download/{structure_id}.pdb", 
-                "viewer_url": f"https://www.rcsb.org/3d-view/{structure_id}" 
-            })
-    except requests.exceptions.RequestException as e: 
-        print(f"WARNING: PDB search request failed: {e}")
-    
-    print("INFO: Not found in PDB or PDB search failed. Trying AlphaFold (predicted structure)...")
+    # First, get UniProt ID for the gene - required for PDB lookup
     uniprot_result = get_uniprot_id_helper(gene_name)
     if uniprot_result["status"] == "success":
         uniprot_id = uniprot_result["uniprot_id"]
-        alphafold_url = f"https://alphafold.ebi.ac.uk/api/prediction/{uniprot_id}"
+        
+        # Query PDB using UniProt accession (more reliable than gene name)
+        # This is the FIXED approach that prevents HTTP 400 errors
+        pdb_url = "https://search.rcsb.org/rcsbsearch/v2/query"
+        query = {
+            "query": {
+                "type": "terminal",
+                "service": "text",
+                "parameters": {
+                    "attribute": "rcsb_polymer_entity_container_identifiers.reference_sequence_identifiers.database_accession",
+                    "operator": "exact_match",
+                    "value": uniprot_id
+                }
+            },
+            "return_type": "entry"
+        }
+        
         try:
-            response = requests.get(alphafold_url)
+            response = requests.post(pdb_url, json=query, timeout=10)
+            response.raise_for_status()
+            pdb_data = response.json()
+            if pdb_data.get("total_count", 0) > 0:
+                structure_id = pdb_data["result_set"][0]["identifier"]
+                print(f"INFO: SUCCESS! Found PDB ID: {structure_id}")
+                return json.dumps({ 
+                    "status": "success", 
+                    "source": "PDB (Experimental)", 
+                    "id": structure_id, 
+                    "data_url": f"https://files.rcsb.org/download/{structure_id}.pdb", 
+                    "viewer_url": f"https://www.rcsb.org/3d-view/{structure_id}" 
+                })
+        except requests.exceptions.RequestException as e: 
+            print(f"WARNING: PDB search request failed: {e}")
+    
+    # Fallback to AlphaFold predicted structure
+    print("INFO: Not found in PDB. Trying AlphaFold (predicted structure)...")
+    if uniprot_result["status"] == "success":
+        uniprot_id = uniprot_result["uniprot_id"]
+        alphafold_url = f"https://alphafold.ebi.ac.uk/api/prediction/{uniprot_id}"
+        headers = {
+            "User-Agent": "BiologyAnalysisScript/1.0 (Contact: your.email@example.com)"
+        }
+        
+        try:
+            response = requests.get(alphafold_url, headers=headers, timeout=10)
             if response.status_code == 200:
                 alphafold_data = response.json()
                 if alphafold_data and "errorMessage" not in str(alphafold_data):
