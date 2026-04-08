@@ -1,0 +1,46 @@
+python vision_agent.py --image falcon-perception/fruit.jpg --query "Are there more oranges than apples in this image?"
+
+============================================================
+  Gemma-Falcon Vision Agent
+============================================================
+  Image: falcon-perception/fruit.jpg
+  Query: Are there more oranges than apples in this image?
+============================================================
+
+[falcon] Loading model...
+Loading MLX model from Hugging Face Hub ...
+Fetching 16 files: 100%|█████████████████████████████████████████████| 16/16 [00:00<00:00, 14853.67it/s]
+Download complete: : 0.00B [00:00, ?B/s]                Variant: perception (perception_heads=True, do_segmentation=True)
+  MLX model ready (dtype=float16).
+
+[falcon] Ready in 0.3s
+
+--- Phase 1: Extract objects to detect ---
+[phase1] Objects to detect: ['oranges', 'apples'] (1.5s)
+
+--- Phase 2: Detect + Segment ---
+[falcon] Detecting 'oranges' (segmentation)...
+[falcon] Found 3 instances of 'oranges' in 1.9s
+[falcon] Detecting 'apples' (segmentation)...
+Download complete: : 0.00B [00:04, ?B/s]
+[falcon] Found 1 instances of 'apples' in 1.5s
+
+[phase2] Detection summary:
+- oranges: 3 instances detected
+- apples: 1 instances detected
+
+--- Phase 3: Annotate image ---
+[phase3] Saved annotated image: outputs/agent/annotated.jpg
+
+--- Phase 4: Visual reasoning with Gemma 4 ---
+[phase4] Gemma reasoning complete (7.8s)
+
+============================================================
+  FINAL ANSWER
+============================================================
+
+Yes, there are more oranges than apples in this image. According to the detection results, there are 3 oranges and 1 apple.
+
+============================================================
+  Output files: outputs/agent/
+============================================================
