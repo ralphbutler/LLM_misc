@@ -1,1 +1,4 @@
 .aider*
+
+# Third-party clone with its own git repo/license — not vendored here
+vision_agent_gemma_falcon/falcon-perception/
