@@ -1,0 +1,8 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  have h_comp_invol : comp (comp b) = b := by
+    cases b <;> simp [comp, symComp]
+  simp [revcomp, comp, ih, h_comp_invol]
+###PROOF_END###

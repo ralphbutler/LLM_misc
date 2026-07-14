@@ -1,0 +1,98 @@
+
+===== ROUND 1: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:62:54: error: failed to synthesize
+  Decidable (Function.Involutive symComp)
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:63:33: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:63:38: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:64:11: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:66:32: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:66:37: error: unknown identifier 'bs'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:67:43: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:68:59: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:69:19: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:70:19: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:70:25: error: unknown identifier 'bs'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:71:8: error: unknown identifier 'b'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:71:13: error: unknown identifier 'bs'
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:66:56: error: failed to synthesize
+  Decidable (Function.Involutive symComp)
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:69:8: error: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  comp (comp b)
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_sym_comp : Function.Involutive symComp
+h_comp_invol : ∀ (b : Base), comp (comp b) = b
+⊢ {
+        sym :=
+          match
+            match b.sym with
+            | A => T
+            | T => A
+            | C => G
+            | G => C
+            | R => Y
+            | Y => R
+            | N => N with
+          | A => T
+          | T => A
+          | C => G
+          | G => C
+          | R => Y
+          | Y => R
+          | N => N,
+        masked := b.masked } =
+      b ∧
+    List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:66:56: error: failed to synthesize
+  Decidable (Function.Involutive symComp)
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:69:8: error: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  comp (comp b)
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_sym_comp : Function.Involutive symComp
+h_comp_invol : ∀ (b : Base), comp (comp b) = b
+⊢ { sym := symComp (symComp b.sym), masked := b.masked } = b ∧ List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 4: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:66:56: error: failed to synthesize
+  Decidable (Function.Involutive symComp)
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:69:8: error: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  comp (comp b)
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_sym_comp : Function.Involutive symComp
+h_comp_invol : ∀ (b : Base), comp (comp b) = b
+⊢ { sym := symComp (symComp b.sym), masked := b.masked } = b ∧ List.map (comp ∘ comp) bs = bs
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-174547.lean:70:2: error: unexpected token '#'; expected command
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+✗ Not solved within the round budget.

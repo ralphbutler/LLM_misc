@@ -1,0 +1,10 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  simp [revcomp, comp, symComp]
+  have h : (symComp ∘ symComp) = id := by
+    intro x; cases x <;> rfl
+  simp [h, ih]
+###PROOF_END###
+

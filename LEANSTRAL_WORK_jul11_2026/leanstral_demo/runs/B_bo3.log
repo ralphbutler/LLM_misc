@@ -1,0 +1,34 @@
+
+===== ROUND 1: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-171511.lean:61:84: error: unexpected token '`'; expected '{' or tactic
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-171511.lean:61:82: error: unsolved goals
+s : List Base
+⊢ revcomp comp (revcomp comp s) = s
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-171511.lean:64:4: error: no applicable extensionality theorem found for
+  Base
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-171511.lean:61:82: error: unsolved goals
+s : List Base
+comp_invol : ∀ (b : Base), comp (comp b) = b
+⊢ revcomp comp (revcomp comp s) = s
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-171511.lean:61:8: warning: declaration uses 'sorry'
+--------------------------------------------------
+VERDICT: INCOMPLETE  (sorry still present)
+
+
+===== ROUND 4: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-171511.lean:61:8: warning: declaration uses 'sorry'
+--------------------------------------------------
+VERDICT: INCOMPLETE  (sorry still present)
+
+
+✗ Not solved within the round budget.

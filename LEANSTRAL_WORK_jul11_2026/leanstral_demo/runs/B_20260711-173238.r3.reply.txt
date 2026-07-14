@@ -1,0 +1,9 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  simp [revcomp, comp, symComp] at *
+  rcases ih with ⟨h1, h2⟩
+  simp [h1, h2]
+###PROOF_END###
+

@@ -1,0 +1,40 @@
+###PROOF_BEGIN###
+  constructor
+  · intro h
+    have hdec : (a.lo < b.hi ∧ b.lo < a.hi) := by
+      simpa [overlap] using h
+    rcases hdec with ⟨hlt1, hlt2⟩
+    -- We need to produce an x such that a.lo ≤ x ∧ x < a.hi ∧ b.lo ≤ x ∧ x < b.hi
+    -- Since intervals are non-empty, we can pick x = a.lo (or b.lo) but need to check it's < both hi.
+    -- Actually a.lo is < a.hi by ha, and we need a.lo < b.hi (from hlt1) and b.lo ≤ a.lo.
+    -- But we don't know b.lo ≤ a.lo. Similarly for b.lo.
+    -- So we need to pick x that works for both. The overlap condition implies the intervals intersect.
+    -- We can use `omega` to handle the arithmetic.
+    have hx : a.lo < b.hi := hlt1
+    have hx2 : b.lo < a.hi := hlt2
+    -- Try x = max(a.lo, b.lo). Since both are < the other hi, this works.
+    set x := max a.lo b.lo with hxdef
+    have hax : a.lo ≤ x := by
+      simp [hxdef]
+    have hbx : b.lo ≤ x := by
+      simp [hxdef]
+    have hxa : x < a.hi := by
+      -- Since x = max(a.lo, b.lo) ≤ a.hi? Actually we know a.lo < a.hi and b.lo < a.hi.
+      -- So max(a.lo, b.lo) < a.hi.
+      have : max a.lo b.lo < a.hi := by
+        exact max_lt ha hx2
+      simpa [hxdef] using this
+    have hxb : x < b.hi := by
+      have : max a.lo b.lo < b.hi := by
+        exact max_lt hx1 hb
+      simpa [hxdef] using this
+    exact ⟨x, hax, hxa, hbx, hxb⟩
+  · intro h
+    rcases h with ⟨x, hax, hxa, hbx, hxb⟩
+    have hlt1 : a.lo < b.hi := by
+      -- from hax: a.lo ≤ x and hxb: x < b.hi, so a.lo < b.hi
+      exact lt_of_le_of_lt hax hxb
+    have hlt2 : b.lo < a.hi := by
+      exact lt_of_le_of_lt hbx hxa
+    simp [overlap, hlt1, hlt2]
+###PROOF_END###

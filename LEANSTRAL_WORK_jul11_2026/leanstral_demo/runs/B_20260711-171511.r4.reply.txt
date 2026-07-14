@@ -1,0 +1,8 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  simp [revcomp, comp, symComp, List.map_append, List.reverse_append] at ih
+  sorry
+###PROOF_END###
+

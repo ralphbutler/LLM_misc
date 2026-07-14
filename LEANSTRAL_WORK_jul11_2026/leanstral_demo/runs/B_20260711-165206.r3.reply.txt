@@ -1,0 +1,6 @@
+###PROOF_BEGIN###
+have h : ∀ b, comp (comp b) = b := by
+  intro b; cases b <;> decide
+simp [revcomp, List.map_reverse, h]
+###PROOF_END###
+

@@ -1,0 +1,6 @@
+###PROOF_BEGIN###
+  induction s with
+  | nil => rfl
+  | cons b bs ih =>
+    simp [revcomp, comp, symComp, ih]
+###PROOF_END###
