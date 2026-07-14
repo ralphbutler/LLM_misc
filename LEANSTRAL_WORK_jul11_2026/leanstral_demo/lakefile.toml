@@ -1,0 +1,15 @@
+name = "leanstral_demo"
+version = "0.1.0"
+defaultTargets = ["leanstral_demo"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.20.0"
+
+[[lean_lib]]
+name = "LeanstralDemo"
+
+[[lean_exe]]
+name = "leanstral_demo"
+root = "Main"
