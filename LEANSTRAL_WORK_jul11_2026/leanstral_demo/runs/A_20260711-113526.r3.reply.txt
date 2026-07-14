@@ -1,0 +1,25 @@
+###PROOF_BEGIN###
+constructor
+· intro h
+  have hdec : (a.lo < b.hi ∧ b.lo < a.hi) := by
+    simpa [overlap] using h
+  rcases hdec with ⟨hlt1, hlt2⟩
+  set x := max a.lo b.lo with hxdef
+  have hax : a.lo ≤ x := by
+    simp [hxdef]
+  have hbx : b.lo ≤ x := by
+    simp [hxdef]
+  have hxa : x < a.hi := by
+    have : max a.lo b.lo < a.hi := max_lt ha hlt2
+    simpa [hxdef] using this
+  have hxb : x < b.hi := by
+    have : max a.lo b.lo < b.hi := max_lt hlt1 hb
+    simpa [hxdef] using this
+  exact ⟨x, hax, hxa, hbx, hxb⟩
+· intro h
+  rcases h with ⟨x, hax, hxa, hbx, hxb⟩
+  have hlt1 : a.lo < b.hi := lt_of_le_of_lt hax hxb
+  have hlt2 : b.lo < a.hi := lt_of_le_of_lt hbx hxa
+  simp [overlap, hlt1, hlt2]
+###PROOF_END###
+

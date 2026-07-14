@@ -1,0 +1,95 @@
+
+===== ROUND 1: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:62:3: error: unknown tactic
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:61:82: error: unsolved goals
+s : List Base
+⊢ revcomp comp (revcomp comp s) = s
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:64:17: error: unsolved goals
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+⊢ {
+        sym :=
+          match
+            match b.sym with
+            | A => T
+            | T => A
+            | C => G
+            | G => C
+            | R => Y
+            | Y => R
+            | N => N with
+          | A => T
+          | T => A
+          | C => G
+          | G => C
+          | R => Y
+          | Y => R
+          | N => N,
+        masked := b.masked } =
+      b ∧
+    List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:66:19: error: tactic 'cases' failed, nested error:
+dependent elimination failed, failed to solve equation
+  bs = List.map (comp ∘ comp) bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 4: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:66:40: error: unsolved goals
+b : Base
+bs : List Base
+ih : List.map (comp ∘ comp) bs = bs
+⊢ {
+      sym :=
+        match
+          match b.sym with
+          | A => T
+          | T => A
+          | C => G
+          | G => C
+          | R => Y
+          | Y => R
+          | N => N with
+        | A => T
+        | T => A
+        | C => G
+        | G => C
+        | R => Y
+        | Y => R
+        | N => N,
+      masked := b.masked } =
+    b
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:68:30: error: application type mismatch
+  (comp ∘ comp) bs
+argument
+  bs
+has type
+  List Base : Type
+but is expected to have type
+  Base : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:68:35: error: type mismatch
+  bs
+has type
+  List Base : Type
+but is expected to have type
+  Base : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:70:4: error: invalid argument, variable is not a proposition or let-declaration
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-173238.lean:70:4: error: simp made no progress
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+✗ Not solved within the round budget.

@@ -1,0 +1,68 @@
+
+===== ROUND 1: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:63:32: error: unknown identifier 'a'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:64:12: error: unknown identifier 'a'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:65:15: error: unknown identifier 'a'
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:65:4: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-165931.63.4.64.57.4.57._sorry._@.runs.B_20260711-165931._hyg.959 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:64:17: error: unsolved goals
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+⊢ {
+        sym :=
+          match
+            match b.sym with
+            | A => T
+            | T => A
+            | C => G
+            | G => C
+            | R => Y
+            | Y => R
+            | N => N with
+          | A => T
+          | T => A
+          | C => G
+          | G => C
+          | R => Y
+          | Y => R
+          | N => N,
+        masked := b.masked } =
+      b ∧
+    List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:67:12: error: tactic 'introN' failed, insufficient number of binders
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+⊢ symComp ∘ symComp = id
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:68:4: error: simp made no progress
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 4: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165931.lean:64:17: error: unsolved goals
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_sym : ∀ (x : Sym), symComp (symComp x) = x
+⊢ List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+✗ Not solved within the round budget.

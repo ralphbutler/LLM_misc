@@ -1,0 +1,122 @@
+
+===== ROUND 1: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:62:37: error: unsolved goals
+case mk
+s : List Base
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:61:82: error: unsolved goals
+s : List Base
+h : ∀ (b : Base), comp (comp b) = b
+⊢ List.map (comp ∘ comp) s = s
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:62:37: error: unsolved goals
+case mk
+s : List Base
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:64:49: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  List.map comp
+has type
+  List Base → List Base
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:64:82: error: unsolved goals
+case h
+s : List Base
+h : ∀ (b : Base), comp (comp b) = b
+xs : List Base
+⊢ (List.map comp (sorry () xs)).reverse = xs
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:61:82: error: unsolved goals
+s : List Base
+h : ∀ (b : Base), comp (comp b) = b
+h_map : (List.map comp ∘ List.reverse) ∘ sorry = id
+⊢ List.map (comp ∘ comp) s = s
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:63:25: error: expected type must not contain free variables
+  comp (comp { sym := sym✝, masked := masked✝ }) = { sym := sym✝, masked := masked✝ }
+Use the '+revert' option to automatically cleanup and revert free variables.
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:61:82: error: unsolved goals
+s : List Base
+h : ∀ (b : Base), comp (comp b) = b
+⊢ List.map (comp ∘ comp) s = s
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 4: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:63:25: error: expected type must not contain free variables
+  comp (comp { sym := sym✝, masked := masked✝ }) = { sym := sym✝, masked := masked✝ }
+Use the '+revert' option to automatically cleanup and revert free variables.
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-165206.lean:66:17: error: unsolved goals
+case cons
+h : ∀ (b : Base), comp (comp b) = b
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+⊢ {
+        sym :=
+          match
+            match b.sym with
+            | A => T
+            | T => A
+            | C => G
+            | G => C
+            | R => Y
+            | Y => R
+            | N => N with
+          | A => T
+          | T => A
+          | C => G
+          | G => C
+          | R => Y
+          | Y => R
+          | N => N,
+        masked := b.masked } =
+      b ∧
+    List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+✗ Not solved within the round budget.

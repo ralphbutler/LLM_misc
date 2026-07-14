@@ -1,0 +1,11 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  have h_comp_invol : comp (comp b) = b := by
+    cases b <;> simp [comp, symComp]
+  have h_map : List.map (fun x => comp (comp x)) bs = bs := by
+    simpa [revcomp] using congrArg (List.map (fun x => comp (comp x))) ih
+  simp [revcomp, comp, h_comp_invol, h_map]
+###PROOF_END###
+

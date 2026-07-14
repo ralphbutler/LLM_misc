@@ -1,0 +1,9 @@
+
+===== ROUND 1: calling Leanstral (temp=0.8) =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-180413.lean:65:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+--------------------------------------------------
+VERDICT: PASS  (fully verified — kernel-checked, no sorry)
+
+
+★ SOLVED in 1 round(s): /Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-180413.lean

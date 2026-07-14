@@ -1,0 +1,9 @@
+###PROOF_BEGIN###
+  have h : ∀ b, comp (comp b) = b := by
+    intro b; cases b <;> decide
+  induction s with
+  | nil => rfl
+  | cons b bs ih =>
+    simp [revcomp, comp, symComp, h, ih]
+###PROOF_END###
+

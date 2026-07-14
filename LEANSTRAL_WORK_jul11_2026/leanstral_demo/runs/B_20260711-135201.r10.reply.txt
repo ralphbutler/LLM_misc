@@ -1,0 +1,25 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  have h_comp_inv : ∀ b, comp (comp b) = b := by
+    intro b; cases b <;> simp [comp, symComp]
+  have h_map_rev : ∀ (f : Base → Base) (l : List Base), (List.map f l).reverse = (l.reverse).map f := by
+    intro f l; induction l with
+    | nil => rfl
+    | cons x xs ih => simp [ih]
+  have h_map_comp : ∀ (f g : Base → Base) (l : List Base), List.map f (List.map g l) = List.map (f ∘ g)l := by
+    intro f g l; induction l with
+    | nil => rfl
+    | cons x xs ih => simp [ih]
+  calc
+    revcomp comp (revcomp comp (b :: bs))
+        = ((List.map comp (b :: bs)).reverse).map comp |>.reverse := rfl
+    _ = ((List.map comp (b :: bs)).map comp).reverse.reverse := by rw [h_map_rev]
+    _ = (List.map comp (b :: bs)).map comp := by simp
+    _ = List.map (comp ∘ comp) (b :: bs) := by rw [h_map_comp]
+    _ = List.map id (b :: bs) := by
+      simp [h_comp_inv]
+    _ = b :: bs := by simp
+###PROOF_END###
+

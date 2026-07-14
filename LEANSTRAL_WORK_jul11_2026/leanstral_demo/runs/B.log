@@ -1,0 +1,136 @@
+
+===== ROUND 1: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:61:82: error: unsolved goals
+case nil
+⊢ revcomp comp (revcomp comp []) = []
+
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+⊢ revcomp comp (revcomp comp (b :: bs)) = b :: bs
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:63:4: error: unexpected token '·'; expected command
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:65:45: error: unsolved goals
+case mk
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:64:17: error: unsolved goals
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_comp_invol : comp (comp b) = b
+⊢ { sym := symComp (symComp b.sym), masked := b.masked } = b ∧ List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:65:45: error: unsolved goals
+case mk
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:68:6: error: type mismatch, term
+  congrArg (fun t => List.map (fun x => comp (comp x)) t) ih
+after simplification has type
+  List.map (fun x => comp (comp x)) (revcomp comp (revcomp comp bs)) = List.map (fun x => comp (comp x)) bs : Prop
+but is expected to have type
+  List.map (fun x => comp (comp x)) bs = bs : Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:64:17: error: unsolved goals
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_comp_invol : comp (comp b) = b
+h_map : List.map (fun x => comp (comp x)) bs = bs
+⊢ { sym := symComp (symComp b.sym), masked := b.masked } = b ∧ List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 4: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:65:45: error: unsolved goals
+case mk
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:68:6: error: type mismatch, term
+  congrArg (List.map fun x => comp (comp x)) ih
+after simplification has type
+  ∀ a ∈ bs, comp (comp (comp (comp a))) = comp (comp a) : Prop
+but is expected to have type
+  List.map (fun x => comp (comp x)) bs = bs : Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-111324.lean:64:17: error: unsolved goals
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_comp_invol : comp (comp b) = b
+h_map : List.map (fun x => comp (comp x)) bs = bs
+⊢ { sym := symComp (symComp b.sym), masked := b.masked } = b ∧ List.map (comp ∘ comp) bs = bs
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 5: calling Leanstral =====

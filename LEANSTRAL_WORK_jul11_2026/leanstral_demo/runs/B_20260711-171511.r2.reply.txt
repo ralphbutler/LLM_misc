@@ -1,0 +1,1059 @@
+###PROOF_BEGIN###
+  induction s with
+  | nil => rfl
+  | cons b bs ih =>
+    simp [revcomp, comp, symComp]
+    -- Now we need to show (map c).reverse.reverse = []? No, the goal is:
+    -- (List.map comp ((List.map comp bs).reverse)).reverse = b :: bs
+    -- Using ih: revcomp comp (revcomp comp bs) = bs
+    -- But we need to handle the outer reverse.
+    -- Let's compute:
+    -- revcomp comp (revcomp comp (b :: bs))
+    -- = revcomp comp (revcomp comp [b] ++ revcomp comp bs) ... no, map is over whole list then reverse.
+    -- Actually: revcomp comp s = (map comp s).reverse
+    -- So: revcomp comp (revcomp comp s) = (map comp ((map comp s).reverse)).reverse
+    -- We know map reverse then reverse = id? Let's see:
+    -- (map f l).reverse.reverse = map f l
+    -- So we need to show (map comp ((map comp s).reverse)).reverse = s
+    -- Which is (map comp ((map comp s).reverse)).reverse = s
+    -- Using ih: revcomp comp (revcomp comp bs) = bs
+    -- But we need to handle the concatenation with [b].
+    -- Let's use a lemma: (map f l).reverse.reverse = map f l
+    -- Actually, that's true by definition? Let's check.
+    -- List.reverse_reverse is a theorem: (l.reverse).reverse = l
+    -- So ((map comp s).reverse).reverse = map comp s
+    -- But we have (map comp ((map comp s).reverse)).reverse
+    -- = (map comp ((map comp s).reverse)) ... hmm, we need to apply reverse then map.
+    -- Actually the definition is: revcomp c s = (s.map c).reverse
+    -- So revcomp comp (revcomp comp s) = ((s.map comp).map comp).reverse.reverse
+    -- Wait, let's be careful:
+    -- revcomp comp s = (s.map comp).reverse
+    -- Then revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- Actually: revcomp c s = (s.map c).reverse
+    -- So revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- Wait no: revcomp c s takes s, maps c over it, then reverses.
+    -- So if we call revcomp comp on (revcomp comp s), which is already a list,
+    -- we do: ((revcomp comp s).map comp).reverse
+    -- = (((s.map comp).reverse).map comp).reverse
+    -- We want this to equal s.
+    -- Key insight: ((s.map f).reverse).map g = (s.map f).map g ? No.
+    -- Let's think differently. The involution property should hold because:
+    -- 1. symComp is an involution: symComp (symComp x) = x
+    -- 2. map preserves this: (map comp (map comp s)) = s, because each element maps twice.
+    -- 3. reverse is an involution: l.reverse.reverse = l
+    -- But we have outer reverse and inner reverse. Let's compute:
+    -- revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- Wait, the outer revcomp takes its argument (which is already reversed), maps comp over it,
+    -- then reverses again. So:
+    -- Let t = (s.map comp).reverse
+    -- Then revcomp comp t = (t.map comp).reverse
+    -- = (((s.map comp).reverse).map comp).reverse
+    -- We want this to equal s.
+    -- Now, ((s.map comp).reverse).map comp = (s.map comp).map comp because reverse then map commute? No.
+    -- Actually, we can use the fact that map and reverse satisfy:
+    -- (l.reverse.map f) = (l.map f).reverse
+    -- This is a known lemma: List.map_reverse or similar.
+    -- Let's check if Mathlib has this.
+    -- Actually, we can prove it directly:
+    -- Claim: ((s.map comp).reverse).map comp = s.map (comp ∘ comp)
+    -- No, that's not right either.
+    -- Let's step back. The simplest proof:
+    -- revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- We want to show this equals s.
+    -- Note that (l.reverse.map f).reverse = l.map f
+    -- Because: (l.reverse.map f).reverse = ((l.map f).reverse).reverse? No.
+    -- Actually, (l.reverse.map f) = (l.map f).reverse
+    -- This is true by induction on l.
+    -- Then ((s.map comp).reverse).map comp = (s.map comp).map comp
+    -- And ((s.map comp).map comp) = s because comp ∘ comp = id on each element.
+    -- Then reverse of that gives s.reverse, not s.
+    -- Hmm, we need another approach.
+    
+    -- Let's just compute directly:
+    -- revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- We want this to equal s.
+    
+    -- Actually, let's look at the definition again:
+    -- revcomp c s = (s.map c).reverse
+    
+    -- So: revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- Let's call f = comp. Then we have ((s.map f).reverse).map f).reverse
+    -- We want this to equal s.
+    
+    -- Key property: (l.reverse.map f).reverse = l.map f
+    -- Proof: by induction on l.
+    
+    -- Then ((s.map comp).reverse).map comp = (s.map comp).map comp
+    -- And ((s.map comp).map comp) = s because each element maps to itself under comp ∘ comp.
+    
+    -- Then we need: (s.map (comp ∘ comp)).reverse = s
+    -- But comp ∘ comp is not identity! Let's check:
+    -- comp b = { sym := symComp b.sym, masked := b.masked }
+    -- So comp (comp b) = { sym := symComp (symComp b.sym), masked := b.masked }
+    -- And symComp (symComp x) = x by definition.
+    -- So comp ∘ comp = id!
+    
+    -- Therefore: (s.map (id)).reverse = s.reverse, not s.
+    
+    -- We need another approach. Let's compute carefully:
+    
+    -- revcomp comp (revcomp comp s)
+    -- = ((s.map comp).reverse).map comp).reverse
+    
+    -- Let's use the lemma: (l.reverse.map f) = (l.map f).reverse
+    -- This is true by induction.
+    
+    -- Then ((s.map comp).reverse).map comp = (s.map comp).map comp
+    
+    -- Now, (s.map comp).map comp = s.map (comp ∘ comp) = s.map id = s
+    
+    -- So we have: (s.map comp).map comp = s? No, that's not right.
+    -- Wait: (s.map f).map g = s.map (g ∘ f), not s.map f then map g separately.
+    -- Actually, List.map f (List.map g l) = List.map (f ∘ g) l? No, it's the other way.
+    -- Let's check: List.map f (List.map g l) = List.map (f ∘ g) l
+    -- So ((s.map comp).reverse).map comp = (s.map comp).map comp? No.
+    -- Actually, the lemma I want is: List.map f (List.reverse l) = List.reverse (List.map f l)
+    -- This is true by induction.
+    
+    -- So: ((s.map comp).reverse).map comp = (s.map comp).map comp? No.
+    -- Let me redo:
+    -- ((s.map comp).reverse).map comp = (List.reverse (s.map comp)).map comp
+    -- = List.map comp (List.reverse (s.map comp))
+    -- By the lemma: = List.reverse (List.map comp (s.map comp))
+    -- = List.reverse ((s.map comp).map comp)
+    -- = List.reverse (s.map (comp ∘ comp))
+    -- = List.reverse (s.map id)
+    -- = List.reverse s
+    
+    -- So we get List.reverse s, not s. We're off by a reverse!
+    
+    -- But wait: revcomp comp (revcomp comp s) = ((s.map comp).reverse).map comp).reverse
+    -- We just computed that ((s.map comp).reverse).map comp = List.reverse s
+    -- So the whole thing is (List.reverse s).reverse = s.
+    
+    -- Yes! Because (l.reverse).reverse = l, so (List.reverse s).reverse = s.
+    
+    -- So the proof is:
+    -- 1. Lemma: List.map f (List.reverse l) = List.reverse (List.map f l)
+    -- 2. Lemma: comp ∘ comp = id
+    -- 3. Then compute.
+    
+    -- Actually, we can do this more directly by induction on s without the extra lemma.
+    
+    -- Let me try a direct induction:
+    
+    -- Base case: s = []
+    -- revcomp comp (revcomp comp []) = revcomp comp (([].map comp).reverse) = revcomp comp [] = ([]).map comp).reverse = [] = s. rfl works.
+    
+    -- Inductive step: s = b :: bs, ih: revcomp comp (revcomp comp bs) = bs
+    -- revcomp comp (revcomp comp (b :: bs))
+    -- = revcomp comp ((b :: bs).map comp).reverse
+    -- = revcomp comp (comp b :: bs.map comp).reverse
+    -- Wait, no. Let's compute:
+    -- (b :: bs).map comp = comp b :: bs.map comp
+    -- Then reverse: (comp b :: bs.map comp).reverse = (bs.map comp).reverse ++ [comp b]? No, reverse of a::l is l.reverse ++ [a].
+    -- Actually: (x :: xs).reverse = xs.reverse ++ [x]
+    
+    -- So ((b :: bs).map comp).reverse = (bs.map comp).reverse ++ [comp b]
+    
+    -- Then revcomp comp of that = ((bs.map comp).reverse ++ [comp b]).map comp).reverse
+    -- = ((bs.map comp).reverse.map comp ++ [comp b].map comp).reverse
+    -- = ((bs.map comp).reverse.map comp ++ [comp (comp b)]).reverse
+    -- = ((bs.map comp).reverse.map comp ++ [b]).reverse  (since comp ∘ comp = id)
+    
+    -- Now we need this to equal b :: bs.
+    
+    -- By ih: revcomp comp (revcomp comp bs) = ((bs.map comp).reverse).map comp).reverse = bs
+    -- So ((bs.map comp).reverse).map comp = (bs.reverse)... hmm, this is getting messy.
+    
+    -- Let me try a different approach: use the lemma about map reverse commuting, and the involution property.
+    
+    -- Actually, let me just look up what Mathlib has:
+    -- List.map_reverse: not sure.
+    
+    -- Let me try to write the proof using calc and known lemmas.
+    
+    -- First, let's prove a helper lemma:
+    
+    -- lemma map_reverse_eq_reverse_map (f : Base → Base) (l : List Base) : (l.reverse.map f) = (l.map f).reverse := by
+    --   induction l with
+    --   | nil => rfl
+    --   | cons x xs ih =>
+    --     simp [ih]
+    
+    -- Then the main proof:
+    
+    -- theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+    --   simp [revcomp, Function.comp]
+    --   -- This gives: ((s.map comp).reverse.map comp).reverse = s
+    --   -- Using map_reverse_eq_reverse_map: (s.map comp).reverse.map comp = (s.map comp).map comp
+    --   -- Wait, that lemma says reverse then map f = map f then reverse.
+    --   -- So (s.map comp).reverse.map comp = (s.map comp).map comp? No.
+    --   -- The lemma: (l.reverse.map f) = (l.map f).reverse
+    --   -- So with l := s.map comp, we get: ((s.map comp).reverse.map comp) = ((s.map comp).map comp).reverse
+    --   -- That's not directly helpful.
+    
+    -- Let me think again. The goal after `simp [revcomp]` is:
+    -- ((s.map comp).reverse.map comp).reverse = s
+    
+    -- We can use the lemma: (l.reverse.map f) = (l.map f).reverse
+    -- So ((s.map comp).reverse.map comp) = ((s.map comp).map comp).reverse? No.
+    -- Wait: with l := s, f := comp, we get (s.reverse.map comp) = (s.map comp).reverse
+    -- But we have ((s.map comp).reverse.map comp), which is (l.reverse.map f) with l := s.map comp, f := comp.
+    -- So it equals ((s.map comp).map comp).reverse
+    -- = (s.map (comp ∘ comp)).reverse
+    -- = (s.map id).reverse  (since comp is involution)
+    -- = s.reverse
+    
+    -- Then we need to reverse that: (s.reverse).reverse = s. Done!
+    
+    -- So the proof is:
+    -- 1. Use lemma map_reverse_eq_reverse_map
+    -- 2. Show comp ∘ comp = id
+    -- 3. Use List.reverse_reverse
+    
+    -- Let me write this proof.
+
+Let me think step by step and then produce a clean proof.
+
+The key insight:
+- `comp` is an involution: `comp (comp b) = b`
+- `(l.reverse.map f).reverse = l.map f` (this is the key lemma)
+- Then `revcomp comp (revcomp comp s) = ((s.map comp).reverse.map comp).reverse = (s.map (comp ∘ comp)).reverse = s.reverse.reverse = s`
+
+Let me write this cleanly.
+
+Actually, let me check if there's a simpler way. The lemma `(l.reverse.map f).reverse = l.map f` can be proven by induction.
+
+Let me write the proof:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have h1 : ∀ l : List Base, (l.reverse.map comp).reverse = l.map comp := by
+    intro l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (s.map (comp ∘ comp)).reverse := by
+      -- need lemma: (l.reverse.map f).reverse = l.map f, which gives us ((s.map comp).reverse.map comp) = (s.map (comp ∘ comp))
+      -- Actually, the lemma I proved above is different.
+    ...
+```
+
+Let me redo this more carefully.
+
+I want to prove: `((s.map comp).reverse.map comp).reverse = s`
+
+Step 1: `(l.reverse.map f) = (l.map f).reverse` for any `f`. This is true by induction.
+
+So `((s.map comp).reverse.map comp) = ((s.map comp).map comp).reverse`
+
+Step 2: `(s.map comp).map comp = s.map (comp ∘ comp) = s.map id = s`
+
+So `((s.map comp).reverse.map comp) = s.reverse`
+
+Step 3: `(s.reverse).reverse = s` by `List.reverse_reverse`.
+
+Therefore the whole thing equals `s`. 
+
+Let me write this as a clean proof.
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_reverse_eq : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : Function.Involutive comp := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse) := by
+      -- using map_reverse_eq with f := comp, l := s.map comp
+      simp [map_reverse_eq]
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = (s.map id).reverse := by
+      -- comp ∘ comp = id
+      have : comp ∘ comp = id := funext fun b => congrArg Base.mk (congrFun rfl ?_) -- hmm, this is messy
+      ...
+```
+
+Actually let me use `Function.Involutive` which is defined as `f ∘ f = id`.
+
+```lean
+  have comp_invol : Function.Involutive comp := by
+    intro b
+    ext <;> simp [comp, symComp]
+```
+
+Then `simp [comp_invol]` should handle the composition.
+
+Let me write the full proof:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_reverse_eq : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : Function.Involutive comp := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp)).reverse := by
+      simp [map_reverse_eq]
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = (s.map id).reverse := by
+      simp [comp_invol]
+    _ = s.reverse.reverse := by simp
+    _ = s := by simp
+```
+
+Wait, `simp [comp_invol]` might not work because `comp_invol` is `Function.Involutive comp`, which means `comp ∘ comp = id`. Let me check.
+
+`Function.Involutive f` is defined as `∀ x, f (f x) = x`. And there's a lemma `Function.Involutive.comp_eq_id` or similar.
+
+Actually, `simp` might not know how to use this. Let me just write:
+
+```lean
+    _ = (s.map id).reverse := by
+      have h : comp ∘ comp = id := funext fun b => by
+        simp [comp_invol, comp]
+      rw [h]
+```
+
+Or simpler: just `simp [comp_invol]` might work if we have the right lemma.
+
+Let me check: `#check Function.Involutive` - it's a typeclass? Actually, let me look at what `simp` lemmas are available.
+
+Actually, I think the simplest approach is:
+
+```lean
+    _ = (s.map id).reverse := by
+      rw [funext fun b => congrArg (fun f => f b) ?_]
+```
+
+Hmm, this is getting complicated. Let me just use `simp` with the specific lemma:
+
+```lean
+    _ = (s.map id).reverse := by
+      have : comp ∘ comp = id := funext fun b => by
+        dsimp
+        rw [comp_invol]
+      rw [this]
+```
+
+But `rw` expects an equality of functions, not a pointwise one. Let me use:
+
+```lean
+      have h : (comp ∘ comp) = id := funext fun b => by
+        rw [Function.comp_apply, Function.comp_apply, comp_invol]
+      rw [h]
+```
+
+OK let me just write a clean proof. I think the calc block is fine but maybe overkill. Let me try a simpler induction approach.
+
+Actually, let me try the simplest possible proof:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  induction s with
+  | nil => rfl
+  | cons b bs ih =>
+    -- revcomp comp (revcomp comp (b :: bs))
+    -- = ((b :: bs).map comp).reverse.map comp).reverse
+    -- Let's compute step by step.
+    simp [revcomp, comp]
+    -- This gives: ((bs.map comp).reverse ++ [comp b]).map comp).reverse = b :: bs
+    -- Actually, let me compute more carefully.
+```
+
+Hmm, the induction approach gets messy because of the reverse. Let me stick with the calc approach but make it clean.
+
+Let me verify: does `simp` know that `(l.reverse.map f).reverse = l.map f`? I'm not sure.
+
+Let me just try the direct approach with `simp`:
+
+```lean
+  simp [revcomp, comp, symComp]
+```
+
+This might actually work if `simp` has the right lemmas about reverse and map. Let me check what happens.
+
+Actually, I think `simp` won't close the goal automatically. Let me write a more explicit proof.
+
+OK here's my final plan:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_reverse_swap : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : ∀ b, comp (comp b) = b := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp)).reverse := by
+      -- using map_reverse_swap with f := comp, l := s.map comp
+      rw [map_reverse_swap]
+    _ = (s.map (fun b => comp (comp b))).reverse := by simp
+    _ = s.reverse := by simp [comp_invol]
+    _ = (s.reverse).reverse := by
+      -- wait, we need s at the end, not s.reverse
+      sorry
+```
+
+Hmm I keep getting confused. Let me redo the math.
+
+Goal: `((s.map comp).reverse.map comp).reverse = s`
+
+Let me compute:
+1. `(l.reverse.map f) = (l.map f).reverse`  [Lemma A]
+2. Apply Lemma A with `l := s.map comp`, `f := comp`:
+   `((s.map comp).reverse.map comp) = ((s.map comp).map comp).reverse`
+3. `(l.map f).map g = l.map (g ∘ f)` or more precisely `List.map f (List.map g l) = List.map (f ∘ g) l`
+   So `((s.map comp).map comp) = s.map (comp ∘ comp)`
+4. `comp ∘ comp = id` because `comp` is involution
+5. So `((s.map comp).map comp) = s.map id = s`
+6. Therefore `((s.map comp).reverse.map comp) = s.reverse`  [from step 2 and 5]
+7. Then `((s.map comp).reverse.map comp).reverse = (s.reverse).reverse = s`  [by List.reverse_reverse]
+
+Great, so the proof is:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_reverse_swap : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : Function.Involutive comp := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse) := by
+      rw [map_reverse_swap]
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = s.reverse.reverse := by
+      rw [funext comp_invol, Function.id]
+    _ = s := by simp
+```
+
+Wait, `rw [funext comp_invol]` is wrong syntax. Let me fix:
+
+```lean
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => congrArg (fun f => f b) ?_
+```
+
+Hmm. Let me use `simp` with the lemma:
+
+```lean
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+```
+
+Or more directly:
+
+```lean
+    _ = s.reverse.reverse := by
+      simp [comp_invol]
+```
+
+Will `simp` know how to use `comp_invol`? Let me check. `simp` uses rewrite rules. If I give it `comp_invol : ∀ b, comp (comp b) = b`, then `simp` can use it to rewrite `comp (comp x)` to `x`. But we need to rewrite the function composition.
+
+Let me try a different approach: just use `simp` with `comp_invol`:
+
+Actually, let me check what `simp` does:
+
+```lean
+    _ = (s.map id).reverse := by
+      simp [comp_invol]
+```
+
+If `simp` can use `comp_invol`, it should rewrite `comp (comp b)` to `b`. But we have `(s.map comp).map comp`, which is `List.map comp (List.map comp s)`. And we want to show this equals `s`. 
+
+Actually, let me just use a direct lemma:
+
+```lean
+    have h : (s.map comp).map comp = s := by
+      simp [comp_invol]
+```
+
+Let me test this. `simp` with `comp_invol` should be able to handle `List.map comp (List.map comp s) = s`? Actually, I'm not sure `simp` has a lemma for nested maps.
+
+Let me just write it out:
+
+```lean
+    have h : (s.map comp).map comp = s := by
+      induction s with
+      | nil => rfl
+      | cons b bs ih =>
+        simp [ih, comp_invol]
+```
+
+OK this is getting too complicated. Let me just write a direct induction proof for the main theorem.
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  induction s with
+  | nil => rfl
+  | cons b bs ih =>
+    -- We need to show: revcomp comp (revcomp comp (b :: bs)) = b :: bs
+    -- Compute:
+    -- revcomp comp (b :: bs) = ((b :: bs).map comp).reverse
+    -- = (comp b :: bs.map comp).reverse
+    -- = (bs.map comp).reverse ++ [comp b]
+    
+    -- Then revcomp comp of that:
+    -- = (((bs.map comp).reverse ++ [comp b]).map comp).reverse
+    -- = ((bs.map comp).reverse.map comp ++ [comp (comp b)]).reverse
+    -- = ((bs.map comp).reverse.map comp ++ [b]).reverse
+    
+    -- We want this to equal b :: bs.
+    
+    -- From ih: revcomp comp (revcomp comp bs) = bs
+    -- i.e., ((bs.map comp).reverse.map comp).reverse = bs
+    
+    -- So ((bs.map comp).reverse.map comp) = (bs.reverse)... no, that's not right.
+    
+    -- Actually from ih we know ((bs.map comp).reverse.map comp).reverse = bs.
+    -- So ((bs.map comp).reverse.map comp) is some list whose reverse is bs, i.e., it's bs.reverse.
+    
+    -- Hmm, this is getting messy. Let me use the lemma approach instead.
+```
+
+OK I'll go with the calc approach, it's cleaner. Let me finalize:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_reverse_swap : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : ∀ b, comp (comp b) = b := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse) := by
+      rw [map_reverse_swap]
+    _ = (s.map (fun b => comp (comp b))).reverse := by simp
+    _ = (s.map id).reverse := by
+      simp [comp_invol]
+    _ = s.reverse.reverse := by simp
+    _ = s := by simp
+```
+
+Wait, `(s.map (fun b => comp (comp b)))` can be simplified. Let me use:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+```
+
+And then:
+
+```lean
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by simp [comp_invol]
+      rw [h, map_id]
+```
+
+Actually `simp` might know `Function.comp`. Let me just try:
+
+```lean
+    _ = s.reverse.reverse := by
+      simp [comp_invol]
+```
+
+Let me check if `simp` can use `comp_invol`. The lemma is `∀ b, comp (comp b) = b`. When we have `(s.map (comp ∘ comp))`, `simp` would need to rewrite inside the map. I think `simp` can do this with `simp [comp_invol]`.
+
+Actually, let me just write it more explicitly:
+
+```lean
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+```
+
+OK let me finalize. Here's the proof I'll use:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_reverse_swap : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : ∀ b, comp (comp b) = b := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse) := by
+      rw [map_reverse_swap]
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by simp [comp_invol]
+      simp [h]
+    _ = s := by simp
+```
+
+Wait, `simp` might not know `List.map_id`. Let me check: `map id = id`? Actually, `simp` should know `List.map_id`. Let me just use:
+
+```lean
+    _ = s := by simp
+```
+
+This should work because `List.reverse_reverse` is a `simp` lemma.
+
+Let me also check: does `simp [ih]` in the induction step for `map_reverse_swap` work?
+
+```lean
+    | cons x xs ih =>
+      simp [ih]
+```
+
+The goal is: `((x :: xs).reverse.map f) = ((x :: xs).map f).reverse`
+
+`simp [ih]` should expand both sides:
+- LHS: `(xs.reverse ++ [x]).map f = xs.reverse.map f ++ [f x]`
+- RHS: `(xs.map f ++ [f x]).reverse = (xs.map f).reverse ++ [f x]`
+
+Then using `ih`: `xs.reverse.map f = (xs.map f).reverse`, so both sides are equal.
+
+Yes, `simp [ih]` should work.
+
+OK let me finalize. Actually, wait - I need to double-check the `calc` block's last step. We have `s.reverse.reverse` and we want `s`. Does `simp` know `List.reverse_reverse`? Yes, it should.
+
+Let me also consider: do I even need the `calc` block? Could I just use `simp` with all these lemmas?
+
+```lean
+  simp [revcomp, map_reverse_swap, comp_invol]
+```
+
+Probably not, because `simp` doesn't automatically apply the kind of rewriting we need. But let me just go with the calc block, it's clear and correct.
+
+One more thing: I should check that `ext` tactic is available. It's from `mathlib`. Yes, `Base` derives `DecidableEq` and has fields `sym` and `masked`, so `ext` should work.
+
+Let me finalize the proof. Actually, I realize I can simplify: instead of proving `comp_invol` with `ext`, I could use a simpler approach.
+
+But actually, let me just check if the whole thing compiles. Let me write it out cleanly.
+
+Actually, I realize there might be an issue: `simp [comp_invol]` in the step `(s.map (comp ∘ comp)).reverse = s.reverse.reverse`. Let me think about what `simp` needs to do here:
+
+- We have `(s.map (comp ∘ comp)).reverse`
+- We want `s.reverse.reverse` (which equals `s`)
+- We need to use: `comp ∘ comp = id`
+
+So we rewrite `comp ∘ comp` to `id`, then `s.map id = s`, so the whole thing is `s.reverse`.
+
+But wait, `(s.map (comp ∘ comp)).reverse = s.reverse` if `comp ∘ comp = id`. Then we need another step to get `s`.
+
+Let me redo:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = s.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by simp [comp_invol]
+      rw [h, map_id]
+    _ = s := by
+      -- wait, s.reverse is not equal to s in general!
+```
+
+Oh! I made a mistake. `s.reverse` is NOT equal to `s`. The theorem says `revcomp comp (revcomp comp s) = s`, not `= s.reverse`.
+
+Let me redo the math:
+
+Goal: `((s.map comp).reverse.map comp).reverse = s`
+
+Step 1: `(l.reverse.map f) = (l.map f).reverse` [Lemma A]
+So `((s.map comp).reverse.map comp) = ((s.map comp).map comp).reverse`
+
+Step 2: `(l.map f).map g = l.map (g ∘ f)` [Lemma B]
+So `((s.map comp).map comp) = s.map (comp ∘ comp)`
+
+Step 3: `comp ∘ comp = id` [Lemma C]
+So `s.map (comp ∘ comp) = s.map id = s`
+
+Step 4: From step 2 and 3: `((s.map comp).map comp) = s`
+
+Step 5: From step 1 and 4: `((s.map comp).reverse.map comp) = s.reverse`
+
+Step 6: `(s.reverse).reverse = s` [by List.reverse_reverse]
+
+Therefore: `((s.map comp).reverse.map comp).reverse = (s.reverse).reverse = s`
+
+Wait, step 5 says `((s.map comp).reverse.map comp) = s.reverse`. Then we take the reverse of both sides: `((s.map comp).reverse.map comp).reverse = (s.reverse).reverse = s`.
+
+So the final answer is `s`, which matches the goal. 
+
+Now let me write the calc proof correctly:
+
+```lean
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (s.reverse).reverse := by
+      -- from steps 1-5 above, ((s.map comp).reverse.map comp) = s.reverse
+      -- so reversing both sides gives (s.reverse).reverse
+      have h : ((s.map comp).reverse.map comp) = s.reverse := by
+        calc
+          ((s.map comp).reverse.map comp)
+              = (((s.map comp).map comp).reverse) := by rw [map_reverse_swap]
+          _ = (s.map (comp ∘ comp)).reverse := by simp
+          _ = s.reverse := by
+            have h_comp : comp ∘ comp = id := funext fun b => by simp [comp_invol]
+            rw [h_comp, map_id]
+      rw [h]
+    _ = s := by simp
+```
+
+Hmm, this is getting verbose. Let me simplify.
+
+Actually, the key insight is simpler than I'm making it:
+
+```
+revcomp comp (revcomp comp s)
+= ((s.map comp).reverse.map comp).reverse
+= (s.reverse).reverse    [because map-reverse commutes and comp is involution]
+= s
+```
+
+Let me prove the middle equality as a single lemma:
+
+```lean
+  have key : ((s.map comp).reverse.map comp) = s.reverse := by
+    calc
+      ((s.map comp).reverse.map comp)
+          = (((s.map comp).map comp)) := by
+        -- Wait, this is wrong. (l.reverse.map f) = (l.map f).reverse, not l.map f.
+```
+
+Hmm. Let me redo:
+
+`(l.reverse.map f) = (l.map f).reverse`
+
+So `((s.map comp).reverse.map comp) = ((s.map comp).map comp).reverse`
+
+And `((s.map comp).map comp) = s.map (comp ∘ comp) = s.map id = s`
+
+So `((s.map comp).reverse.map comp) = s.reverse`
+
+Then the final result is `(s.reverse).reverse = s`.
+
+OK, let me write this cleanly:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_rev_eq : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : Function.Involutive comp := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp)).reverse := by
+      rw [map_rev_eq]
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+    _ = s := by simp
+```
+
+Wait, I need to double-check step 4. We have `(s.map (comp ∘ comp)).reverse`. If `comp ∘ comp = id`, then `s.map (comp ∘ comp) = s.map id = s`. So the whole thing is `s.reverse`, not `s.reverse.reverse`.
+
+Let me redo:
+
+Step 3: `(s.map (comp ∘ comp)).reverse`
+If `comp ∘ comp = id`, then this is `(s.map id).reverse = s.reverse`.
+
+So:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse := by simp
+    _ = s.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+    _ = (s.reverse).reverse := ?  -- No, s.reverse is not equal to s
+```
+
+Hmm wait. The goal is `s`, and we have `s.reverse`. These are NOT equal in general (only for palindromic lists).
+
+So my approach is wrong! Let me re-examine.
+
+Let me go back to the definition:
+
+`revcomp c s = (s.map c).reverse`
+
+So `revcomp comp (revcomp comp s) = ((s.map comp).reverse.map comp).reverse`
+
+Goal: `((s.map comp).reverse.map comp).reverse = s`
+
+Let me compute step by step:
+
+1. Let `t := (s.map comp).reverse`. Then we want `(t.map comp).reverse = s`.
+
+2. `t = (s.map comp).reverse`
+
+3. `t.map comp = ((s.map comp).reverse).map comp`
+
+4. By Lemma A: `(l.reverse.map f) = (l.map f).reverse`
+   So `t.map comp = ((s.map comp).map comp).reverse`
+
+5. `(l.map f).map g = l.map (g ∘ f)`? Actually, `List.map` composes as: `(l.map f).map g = l.map (g ∘ f)`.
+   So `((s.map comp).map comp) = s.map (comp ∘ comp)`
+
+6. Since `comp ∘ comp = id`, we have `s.map (comp ∘ comp) = s.map id = s`
+
+7. Therefore, from step 4: `t.map comp = s.reverse`
+
+8. Then `(t.map comp).reverse = (s.reverse).reverse = s` ✓
+
+So the intermediate step should be `s.reverse`, and then we reverse it to get `s`.
+
+Let me fix the calc:
+
+```lean
+  calc
+    revcomp comp (revcomp comp s)
+        = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse).reverse := by
+      rw [map_rev_eq]
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by simp
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+    _ = s := by simp
+```
+
+Wait, step 2: `rw [map_rev_eq]` rewrites `(l.reverse.map f)` to `(l.map f).reverse`. Here `l := s.map comp` and `f := comp`. So we get `(((s.map comp).map comp).reverse)`. Then step 3: `simp` expands `(l.map f).map g = l.map (g ∘ f)`. So `((s.map comp).map comp) = s.map (comp ∘ comp)`. Then we have `(s.map (comp ∘ comp)).reverse.reverse`. Since `comp ∘ comp = id`, this is `(s.map id).reverse.reverse = s.reverse.reverse = s`.
+
+Yes, this works!
+
+But wait, I need to double-check: does `simp` know that `(l.map f).map g = l.map (g ∘ f)`? Let me check. The lemma is `List.map_map` or similar.
+
+Actually, `simp` might know this. Let me check: `#check List.map_map`? Actually, in Mathlib4, the lemma is `List.map_map` or it might be a `simp` lemma.
+
+Let me just try and see. If `simp` doesn't work, I can use:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by
+      rw [List.map_map]
+```
+
+OK, let me finalize the proof. I think this should work.
+
+Actually, one more simplification: instead of `List.map_map`, I could use:
+
+```lean
+    _ = (s.map (fun b => comp (comp b))).reverse.reverse := by
+      rw [List.map_map]
+```
+
+But `simp` might handle this.
+
+Let me just finalize. Here's my proof:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_rev_eq : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : Function.Involutive comp := by
+    intro b
+    ext <;> simp [comp, symComp]
+  calc
+    revcomp comp (revcomp comp s) = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse).reverse := by rw [map_rev_eq]
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by simp
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+    _ = s := by simp
+```
+
+Let me check if `simp` knows `List.map_map`. Actually, I think the lemma might be called differently in Mathlib4. Let me check.
+
+Actually, `List.map` composition is: `map g (map f l) = map (g ∘ f) l`. This is a theorem in Mathlib. Let me check its name.
+
+I think it's `List.map_map`. But I'm not 100% sure. Let me just use a more explicit approach:
+
+```lean
+    _ = (((s.map comp).map comp)).reverse.reverse := by
+      -- map_map: (l.map f).map g = l.map (g ∘ f)
+      rw [List.map_map]
+```
+
+If `List.map_map` doesn't exist, I can use:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by
+      simp only [List.map_map]
+```
+
+Or just:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by
+      rw [← List.map_map]
+```
+
+Let me check what the actual lemma name is. In Mathlib4, I believe it's `List.map_map`. But let me use a safe approach:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by
+      rw [show ((s.map comp).map comp) = s.map (comp ∘ comp) from by
+        simp]
+```
+
+Actually, `simp` might know this. Let me just use:
+
+```lean
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by simp
+```
+
+I think `simp` has `List.map_map` as a simp lemma. Let me just go with this.
+
+OK, final proof. Let me write it cleanly.
+
+Actually, I realize I should also consider: does `simp` know how to use `comp_invol`? The lemma is `Function.Involutive comp`, which means `∀ x, comp (comp x) = x`. But we need to rewrite the function composition `comp ∘ comp`, not the application.
+
+`simp [comp_invol]` might not be enough. Let me use:
+
+```lean
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h, Function.comp]
+```
+
+Hmm. Let me think about this differently. Maybe I should use `simp` with the explicit lemma:
+
+```lean
+      have h : (fun b => comp (comp b)) = id := by
+        ext b; simp [comp_invol]
+      rw [h]
+```
+
+Actually, this is getting too complicated. Let me just use:
+
+```lean
+      have h : ∀ b, comp (comp b) = b := comp_invol
+      simp [h]
+```
+
+Will `simp` use this? It should, because `simp` can rewrite inside `List.map`. Let me try:
+
+```lean
+    _ = s.reverse.reverse := by
+      simp [comp_invol]
+```
+
+I think this will work. `simp` will see `(s.map (comp ∘ comp))` and use `comp_invol` to rewrite `comp (comp b)` to `b`, giving `(s.map id)`, which simplifies to `s`. Then `s.reverse` is what we have.
+
+Wait, but I said step 3 gives `(s.map (comp ∘ comp)).reverse.reverse`. If `simp [comp_invol]` rewrites this to `s.reverse.reverse`, that's correct! Because:
+
+`(s.map (comp ∘ comp)).reverse.reverse`
+→ with `comp_invol`, `comp ∘ comp` becomes `id`
+→ `(s.map id).reverse.reverse = s.reverse.reverse`
+
+And then the last step `simp` gives `s`.
+
+OK so the calc should be:
+
+```lean
+  calc
+    revcomp comp (revcomp comp s) = ((s.map comp).reverse.map comp).reverse := rfl
+    _ = (((s.map comp).map comp).reverse).reverse := by rw [map_rev_eq]
+    _ = (s.map (comp ∘ comp)).reverse.reverse := by simp
+    _ = s.reverse.reverse := by simp [comp_invol]
+    _ = s := by simp
+```
+
+Let me verify: does `simp [comp_invol]` work on `(s.map (comp ∘ comp)).reverse.reverse`?
+
+`simp` will look for `comp_invol` which is `∀ b, comp (comp b) = b`. But we have `comp ∘ comp`, not `comp (comp b)`. So I need to expand the composition first.
+
+Better approach:
+
+```lean
+    _ = s.reverse.reverse := by
+      have h : comp ∘ comp = id := funext fun b => by rw [comp_invol]
+      simp [h]
+```
+
+This should work. `simp` can use `h : comp ∘ comp = id` to rewrite.
+
+OK, final answer. Let me write it cleanly and submit.
+
+Actually, I realize there might be an even simpler approach. Let me just use `simp` with all the lemmas:
+
+```lean
+  simp [revcomp, map_rev_eq, comp_invol, Function.comp]
+```
+
+No, this is unlikely to work. Let me stick with the calc.
+
+One more thing: I want to check if `Function.Involutive` is the right type. Let me look at its definition.
+
+Actually, I think in Mathlib4, `Function.Involutive f` is defined as `∀ x, f (f x) = x`. And there's a lemma `Function.Involutive.comp_eq_id` or similar.
+
+Let me just use:
+
+```lean
+  have comp_invol : ∀ b, comp (comp b) = b := by
+    intro b
+    ext <;> simp [comp, symComp]
+```
+
+This is a direct statement that's easy to use.
+
+OK, final proof:
+
+```lean
+theorem revcomp_involution (s : List Base) : revcomp comp (revcomp comp s) = s := by
+  have map_rev_eq : ∀ {α : Type} (f : α → α) (l : List α), (l.reverse.map f) = (l.map f).reverse := by
+    intro α f l
+    induction l with
+    | nil => rfl
+    | cons x xs ih =>
+      simp [ih]
+  have comp_invol : ∀ b, comp (comp b) = b := by
+    intro b
+    ext <;> simp [comp, symComp]
+ 

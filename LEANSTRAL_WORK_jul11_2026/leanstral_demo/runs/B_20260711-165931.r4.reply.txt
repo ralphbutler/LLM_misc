@@ -1,0 +1,9 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  have h_sym : ∀ x : Sym, symComp (symComp x) = x := by
+    intro x; cases x <;> rfl
+  simp [revcomp, comp, h_sym, ih]
+###PROOF_END###
+

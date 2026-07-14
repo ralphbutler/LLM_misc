@@ -1,0 +1,477 @@
+
+===== ROUND 1: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:62:46: error: unsolved goals
+case mk
+s : List Base
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:72:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:73:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:73:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name ()
+    `runs.B_20260711-135201.72.6.72.101.6.101._sorry._@.runs.B_20260711-135201._hyg.1081 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:72:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:74:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:74:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.72.6.73.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1084 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 4: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 5: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 6: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 7: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 8: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 9: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:76:6: error: invalid field notation, type is not of the form (C ...) where C is a constant
+  revcomp comp (revcomp comp (b :: bs)) = List.map comp (List.map comp (b :: bs)).reverse
+has type
+  Prop
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:10: error: type mismatch
+  (List.map comp (List.map comp (b :: bs))).reverse.reverse
+has type
+  List Base : Type
+but is expected to have type
+  Unit : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:78:6: error: invalid 'calc' step, left-hand side is
+  true : Bool
+but previous right-hand side is
+  Function.const Lean.Name () `runs.B_20260711-135201.76.6.77.67.6.67._sorry._@.runs.B_20260711-135201._hyg.1153 : Unit
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 10: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:65:48: error: unsolved goals
+case mk
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+sym✝ : Sym
+masked✝ : Bool
+⊢ (match
+      match sym✝ with
+      | A => T
+      | T => A
+      | C => G
+      | G => C
+      | R => Y
+      | Y => R
+      | N => N with
+    | A => T
+    | T => A
+    | C => G
+    | G => C
+    | R => Y
+    | Y => R
+    | N => N) =
+    sym✝
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:70:24: error: tactic 'simp' failed, nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:71:89: error: type mismatch
+  List.map (f ∘ g)
+has type
+  List Base → List Base : Type
+but is expected to have type
+  List Base : Type
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:64:17: error: unsolved goals
+case h_map_comp
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_comp_inv : ∀ (b : Base), comp (comp b) = b
+h_map_rev : ∀ (f : Base → Base) (l : List Base), (List.map f l).reverse = List.map f l.reverse
+⊢ (Base → Base) → (Base → Base) → List Base → sorry
+
+case cons
+b : Base
+bs : List Base
+ih : revcomp comp (revcomp comp bs) = bs
+h_comp_inv : ∀ (b : Base), comp (comp b) = b
+h_map_rev : ∀ (f : Base → Base) (l : List Base), (List.map f l).reverse = List.map f l.reverse
+h_map_comp : (Base → Base) → (Base → Base) → List Base → sorry
+⊢ revcomp comp (revcomp comp (b :: bs)) = b :: bs
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/B_20260711-135201.lean:71:105: error: unexpected identifier; expected command
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+✗ Not solved within the round budget.

@@ -1,0 +1,281 @@
+We need to prove the equivalence: `overlap a b = true ↔ SharePoint a b` given that both intervals are non-empty (`a.lo < a.hi`, `b.lo < b.hi`).
+
+Definitions:
+- `overlap a b` is `decide (a.lo < b.hi ∧ b.lo < a.hi)`.
+- `SharePoint a b` is `∃ x : Int, a.lo ≤ x ∧ x < a.hi ∧ b.lo ≤ x ∧ x < b.hi`.
+
+We need to show:
+1. If `overlap a b = true`, then `SharePoint a b`.
+2. If `SharePoint a b`, then `overlap a b = true`.
+
+We can use `omega` tactic for integer arithmetic reasoning. Since we have non-emptiness, the equivalence holds.
+
+Let's write the proof:
+
+```lean
+  constructor
+  · intro h
+    have hdec : a.lo < b.hi ∧ b.lo < a.hi := by
+      -- from `overlap a b = true`, we can get the condition because `decide` returns true iff the proposition holds.
+      -- Actually, `decide` uses `dec_trivial`. We can use `by decide`? No, we have variables.
+      -- But `decide` works on decidable propositions. The condition is decidable for Int.
+      -- We can use `simp [overlap] at h` to get the condition? Actually, `decide` is a function that returns true if the proposition is true.
+      -- We can use `have := of_decide_eq_true h`? There's lemma `decide_eq_true_iff` or similar.
+      -- Let's check: `#check decide`? Actually, `decide` is a tactic and also a function.
+      -- The lemma: `decide_eq_true_iff` exists? In Mathlib, there is `decide_eq_true_iff`? Let's recall: `by decide` works on decidable propositions. There is lemma `decide_eq_true_iff` for `Decidable`.
+      -- Actually, `decide` is defined in `Init/Classical.lean`? Wait, `decide` tactic uses `dec_trivial`. The function `decide` is from `Decidable`.
+      -- There's lemma: `decide_eq_true_iff`? Let's search memory: I think there is `decide_eq_true` in `Tactic`? Actually, `by decide` works.
+      -- But we can use `simpa [overlap] using h`? No, `h` is a boolean equality.
+      -- We can use `have h' := by simpa [overlap] using congrArg id h`? Not helpful.
+      -- Better: `have h' : (a.lo < b.hi ∧ b.lo < a.hi) := by
+      --   simpa [overlap] using h`? Wait, `h : overlap a b = true`. `overlap` is defined as `decide ...`. So `h : decide (a.lo < b.hi ∧ b.lo < a.hi) = true`. There's lemma `decide_eq_true_iff` that gives equivalence. Let's use `simpa [overlap] using (decide_eq_true_iff.mp h)`? Actually, `decide_eq_true_iff` is a lemma: `decide_eq_true_iff : decide p = true ↔ p`. Yes, that exists in `Init/Classical`? Let's check: `#check decide_eq_true_iff` might be available. I'll use `simpa [overlap] using (decide_eq_true_iff.mp h)`.
+    -- But we can also use `omega` directly: `omega` can handle the boolean equality? Not directly. We need to extract the condition.
+    -- Let's use `have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+    --   simpa [overlap] using (decide_eq_true_iff.mp h)`
+    -- Then `rcases hcond with ⟨hlt1, hlt2⟩`.
+    -- Now we need to produce `SharePoint a b`, i.e., `∃ x, ...`.
+    -- Since intervals are non-empty and we have strict inequalities, we can pick a point. For integers, if `a.lo < b.hi` and `b.lo < a.hi`, then there exists an integer between max(a.lo, b.lo) and min(a.hi, b.hi). But we need to show existence of x such that a.lo ≤ x < a.hi and b.lo ≤ x < b.hi.
+    -- Actually, the condition `a.lo < b.hi ∧ b.lo < a.hi` is exactly the condition for intervals to overlap (half-open). For integers, this implies there exists an integer x satisfying both. We can use `omega` to prove existence.
+    -- Approach: `refine ⟨max a.lo b.lo, ?_⟩`? But we need to show `a.lo ≤ max a.lo b.lo` (true), `max a.lo b.lo < a.hi`? Not necessarily: if `a.lo = 5, a.hi = 10`, `b.lo = 8, b.hi = 12`, then max is 8, which is < a.hi (10) and also < b.hi? Actually 8 < 12, so works. But if `a.lo = 5, a.hi = 8`, `b.lo = 6, b.hi = 7`, then max is 6, which is < a.hi (8) and < b.hi (7)? 6 < 7 yes. But what if `a.lo = 5, a.hi = 6`, `b.lo = 5, b.hi = 6`? Then max is 5, but we need x < a.hi and x < b.hi. 5 is not < 6? Actually 5 < 6, so x=5 works. But we need `x < a.hi` and `x < b.hi`. If we pick x = max(a.lo, b.lo), it might equal a.hi or b.hi? But we have strict inequalities: `a.lo < a.hi` and `b.lo < b.hi`. So max(a.lo, b.lo) is at most min(a.hi, b.hi)? Not necessarily: consider a.lo=5, a.hi=6; b.lo=7, b.hi=8. Then max(a.lo,b.lo)=7, which is not < a.hi (6). So that fails.
+    -- Better: pick x = max(a.lo, b.lo) but we need to ensure it's < both hi. However, the condition `a.lo < b.hi` and `b.lo < a.hi` does not guarantee that max(a.lo,b.lo) < min(a.hi,b.hi). Example: a=[5,6), b=[7,8) -> a.lo=5 < b.hi=8 true; b.lo=7 < a.hi=6 false. So condition fails. So if condition holds, then max(a.lo,b.lo) < min(a.hi,b.hi)? Let's check: Suppose a.lo=5, a.hi=10; b.lo=8, b.hi=9. Then max(a.lo,b.lo)=8, min(a.hi,b.hi)=9. 8<9 holds. In general, if a.lo < b.hi and b.lo < a.hi, then max(a.lo,b.lo) < min(a.hi,b.hi). Proof: Let M = max(a.lo,b.lo), m = min(a.hi,b.hi). We need M < m. Since a.lo ≤ M and b.lo ≤ M, we have a.lo < b.hi implies? Actually, if M = a.lo, then we need a.lo < m. Since m ≤ b.hi? Wait, m = min(a.hi,b.hi). If M = a.lo, then we need a.lo < min(a.hi,b.hi). Since a.lo < b.hi, we have a.lo < b.hi. But we also need a.lo < a.hi (given by ha). So a.lo < min(a.hi,b.hi) because a.lo is less than both? Actually, if M = a.lo, then we know a.lo < b.hi (by condition) and a.lo < a.hi (by ha). So a.lo < min(a.hi,b.hi) because it's less than both? Wait, a.lo < b.hi and a.lo < a.hi, so a.lo is less than both hi's, thus less than the minimum. Similarly if M = b.lo. So indeed M < m.
+    -- Therefore we can pick x = max a.lo b.lo, and then show the inequalities using ha, hb, and the condition.
+    -- So we can write:
+    -- have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+    --   simpa [overlap] using (decide_eq_true_iff.mp h)
+    -- rcases hcond with ⟨hlt1, hlt2⟩
+    -- set x := max a.lo b.lo with hxdef
+    -- have hx1 : a.lo ≤ x := le_max_left _ _
+    -- have hx2 : b.lo ≤ x := le_max_right _ _
+    -- have hx_lt_hi1 : x < a.hi := by
+    --   -- need to show max a.lo b.lo < a.hi
+    --   -- Since hlt2: b.lo < a.hi, and ha: a.lo < a.hi, we have both are < a.hi, so max is < a.hi.
+    --   exact max_lt ha hlt2? Wait, `max_lt` lemma: `max_lt`? There's `max_lt_iff`. Actually, `max_lt` is a lemma: `max_lt ha hb : max a b < c ↔ a < c ∧ b < c`. But we need `max a.lo b.lo < a.hi`. We have `ha : a.lo < a.hi` and `hlt2 : b.lo < a.hi`. So we can use `max_lt ha hlt2`? Let's check: `max_lt` has type `max a b < c ↔ a < c ∧ b < c`. Actually, it's `max_lt_iff`? Let's recall: In Mathlib, there is lemma `max_lt` with type `max a b < c ↔ a < c ∧ b < c`. Yes, I think so. So we can do `apply (max_lt ha hlt2).mpr`? Wait, the lemma is `max_lt` that gives equivalence. So `(max_lt ha hlt2).mpr ⟨ha, hlt2⟩`? Actually `max_lt` is a lemma: `theorem max_lt (h₁ : a < c) (h₂ : b < c) : max a b < c`. Let's check: In `Mathlib/Data/Int/Basic.lean`? There is `max_lt` for linear orders? I think there's `max_lt` in `Mathlib/Data/Int/Basic.lean`? Actually, it's a generic lemma for linear orders: `max_lt` is in `Mathlib/Order/Lattice.lean`? Let's assume it exists.
+    -- Similarly, we need `x < b.hi`. We have hlt1: a.lo < b.hi and hb: b.lo < b.hi. So `max_lt hlt1 hb`.
+    -- Then we can provide the existential.
+    -- So:
+    -- refine ⟨max a.lo b.lo, le_max_left _ _, ?_, le_max_right _ _, ?_⟩
+    -- Then provide the two `<` proofs.
+  · intro h
+    rcases h with ⟨x, hx1, hx2, hx3, hx4⟩
+    -- We need to show `overlap a b = true`, i.e., `decide (a.lo < b.hi ∧ b.lo < a.hi) = true`.
+    -- This is equivalent to `a.lo < b.hi ∧ b.lo < a.hi`.
+    -- From hx1: a.lo ≤ x, hx2: x < a.hi; hx3: b.lo ≤ x, hx4: x < b.hi.
+    -- Then `a.lo < b.hi` follows from `a.lo ≤ x` and `x < b.hi` by transitivity.
+    -- Similarly `b.lo < a.hi`.
+    -- So we can produce the condition and then use `decide_eq_true_iff.mpr`.
+    -- So:
+    -- have hlt1 : a.lo < b.hi := lt_of_le_of_lt hx1 hx4
+    -- have hlt2 : b.lo < a.hi := lt_of_le_of_lt hx3 hx2
+    -- simpa [overlap] using (decide_eq_true_iff.mpr ⟨hlt1, hlt2⟩)
+```
+
+Now we need to write the actual Lean code. Let's check if `decide_eq_true_iff` exists. I recall that there is lemma `decide_eq_true_iff` in `Init/Classical.lean`? Actually, `#check decide_eq_true_iff` might be available. Let's test mentally: In Mathlib4, `decide_eq_true_iff` is indeed a lemma. But to be safe, we can use `simpa [overlap] using h` with `h : overlap a b = true`. Wait, `simpa [overlap]` would give `(decide ...) = true`. That's exactly `h`. So we can't get the condition directly. We need to use `decide_eq_true_iff`. Alternatively, we can use `have hcond := by
+  simpa [overlap] using (decide_eq_true_iff.mp h)`? Actually, `decide_eq_true_iff` gives equivalence: `decide p = true ↔ p`. So `(decide_eq_true_iff.mp h)` gives `p`. That's perfect.
+
+But we can also avoid this lemma by using `omega` directly? `omega` works on linear arithmetic, but it doesn't know about `decide`. So we need to extract the condition.
+
+Let's write the proof with `decide_eq_true_iff`. I'll also use `max_lt` lemma. Let's check if `max_lt` exists: In Mathlib4, there is `max_lt` in `Mathlib/Order/Lattice.lean`? Actually, I think it's `max_lt` with type `max a b < c ↔ a < c ∧ b < c`. But there's also `max_lt` as a direct lemma: `theorem max_lt (h₁ : a < c) (h₂ : b < c) : max a b < c`. I'll use `max_lt` with two arguments.
+
+Let's write the full proof:
+
+```lean
+  constructor
+  · intro h
+    have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+      simpa [overlap] using (decide_eq_true_iff.mp h)
+    rcases hcond with ⟨hlt1, hlt2⟩
+    refine ⟨max a.lo b.lo, le_max_left _ _, ?_, le_max_right _ _, ?_⟩
+    · exact max_lt ha hlt2
+    · exact max_lt hlt1 hb
+  · intro h
+    rcases h with ⟨x, hx1, hx2, hx3, hx4⟩
+    have hlt1 : a.lo < b.hi := lt_of_le_of_lt hx1 hx4
+    have hlt2 : b.lo < a.hi := lt_of_le_of_lt hx3 hx2
+    simpa [overlap] using (decide_eq_true_iff.mpr ⟨hlt1, hlt2⟩)
+```
+
+But we need to ensure `max_lt` is available. Let's check: In Mathlib4, `max_lt` is indeed a lemma in `Mathlib/Order/Lattice.lean`? Actually, I recall that `max_lt` is a lemma in `Mathlib/Data/Int/Basic.lean`? Wait, there's `max_lt` for any linear order? Let's search memory: In Mathlib4, there is `max_lt` in `Mathlib/Order/Lattice.lean`? I think it's `max_lt` with type `max a b < c ↔ a < c ∧ b < c`. But there's also `max_lt` as a direct lemma: `theorem max_lt (h₁ : a < c) (h₂ : b < c) : max a b < c`. I'm not 100% sure. Let's test mentally: In Mathlib4, `max_lt` is defined in `Mathlib/Order/Lattice.lean`? Actually, I think it's `max_lt` in `Mathlib/Order/Lattice.lean`? Let's check the mathlib documentation: I recall that `max_lt` is a lemma in `Mathlib/Order/Lattice.lean`? I can also use `by omega` to prove the inequalities directly, avoiding `max_lt`. Since we have `ha`, `hb`, `hlt1`, `hlt2`, we can use `omega` to prove `max a.lo b.lo < a.hi` and similarly for the other. But `omega` works on linear arithmetic, not on `max`. However, we can use `have hx_lt_a.hi : max a.lo b.lo < a.hi := by` and then `apply lt_max_iff.mpr`? Actually, there's lemma `lt_max_iff`. Let's think: We need to show `max a.lo b.lo < a.hi`. This is equivalent to `a.lo < a.hi ∧ b.lo < a.hi`. Since we have both, we can use `max_lt` or `by
+  rcases max_cases a.lo b.lo with h | h
+  · -- case where a.lo is the max
+    ...` but that's messy.
+Better to use `omega`. But `omega` might not know about `max`. However, we can avoid `max` altogether by picking a different witness. For example, pick `x = a.lo`? But we need `b.lo ≤ x`. Not necessarily. Pick `x = b.hi - 1`? That might be less than a.lo. Better to use `max`. So we need to prove `max a.lo b.lo < a.hi` given `ha : a.lo < a.hi` and `hlt2 : b.lo < a.hi`. This is exactly `max_lt ha hlt2`. So I'll rely on `max_lt` being available. If not, we can use `by
+  have := lt_max_of_lt_left ha?` No.
+Let's check the mathlib4 source: In `Mathlib/Order/Lattice.lean`, there is `max_lt` with type `max a b < c ↔ a < c ∧ b < c`. Actually, I think it's `max_lt` in `Mathlib/Order/Lattice.lean`? Let's search memory: I recall that there is lemma `max_lt` in `Mathlib/Order/Lattice.lean`? I'm pretty sure it exists. But to be safe, we can use `by
+  apply lt_of_le_of_lt (le_max_left _ _) ?_
+  ...` No, that gives `a.lo ≤ max a.lo b.lo < a.hi`? Actually, we need `max a.lo b.lo < a.hi`. We can use `calc
+  max a.lo b.lo ≤ a.hi := ?` Not necessarily.
+Better to use `omega` with `max`? `omega` doesn't handle `max`. So I'll stick with `max_lt`.
+
+Alternatively, we can avoid `max` by using the following: Since `a.lo < b.hi` and `b.lo < a.hi`, we can pick `x = a.lo`? But then we need `b.lo ≤ a.lo`. Not guaranteed. Pick `x = b.lo`? Need `a.lo ≤ b.lo`. Not guaranteed. So we need a point that is ≥ both lo's and < both hi's. The natural candidate is `max a.lo b.lo`. So we need to prove it's < both hi's.
+
+Thus, I'll use `max_lt`. Let's assume it exists. If not, we can write a small lemma inline: `have hmax_lt_a : max a.lo b.lo < a.hi := by
+  apply lt_of_le_of_lt (le_max_left _ _) ?` No, that gives `a.lo < a.hi`, which we have, but we need `max ... < a.hi`. Actually, we can use `max_lt` lemma. I'll trust it exists.
+
+Now, about `decide_eq_true_iff`. Let's check if it exists. In Mathlib4, there is `decide_eq_true_iff` in `Init/Classical.lean`? Actually, I think it's `decide_eq_true_iff` in `Init/Classical.lean`? Let's search memory: In Lean 4 core, there is `decide_eq_true_iff`? I recall that `by decide` works. There's lemma `decide_eq_true_iff` in `Mathlib/Tactic/Decide.lean`? Actually, I think it's in `Init/Classical.lean`? Let's check: In Lean 4, the lemma is called `decide_eq_true_iff`? I can test mentally: `#check decide_eq_true_iff` might give an error if not imported. But `import Mathlib` includes everything. So it should be available.
+
+Alternatively, we can use `simpa [overlap] using h` to get `(decide ...) = true`, but we need the condition. We can use `have hcond := by
+  simpa [overlap] using (by
+    have := decide_eq_true_iff.mp h
+    exact this)`? That's the same.
+
+Another approach: Since `overlap` is defined as `decide (a.lo < b.hi ∧ b.lo < a.hi)`, we can use `simpa [overlap] using h` to get `(decide ...) = true`. Then we can use `by
+  have := (decide_eq_true_iff.mp h)
+  ...` but we need to rewrite `h` with `overlap`. So:
+```lean
+    have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+      simpa [overlap] using (decide_eq_true_iff.mp h)
+```
+Yes.
+
+Now, the reverse direction: we have `hlt1 : a.lo < b.hi` and `hlt2 : b.lo < a.hi`. We need to show `overlap a b = true`. So:
+```lean
+    simpa [overlap] using (decide_eq_true_iff.mpr ⟨hlt1, hlt2⟩)
+```
+
+Now, we need to ensure `lt_of_le_of_lt` is available. It's a basic lemma.
+
+Now, let's write the full proof block.
+
+But wait: The theorem statement is `overlap_correct (a b : Iv) (ha : a.lo < a.hi) (hb : b.lo < b.hi) : overlap a b = true ↔ SharePoint a b := by`. So we are given `ha` and `hb`. We used them in the forward direction.
+
+Now, let's double-check the forward direction: If `overlap a b = true`, then we have `hlt1 : a.lo < b.hi` and `hlt2 : b.lo < a.hi`. We need to produce `SharePoint a b`, i.e., `∃ x, a.lo ≤ x ∧ x < a.hi ∧ b.lo ≤ x ∧ x < b.hi`. We pick `x = max a.lo b.lo`. Then we need:
+- `a.lo ≤ max a.lo b.lo` : `le_max_left _ _`
+- `max a.lo b.lo < a.hi` : we have `ha : a.lo < a.hi` and `hlt2 : b.lo < a.hi`. So `max_lt ha hlt2` gives this.
+- `b.lo ≤ max a.lo b.lo` : `le_max_right _ _`
+- `max a.lo b.lo < b.hi` : we have `hlt1 : a.lo < b.hi` and `hb : b.lo < b.hi`. So `max_lt hlt1 hb` gives this.
+
+Thus, the forward direction is done.
+
+Now, reverse direction: If `SharePoint a b`, then we have `x` with those inequalities. Then `hlt1 : a.lo < b.hi` follows from `hx1 : a.lo ≤ x` and `hx4 : x < b.hi` by transitivity: `lt_of_le_of_lt hx1 hx4`. Similarly, `hlt2 : b.lo < a.hi` from `hx3` and `hx2`. Then we use `decide_eq_true_iff.mpr` to get the boolean equality.
+
+Thus, the proof is complete.
+
+Now, we need to output only the tactics after `:= by`. So we write:
+
+```lean
+  constructor
+  · intro h
+    have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+      simpa [overlap] using (decide_eq_true_iff.mp h)
+    rcases hcond with ⟨hlt1, hlt2⟩
+    refine ⟨max a.lo b.lo, le_max_left _ _, ?_, le_max_right _ _, ?_⟩
+    · exact max_lt ha hlt2
+    · exact max_lt hlt1 hb
+  · intro h
+    rcases h with ⟨x, hx1, hx2, hx3, hx4⟩
+    have hlt1 : a.lo < b.hi := lt_of_le_of_lt hx1 hx4
+    have hlt2 : b.lo < a.hi := lt_of_le_of_lt hx3 hx2
+    simpa [overlap] using (decide_eq_true_iff.mpr ⟨hlt1, hlt2⟩)
+```
+
+But we need to ensure `max_lt` is available. Let's check if there's any alternative: we can use `by omega` for the inequalities? But `omega` doesn't know about `max`. However, we can avoid `max_lt` by using the following: Since we have `ha : a.lo < a.hi` and `hlt2 : b.lo < a.hi`, we can prove `max a.lo b.lo < a.hi` by cases on which is larger. But that's messy.
+
+Let's test if `max_lt` exists in Mathlib4. I recall that there is lemma `max_lt` in `Mathlib/Order/Lattice.lean`? Actually, I think it's called `max_lt` in `Mathlib/Order/Lattice.lean`? Let's search memory: In Mathlib4, the lemma `max_lt` is defined in `Mathlib/Order/Lattice.lean`? I think it's `max_lt` with type `max a b < c ↔ a < c ∧ b < c`. But there's also `max_lt` as a direct lemma: `theorem max_lt (h₁ : a < c) (h₂ : b < c) : max a b < c`. I'm not 100% sure. Let's check the mathlib4 documentation online? I can't, but I can reason: In Mathlib4, there is a lemma `max_lt` in `Mathlib/Order/Lattice.lean`? I think it's there. But to be absolutely safe, we can use `by
+  apply lt_of_le_of_lt (le_max_left _ _) ?` No, that gives `a.lo < a.hi`, not `max ... < a.hi`. Actually, we can use `calc
+  max a.lo b.lo < a.hi := by
+    -- we can use `max_lt` or we can do:
+    rcases le_total a.lo b.lo with h | h
+    · -- then max = b.lo
+      have : max a.lo b.lo = b.lo := max_eq_right h
+      rw [this]
+      exact hlt2
+    · -- then max = a.lo
+      have : max a.lo b.lo = a.lo := max_eq_left h
+      rw [this]
+      exact ha
+  ` But this uses `le_total` and `max_eq_right`, `max_eq_left`. Those are available. This is a safe approach without relying on `max_lt` lemma. Let's do that.
+
+Similarly for the other: `max a.lo b.lo < b.hi`:
+```lean
+    rcases le_total a.lo b.lo with h | h
+    · have : max a.lo b.lo = b.lo := max_eq_right h
+      rw [this]
+      exact hb
+    · have : max a.lo b.lo = a.lo := max_eq_left h
+      rw [this]
+      exact hlt1
+```
+
+This avoids `max_lt` and uses only basic lemmas. Let's adopt this.
+
+Now, the forward direction becomes:
+
+```lean
+    have hmax_lt_a : max a.lo b.lo < a.hi := by
+      rcases le_total a.lo b.lo with h | h
+      · rw [max_eq_right h]; exact hlt2
+      · rw [max_eq_left h]; exact ha
+    have hmax_lt_b : max a.lo b.lo < b.hi := by
+      rcases le_total a.lo b.lo with h | h
+      · rw [max_eq_right h]; exact hb
+      · rw [max_eq_left h]; exact hlt1
+    refine ⟨max a.lo b.lo, le_max_left _ _, hmax_lt_a, le_max_right _ _, hmax_lt_b⟩
+```
+
+This is robust.
+
+Now, the reverse direction remains the same.
+
+Let's write the full proof:
+
+```lean
+  constructor
+  · intro h
+    have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+      simpa [overlap] using (decide_eq_true_iff.mp h)
+    rcases hcond with ⟨hlt1, hlt2⟩
+    have hmax_lt_a : max a.lo b.lo < a.hi := by
+      rcases le_total a.lo b.lo with h | h
+      · rw [max_eq_right h]; exact hlt2
+      · rw [max_eq_left h]; exact ha
+    have hmax_lt_b : max a.lo b.lo < b.hi := by
+      rcases le_total a.lo b.lo with h | h
+      · rw [max_eq_right h]; exact hb
+      · rw [max_eq_left h]; exact hlt1
+    refine ⟨max a.lo b.lo, le_max_left _ _, hmax_lt_a, le_max_right _ _, hmax_lt_b⟩
+  · intro h
+    rcases h with ⟨x, hx1, hx2, hx3, hx4⟩
+    have hlt1 : a.lo < b.hi := lt_of_le_of_lt hx1 hx4
+    have hlt2 : b.lo < a.hi := lt_of_le_of_lt hx3 hx2
+    simpa [overlap] using (decide_eq_true_iff.mpr ⟨hlt1, hlt2⟩)
+```
+
+Now, we need to ensure `decide_eq_true_iff` exists. Let's check: In Mathlib4, there is `decide_eq_true_iff` in `Init/Classical.lean`? Actually, I think it's called `decide_eq_true_iff` in `Init/Classical.lean`? Let's search memory: In Lean 4, the lemma is `decide_eq_true_iff`? I recall that there is `decide_eq_true` in `Init/Classical.lean`? Let's check: In Lean 4 core, there is `decide_eq_true_iff`? I think it's `decide_eq_true_iff` in `Init/Classical.lean`? Actually, I can test mentally: `#check decide_eq_true_iff` might give an error if not imported. But `import Mathlib` includes everything, so it should be available.
+
+But to be absolutely safe, we can avoid `decide_eq_true_iff` by using `by
+  have hcond : a.lo < b.hi ∧ b.lo < a.hi := by
+    -- from h: overlap a b = true, and overlap is defined as decide ...
+    -- we can use `simpa [overlap] using h`? No, that gives `(decide ...) = true`.
+    -- We can use `simpa [overlap] using (by
+    --   have := decide_eq_true_iff.mp h
+    --   exact this)`? That's the same.
+    -- Alternatively, we can use `have hcond := by
+    --   simpa [overlap] using (decide_eq_true_iff.mp h)`
+    -- But if `decide_eq_true_iff` is not available, we can use `simpa [overlap] using h`? No.
+    -- Actually, there is lemma `decide_eq_true` in `Init/Classical.lean`? Let's check: In Lean 4, the lemma is called `decide_eq_true_iff`? I think it's `decide_eq_true_iff` in `Init/Classical.lean`? I'm not 100% sure.
+    -- Let's check the mathlib4 source: In `Mathlib/Tactic/Decide.lean`, there is `decide_eq_true_iff`? Actually, I think it's in `Init/Classical.lean`? Let's search memory: In Lean 4, the lemma is `decide_eq_true_iff`? I recall that there is `decide_eq_true` in `Init/Classical.lean`? Let's think: In Lean 4, the `decide` tactic uses `dec_trivial`. The lemma `decide_eq_true_iff` is defined in `Init/Classical.lean`? Actually, I think it's `decide_eq_true_iff` in `Init/Classical.lean`? I'm going to assume it exists.
+    -- But we can also use `simpa [overlap] using h` to get `(decide ...) = true`, and then use `by
+    --   have := (decide_eq_true_iff.mp h)
+    --   ...` but we need to rewrite `h`.
+    -- Let's just use `simpa [overlap] using (decide_eq_true_iff.mp h)`.
+    -- If `decide_eq_true_iff` is not available, we can use `simpa [overlap] using h`? No.
+    -- Actually, there is a lemma `decide_eq_true` in `Init/Classical.lean`? Let's check: In Lean 4, the lemma is called `decide_eq_true_iff`? I think it's `decide_eq_true_iff` in `Init/Classical.lean`? I'm going to use it.
+    -- But we can also avoid this lemma by using `simpa [overlap] using h`? No, that gives `(decide ...) = true`. We need to extract the condition. We can use `have hcond := by
+    --   simpa [overlap] using (by
+    --     have := decide_eq_true_iff.mp h
+    --     exact this)`? That's the same.
+    -- Let's just use `simpa [overlap] using (decide_eq_true_iff.mp h)`.
+    -- I'll keep it.
+```
+
+Now, the reverse direction: `simpa [overlap] using (decide_eq_true_iff.mpr ⟨hlt1, hlt2⟩)`. This should work.
+
+Now, we need to output the proof block exactly as required. The format is:
+
+###PROOF_BEGIN###
+  ... tactics ...
+###PROOF_END###
+
+We must not include any other text.
+
+Let's write the final answer.

@@ -1,0 +1,10 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  simp [revcomp, comp, symComp]
+  have h_sym_comp : Function.Involutive symComp := by decide
+  have h_comp_invol : ∀ b, comp (comp b) = b := by
+    intro b; rcases b with ⟨sym, masked⟩; simp [comp, h_sym_comp sym]
+  rw [h_comp_invol b, ih]
+###PROOF_END###

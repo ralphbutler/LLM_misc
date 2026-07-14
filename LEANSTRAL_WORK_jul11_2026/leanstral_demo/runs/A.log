@@ -1,0 +1,25 @@
+
+===== ROUND 1: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/A_20260711-113526.lean:50:45: error: unexpected token '...'; expected '{' or tactic
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/A_20260711-113526.lean:50:43: error: unsolved goals
+a b : Iv
+ha : a.lo < a.hi
+hb : b.lo < b.hi
+⊢ overlap a b = true ↔ SharePoint a b
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 2: calling Leanstral =====
+/Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/A_20260711-113526.lean:78:21: error: unknown identifier 'hx1'
+--------------------------------------------------
+VERDICT: FAIL  (compiler rejected it)
+
+
+===== ROUND 3: calling Leanstral =====
+
+--------------------------------------------------
+VERDICT: PASS  (fully verified — kernel-checked, no sorry)
+
+
+★ SOLVED in 3 round(s): /Users/rbutler/Desktop/DEMO/LEANSTRAL/leanstral_demo/runs/A_20260711-113526.lean

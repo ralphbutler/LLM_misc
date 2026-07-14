@@ -1,0 +1,12 @@
+###PROOF_BEGIN###
+induction s with
+| nil => rfl
+| cons b bs ih =>
+  simp [revcomp, comp, symComp] at *
+  have h_sym : (comp ∘ comp) b = b := by
+    simp [comp, symComp]
+  have h_bs : (comp ∘ comp) bs = bs := by
+    simpa using ih
+  simp [h_sym, h_bs]
+###PROOF_END###
+
