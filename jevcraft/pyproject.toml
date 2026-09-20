@@ -1,0 +1,24 @@
+[project]
+name = "jevcraft"
+version = "0.1.0"
+description = "Jev (a System One model) makes the decisions in a Crafter agent; Claude Opus 5 helps when Jev is unsure."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # game
+    "crafter==1.8.3",
+    "numpy>=2.5",
+    "pillow>=12.3",
+    "opensimplex>=0.4.5",
+    "ruamel.yaml>=0.19",
+    # video
+    "imageio>=2.37",
+    "imageio-ffmpeg>=0.6",
+    "pygame>=2.6.1",        # only for the --live debug window
+    # models
+    "httpx>=0.28",          # Jev client (../jevsearch/client.py)
+    "anthropic>=1.7",       # Opus planner, phase 3
+]
+
+[tool.uv]
+package = false             # an app run with `uv run`, not an installable package
