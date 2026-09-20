@@ -2,3 +2,9 @@
 
 # Third-party clone with its own git repo/license — not vendored here
 vision_agent_gemma_falcon/falcon-perception/
+
+# Large third-party downloads: kept locally, purged from history 2026-09-20.
+# Re-fetch from the vendors rather than committing them.
+KG_RAG_LC/plugins/*.jar
+KG_RAG_LC.tar
+bitnet_1bit_1.58bit/data/enwik8.gz
