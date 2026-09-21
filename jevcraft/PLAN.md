@@ -11,6 +11,11 @@ puzzle. Our code owns the world and the legal moves, Jev judges between them, an
 Opus sets the goals. Everything we learned in `jevsearch/FINDINGS.md` shapes the
 design below.
 
+> **Note for this copy:** `jevsearch/` was part of the original Jev project,
+> and we used it to guide the development of jevcraft. It is not included here,
+> so the paths to it below (`jevsearch/FINDINGS.md`, `jevsearch/puzzles.py`,
+> `../jevsearch/client.py`) describe the original working layout.
+
 ---
 
 ## 🔎 Verified facts about Crafter

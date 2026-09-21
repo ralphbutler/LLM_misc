@@ -5,9 +5,10 @@
 **Models:** Jev `jev-1.13.0` (TypeSafe API; OpenRouter behaves the same) and
 Claude Opus 5 `claude-opus-5` (Anthropic API)
 **Game:** Crafter 1.8.3, a 2D Minecraft-like benchmark
-**Companion:** an earlier project, *jevsearch*, put Jev inside a search loop on
-water-jug and blocks-world puzzles; it is not included here, and the findings it
-contributed are quoted where they matter.
+**Companion:** *jevsearch*, part of the original Jev project, put Jev inside a
+search loop on water-jug and blocks-world puzzles, and we used it to guide the
+development of jevcraft. It is not included here; the findings it contributed
+are quoted where they matter.
 The full step-by-step log, including every mistake, is in `STATUS.md`.
 
 **This document has two parts.** Part 1 is the **stone pickaxe**: a short task,

@@ -6,7 +6,8 @@ plan and its decisions; this file tracks progress against it.
 > **Reading this outside the working directory:** this is the unedited lab
 > notebook, so it refers to a few things that were deliberately not copied here
 > — the emails sent to the model's authors (`EMAIL_*.txt`), a session handoff
-> memo (`HANDOFF.md`), and the sibling puzzle project (`../jevsearch/`).
+> memo (`HANDOFF.md`), and the puzzle project `../jevsearch/`, part of the
+> original Jev project, which we used to guide the development of jevcraft.
 > Everything it says about the code and the measurements applies here as
 > written.
 

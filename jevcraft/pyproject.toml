@@ -16,7 +16,7 @@ dependencies = [
     "imageio-ffmpeg>=0.6",
     "pygame>=2.6.1",        # only for the --live debug window
     # models
-    "httpx>=0.28",          # Jev client (../jevsearch/client.py)
+    "httpx>=0.28",          # Jev client (client.py)
     "anthropic>=1.7",       # Opus planner, phase 3
 ]
 
